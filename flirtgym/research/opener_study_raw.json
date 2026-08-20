@@ -1,0 +1,1282 @@
+[
+ {
+  "category": "generic_greeting",
+  "opener": "hey",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with zero personalization, no question, no momentum.",
+  "improvedVersion": "noticed you're into [specific thing from her profile]. what got you into that?",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_greeting",
+  "opener": "hey",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with zero personalization, no question, no momentum.",
+  "improvedVersion": "noticed you're into hiking\u2014what's the best trail you've done?",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_greeting",
+  "opener": "hi there",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with zero personalization or hook.",
+  "improvedVersion": "noticed you're into hiking\u2014what's the best trail you've done?",
+  "sub": {
+   "tone": 5,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_greeting",
+  "opener": "hi there",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with zero personalization or hook.",
+  "improvedVersion": "noticed you're into [specific thing from her profile], what got you into that?",
+  "sub": {
+   "tone": 5,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_greeting",
+  "opener": "hey how's your week going",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with no personalization, no hook, no real question\u2014dead-end opener.",
+  "improvedVersion": "noticed you're into hiking\u2014what's the best trail you've done?",
+  "sub": {
+   "tone": 5,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_greeting",
+  "opener": "hey how's your week going",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with no personalization, no hook, no real question\u2014sounds like a template.",
+  "improvedVersion": "what's the story with [specific detail from her profile]?",
+  "sub": {
+   "tone": 5,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_greeting",
+  "opener": "what's up",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with zero personalization, no question, no momentum.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 5,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_greeting",
+  "opener": "what's up",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with zero personalization, no question, no momentum.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 5,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_greeting",
+  "opener": "hey you",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with zero specificity or intrigue; no hook to her profile or context.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_greeting",
+  "opener": "hey you",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with zero specificity or intrigue; no hook to her profile or context.",
+  "improvedVersion": "what's something you've learned recently that surprised you?",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "appearance_compliment",
+  "opener": "you're gorgeous",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment with zero personalization, no question, no momentum, sounds like a template.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 2,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "appearance_compliment",
+  "opener": "you're gorgeous",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment with zero personalization, no question, no momentum, sounds like a template.",
+  "improvedVersion": "love that you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 3,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "appearance_compliment",
+  "opener": "wow you're beautiful",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment with zero personalization, no question, no momentum, sounds like a template.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 3,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "appearance_compliment",
+  "opener": "wow you're beautiful",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment with zero personalization, no question, no momentum, sounds like a bot.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 2,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "appearance_compliment",
+  "opener": "you have an amazing smile",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment with no personalization, no question, no momentum forward.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "appearance_compliment",
+  "opener": "you have an amazing smile",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment with no personalization, no question, no momentum\u2014she can't really respond to this.",
+  "improvedVersion": "noticed you're into hiking\u2014what's the best trail you've done?",
+  "sub": {
+   "tone": 5,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "appearance_compliment",
+  "opener": "you're stunning",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment with zero personalization, no question, no momentum, sounds like a template.",
+  "improvedVersion": "i like that you're into hiking\u2014what's the best trail you've done?",
+  "sub": {
+   "tone": 3,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "appearance_compliment",
+  "opener": "you're stunning",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment with zero personalization, no question, no momentum, sounds like a template.",
+  "improvedVersion": "noticed you're into hiking\u2014what's the best trail you've done?",
+  "sub": {
+   "tone": 3,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "appearance_compliment",
+  "opener": "prettiest girl I've seen on here",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment with zero personalization, no question, sounds like a copy-paste template.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 3,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "appearance_compliment",
+  "opener": "prettiest girl I've seen on here",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment with zero personalization, no question, no momentum.",
+  "improvedVersion": "what's the story behind that photo on your profile?",
+  "sub": {
+   "tone": 3,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "generic_question",
+  "opener": "so what do you do for fun",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic, no personalization, no specificity to her profile, sounds like a template question.",
+  "improvedVersion": "noticed you're into [specific thing from her profile], what got you into that?",
+  "sub": {
+   "tone": 5,
+   "specificity": 1,
+   "momentum": 3,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "generic_question",
+  "opener": "so what do you do for fun",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic question with no personalization; sounds like a template opener.",
+  "improvedVersion": "noticed you're into [specific thing from her profile]\u2014how'd you get into that?",
+  "sub": {
+   "tone": 5,
+   "specificity": 1,
+   "momentum": 3,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "generic_question",
+  "opener": "do you like to travel",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic question with no personalization, no context from her, sounds like a template.",
+  "improvedVersion": "saw you've been to iceland, what was the best part?",
+  "sub": {
+   "tone": 5,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_question",
+  "opener": "do you like to travel",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic yes/no question with no personalization or context; sounds like a template.",
+  "improvedVersion": "saw you've been to peru, what was the best part?",
+  "sub": {
+   "tone": 5,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_question",
+  "opener": "how was your weekend",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with zero personalization, no specificity to her, no real question momentum.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_question",
+  "opener": "how was your weekend",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with zero personalization, no specificity to her, no real question momentum.",
+  "improvedVersion": "saw you're into hiking, what's the best trail you've done",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "generic_question",
+  "opener": "what are you into",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic, no personalization, no specificity to her, sounds lazy and effortless in the wrong way.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 3,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "generic_question",
+  "opener": "what are you into",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic, no personalization, no specificity to her, sounds lazy and low-effort.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 3,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "generic_question",
+  "opener": "any fun plans this week",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with no personalization, no specificity to her, and reads as obligatory small talk.",
+  "improvedVersion": "what's something you've been wanting to do lately?",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 3,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "generic_question",
+  "opener": "any fun plans this week",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic greeting with no personalization, no specificity to her, and reads flat.",
+  "improvedVersion": "noticed you're into hiking, any good trails near you?",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 3,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "copied_pickup_line",
+  "opener": "are you a magician because everyone else disappears when I look at you",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic pickup line, try-hard construction, no personalization to her at all.",
+  "improvedVersion": "what's something you're weirdly good at?",
+  "sub": {
+   "tone": 2,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "copied_pickup_line",
+  "opener": "are you a magician because everyone else disappears when I look at you",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic pickup line with no personalization; try-hard constructed cleverness; doesn't sound like a real person texting.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 2,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "copied_pickup_line",
+  "opener": "do you have a map I keep getting lost in your eyes",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic pickup line with no personalization, try-hard tone, and zero real momentum.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 2,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "copied_pickup_line",
+  "opener": "do you have a map I keep getting lost in your eyes",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic pickup line with zero personalization, try-hard tone, no real question.",
+  "improvedVersion": "what's something you've learned about yourself recently?",
+  "sub": {
+   "tone": 2,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "copied_pickup_line",
+  "opener": "is your name google because you have everything I'm searching for",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic pickup line, try-hard construction, no specificity to her at all.",
+  "improvedVersion": "what's something you're weirdly good at?",
+  "sub": {
+   "tone": 2,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "copied_pickup_line",
+  "opener": "is your name google because you have everything I'm searching for",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic pickup line with zero personalization, try-hard construction, no real question.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 2,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "copied_pickup_line",
+  "opener": "if you were a vegetable you'd be a cute-cumber",
+  "run": 0,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic constructed joke with zero personalization; try-hard and performed.",
+  "improvedVersion": "noticed you're into hiking\u2014what's the best trail you've done?",
+  "sub": {
+   "tone": 2,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "copied_pickup_line",
+  "opener": "if you were a vegetable you'd be a cute-cumber",
+  "run": 1,
+  "openerScore": 1,
+  "overallScore": 1,
+  "verdict": "WEAK",
+  "openerReason": "Generic constructed joke with zero personalization; try-hard and performed.",
+  "improvedVersion": "what's something you're weirdly good at?",
+  "sub": {
+   "tone": 2,
+   "specificity": 1,
+   "momentum": 1,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "copied_pickup_line",
+  "opener": "do you believe in love at first swipe",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic pickup line with no personalization; try-hard constructed joke; doesn't sound like a real person texting.",
+  "improvedVersion": "noticed you're into hiking, what's the best trail you've done?",
+  "sub": {
+   "tone": 3,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "copied_pickup_line",
+  "opener": "do you believe in love at first swipe",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic constructed joke with no personalization; sounds try-hard and performed rather than real.",
+  "improvedVersion": "your profile mentions [specific detail from her profile]\u2014what's the story there?",
+  "sub": {
+   "tone": 3,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "specific_detail",
+  "opener": "okay but is the dog yours or are you borrowing it for the photo",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 5,
+  "verdict": "AVERAGE",
+  "openerReason": "No context\u2014you're opening cold with an assumption about her profile without any prior conversation or her message to reference.",
+  "improvedVersion": "that's a great dog, what's its name?",
+  "sub": {
+   "tone": 6,
+   "specificity": 7,
+   "momentum": 4,
+   "intrigue": 5
+  }
+ },
+ {
+  "category": "specific_detail",
+  "opener": "okay but is the dog yours or are you borrowing it for the photo",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 4,
+  "verdict": "WEAK",
+  "openerReason": "Generic assumption-based question with no context; sounds like you're fishing rather than observing.",
+  "improvedVersion": "that dog looks way too happy to not be yours, what's their name?",
+  "sub": {
+   "tone": 5,
+   "specificity": 3,
+   "momentum": 4,
+   "intrigue": 3
+  }
+ },
+ {
+  "category": "specific_detail",
+  "opener": "the sourdough in photo three looks better than anything I've made, how long have you been at it",
+  "run": 0,
+  "openerScore": 7,
+  "overallScore": 7,
+  "verdict": "SOLID",
+  "openerReason": "specific to her photo and genuine, but slightly long and the question feels a bit interview-y",
+  "improvedVersion": "that sourdough looks insane, how long you been baking",
+  "sub": {
+   "tone": 7,
+   "specificity": 8,
+   "momentum": 7,
+   "intrigue": 6
+  }
+ },
+ {
+  "category": "specific_detail",
+  "opener": "the sourdough in photo three looks better than anything I've made, how long have you been at it",
+  "run": 1,
+  "openerScore": 7,
+  "overallScore": 7,
+  "verdict": "SOLID",
+  "openerReason": "specific to her photo and personal, but slightly long and the question feels a bit formal",
+  "improvedVersion": "that sourdough in photo three looks legit, how long you been baking",
+  "sub": {
+   "tone": 7,
+   "specificity": 8,
+   "momentum": 7,
+   "intrigue": 6
+  }
+ },
+ {
+  "category": "specific_detail",
+  "opener": "that's a very specific amount of confidence to have while holding a fish",
+  "run": 0,
+  "openerScore": 3,
+  "overallScore": 4,
+  "verdict": "WEAK",
+  "openerReason": "No context given, sounds like a random observation without setup or question, leaves her nowhere to go.",
+  "improvedVersion": "okay but how confident are you actually holding that thing, or is this pure theater",
+  "sub": {
+   "tone": 6,
+   "specificity": 2,
+   "momentum": 2,
+   "intrigue": 3
+  }
+ },
+ {
+  "category": "specific_detail",
+  "opener": "that's a very specific amount of confidence to have while holding a fish",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "No context given, assumes inside joke, sounds like a non-sequitur without her message to land it.",
+  "improvedVersion": "that's a lot of confidence for someone holding a fish lol what's the story there",
+  "sub": {
+   "tone": 5,
+   "specificity": 2,
+   "momentum": 2,
+   "intrigue": 3
+  }
+ },
+ {
+  "category": "specific_detail",
+  "opener": "your third photo is a genuine attempt to look normal and I respect it",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "Backhanded compliment disguised as a joke; reads as slightly insulting rather than warm or genuine.",
+  "improvedVersion": "your third photo actually looks like you, what's the story with the others?",
+  "sub": {
+   "tone": 3,
+   "specificity": 6,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "specific_detail",
+  "opener": "your third photo is a genuine attempt to look normal and I respect it",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "Backhanded compliment disguised as a joke; comes across as mildly insulting rather than warm or genuine.",
+  "improvedVersion": "your third photo actually looks like you, what's the story there?",
+  "sub": {
+   "tone": 2,
+   "specificity": 6,
+   "momentum": 2,
+   "intrigue": 1
+  }
+ },
+ {
+  "category": "specific_detail",
+  "opener": "the hiking one, is that the same trail you complained about in your prompt",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "No context provided\u2014can't evaluate if this is actually personal to her or just sounds like it.",
+  "improvedVersion": "saw the hiking pic\u2014that trail look pretty brutal or worth it?",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "specific_detail",
+  "opener": "the hiking one, is that the same trail you complained about in your prompt",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "No context provided\u2014can't evaluate if this is actually personal to her or just sounds like it.",
+  "improvedVersion": "need more info\u2014what did she actually say about hiking? send that and i'll help you craft a real response.",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "playful_mislabel",
+  "opener": "you look far too pleased with that fish",
+  "run": 0,
+  "openerScore": 6,
+  "overallScore": 5,
+  "verdict": "AVERAGE",
+  "openerReason": "Personal observation about her photo, casual tone, but no question or forward momentum\u2014leaves her nowhere to go.",
+  "improvedVersion": "you look way too pleased with that fish\u2014what'd you catch it with?",
+  "sub": {
+   "tone": 7,
+   "specificity": 7,
+   "momentum": 3,
+   "intrigue": 4
+  }
+ },
+ {
+  "category": "playful_mislabel",
+  "opener": "you look far too pleased with that fish",
+  "run": 1,
+  "openerScore": 6,
+  "overallScore": 5,
+  "verdict": "AVERAGE",
+  "openerReason": "Personal observation about her photo, casual tone, but no forward momentum or question to prompt response.",
+  "improvedVersion": "that fish photo is unhinged, what's the story there?",
+  "sub": {
+   "tone": 7,
+   "specificity": 8,
+   "momentum": 3,
+   "intrigue": 4
+  }
+ },
+ {
+  "category": "playful_mislabel",
+  "opener": "I'm choosing to believe you're as chaotic as this profile suggests",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "No context from her, assumes a personality trait without evidence, and doesn't ask anything or move toward connection.",
+  "improvedVersion": "your profile gives off main character energy, what's the most chaotic thing you've actually done",
+  "sub": {
+   "tone": 4,
+   "specificity": 3,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "playful_mislabel",
+  "opener": "I'm choosing to believe you're as chaotic as this profile suggests",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "No context from her, no question, assumes a personality trait without evidence, sounds like a performed observation rather than genuine curiosity.",
+  "improvedVersion": "your profile's giving chaotic energy, what's the actual story there?",
+  "sub": {
+   "tone": 4,
+   "specificity": 3,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "playful_mislabel",
+  "opener": "so you're the person who plans the entire trip, aren't you",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "Generic observation with no context, reads like a guess, no question, no momentum.",
+  "improvedVersion": "bet you're the one who actually plans stuff in your friend group?",
+  "sub": {
+   "tone": 4,
+   "specificity": 2,
+   "momentum": 2,
+   "intrigue": 3
+  }
+ },
+ {
+  "category": "playful_mislabel",
+  "opener": "so you're the person who plans the entire trip, aren't you",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "Generic observation with no context, reads like a guess, no question, no momentum.",
+  "improvedVersion": "you seem like the type who has the whole trip mapped out before you leave, right?",
+  "sub": {
+   "tone": 4,
+   "specificity": 2,
+   "momentum": 2,
+   "intrigue": 3
+  }
+ },
+ {
+  "category": "playful_mislabel",
+  "opener": "that is the face of someone who has strong opinions about airport arrival times",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "Generic observation with no real context; reads like a constructed joke rather than genuine curiosity.",
+  "improvedVersion": "what's something you're weirdly particular about?",
+  "sub": {
+   "tone": 4,
+   "specificity": 2,
+   "momentum": 3,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "playful_mislabel",
+  "opener": "that is the face of someone who has strong opinions about airport arrival times",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "No context from her, generic observation that doesn't land, no clear question or momentum.",
+  "improvedVersion": "what's your take on early morning flights?",
+  "sub": {
+   "tone": 5,
+   "specificity": 2,
+   "momentum": 2,
+   "intrigue": 3
+  }
+ },
+ {
+  "category": "playful_mislabel",
+  "opener": "you absolutely made your friends take that photo twelve times",
+  "run": 0,
+  "openerScore": 3,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "Generic assumption with no context; reads like a constructed joke rather than genuine observation.",
+  "improvedVersion": "that photo's definitely the third take minimum, what's your actual first instinct when you're posing?",
+  "sub": {
+   "tone": 4,
+   "specificity": 2,
+   "momentum": 2,
+   "intrigue": 3
+  }
+ },
+ {
+  "category": "playful_mislabel",
+  "opener": "you absolutely made your friends take that photo twelve times",
+  "run": 1,
+  "openerScore": 3,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "Generic assumption with no context; reads like a performed observation rather than genuine curiosity.",
+  "improvedVersion": "that photo's definitely a second or third take, right?",
+  "sub": {
+   "tone": 4,
+   "specificity": 2,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "direct_opinion",
+  "opener": "your taco place take is wrong and I'd like to discuss it",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic setup with no context to her actual taco take; sounds confrontational rather than playful.",
+  "improvedVersion": "saw you're into tacos, what's your most controversial take on them?",
+  "sub": {
+   "tone": 3,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "direct_opinion",
+  "opener": "your taco place take is wrong and I'd like to discuss it",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic setup with no context to her actual taco take; sounds confrontational rather than playful.",
+  "improvedVersion": "what's your go-to taco spot around here?",
+  "sub": {
+   "tone": 3,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "direct_opinion",
+  "opener": "gas station coffee is defensible and I'll die on this hill, thoughts",
+  "run": 0,
+  "openerScore": 4,
+  "overallScore": 5,
+  "verdict": "AVERAGE",
+  "openerReason": "Generic opinion-bait with no personalization to her; relies on constructed cleverness ('die on this hill') rather than genuine curiosity about her.",
+  "improvedVersion": "gas station coffee actually slaps, what's your worst coffee take",
+  "sub": {
+   "tone": 6,
+   "specificity": 2,
+   "momentum": 5,
+   "intrigue": 4
+  }
+ },
+ {
+  "category": "direct_opinion",
+  "opener": "gas station coffee is defensible and I'll die on this hill, thoughts",
+  "run": 1,
+  "openerScore": 3,
+  "overallScore": 4,
+  "verdict": "WEAK",
+  "openerReason": "Generic opinion-bait with no personalization to her; reads like a constructed bit rather than a real observation.",
+  "improvedVersion": "noticed you're into coffee, what's your take on gas station stuff or is that a hard no",
+  "sub": {
+   "tone": 5,
+   "specificity": 2,
+   "momentum": 3,
+   "intrigue": 4
+  }
+ },
+ {
+  "category": "direct_opinion",
+  "opener": "putting pineapple on the profile is a bold opening move",
+  "run": 0,
+  "openerScore": 3,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "Generic observation about pineapple (common dating app trope), no question, no forward momentum, sounds like a constructed bit.",
+  "improvedVersion": "pineapple pizza person or just the photo?",
+  "sub": {
+   "tone": 5,
+   "specificity": 2,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "direct_opinion",
+  "opener": "putting pineapple on the profile is a bold opening move",
+  "run": 1,
+  "openerScore": 3,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "Generic observation about pineapple (common dating app comment), no question, no forward momentum, sounds like a constructed bit rather than genuine curiosity.",
+  "improvedVersion": "pineapple pizza person or just the fruit?",
+  "sub": {
+   "tone": 4,
+   "specificity": 2,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "direct_opinion",
+  "opener": "I have questions about your ranking of those three cities",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 3,
+  "verdict": "WEAK",
+  "openerReason": "No context provided, sounds generic and vague without knowing which cities or what conversation preceded it.",
+  "improvedVersion": "curious why you ranked [city] first\u2014what's the draw for you?",
+  "sub": {
+   "tone": 5,
+   "specificity": 2,
+   "momentum": 3,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "direct_opinion",
+  "opener": "I have questions about your ranking of those three cities",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "No context provided, sounds generic and vague without knowing which cities or conversation history",
+  "improvedVersion": "what made those three your top picks?",
+  "sub": {
+   "tone": 4,
+   "specificity": 1,
+   "momentum": 3,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "direct_opinion",
+  "opener": "strongly disagree with your book pick, want to argue about it",
+  "run": 0,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic confrontation with no context, no personalization, sounds combative rather than playful.",
+  "improvedVersion": "wait, you actually liked that ending? i thought it was lazy",
+  "sub": {
+   "tone": 2,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "direct_opinion",
+  "opener": "strongly disagree with your book pick, want to argue about it",
+  "run": 1,
+  "openerScore": 2,
+  "overallScore": 2,
+  "verdict": "WEAK",
+  "openerReason": "Generic confrontation with no context or specificity to her actual book choice",
+  "improvedVersion": "what book? i'm curious what made you pick it",
+  "sub": {
+   "tone": 3,
+   "specificity": 1,
+   "momentum": 2,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "compliment_plus_hook",
+  "opener": "great smile, and I need to know what's happening in photo four",
+  "run": 0,
+  "openerScore": 3,
+  "overallScore": 4,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment with no real specificity; the photo reference is vague and doesn't land as genuine curiosity.",
+  "improvedVersion": "what's the story with photo four, looks like you're up to something",
+  "sub": {
+   "tone": 5,
+   "specificity": 3,
+   "momentum": 4,
+   "intrigue": 4
+  }
+ },
+ {
+  "category": "compliment_plus_hook",
+  "opener": "great smile, and I need to know what's happening in photo four",
+  "run": 1,
+  "openerScore": 3,
+  "overallScore": 4,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment with no real specificity; 'what's happening in photo four' is filler without context of what's actually there.",
+  "improvedVersion": "what's the story with photo four?",
+  "sub": {
+   "tone": 5,
+   "specificity": 2,
+   "momentum": 4,
+   "intrigue": 3
+  }
+ },
+ {
+  "category": "compliment_plus_hook",
+  "opener": "you look like trouble in the best way, what's the story with the van",
+  "run": 0,
+  "openerScore": 3,
+  "overallScore": 4,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment ('trouble in the best way') feels constructed and try-hard; no real context since her last message isn't provided.",
+  "improvedVersion": "so what's the story with the van",
+  "sub": {
+   "tone": 4,
+   "specificity": 6,
+   "momentum": 5,
+   "intrigue": 4
+  }
+ },
+ {
+  "category": "compliment_plus_hook",
+  "opener": "you look like trouble in the best way, what's the story with the van",
+  "run": 1,
+  "openerScore": 3,
+  "overallScore": 4,
+  "verdict": "WEAK",
+  "openerReason": "Generic compliment line ('trouble in the best way') feels constructed and try-hard; no real context since her last message isn't provided.",
+  "improvedVersion": "what's the story with the van",
+  "sub": {
+   "tone": 3,
+   "specificity": 6,
+   "momentum": 5,
+   "intrigue": 4
+  }
+ },
+ {
+  "category": "compliment_plus_hook",
+  "opener": "cute dog, does he know he's the main character here",
+  "run": 0,
+  "openerScore": 6,
+  "overallScore": 6,
+  "verdict": "SOLID",
+  "openerReason": "specific to her profile (dog), casual tone, but no actual question so it stalls momentum",
+  "improvedVersion": "cute dog, what's his name",
+  "sub": {
+   "tone": 7,
+   "specificity": 7,
+   "momentum": 5,
+   "intrigue": 6
+  }
+ },
+ {
+  "category": "compliment_plus_hook",
+  "opener": "cute dog, does he know he's the main character here",
+  "run": 1,
+  "openerScore": 6,
+  "overallScore": 5,
+  "verdict": "AVERAGE",
+  "openerReason": "Personal observation about her dog, but no actual question\u2014leaves her nowhere to go.",
+  "improvedVersion": "cute dog, what's his name?",
+  "sub": {
+   "tone": 7,
+   "specificity": 6,
+   "momentum": 4,
+   "intrigue": 5
+  }
+ },
+ {
+  "category": "compliment_plus_hook",
+  "opener": "good taste in bars, have you been to the one on the corner",
+  "run": 0,
+  "openerScore": 3,
+  "overallScore": 4,
+  "verdict": "WEAK",
+  "openerReason": "Generic observation with no specificity to her, unclear which bar/corner, and the question doesn't invite real conversation.",
+  "improvedVersion": "noticed you're into that area, what's your go-to spot there?",
+  "sub": {
+   "tone": 5,
+   "specificity": 2,
+   "momentum": 3,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "compliment_plus_hook",
+  "opener": "good taste in bars, have you been to the one on the corner",
+  "run": 1,
+  "openerScore": 3,
+  "overallScore": 4,
+  "verdict": "WEAK",
+  "openerReason": "Generic observation with no specificity to her, unclear which bar/corner, and the question doesn't invite real conversation.",
+  "improvedVersion": "which bar on your profile is your actual go-to",
+  "sub": {
+   "tone": 5,
+   "specificity": 2,
+   "momentum": 3,
+   "intrigue": 2
+  }
+ },
+ {
+  "category": "compliment_plus_hook",
+  "opener": "that jacket is doing work, where'd you find it",
+  "run": 0,
+  "openerScore": 7,
+  "overallScore": 7,
+  "verdict": "SOLID",
+  "openerReason": "specific to her photo, casual tone, real question\u2014but no prior context so feels slightly cold without warmth",
+  "improvedVersion": "that jacket is actually fire, what's the story behind it",
+  "sub": {
+   "tone": 7,
+   "specificity": 8,
+   "momentum": 7,
+   "intrigue": 6
+  }
+ },
+ {
+  "category": "compliment_plus_hook",
+  "opener": "that jacket is doing work, where'd you find it",
+  "run": 1,
+  "openerScore": 7,
+  "overallScore": 7,
+  "verdict": "SOLID",
+  "openerReason": "specific to her photo, casual tone, one question\u2014but no prior context so it reads slightly generic as an opener",
+  "improvedVersion": "that jacket is sick, what's the story behind it",
+  "sub": {
+   "tone": 8,
+   "specificity": 6,
+   "momentum": 7,
+   "intrigue": 6
+  }
+ }
+]
