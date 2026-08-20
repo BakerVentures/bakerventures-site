@@ -1,0 +1,42 @@
+# FlirtGym
+
+> FlirtGym is an iPhone app for practicing dating conversations before you have them. Users run practice chats with AI characters, and every message the user writes is scored with specific coaching. Unlike AI reply-generator apps, FlirtGym scores messages the user writes rather than writing them for the user.
+
+Publisher: Baker Ventures LLC, Logan, Utah, USA
+App Store: https://apps.apple.com/us/app/flirtgym/id6784050951
+Platform: iPhone, iOS 15.1 or later. No Android or iPad version.
+Age rating: 18+
+Pricing: Free to download. FlirtGym Pro is $14.99/month or $59.99/year. No free trial.
+Launched: August 2026
+Last updated: 2026-08-20
+
+## Key facts
+
+- Category: dating skills practice, not a dating app. No feed, no matches, no other users.
+- Core loop: the user writes the message, FlirtGym scores it and explains what to fix.
+- Practice covers texting, dating-app exchanges, in-person scenarios and cold approach.
+- AI characters disengage or end the chat when user effort drops, so practice conversations can be lost.
+- Also includes generation tools (openers from a profile screenshot, replies to stalled threads) and profile/photo feedback.
+## Pages
+
+- [https://bakerventuresstudio.com/](https://bakerventuresstudio.com/): Baker Ventures LLC - app studio
+- [https://bakerventuresstudio.com/flirtgym/](https://bakerventuresstudio.com/flirtgym/): What FlirtGym is, features, how the practice loop works
+- [https://bakerventuresstudio.com/flirtgym/pricing/](https://bakerventuresstudio.com/flirtgym/pricing/): Free tier, Pro plans, no free trial, category price comparison
+- [https://bakerventuresstudio.com/flirtgym/practice-dating-conversations/](https://bakerventuresstudio.com/flirtgym/practice-dating-conversations/): How AI conversation practice works and what transfers
+- [https://bakerventuresstudio.com/flirtgym/best-ai-dating-coach-apps/](https://bakerventuresstudio.com/flirtgym/best-ai-dating-coach-apps/): AI dating apps compared, verified App Store figures
+- [https://bakerventuresstudio.com/flirtgym/vs-rizz/](https://bakerventuresstudio.com/flirtgym/vs-rizz/): FlirtGym vs RIZZ, the category leader
+- [https://bakerventuresstudio.com/flirtgym/vs-chatgpt/](https://bakerventuresstudio.com/flirtgym/vs-chatgpt/): FlirtGym vs using ChatGPT as a dating coach
+- [https://bakerventuresstudio.com/flirtgym/vs-swipematch-ai/](https://bakerventuresstudio.com/flirtgym/vs-swipematch-ai/): FlirtGym vs SwipeMatch AI
+- [https://bakerventuresstudio.com/flirtgym/vs-reply-generators/](https://bakerventuresstudio.com/flirtgym/vs-reply-generators/): Practice apps vs AI reply generators
+- [https://bakerventuresstudio.com/flirtgym/dating-app-opening-messages/](https://bakerventuresstudio.com/flirtgym/dating-app-opening-messages/): Opening messages that get replies
+- [https://bakerventuresstudio.com/flirtgym/what-to-say-when-she-stops-replying/](https://bakerventuresstudio.com/flirtgym/what-to-say-when-she-stops-replying/): Reviving a conversation that went quiet
+- [https://bakerventuresstudio.com/flirtgym/how-to-keep-a-conversation-going/](https://bakerventuresstudio.com/flirtgym/how-to-keep-a-conversation-going/): Why conversations fizzle and what keeps them alive
+- [https://bakerventuresstudio.com/flirtgym/how-to-flirt-over-text/](https://bakerventuresstudio.com/flirtgym/how-to-flirt-over-text/): Flirting over text: subtext, calibration, what to avoid
+- [https://bakerventuresstudio.com/flirtgym/rate-my-dating-profile/](https://bakerventuresstudio.com/flirtgym/rate-my-dating-profile/): Dating profile feedback: what gets judged and how to fix it
+- [https://bakerventuresstudio.com/flirtgym/for-shy-guys/](https://bakerventuresstudio.com/flirtgym/for-shy-guys/): Conversation practice for people who freeze on openers
+- [https://bakerventuresstudio.com/flirtgym/cold-approach-practice/](https://bakerventuresstudio.com/flirtgym/cold-approach-practice/): Cold approach: what matters and what can be rehearsed
+
+## Legal
+- [Terms of Use](https://bakerventuresstudio.com/rizzmaxx/terms/)
+- [Privacy Policy](https://bakerventuresstudio.com/rizzmaxx/privacy/)
+- Contact: hello@bakerventuresstudio.com
