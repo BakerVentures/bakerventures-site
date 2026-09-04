@@ -118,7 +118,9 @@ footer a,a{color:var(--gold)}nav a{color:var(--fg2)}
 .slot select:focus{outline:none;border-color:var(--gold)}
 .sg{display:flex;align-items:center;gap:6px;color:#999;font-size:12px;white-space:nowrap;cursor:pointer}
 .sg input{accent-color:var(--gold)}
-@media(max-width:620px){.slot{grid-template-columns:26px 1fr;grid-auto-rows:auto}.slot .sg{grid-column:2}}
+/* On a phone the row stacks. Every control has to be pinned to column 2 or
+   the second select falls into the 26px number column and renders as a sliver. */
+@media(max-width:620px){.slot{grid-template-columns:26px 1fr;grid-auto-rows:auto;margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid #1E1E20}.slot .n{align-self:start;padding-top:12px}.slot select,.slot .sg{grid-column:2}}
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px}
 button{background:linear-gradient(180deg,var(--gb),var(--gold));color:#1A1206;font:800 16px/1 inherit;padding:14px 26px;border:0;border-radius:12px;cursor:pointer}
 button.ghost{background:none;color:var(--fg2);border:1px solid var(--bd);font-weight:600}
@@ -133,7 +135,7 @@ button.ghost{background:none;color:var(--fg2);border:1px solid var(--bd);font-we
 </head>
 <body>
 <div class="wrap">
-<nav><span class="b">FlirtGym</span><a href="/flirtgym/">Overview</a><a href="/flirtgym/opener-score/">Opener score</a><a href="/flirtgym/prompt-check/">Prompt check</a><a href="/flirtgym/conversation-check/">Conversation check</a><a href="https://apps.apple.com/us/app/flirtgym/id6784050951">Download</a></nav>
+<nav><span class="b">FlirtGym</span><a href="/flirtgym/">Overview</a><a href="/flirtgym/opener-score/">Opener</a><a href="/flirtgym/flirting-style/">Style</a><a href="/flirtgym/conversation-check/">Chat check</a><a href="/flirtgym/prompt-check/">Prompts</a><a href="https://apps.apple.com/us/app/flirtgym/id6784050951">Download</a></nav>
 
 <h1>Check your photo lineup</h1>
 <p class="lede">Describe each photo in order. It checks the set against the things that actually decide matches, starting with the one that decides most.</p>
