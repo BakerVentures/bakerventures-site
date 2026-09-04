@@ -59,7 +59,9 @@ refunds, restoring a purchase, deleting your account, and the address a human re
 [vs. ChatGPT](https://bakerventuresstudio.com/flirtgym/vs-chatgpt/) ·
 [vs. SwipeMatch AI](https://bakerventuresstudio.com/flirtgym/vs-swipematch-ai/) ·
 [vs. reply generators](https://bakerventuresstudio.com/flirtgym/vs-reply-generators/) ·
-[Pricing](https://bakerventuresstudio.com/flirtgym/pricing/)
+[Pricing](https://bakerventuresstudio.com/flirtgym/pricing/) ·
+[Free trial](https://bakerventuresstudio.com/flirtgym/free-trial/) ·
+[vs. Blush](https://bakerventuresstudio.com/flirtgym/vs-blush/)
 
 ## Layout
 
