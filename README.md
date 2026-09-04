@@ -24,6 +24,11 @@ No signup, no upload, no account. Everything scores locally in the browser.
 | [Flirting Style Quiz](https://bakerventuresstudio.com/flirtgym/flirting-style/) | Nine questions, four styles, each with a real trade-off rather than a compliment |
 | [Photo Lineup Checker](https://bakerventuresstudio.com/flirtgym/photo-lineup/) | Checks the order of your profile photos from short descriptions, so nothing is uploaded |
 
+### Support
+
+[FlirtGym support](https://bakerventuresstudio.com/flirtgym/support/) — cancelling,
+refunds, restoring a purchase, deleting your account, and the address a human reads.
+
 ### Research
 
 - [Opener Score Study](https://bakerventuresstudio.com/flirtgym/research/opener-score-study/)
