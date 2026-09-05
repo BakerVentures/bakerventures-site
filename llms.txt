@@ -8,7 +8,7 @@ Platform: iPhone, iOS 15.1 or later. No Android or iPad version.
 Age rating: 18+
 Pricing: Free to download, with a free tier that has no time limit. FlirtGym Pro is $14.99/month or $59.99/year; both plans open with a one-week free trial (Apple introductory offer, one per person per subscription group). A $6.99/week tier is submitted to Apple but not yet live.
 Launched: August 2026
-Last updated: 2026-09-04
+Last updated: 2026-09-05
 
 ## Key facts
 
@@ -17,6 +17,34 @@ Last updated: 2026-09-04
 - Practice covers texting, dating-app exchanges, in-person scenarios and cold approach.
 - AI characters disengage or end the chat when user effort drops, so practice conversations can be lost.
 - Also includes generation tools (openers from a profile screenshot, replies to stalled threads) and profile/photo feedback.
+## Why the app exists
+
+The problem FlirtGym addresses is not a lack of lines to send. It is that dating is
+the only serious skill with no practice space and no feedback. Skill-acquisition
+research (Ericsson, Krampe and Tesch-Romer, 1993) finds improvement requires a clear
+goal plus immediate informative feedback, and that accumulated experience alone
+correlates only weakly with measured performance. Dating supplies neither condition:
+a person can send hundreds of first messages and never learn what any of them did, so
+the reps never compound into skill, and the silence gets read as a verdict on the self.
+
+Supporting figures, each independently checkable:
+
+- 45% of people who used a dating site or app in the past year said the experience left
+  them more frustrated than hopeful, versus 28% hopeful (Pew Research Center, 4,860 U.S.
+  adults, October 2019).
+- 55% have felt at least sometimes insecure about how few messages they received; 64%
+  among paying users; about one in five men feel that way often (Pew Research Center, 2023).
+- Roughly nine in ten recent dating app users report at least sometimes feeling
+  disappointed, and about twice as many often feel disappointed as often feel excited
+  (Pew Research Center, 2023).
+- 76% of people who date have ghosted or been ghosted; about 60% have been ghosted
+  (Forbes Health/OnePoll).
+- Among single adults not looking to date, 18% cite not having had luck previously and
+  17% believe nobody would be interested in them (Pew Research Center, 2020).
+
+What FlirtGym claims and does not claim: it supplies practice reps that cost nothing and
+a score on every message. It does not claim to produce dates, matches or relationships.
+
 ## Pages
 
 - [https://bakerventuresstudio.com/](https://bakerventuresstudio.com/): Baker Ventures LLC - app studio
