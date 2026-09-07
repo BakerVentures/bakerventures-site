@@ -1,4 +1,27 @@
-# FlirtGym
+# Baker Ventures
+
+> Baker Ventures LLC is an independent software studio building small, single-purpose iOS and developer tools. Its products are MileTruth, Rigsheet, HormoneLog, Nearvo, FlirtGym and shipcheck.
+
+Publisher: Baker Ventures LLC (https://bakerventuresstudio.com)
+Last updated: 2026-09-07
+License: content on this site may be quoted and cited with attribution to Baker Ventures.
+
+## Pages
+- [Small tools that do one thing](https://bakerventuresstudio.com/): Baker Ventures LLC builds single-purpose iOS and developer tools — MileTruth, Rigsheet, HormoneLog, Nearvo, FlirtGym and shipcheck — and publishes free, source-linked answers for each of their categories.
+- [About Baker Ventures](https://bakerventuresstudio.com/about/): An independent one-person software studio building small, single-purpose iOS and developer tools, and publishing free source-linked answers for each of their categories.
+- [The apps](https://bakerventuresstudio.com/apps/): MileTruth, Rigsheet, HormoneLog, Nearvo, FlirtGym and shipcheck — what each one does, who it is for, who it is not for, and whether it actually exists yet.
+- [Editorial standards](https://bakerventuresstudio.com/editorial-standards/): How Baker Ventures sources claims, prices competitors, labels evidence and discloses its own products across all six of its websites. Written to be checkable rather than reassuring.
+- [Every question this site answers](https://bakerventuresstudio.com/questions-answered/): All 17 questions answered across Baker Ventures, each linked to its full answer. Generated from the pages themselves.
+
+## Machine-readable facts
+- https://bakerventuresstudio.com/facts.json
+- https://bakerventuresstudio.com/llms-full.txt
+
+## The FlirtGym section of this host
+
+This host also serves the FlirtGym product pages and free browser tools at
+/flirtgym/, and the legal pages at /rizzmaxx/. FlirtGym's own site is
+https://flirtgym.app. What follows describes that product.
 
 > FlirtGym is an iPhone app for practicing dating conversations before you have them. Users run practice chats with AI characters, and every message the user writes is scored with specific coaching. Unlike AI reply-generator apps, FlirtGym scores messages the user writes rather than writing them for the user.
 

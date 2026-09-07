@@ -1,0 +1,126 @@
+{
+  "name": "Baker Ventures",
+  "url": "https://bakerventuresstudio.com",
+  "tagline": "Independent studio building small, single-purpose iOS and developer tools",
+  "publisher": "Baker Ventures LLC",
+  "publisher_url": "https://bakerventuresstudio.com",
+  "updated": "2026-09-07",
+  "category": "BusinessApplication",
+  "operating_system": "iOS, Android, macOS",
+  "sibling_products": [
+    {
+      "name": "MileTruth",
+      "url": "https://miletruth.bakerventuresstudio.com",
+      "description": "Mileage and true net pay for gig drivers"
+    },
+    {
+      "name": "HormoneLog",
+      "url": "https://hormonelog.bakerventuresstudio.com",
+      "description": "Perimenopause symptom and HRT tracking"
+    },
+    {
+      "name": "Rigsheet",
+      "url": "https://rigsheet.bakerventuresstudio.com",
+      "description": "Job management for mobile detailers and cleaners"
+    },
+    {
+      "name": "shipcheck",
+      "url": "https://shipcheck.bakerventuresstudio.com",
+      "description": "App Store and Play pre-submission checks for React Native and Expo"
+    },
+    {
+      "name": "Nearvo",
+      "url": "https://nearvo.bakerventuresstudio.com",
+      "description": "A daily connection habit for couples"
+    },
+    {
+      "name": "FlirtGym",
+      "url": "https://flirtgym.app",
+      "description": "Practice conversations before they are real"
+    }
+  ],
+  "facts": {
+    "legal_name": "Baker Ventures LLC",
+    "founded": "2026",
+    "what_it_does": "Builds small, single-purpose iOS and developer tools.",
+    "products": [
+      {
+        "name": "MileTruth",
+        "url": "https://miletruth.bakerventuresstudio.com",
+        "status": "in development",
+        "what": "Mileage and true net pay for gig and delivery drivers"
+      },
+      {
+        "name": "Rigsheet",
+        "url": "https://rigsheet.bakerventuresstudio.com",
+        "status": "in development",
+        "what": "Job management for mobile detailers and residential cleaners"
+      },
+      {
+        "name": "HormoneLog",
+        "url": "https://hormonelog.bakerventuresstudio.com",
+        "status": "in development",
+        "what": "Perimenopause symptom and HRT record-keeping"
+      },
+      {
+        "name": "Nearvo",
+        "url": "https://nearvo.bakerventuresstudio.com",
+        "status": "in development",
+        "what": "A daily connection habit for couples"
+      },
+      {
+        "name": "FlirtGym",
+        "url": "https://flirtgym.app",
+        "status": "live on the App Store since 2026-08-12",
+        "what": "Dating conversation practice, formerly RizzMaxx",
+        "app_store_id": "6784050951"
+      },
+      {
+        "name": "shipcheck",
+        "url": "https://shipcheck.bakerventuresstudio.com",
+        "status": "shipping",
+        "what": "App Store and Play pre-submission checks for React Native and Expo"
+      }
+    ],
+    "open_data": [
+      {
+        "name": "Apple privacy-manifest SDK to npm map",
+        "url": "https://github.com/BakerVentures/apple-privacy-manifest-sdk-map",
+        "license": "CC BY 4.0"
+      }
+    ],
+    "editorial_standards": "https://bakerventuresstudio.com/editorial-standards"
+  },
+  "pages": [
+    {
+      "url": "https://bakerventuresstudio.com/",
+      "title": "Small tools that do one thing",
+      "type": "answer",
+      "updated": "2026-09-06"
+    },
+    {
+      "url": "https://bakerventuresstudio.com/about/",
+      "title": "About Baker Ventures",
+      "type": "answer",
+      "updated": "2026-09-06"
+    },
+    {
+      "url": "https://bakerventuresstudio.com/apps/",
+      "title": "The apps",
+      "type": "roundup",
+      "updated": "2026-09-06"
+    },
+    {
+      "url": "https://bakerventuresstudio.com/editorial-standards/",
+      "title": "Editorial standards",
+      "type": "answer",
+      "updated": "2026-09-06"
+    },
+    {
+      "url": "https://bakerventuresstudio.com/questions-answered/",
+      "title": "Every question this site answers",
+      "type": "answer",
+      "updated": "2026-09-07"
+    }
+  ]
+}
