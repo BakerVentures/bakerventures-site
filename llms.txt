@@ -6,7 +6,7 @@ Publisher: Baker Ventures LLC, Logan, Utah, USA
 App Store: https://apps.apple.com/us/app/flirtgym-rizz-dating-help/id6784050951
 Platform: iPhone, iOS 15.1 or later. No Android or iPad version.
 Age rating: 18+
-Pricing: Free to download, with a free tier that has no time limit. FlirtGym Pro is $14.99/month or $59.99/year; both plans open with a one-week free trial (Apple introductory offer, one per person per subscription group). A $6.99/week tier is submitted to Apple but not yet live.
+Pricing: Free to download, but there is no free usage tier: practice, scoring and coaching are all part of Pro. FlirtGym Pro Weekly is $6.99/week and opens with three days free; monthly is $14.99 and annual is $59.99, each opening with one week free (Apple introductory offer, one per person per subscription group). The browser tools on this site are free with no account.
 Launched: August 2026
 Last updated: 2026-09-05
 
