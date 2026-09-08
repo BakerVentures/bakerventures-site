@@ -31,7 +31,7 @@ Platform: iPhone, iOS 15.1 or later. No Android or iPad version.
 Age rating: 18+
 Pricing: Free to download, but there is no free usage tier: practice, scoring and coaching are all part of Pro. FlirtGym Pro Weekly is $6.99/week and opens with three days free; monthly is $14.99 and annual is $59.99, each opening with one week free (Apple introductory offer, one per person per subscription group). Onboarding gives one real Wingman reply on the user's own message before the paywall, once per install. The browser tools on this site are free with no account.
 Launched: August 2026
-Last updated: 2026-09-05
+Last updated: 2026-09-07
 
 ## Key facts
 
@@ -40,6 +40,7 @@ Last updated: 2026-09-05
 - Practice covers texting, dating-app exchanges, in-person scenarios and cold approach.
 - AI characters disengage or end the chat when user effort drops, so practice conversations can be lost.
 - Also includes generation tools (openers from a profile screenshot, replies to stalled threads) and profile/photo feedback.
+- The website also hosts five free browser tools that need no signup, no account and no upload: everything is scored locally in the visitor's browser.
 ## Why the app exists
 
 The problem FlirtGym addresses is not a lack of lines to send. It is that dating is
@@ -94,11 +95,24 @@ a score on every message. It does not claim to produce dates, matches or relatio
 - [https://bakerventuresstudio.com/flirtgym/hinge-prompts/](https://bakerventuresstudio.com/flirtgym/hinge-prompts/): Hinge prompts that get you messaged
 - [https://bakerventuresstudio.com/flirtgym/how-to-ask-a-girl-out-over-text/](https://bakerventuresstudio.com/flirtgym/how-to-ask-a-girl-out-over-text/): Asking someone out over text
 - [https://bakerventuresstudio.com/flirtgym/glossary/](https://bakerventuresstudio.com/flirtgym/glossary/): Definitions: rizz, rizzmaxxing, opener, dry texting, situationship, looksmaxxing
+- [https://bakerventuresstudio.com/flirtgym/research/](https://bakerventuresstudio.com/flirtgym/research/): Research index: studies and open datasets
 - [https://bakerventuresstudio.com/flirtgym/research/opener-score-study/](https://bakerventuresstudio.com/flirtgym/research/opener-score-study/): Original research: 40 openers scored through FlirtGym's rubric
+
+## Free browser tools
+
+No signup, no account, no upload. Each one scores locally in the browser; nothing the visitor types is sent anywhere.
+
+- [https://bakerventuresstudio.com/flirtgym/opener-score/](https://bakerventuresstudio.com/flirtgym/opener-score/): Scores a dating app opener out of ten, names the category it falls into, and shows how that category scored in the Opener Score Study
+- [https://bakerventuresstudio.com/flirtgym/prompt-check/](https://bakerventuresstudio.com/flirtgym/prompt-check/): Tests whether three Hinge prompt answers are answerable, and whether they repeat each other
+- [https://bakerventuresstudio.com/flirtgym/conversation-check/](https://bakerventuresstudio.com/flirtgym/conversation-check/): Measures reciprocity in a thread: who sends more, who asks, who restarts it
+- [https://bakerventuresstudio.com/flirtgym/flirting-style/](https://bakerventuresstudio.com/flirtgym/flirting-style/): Nine questions placing how someone texts on two axes - how much they lead, how specific they are - into four styles, each with a real cost as well as a strength
+- [https://bakerventuresstudio.com/flirtgym/photo-lineup/](https://bakerventuresstudio.com/flirtgym/photo-lineup/): Checks a described photo lineup against the rules that decide matches: first photo solo and unobstructed, four to six photos, one full body, genuinely different contexts. No photo is uploaded
 
 ## Legal
 - [Terms of Use](https://bakerventuresstudio.com/rizzmaxx/terms/)
 - [Privacy Policy](https://bakerventuresstudio.com/rizzmaxx/privacy/)
+- [Legal index](https://bakerventuresstudio.com/rizzmaxx/): Both documents. They sit under /rizzmaxx/ because the app shipped as RizzMaxx and was renamed before launch.
+- [Delete your account](https://bakerventuresstudio.com/flirtgym/delete-account/): How to permanently delete an account and its data
 - Contact: support@bakerventuresstudio.com
 - https://bakerventuresstudio.com/about/
 - https://bakerventuresstudio.com/editorial-standards/
