@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rsuvest — RSU &amp; Equity Vesting Schedule Tracker</title>
+  <meta name="description" content="Turn your grant letters into one vesting schedule with vested vs. unvested shares, current value, and reminders before every vesting date.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/rsuvest/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="rsuvest">
+  <meta property="og:title" content="rsuvest — RSU &amp; Equity Vesting Schedule Tracker">
+  <meta property="og:description" content="Turn your grant letters into one vesting schedule with vested vs. unvested shares, current value, and reminders before every vesting date.">
+  <meta property="og:url" content="https://bakerventuresstudio.com/rsuvest/">
+  <meta name="twitter:card" content="summary">
+  <style>
+    :root { color-scheme: light; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
+    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    h3 { font-size: 16px; margin: 24px 0 8px; }
+    p { margin: 12px 0; }
+    ul { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
+    a { color: #4F6B2A; }
+    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+    strong { font-weight: 700; }
+    .note { background: #fafafa; border-left: 3px solid #4F6B2A; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
+    .contact { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
+    .contact a { font-weight: 700; }
+    .faq { margin: 0; }
+    .faq dt { font-weight: 700; margin: 22px 0 4px; }
+    .faq dd { margin: 0 0 4px; }
+    .nav { font-size: 14px; margin: 0 0 20px; }
+    .nav a { color: #666; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+    .hero { margin: 8px 0 32px; }
+    .hero h1 { font-size: 32px; }
+    .hero p.sub { font-size: 18px; color: #444; margin: 12px 0 0; }
+    .benefit { margin: 18px 0; }
+    .benefit b { display: block; }
+    ol.how { padding-left: 22px; }
+    ol.how li { margin: 10px 0; }
+  </style>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "rsuvest",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "iOS",
+ "url": "https://bakerventuresstudio.com/rsuvest/",
+ "description": "RSU and equity vesting tracker. Builds a single vesting schedule across grants, shows vested vs. unvested shares and current value, and reminds you before each vesting date.",
+ "publisher": {
+  "@type": "Organization",
+  "name": "Baker Ventures LLC"
+ }
+}
+</script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://bakerventuresstudio.com/rsuvest/#faq",
+ "name": "rsuvest",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Is rsuvest tax or financial advice?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. It is a tracking and planning tool and does not provide tax, investment, or financial advice. Talk to a CPA or advisor about decisions and taxes."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it show my exact tax withholding?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. rsuvest tracks shares and value; it does not calculate your specific tax liability, which depends on your income, jurisdiction, and employer withholding."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it connect to my brokerage or employer?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. You enter grant details yourself; the app does not link to brokerages or equity portals."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does the value update with the live stock price?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "You set the share price to value against; see the app for any live-price feature. Private-company shares have no public price, so you enter an estimate."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is my equity data private?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Your grants are stored for your use and are not sold. See the in-app privacy policy."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can it handle both cliff and monthly/quarterly vesting?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. You define the cliff and the vesting interval per grant."
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+  <div class="hero">
+    <h1>See every share you&#x27;ll vest, and when.</h1>
+    <p class="sub">rsuvest turns your grant letters into a clear vesting schedule and running value, so you always know what&#x27;s vested, what&#x27;s coming, and what it&#x27;s worth.</p>
+    <p class="meta" style="margin-top:16px">rsuvest &middot; an app by Baker Ventures LLC</p>
+  </div>
+  <h2>What it does</h2>
+  <div class="benefit"><b>All your grants, one schedule.</b>Enter each RSU or equity grant and rsuvest builds a single timeline of every vesting date across all of them.</div>
+  <div class="benefit"><b>Know what&#x27;s vested vs. unvested.</b>See at a glance how many shares are already yours and how many are still ahead — no more digging through the equity portal.</div>
+  <div class="benefit"><b>Value at today&#x27;s price.</b>Enter a share price and rsuvest shows the current value of your vested and unvested shares so the schedule means something in dollars.</div>
+  <div class="benefit"><b>Upcoming-vest reminders.</b>Get a heads-up before a vesting date so it never sneaks past you — useful for planning around sales windows and taxes.</div>
+  <div class="benefit"><b>Plan across offers and refreshes.</b>Track grants from multiple employers or refresh cycles side by side to see your whole equity picture.</div>
+  <h2>How it works</h2>
+  <ol class="how">
+    <li><strong>Add a grant</strong> &mdash; shares, grant date, and vesting schedule (cliff and intervals).</li>
+    <li><strong>Set a share price</strong> to see current value.</li>
+    <li><strong>Watch it vest</strong> &mdash; track vested vs. upcoming and get reminded before each date.</li>
+  </ol>
+  <h2>Questions</h2>
+  <dl class="faq">
+    <dt>Is rsuvest tax or financial advice?</dt>
+    <dd>No. It is a tracking and planning tool and does not provide tax, investment, or financial advice. Talk to a CPA or advisor about decisions and taxes.</dd>
+    <dt>Does it show my exact tax withholding?</dt>
+    <dd>No. rsuvest tracks shares and value; it does not calculate your specific tax liability, which depends on your income, jurisdiction, and employer withholding.</dd>
+    <dt>Does it connect to my brokerage or employer?</dt>
+    <dd>No. You enter grant details yourself; the app does not link to brokerages or equity portals.</dd>
+    <dt>Does the value update with the live stock price?</dt>
+    <dd>You set the share price to value against; see the app for any live-price feature. Private-company shares have no public price, so you enter an estimate.</dd>
+    <dt>Is my equity data private?</dt>
+    <dd>Your grants are stored for your use and are not sold. See the in-app privacy policy.</dd>
+    <dt>Can it handle both cliff and monthly/quarterly vesting?</dt>
+    <dd>Yes. You define the cliff and the vesting interval per grant.</dd>
+  </dl>
+  <div class="note"><strong>Please note.</strong> rsuvest is a tracking and planning tool. It does not provide financial, tax, or investment advice. Value and withholding figures are estimates calculated from inputs you enter yourself — including the share price — and any tax figure uses a simplified flat rate, not your real tax situation, so it is a ballpark for planning and not what you will actually owe. Real withholding depends on your employer, your income, and your jurisdiction. Your grant documents and your equity administrator are the authority on your grants; talk to a CPA or tax professional about taxes and to an advisor about decisions.</div>
+  <h2>Help</h2>
+  <ul>
+    <li><strong>Support:</strong> <a href="support/">rsuvest Support</a> &mdash; FAQ, billing, and how to reach us</li>
+    <li><strong>Email:</strong> <a href="mailto:rsb.baker+rsuvest@gmail.com">rsb.baker+rsuvest@gmail.com</a></li>
+  </ul>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="support/">Support</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+</body>
+</html>

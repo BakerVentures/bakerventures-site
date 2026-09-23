@@ -1,0 +1,2 @@
+# Local Cloudflare Pages CLI cache — machine-local, may hold account state. Never committed.
+.wrangler/
