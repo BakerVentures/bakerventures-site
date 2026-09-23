@@ -18,6 +18,9 @@
     p { margin: 12px 0; }
     ul { margin: 12px 0; padding-left: 22px; }
     li { margin: 6px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+    th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; color: #666; }
     .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
     a { color: #5B4B9E; }
     hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
@@ -44,7 +47,15 @@
   <p>Cyberclose collects nothing. There is no account, no sign-in, and no server of ours for the app to talk to. Everything you type — your business name, your answers to the control questionnaire, your notes — is written to a database on your own device and never leaves it unless you deliberately share an exported summary yourself.</p>
   <h2>1. What the app collects, and every use of it</h2>
   <p>The app does not transmit any information to us or to anyone else. The following is stored locally on your device, in a SQLite database (<code>cyberclose.db</code>) that belongs to the app's own sandbox:</p>
-  <p>| What is stored | Where it comes from | Every use it is put to | | --- | --- | --- | | <strong>Business/profile name</strong> | You type it (you can keep several profiles, e.g. a broker working through multiple clients) | Labelling your assessments in the app, and appearing as the heading of a summary you choose to export | | <strong>Your answer to each security control</strong> (in place / partially in place / not in place / not yet assessed) | You tap it in the questionnaire | Computing your readiness score, your per-category breakdown, and your prioritized gap list; appearing in a summary you choose to export | | <strong>Free-text notes you attach to a control</strong> | You type them | Shown back to you against that control; included in a summary you choose to export | | <strong>App settings</strong> (a single local flag used only to exercise the locked/unlocked paywall states in development builds) | Set by you in a development build only | Deciding whether the export screen shows as locked or unlocked |</p>
+  <table>
+    <thead><tr><th>What is stored</th><th>Where it comes from</th><th>Every use it is put to</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Business/profile name</strong></td><td>You type it (you can keep several profiles, e.g. a broker working through multiple clients)</td><td>Labelling your assessments in the app, and appearing as the heading of a summary you choose to export</td></tr>
+      <tr><td><strong>Your answer to each security control</strong> (in place / partially in place / not in place / not yet assessed)</td><td>You tap it in the questionnaire</td><td>Computing your readiness score, your per-category breakdown, and your prioritized gap list; appearing in a summary you choose to export</td></tr>
+      <tr><td><strong>Free-text notes you attach to a control</strong></td><td>You type them</td><td>Shown back to you against that control; included in a summary you choose to export</td></tr>
+      <tr><td><strong>App settings</strong> (a single local flag used only to exercise the locked/unlocked paywall states in development builds)</td><td>Set by you in a development build only</td><td>Deciding whether the export screen shows as locked or unlocked</td></tr>
+    </tbody>
+  </table>
   <p>That is the complete list. There is no hidden second category.</p>
   <p><strong>What the app does not collect at all:</strong> no name, email address, phone number, postal address, or any other contact detail; no account credentials; no payment or financial information; no precise or coarse location; no contacts, photos, camera, microphone, calendar, or health data; no advertising identifier; no device identifier; no crash reports; no usage or diagnostic telemetry. The app requests no operating-system permissions.</p>
   <p><strong>No tracking.</strong> The app does not track you across apps or websites, does not use an advertising SDK, and does not build or buy a profile about you. Because it collects nothing, there is nothing to sell, and we do not sell or share personal information with anyone, for any purpose, ever.</p>
