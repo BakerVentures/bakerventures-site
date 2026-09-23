@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HormoneLog Legal &mdash; Baker Ventures LLC</title>
+  <title>HormoneLog — Menopause Symptom &amp; HRT Tracker</title>
+  <meta name="description" content="Log perimenopause and menopause symptoms, your cycle and your HRT regimen, see how they move together, and take a clean summary to your next appointment. Your log stays on your phone.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/hormonelog/">
   <meta name="robots" content="index,follow">
   <style>
     :root { color-scheme: light; }
@@ -19,23 +21,146 @@
     .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
     a { color: #8C5B94; }
     hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
-    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
-    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
-    th { font-weight: 700; }
     code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
     strong { font-weight: 700; }
+    .note { background: #fafafa; border-left: 3px solid #8C5B94; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
+    .contact { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
+    .contact a { font-weight: 700; }
+    .faq { margin: 0; }
+    .faq dt { font-weight: 700; margin: 22px 0 4px; }
+    .faq dd { margin: 0 0 4px; }
+    .nav { font-size: 14px; margin: 0 0 20px; }
+    .nav a { color: #666; }
     footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
     footer a { color: #888; }
+    .hero { margin: 8px 0 32px; }
+    .hero h1 { font-size: 32px; }
+    .hero p.sub { font-size: 18px; color: #444; margin: 12px 0 0; }
+    .benefit { margin: 18px 0; }
+    .benefit b { display: block; }
+    ol.how { padding-left: 22px; }
+    ol.how li { margin: 10px 0; }
   </style>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HormoneLog">
+  <meta property="og:title" content="HormoneLog — Menopause Symptom &amp; HRT Tracker">
+  <meta property="og:description" content="Log perimenopause and menopause symptoms, your cycle and your HRT regimen, see how they move together, and take a clean summary to your next appointment. Your log stays on your phone.">
+  <meta property="og:url" content="https://bakerventuresstudio.com/hormonelog/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "HormoneLog",
+ "applicationCategory": "HealthApplication",
+ "operatingSystem": "iOS, Android",
+ "url": "https://bakerventuresstudio.com/hormonelog/",
+ "description": "Perimenopause and menopause tracking app. Log 36 symptoms, mood, energy, sleep, periods and an HRT regimen with dose reminders and adherence, review patterns, and generate a summary report for a clinician. Local-first, no account required. A tracking tool, not a medical device.",
+ "publisher": {
+  "@type": "Organization",
+  "name": "Baker Ventures LLC"
+ }
+}
+</script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://bakerventuresstudio.com/hormonelog/#faq",
+ "name": "HormoneLog",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Is HormoneLog a medical device, or does it diagnose anything?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. It is a tracking tool. It does not diagnose or treat anything, and it never tells you what to take or how much."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do I need an account?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. There is no sign-up and no sign-in, and the app works offline. Your log is stored on your own phone."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Where does my data live?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On your device. The most sensitive free text — your notes and the dose you type in — is encrypted on the phone with a key held in its secure hardware store, which is never sent anywhere, including to us."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can it tell me whether my HRT is working?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It can show you what you logged next to what you took — your symptom severity against your dose adherence, and a comparison of before and after you started. What that means for your treatment is a conversation for you and your prescriber."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What can I take to my doctor?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A PDF built from your own log: your Symptom Burden Index with a category breakdown, how often each symptom showed up, and a summary of your regimen."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is it on iPhone and Android?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It is built for both. The Apple Health sleep overlay is iPhone-only, because Android has no equivalent integration in the app."
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
-  <h1>HormoneLog &mdash; Legal</h1>
-  <p class="meta">Published by Baker Ventures LLC.</p>
-  <p>Legal documents for HormoneLog, published by Baker Ventures LLC.</p>
+  <div class="hero">
+    <h1>Your symptoms and your HRT, in one record you can hand to your doctor.</h1>
+    <p class="sub">Log how you actually feel, alongside what you take and whether you took it — then walk into your appointment with a record instead of a recollection.</p>
+    <p class="meta" style="margin-top:16px">HormoneLog &middot; an app by Baker Ventures LLC</p>
+  </div>
+  <h2>What it does</h2>
+  <div class="benefit"><b>Log in a few taps.</b>36 symptoms across seven categories on a simple 0–3 scale, plus mood, energy, sleep quality and stress — and a note when there is more to say than a number.</div>
+  <div class="benefit"><b>Your regimen, tracked properly.</b>Record what you take and when, get dose reminders, and see an adherence ring for the last 30 days — so &quot;am I actually taking it?&quot; has an answer.</div>
+  <div class="benefit"><b>Patterns, not guesswork.</b>A 60-day severity heatmap, your top symptoms this month, and — on iPhone — your Apple Health sleep laid over your symptom severity.</div>
+  <div class="benefit"><b>A summary for your appointment.</b>Your Symptom Burden Index with a category breakdown, your most frequent symptoms and a summary of your regimen, as a clean PDF to bring to your prescriber.</div>
+  <div class="benefit"><b>Private by default.</b>Your log lives on your phone. There is no account and no sign-in, and your notes and dose text are encrypted on the device with a key that never leaves it.</div>
+  <h2>How it works</h2>
+  <ol class="how">
+    <li><strong>Set yourself up</strong> &mdash; your stage, the symptoms you care about, and your regimen if you're on one.</li>
+    <li><strong>Log each day</strong> &mdash; a few severity taps, a few sliders, and your doses as you take them.</li>
+    <li><strong>Review and share</strong> &mdash; look at your own patterns, then generate a report for your next appointment.</li>
+  </ol>
+  <h2>Questions</h2>
+  <dl class="faq">
+    <dt>Is HormoneLog a medical device, or does it diagnose anything?</dt>
+    <dd>No. It is a tracking tool. It does not diagnose or treat anything, and it never tells you what to take or how much.</dd>
+    <dt>Do I need an account?</dt>
+    <dd>No. There is no sign-up and no sign-in, and the app works offline. Your log is stored on your own phone.</dd>
+    <dt>Where does my data live?</dt>
+    <dd>On your device. The most sensitive free text — your notes and the dose you type in — is encrypted on the phone with a key held in its secure hardware store, which is never sent anywhere, including to us.</dd>
+    <dt>Can it tell me whether my HRT is working?</dt>
+    <dd>It can show you what you logged next to what you took — your symptom severity against your dose adherence, and a comparison of before and after you started. What that means for your treatment is a conversation for you and your prescriber.</dd>
+    <dt>What can I take to my doctor?</dt>
+    <dd>A PDF built from your own log: your Symptom Burden Index with a category breakdown, how often each symptom showed up, and a summary of your regimen.</dd>
+    <dt>Is it on iPhone and Android?</dt>
+    <dd>It is built for both. The Apple Health sleep overlay is iPhone-only, because Android has no equivalent integration in the app.</dd>
+  </dl>
+  <div class="note"><strong>Please note.</strong> HormoneLog is a tracking tool, not medical advice and not a medical device. It does not diagnose or treat anything, makes no claim about relieving symptoms, and never calculates or suggests a dose &mdash; discuss any change with your prescriber. The Symptom Burden Index is HormoneLog's own summary of what you logged, not a clinical measurement, and it can be incomplete or misleading on its own. If you are having a medical emergency, contact your local emergency number rather than this app.</div>
+  <h2>Help and legal</h2>
   <ul>
-    <li><a href="privacy/">Privacy Policy</a></li>
-    <li><a href="terms/">Terms of Use</a></li>
+    <li><strong>Support:</strong> <a href="support/">HormoneLog Support</a> &mdash; FAQ, billing, and how to reach us</li>
+    <li><strong>Email:</strong> <a href="mailto:rsb.baker+hormonelog@gmail.com">rsb.baker+hormonelog@gmail.com</a></li>
+    <li><strong>Legal:</strong> <a href="privacy/">Privacy Policy</a> &middot; <a href="terms/">Terms of Use</a></li>
   </ul>
-  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="/">Baker Ventures Studio</a></footer>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="privacy/">Privacy Policy</a> &middot; <a href="terms/">Terms of Use</a> &middot; <a href="support/">Support</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
 </body>
 </html>

@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MileTruth Legal &mdash; Baker Ventures LLC</title>
+  <title>MileTruth — Mileage Log &amp; True Net Pay for Gig Drivers</title>
+  <meta name="description" content="Keep a Schedule C-ready mileage log across every platform you drive for, and see what the driving actually paid after the real cost of running your vehicle.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/miletruth/">
   <meta name="robots" content="index,follow">
   <style>
     :root { color-scheme: light; }
@@ -19,23 +21,146 @@
     .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
     a { color: #F2A93B; }
     hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
-    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
-    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
-    th { font-weight: 700; }
     code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
     strong { font-weight: 700; }
+    .note { background: #fafafa; border-left: 3px solid #F2A93B; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
+    .contact { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
+    .contact a { font-weight: 700; }
+    .faq { margin: 0; }
+    .faq dt { font-weight: 700; margin: 22px 0 4px; }
+    .faq dd { margin: 0 0 4px; }
+    .nav { font-size: 14px; margin: 0 0 20px; }
+    .nav a { color: #666; }
     footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
     footer a { color: #888; }
+    .hero { margin: 8px 0 32px; }
+    .hero h1 { font-size: 32px; }
+    .hero p.sub { font-size: 18px; color: #444; margin: 12px 0 0; }
+    .benefit { margin: 18px 0; }
+    .benefit b { display: block; }
+    ol.how { padding-left: 22px; }
+    ol.how li { margin: 10px 0; }
   </style>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MileTruth">
+  <meta property="og:title" content="MileTruth — Mileage Log &amp; True Net Pay for Gig Drivers">
+  <meta property="og:description" content="Keep a Schedule C-ready mileage log across every platform you drive for, and see what the driving actually paid after the real cost of running your vehicle.">
+  <meta property="og:url" content="https://bakerventuresstudio.com/miletruth/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "MileTruth",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "iOS, Android",
+ "url": "https://bakerventuresstudio.com/miletruth/",
+ "description": "Mileage and earnings tracker for gig and delivery drivers. Keeps an IRS-ready mileage log across both 2026 standard mileage rates, and subtracts a per-mile vehicle cost so gross earnings become true net pay. Data is stored on the device; no account required.",
+ "publisher": {
+  "@type": "Organization",
+  "name": "Baker Ventures LLC"
+ }
+}
+</script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://bakerventuresstudio.com/miletruth/#faq",
+ "name": "MileTruth",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Do I need an account?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. There's no sign-up and no sign-in. Your trips, earnings, vehicle and settings are stored on your own device."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which IRS mileage rate does it use?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "2026 has two standard mileage rates — 72.5 cents a mile from January 1 to June 30, and 76 cents from July 1 to December 31. MileTruth applies the rate that belongs to each trip's own date and shows the periods broken out, then totals them on the Schedule C line."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it work out what I actually made?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes — that's the point of it. It subtracts a per-mile vehicle cost from your gross, tips and bonuses to give you a true net figure and an hourly rate, rather than the gross number the platforms show you."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I use it for more than one platform?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Earnings are recorded per platform, and the Insights screen breaks miles and net pay down by platform so you can see which one is actually worth driving for."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it sell my location data?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Location is used to log your driving and nothing else, and it is never sold or shared with advertisers. The privacy policy sets out exactly what is and isn't collected."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I get my data out?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. You can export a tax report as a PDF and your full trip list as a CSV at any time, from inside the app."
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
-  <h1>MileTruth &mdash; Legal</h1>
-  <p class="meta">Published by Baker Ventures LLC.</p>
-  <p>Legal documents for MileTruth, published by Baker Ventures LLC.</p>
+  <div class="hero">
+    <h1>Know what the driving actually paid.</h1>
+    <p class="sub">MileTruth keeps a Schedule C-ready mileage log and turns gross earnings into true net pay — after the real cost of running your vehicle.</p>
+    <p class="meta" style="margin-top:16px">MileTruth &middot; an app by Baker Ventures LLC</p>
+  </div>
+  <h2>What it does</h2>
+  <div class="benefit"><b>A mileage log built for the IRS.</b>Business and personal miles, split across 2026&#x27;s two standard mileage rates and totalled on the line Schedule C asks for — with a checklist that flags any business trip missing a required field.</div>
+  <div class="benefit"><b>Gross is not net.</b>Your vehicle costs something every mile: depreciation, fuel, maintenance and tires, insurance. MileTruth subtracts it, so you get true net pay and a real hourly rate instead of a headline number.</div>
+  <div class="benefit"><b>Every platform in one place.</b>Uber, Lyft, DoorDash, Uber Eats, Instacart, Amazon Flex, Spark and Grubhub side by side — earnings typed in, or imported from a CSV statement.</div>
+  <div class="benefit"><b>Classify in one swipe.</b>Swipe a trip right for business, left for personal. Set a home location and any trip that starts and ends there gets a one-tap Personal suggestion instead.</div>
+  <div class="benefit"><b>Your data stays on your phone.</b>Trips, earnings and vehicle details live in a database on your own device. There&#x27;s no account to create and no sign-in.</div>
+  <h2>How it works</h2>
+  <ol class="how">
+    <li><strong>Set up your vehicle</strong> — pick a class, or enter your own cost per mile.</li>
+    <li><strong>Classify your trips and record what you earned</strong> — a swipe per trip, and earnings typed in or imported from a platform CSV.</li>
+    <li><strong>Export at tax time</strong> — a Schedule C-ready PDF or a CSV of every trip, through your phone's share sheet.</li>
+  </ol>
+  <h2>Questions</h2>
+  <dl class="faq">
+    <dt>Do I need an account?</dt>
+    <dd>No. There&#x27;s no sign-up and no sign-in. Your trips, earnings, vehicle and settings are stored on your own device.</dd>
+    <dt>Which IRS mileage rate does it use?</dt>
+    <dd>2026 has two standard mileage rates — 72.5 cents a mile from January 1 to June 30, and 76 cents from July 1 to December 31. MileTruth applies the rate that belongs to each trip&#x27;s own date and shows the periods broken out, then totals them on the Schedule C line.</dd>
+    <dt>Does it work out what I actually made?</dt>
+    <dd>Yes — that&#x27;s the point of it. It subtracts a per-mile vehicle cost from your gross, tips and bonuses to give you a true net figure and an hourly rate, rather than the gross number the platforms show you.</dd>
+    <dt>Can I use it for more than one platform?</dt>
+    <dd>Yes. Earnings are recorded per platform, and the Insights screen breaks miles and net pay down by platform so you can see which one is actually worth driving for.</dd>
+    <dt>Does it sell my location data?</dt>
+    <dd>No. Location is used to log your driving and nothing else, and it is never sold or shared with advertisers. The privacy policy sets out exactly what is and isn&#x27;t collected.</dd>
+    <dt>Can I get my data out?</dt>
+    <dd>Yes. You can export a tax report as a PDF and your full trip list as a CSV at any time, from inside the app.</dd>
+  </dl>
+  <div class="note"><strong>Please note.</strong> MileTruth is a record-keeping tool, not a tax advisor. Its deduction figures are estimates based on what you logged &mdash; consult a tax professional before filing.</div>
+  <h2>Help and legal</h2>
   <ul>
-    <li><a href="privacy/">Privacy Policy</a></li>
-    <li><a href="terms/">Terms of Use</a></li>
+    <li><strong>Support:</strong> <a href="support/">MileTruth Support</a> &mdash; FAQ, billing, and how to reach us</li>
+    <li><strong>Email:</strong> <a href="mailto:rsb.baker+miletruth@gmail.com">rsb.baker+miletruth@gmail.com</a></li>
+    <li><strong>Legal:</strong> <a href="privacy/">Privacy Policy</a> &middot; <a href="terms/">Terms of Use</a></li>
   </ul>
-  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="/">Baker Ventures Studio</a></footer>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="privacy/">Privacy Policy</a> &middot; <a href="terms/">Terms of Use</a> &middot; <a href="support/">Support</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
 </body>
 </html>

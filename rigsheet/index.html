@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rigsheet Legal &mdash; Baker Ventures LLC</title>
+  <title>Rigsheet — Job Management for Detailers &amp; Cleaners</title>
+  <meta name="description" content="Scheduling that accounts for drive time, quotes priced by vehicle or home size, deposits and card payments through Stripe, before/after photos, customer texts and invoicing — built for one-van businesses.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/rigsheet/">
   <meta name="robots" content="index,follow">
   <style>
     :root { color-scheme: light; }
@@ -19,23 +21,146 @@
     .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
     a { color: #2F7FB5; }
     hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
-    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
-    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
-    th { font-weight: 700; }
     code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
     strong { font-weight: 700; }
+    .note { background: #fafafa; border-left: 3px solid #2F7FB5; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
+    .contact { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
+    .contact a { font-weight: 700; }
+    .faq { margin: 0; }
+    .faq dt { font-weight: 700; margin: 22px 0 4px; }
+    .faq dd { margin: 0 0 4px; }
+    .nav { font-size: 14px; margin: 0 0 20px; }
+    .nav a { color: #666; }
     footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
     footer a { color: #888; }
+    .hero { margin: 8px 0 32px; }
+    .hero h1 { font-size: 32px; }
+    .hero p.sub { font-size: 18px; color: #444; margin: 12px 0 0; }
+    .benefit { margin: 18px 0; }
+    .benefit b { display: block; }
+    ol.how { padding-left: 22px; }
+    ol.how li { margin: 10px 0; }
   </style>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rigsheet">
+  <meta property="og:title" content="Rigsheet — Job Management for Detailers &amp; Cleaners">
+  <meta property="og:description" content="Scheduling that accounts for drive time, quotes priced by vehicle or home size, deposits and card payments through Stripe, before/after photos, customer texts and invoicing — built for one-van businesses.">
+  <meta property="og:url" content="https://bakerventuresstudio.com/rigsheet/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Rigsheet",
+ "applicationCategory": "BusinessApplication",
+ "operatingSystem": "iOS, Android",
+ "url": "https://bakerventuresstudio.com/rigsheet/",
+ "description": "Job-management app for mobile auto-detailing and residential-cleaning businesses: scheduling with drive-time buffers, quotes with size-based pricing, Stripe deposits and card payments, before and after job photos, automated customer texts, recurring jobs and invoicing.",
+ "publisher": {
+  "@type": "Organization",
+  "name": "Baker Ventures LLC"
+ }
+}
+</script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://bakerventuresstudio.com/rigsheet/#faq",
+ "name": "Rigsheet",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Who is Rigsheet for?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Mobile auto-detailing and residential-cleaning businesses of roughly one to three people — the kind run out of one van. It covers both trades, which most products in the category don't."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it charge per user?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Plans are flat for the business, with no per-seat fee and no cap on how many jobs, customers, quotes or invoices you create."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do my customers pay me?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Through Stripe — a deposit when they book and the balance on the card when the job is done, paid straight to your own Stripe account. You can also just record cash, Venmo, Zelle or a check."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Will it text my customers for me?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, on the Solo plan and above: booking confirmations, 24-hour and 2-hour reminders, an \"on my way\" with an ETA, and an automated review request afterwards. Every message carries opt-out instructions."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is there a web version?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Rigsheet itself is an iPhone and Android app — there's no web dashboard. The website hosts your public page and the quote and invoice links your customers open."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What happens if I stop paying?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The app goes read-only and your data stays exactly where it is. Nothing is deleted, and subscribing again restores full access."
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
-  <h1>Rigsheet &mdash; Legal</h1>
-  <p class="meta">Published by Baker Ventures LLC.</p>
-  <p>Legal documents for Rigsheet, published by Baker Ventures LLC.</p>
+  <div class="hero">
+    <h1>Run the whole day from the van.</h1>
+    <p class="sub">Scheduling that accounts for the driving, quotes priced by vehicle or home size, deposits that kill no-shows, and invoices that actually get paid — built for detailing and cleaning businesses of one to three people.</p>
+    <p class="meta" style="margin-top:16px">Rigsheet &middot; an app by Baker Ventures LLC</p>
+  </div>
+  <h2>What it does</h2>
+  <div class="benefit"><b>A day that accounts for the driving.</b>Your jobs in order with a drive-time buffer between them, and a warning when two jobs can&#x27;t physically work — because the gap between stops is the part that actually breaks a schedule.</div>
+  <div class="benefit"><b>Quote in front of the customer.</b>Good, better and best options priced off vehicle size or home size, sent by text or email and accepted on a link — no going home to write it up.</div>
+  <div class="benefit"><b>Deposits that kill no-shows.</b>Take a deposit when they book and the balance on the card when you&#x27;re done, through Stripe, straight into your own account.</div>
+  <div class="benefit"><b>Before and after, on every job.</b>Photos tagged before, after or damage, kept private to your business — the record that ends an argument before it starts.</div>
+  <div class="benefit"><b>Texts your customers actually get.</b>Confirmations, a 24-hour and a 2-hour reminder, and an &quot;on my way&quot; with an ETA, with quiet hours so nothing lands at ten at night.</div>
+  <div class="benefit"><b>Your data is yours.</b>Export every customer, job, quote, invoice and payment as one file whenever you want. As the app puts it: no lock-in, cancel anytime and take your data with you.</div>
+  <h2>How it works</h2>
+  <ol class="how">
+    <li><strong>Pick your trade and your services</strong> &mdash; Rigsheet seeds sensible packages and size multipliers that you then edit to your own prices.</li>
+    <li><strong>Book the job</strong> &mdash; customer, address, service, and a deposit if you want one.</li>
+    <li><strong>Work it and get paid</strong> &mdash; status updates and customer texts as you go, then invoice and take the card on the spot.</li>
+  </ol>
+  <h2>Questions</h2>
+  <dl class="faq">
+    <dt>Who is Rigsheet for?</dt>
+    <dd>Mobile auto-detailing and residential-cleaning businesses of roughly one to three people — the kind run out of one van. It covers both trades, which most products in the category don&#x27;t.</dd>
+    <dt>Does it charge per user?</dt>
+    <dd>No. Plans are flat for the business, with no per-seat fee and no cap on how many jobs, customers, quotes or invoices you create.</dd>
+    <dt>How do my customers pay me?</dt>
+    <dd>Through Stripe — a deposit when they book and the balance on the card when the job is done, paid straight to your own Stripe account. You can also just record cash, Venmo, Zelle or a check.</dd>
+    <dt>Will it text my customers for me?</dt>
+    <dd>Yes, on the Solo plan and above: booking confirmations, 24-hour and 2-hour reminders, an &quot;on my way&quot; with an ETA, and an automated review request afterwards. Every message carries opt-out instructions.</dd>
+    <dt>Is there a web version?</dt>
+    <dd>Rigsheet itself is an iPhone and Android app — there&#x27;s no web dashboard. The website hosts your public page and the quote and invoice links your customers open.</dd>
+    <dt>What happens if I stop paying?</dt>
+    <dd>The app goes read-only and your data stays exactly where it is. Nothing is deleted, and subscribing again restores full access.</dd>
+  </dl>
+  <h2>Help and legal</h2>
   <ul>
-    <li><a href="privacy/">Privacy Policy</a></li>
-    <li><a href="terms/">Terms of Use</a></li>
+    <li><strong>Support:</strong> <a href="support/">Rigsheet Support</a> &mdash; FAQ, billing, and how to reach us</li>
+    <li><strong>Email:</strong> <a href="mailto:rsb.baker+rigsheet@gmail.com">rsb.baker+rigsheet@gmail.com</a></li>
+    <li><strong>Legal:</strong> <a href="privacy/">Privacy Policy</a> &middot; <a href="terms/">Terms of Use</a></li>
   </ul>
-  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="/">Baker Ventures Studio</a></footer>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="privacy/">Privacy Policy</a> &middot; <a href="terms/">Terms of Use</a> &middot; <a href="support/">Support</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
 </body>
 </html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MileTruth Support — Baker Ventures LLC</title>
+  <meta name="description" content="Support for MileTruth: how to classify trips, which IRS mileage rates are used, importing earnings, exporting a tax report, deleting your data, billing, and how to reach a human.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/miletruth/support/">
+  <meta name="robots" content="index,follow">
+  <style>
+    :root { color-scheme: light; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
+    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    h3 { font-size: 16px; margin: 24px 0 8px; }
+    p { margin: 12px 0; }
+    ul { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
+    a { color: #F2A93B; }
+    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+    strong { font-weight: 700; }
+    .note { background: #fafafa; border-left: 3px solid #F2A93B; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
+    .contact { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
+    .contact a { font-weight: 700; }
+    .faq { margin: 0; }
+    .faq dt { font-weight: 700; margin: 22px 0 4px; }
+    .faq dd { margin: 0 0 4px; }
+    .nav { font-size: 14px; margin: 0 0 20px; }
+    .nav a { color: #666; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+    .hero { margin: 8px 0 32px; }
+    .hero h1 { font-size: 32px; }
+    .hero p.sub { font-size: 18px; color: #444; margin: 12px 0 0; }
+    .benefit { margin: 18px 0; }
+    .benefit b { display: block; }
+    ol.how { padding-left: 22px; }
+    ol.how li { margin: 10px 0; }
+  </style>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://bakerventuresstudio.com/miletruth/support/#faq",
+ "name": "MileTruth Support",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Do I need an account to use MileTruth?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. There is no sign-up and no sign-in. Your trips, earnings, vehicle details and settings are stored in a database on your own device."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Where is my data stored? Is any of it uploaded?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On your device. Cloud backup and sync are not available yet, so what's on your phone is the only copy — export before you switch phones or delete the app. Crash diagnostics are the one thing that leaves the device, and anything location- or address-shaped is stripped out before they are sent."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does MileTruth ask for \"Always\" location?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "So it can log your driving without you having to remember to start and stop it. The app's own permission text puts it this way: \"MileTruth detects your drives automatically in the background so your mileage log is complete. Location is never sold.\" With \"While Using\" instead, it can only see what happens while the app is open. You can grant, downgrade or revoke the permission at any time in your device's system settings."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does it also ask for Motion & Fitness?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It's a separate permission from location, and it's what lets MileTruth tell a drive apart from a bike ride or a walk to the corner store — so short non-driving trips don't end up in your mileage log."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I mark a trip as business or personal?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On the Trips tab, swipe a trip right for business or left for personal, or open the trip and use the buttons there. With VoiceOver or TalkBack, each row offers \"Mark as business\" and \"Mark as personal\" as actions. If you've set a home location in Settings, a trip that both starts and ends there shows a one-tap \"Suggested: Personal (home)\" chip — it's a suggestion and never changes the trip on its own."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which IRS mileage rate does it apply?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "2026 has two. MileTruth uses 72.5 cents a mile for trips dated January 1 to June 30 and 76 cents for July 1 to December 31, applying the rate that belongs to each trip's own date rather than one blended rate for the year. The Taxes screen shows each period separately and then a combined Schedule C total. If a trip falls in a period with no rate configured, it's left out of the dollar total and the app tells you how many trips that affected — the miles are still counted."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Where does the cost-per-mile figure come from, and can I change it?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The defaults come from AAA's Your Driving Costs 2025 study, which is based on a new vehicle — so as the app warns in Settings, it is likely a high starting estimate for a typical gig car. Settings shows the breakdown (depreciation, fuel, maintenance and tires, insurance) and you can override the figure with your own."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I import my earnings instead of typing them in?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes — Earnings → Import CSV takes a statement file and matches the date, gross, tips, bonus and fee columns for you. Column matching is best-effort because statement formats differ between platforms and change over time, so the preview shows you which columns it matched and how many rows will be skipped before anything is imported. This imports earnings only; there is no mileage import."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What can I export?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "From Taxes, a PDF report laid out for Schedule C and a CSV of your trips (date, start and end time, distance, platform, purpose, classification). From Insights, a true-net-by-platform summary as a PDF or CSV. Everything goes through your phone's normal share sheet, so you choose where it lands."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is the tax report tax advice?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. It is a record of what you logged, and the app says so on the screen and in the report itself: estimates only, consult a tax professional. Logging fuel or maintenance as an expense while also relying on the per-mile cost estimate can double-count the same cost — the two are alternative ways of looking at it."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I delete everything?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Settings → \"Delete all my data\". It permanently removes every trip, earning, expense and setting stored on the device, immediately, and it cannot be undone. There is no cloud copy to delete separately."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I restore a purchase?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Open the subscription screen and choose Restore purchases, signed into the same Apple ID or Google account you bought with. If it comes back saying no purchases were found and you believe that's wrong, send us a screenshot and we'll look into it."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I cancel, or ask a billing question?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The store handles billing, not us. iPhone: Settings → your name → Subscriptions → MileTruth. Android: Play Store → Subscriptions. Cancelling stops the next renewal and you keep access until the period you've paid for ends."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I get a refund?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "We don't process the payment, so the quickest route is the store: reportaproblem.apple.com on iOS, or play.google.com/store/account on Android — pick the purchase and choose \"Request a refund\". If the store gives you trouble, tell us and we'll help where we can."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Something's broken. How do I report it?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Email us with your device and OS version, what you were doing, what you expected versus what actually happened, and a screenshot with anything personal blurred. That combination usually points straight at the problem."
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+  <p class="nav"><a href="../">MileTruth</a> &rsaquo; Support</p>
+  <h1>MileTruth Support</h1>
+  <p class="meta">Published by Baker Ventures LLC &middot; Last updated: September 23, 2026</p>
+  <p>MileTruth is a mileage and earnings tracker for gig and delivery drivers — it keeps an IRS-ready mileage log and works out what your driving actually paid once the real cost of running your vehicle comes out of it.</p>
+  <div class="contact">
+    <p style="margin-top:0"><strong>Need help? Email us.</strong></p>
+    <p style="margin-bottom:0"><a href="mailto:rsb.baker+miletruth@gmail.com">rsb.baker+miletruth@gmail.com</a><br>
+    We read every message and reply personally. For a bug, include your device and OS version, what you
+    were doing, what you expected versus what happened, and a screenshot &mdash; that usually points us
+    straight at it.</p>
+  </div>
+  <div class="note"><strong>Please note.</strong> MileTruth is a record-keeping tool, not a tax advisor. Its deduction figures are estimates based on what you logged &mdash; consult a tax professional before filing.</div>
+  <h2>Frequently asked questions</h2>
+  <dl class="faq">
+    <dt>Do I need an account to use MileTruth?</dt>
+    <dd>No. There is no sign-up and no sign-in. Your trips, earnings, vehicle details and settings are stored in a database on your own device.</dd>
+    <dt>Where is my data stored? Is any of it uploaded?</dt>
+    <dd>On your device. Cloud backup and sync are not available yet, so what&#x27;s on your phone is the only copy — export before you switch phones or delete the app. Crash diagnostics are the one thing that leaves the device, and anything location- or address-shaped is stripped out before they are sent.</dd>
+    <dt>Why does MileTruth ask for &quot;Always&quot; location?</dt>
+    <dd>So it can log your driving without you having to remember to start and stop it. The app&#x27;s own permission text puts it this way: &quot;MileTruth detects your drives automatically in the background so your mileage log is complete. Location is never sold.&quot; With &quot;While Using&quot; instead, it can only see what happens while the app is open. You can grant, downgrade or revoke the permission at any time in your device&#x27;s system settings.</dd>
+    <dt>Why does it also ask for Motion &amp; Fitness?</dt>
+    <dd>It&#x27;s a separate permission from location, and it&#x27;s what lets MileTruth tell a drive apart from a bike ride or a walk to the corner store — so short non-driving trips don&#x27;t end up in your mileage log.</dd>
+    <dt>How do I mark a trip as business or personal?</dt>
+    <dd>On the Trips tab, swipe a trip right for business or left for personal, or open the trip and use the buttons there. With VoiceOver or TalkBack, each row offers &quot;Mark as business&quot; and &quot;Mark as personal&quot; as actions. If you&#x27;ve set a home location in Settings, a trip that both starts and ends there shows a one-tap &quot;Suggested: Personal (home)&quot; chip — it&#x27;s a suggestion and never changes the trip on its own.</dd>
+    <dt>Which IRS mileage rate does it apply?</dt>
+    <dd>2026 has two. MileTruth uses 72.5 cents a mile for trips dated January 1 to June 30 and 76 cents for July 1 to December 31, applying the rate that belongs to each trip&#x27;s own date rather than one blended rate for the year. The Taxes screen shows each period separately and then a combined Schedule C total. If a trip falls in a period with no rate configured, it&#x27;s left out of the dollar total and the app tells you how many trips that affected — the miles are still counted.</dd>
+    <dt>Where does the cost-per-mile figure come from, and can I change it?</dt>
+    <dd>The defaults come from AAA&#x27;s Your Driving Costs 2025 study, which is based on a new vehicle — so as the app warns in Settings, it is likely a high starting estimate for a typical gig car. Settings shows the breakdown (depreciation, fuel, maintenance and tires, insurance) and you can override the figure with your own.</dd>
+    <dt>Can I import my earnings instead of typing them in?</dt>
+    <dd>Yes — Earnings → Import CSV takes a statement file and matches the date, gross, tips, bonus and fee columns for you. Column matching is best-effort because statement formats differ between platforms and change over time, so the preview shows you which columns it matched and how many rows will be skipped before anything is imported. This imports earnings only; there is no mileage import.</dd>
+    <dt>What can I export?</dt>
+    <dd>From Taxes, a PDF report laid out for Schedule C and a CSV of your trips (date, start and end time, distance, platform, purpose, classification). From Insights, a true-net-by-platform summary as a PDF or CSV. Everything goes through your phone&#x27;s normal share sheet, so you choose where it lands.</dd>
+    <dt>Is the tax report tax advice?</dt>
+    <dd>No. It is a record of what you logged, and the app says so on the screen and in the report itself: estimates only, consult a tax professional. Logging fuel or maintenance as an expense while also relying on the per-mile cost estimate can double-count the same cost — the two are alternative ways of looking at it.</dd>
+    <dt>How do I delete everything?</dt>
+    <dd>Settings → &quot;Delete all my data&quot;. It permanently removes every trip, earning, expense and setting stored on the device, immediately, and it cannot be undone. There is no cloud copy to delete separately.</dd>
+    <dt>How do I restore a purchase?</dt>
+    <dd>Open the subscription screen and choose Restore purchases, signed into the same Apple ID or Google account you bought with. If it comes back saying no purchases were found and you believe that&#x27;s wrong, send us a screenshot and we&#x27;ll look into it.</dd>
+    <dt>How do I cancel, or ask a billing question?</dt>
+    <dd>The store handles billing, not us. iPhone: Settings → your name → Subscriptions → MileTruth. Android: Play Store → Subscriptions. Cancelling stops the next renewal and you keep access until the period you&#x27;ve paid for ends.</dd>
+    <dt>How do I get a refund?</dt>
+    <dd>We don&#x27;t process the payment, so the quickest route is the store: reportaproblem.apple.com on iOS, or play.google.com/store/account on Android — pick the purchase and choose &quot;Request a refund&quot;. If the store gives you trouble, tell us and we&#x27;ll help where we can.</dd>
+    <dt>Something&#x27;s broken. How do I report it?</dt>
+    <dd>Email us with your device and OS version, what you were doing, what you expected versus what actually happened, and a screenshot with anything personal blurred. That combination usually points straight at the problem.</dd>
+  </dl>
+  <h2>Still stuck?</h2>
+  <p>Email <a href="mailto:rsb.baker+miletruth@gmail.com">rsb.baker+miletruth@gmail.com</a>. It reaches a person, not a ticket queue, and we answer every message.</p>
+  <h2>Legal</h2>
+  <ul>
+    <li><a href="../privacy/">Privacy Policy</a></li>
+    <li><a href="../terms/">Terms of Use</a></li>
+  </ul>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="../">MileTruth</a> &middot; <a href="../privacy/">Privacy Policy</a> &middot; <a href="../terms/">Terms of Use</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+</body>
+</html>

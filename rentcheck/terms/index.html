@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Service — MoveWitness</title>
+  <meta name="description" content="Terms of Service for MoveWitness, a rental move-in and move-out inspection app from Baker Ventures LLC. A documentation tool, not legal advice.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/rentcheck/terms/">
+  <meta name="robots" content="index,follow">
+  <style>
+    :root { color-scheme: light; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
+    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    h3 { font-size: 16px; margin: 24px 0 8px; }
+    p { margin: 12px 0; }
+    ul { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
+    a { color: #2C6FA8; }
+    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+    strong { font-weight: 700; }
+    blockquote { margin: 16px 0; padding: 12px 16px; background: #fafafa;
+                 border-left: 3px solid #2C6FA8; font-size: 15px; }
+    blockquote p { margin: 8px 0; }
+    blockquote p:first-child { margin-top: 0; }
+    blockquote p:last-child { margin-bottom: 0; }
+    .nav { font-size: 14px; margin: 0 0 20px; }
+    .nav a { color: #666; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+  </style>
+</head>
+<body>
+  <p class="nav"><a href="../">MoveWitness</a> &rsaquo; Terms</p>
+  <h1>Terms of Service — MoveWitness</h1>
+  <p class="meta"><strong>Last updated:</strong> September 23, 2026</p>
+  <p>These terms are the agreement between you and <strong>Baker Ventures LLC</strong> ("we," "us"), a Utah limited liability company, covering your use of the MoveWitness mobile app ("the app"). By installing or using the app, you agree to them. If you don't agree, don't use the app — deleting it ends the agreement, and there is no account to close.</p>
+  <p>How your data is handled is covered by the separate <a href="../privacy/">Privacy Policy</a>.</p>
+  <h2>Not legal advice</h2>
+  <p>MoveWitness is a documentation tool. It records what you observed and photographed; it does not advise you, represent you, or decide anything. This is the same wording the app already prints in the footer of every report it generates, and these terms repeat it rather than restate it differently, so the two can never drift apart:</p>
+  <blockquote>
+    <p>This report is a record of what was observed and photographed on the dates shown. It is not legal advice, and it does not by itself decide any security-deposit claim. Deposit rules — deadlines, itemisation and what may be withheld — vary by state and sometimes by city. Check your own state statute or ask a lawyer in your state.</p>
+  </blockquote>
+  <p>As a term of this agreement:</p>
+  <ul>
+    <li><strong>Nothing in the app is legal advice</strong>, and using it creates no attorney-client or other professional relationship. We are not a law firm and we do not practise law.</li>
+    <li><strong>We guarantee no outcome.</strong> MoveWitness does not recover a security deposit, does not win or settle a dispute, and does not guarantee that any landlord, tenant, mediator, court, or arbitrator will accept, admit, or be persuaded by a report you produce with it. Whether your documentation helps you is up to the facts, your own state's law, and the decision-maker.</li>
+    <li><strong>Landlord-tenant law varies by state</strong>, and often by city. Deadlines, required itemisation, what may lawfully be withheld, notice requirements, and what evidence counts are all set locally. The app ships a deposit-law reference for only a small number of states, each with a citation to that state's own statute, and deliberately shows nothing where we do not have a citation — an absence in the app is not a statement that your state has no rule.</li>
+    <li><strong>You are responsible for what you record and what you claim.</strong> Photograph and describe accurately; take the photos you actually need; and check your own state's statute or ask a lawyer licensed in your state before relying on any of it in a dispute.</li>
+  </ul>
+  <h2>What the integrity digest is — and is not</h2>
+  <p>Every report the app generates carries a SHA-256 <strong>integrity digest</strong> computed over the report's own contents: the property label, the inspection's identifiers and timestamps, each room's name, notes and condition, and the actual bytes of every photo included. Regenerate the report from unchanged data and you get the same digest; change a note, swap a photo, or drop a room and the digest changes. That is what it is for — making a silent edit detectable.</p>
+  <p>What it is not, in the app's own words, printed in that same footer:</p>
+  <blockquote>
+    <p>A content digest, not a signature — it does not prove when this file was created.</p>
+  </blockquote>
+  <p>Specifically, the digest is <strong>not a cryptographic signature</strong>, not a notarisation, and not a trusted third-party timestamp. It is computed on your own device, from data on your own device, with no key only we hold and no external timestamp authority involved. It therefore proves nothing to someone who does not trust that device or its clock, and it does not establish authenticity, authorship, or the time of anything. Do not present it as a signature or as proof of when a photograph was taken. (The app does read and store each photo's own EXIF capture date where the photo has one, but that metadata comes from the file you supplied and we do not verify it.)</p>
+  <p>Completing an inspection locks it: once completed, no room, note, or photo on that inspection can be added, edited, or removed through the app. That lock is a feature of this app's own data layer on your own device — it is a discipline that makes your record more credible, not a legal guarantee that no one could ever alter data by other means.</p>
+  <h2>Your licence to use the app</h2>
+  <p>We grant you a personal, non-exclusive, non-transferable, revocable licence to install and use one copy of MoveWitness on devices you own or control, to document properties you have a legitimate reason to document. That licence is all you get: we keep ownership of the app itself — its code, design, name, and report formats — and nothing here transfers any of that to you.</p>
+  <h2>Your data is yours</h2>
+  <p>Everything you create — properties, inspections, rooms, notes, and photos — belongs to you, and we cannot see it. MoveWitness has no account, no server, and uploads nothing; it all lives in local storage on your own device.</p>
+  <ul>
+    <li><strong>Exports are yours to run and yours to control.</strong> The PDF reports, the move-in/move-out comparison, and the CSV exports are built on your device and handed to your operating system's own share sheet. Where a file goes after that is entirely your choice and entirely your responsibility. We have no visibility into, and no control over, what you do with it — and once you send a report to a landlord, tenant, or anyone else, you cannot unsend it.</li>
+    <li><strong>Your device is your responsibility.</strong> Local data is only as protected as the device holding it, so the passcode, biometric lock, and encrypted backups are yours to keep, and so is keeping your own copies. Photos of a home are sensitive; treat exported reports accordingly.</li>
+    <li><strong>Deleting the app deletes the data.</strong> There is no cloud copy, no backup we hold, and nothing we can restore for you. An inspection you may need months later — which is the normal case here, since move-out can be a year after move-in — should be exported and stored somewhere you control.</li>
+  </ul>
+  <h2>Acceptable use</h2>
+  <p>Use MoveWitness to document property you own, rent, manage, or are otherwise entitled to be in and to photograph. Don't:</p>
+  <ul>
+    <li>use it to photograph or record people, or spaces you have no right to enter or document;</li>
+    <li>fabricate, backdate, or alter a record, or present a report as something it is not (a signed document, a notarised document, a legal opinion, or an official record);</li>
+    <li>present output from the app as legal advice, or use it to provide legal services to someone else;</li>
+    <li>reverse engineer, decompile, or disassemble the app, except to the extent applicable law says you may despite this;</li>
+    <li>interfere with the app, or try to reach it by any means other than the interface we provide;</li>
+    <li>redistribute, resell, or repackage the app or its reports as your own product;</li>
+    <li>use it for anything unlawful, including harassment or unlawful surveillance of a tenant, landlord, or occupant.</li>
+  </ul>
+  <p>Local law may limit when and where you may photograph inside an occupied dwelling, and may require notice before entry. Those rules are yours to follow; the app does not check them for you.</p>
+  <h2>Cost and purchases</h2>
+  <p>MoveWitness is free. There is no subscription, no in-app purchase, no paywall, and no advertising. If that ever changes, it will change in a future version with its own terms shown to you before you buy anything — this version does not obligate you to pay for anything.</p>
+  <h2>No warranty</h2>
+  <p>The app is provided <strong>"as is" and "as available," without warranties of any kind</strong>, express or implied, including any implied warranty of merchantability, fitness for a particular purpose, accuracy, or non-infringement, to the fullest extent permitted by law. We do not warrant that the app will be uninterrupted or error-free, that a photo, note, digest, or export will be captured, computed, or produced correctly, or that any record it holds will survive a device fault, an OS update, or your own deletion.</p>
+  <h2>Limitation of liability</h2>
+  <p>To the maximum extent permitted by law, Baker Ventures LLC will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or for any lost data, lost photographs, lost deposit, unfavourable settlement, adverse ruling, or other outcome of any dispute, arising from or relating to your use of the app. Our total liability for any claim relating to the app will not exceed the greater of the amount you paid us for it (which, for this version, is nothing) or US$50.</p>
+  <p>Nothing here limits liability that cannot be limited under applicable law — including liability for fraud, or for death or personal injury caused by negligence. Some jurisdictions do not allow these exclusions, in which case they apply to you only as far as that jurisdiction permits, and you may have rights under your local consumer-protection law that these terms cannot take away.</p>
+  <h2>Termination</h2>
+  <p>You can end this agreement at any time by deleting the app; that also deletes your data from the device. We may stop offering, updating, or supporting MoveWitness at any time, and may suspend or terminate your licence if you breach these terms. Because everything is on your device, an installed copy keeps working even if we stop distributing it — but we are not obliged to keep it compatible with future OS versions. The sections on your data, no warranty, limitation of liability, and governing law survive termination.</p>
+  <h2>Governing law</h2>
+  <p>These terms are governed by the laws of the State of Utah, United States, without regard to its conflict-of-laws rules. Where mandatory consumer-protection law of your place of residence applies, it applies in addition to this. Nothing in this section changes the point made above that <strong>the landlord-tenant and security-deposit law governing your tenancy is your own state's, not Utah's</strong> — this clause is about this agreement, not about your lease.</p>
+  <h2>Changes to these terms</h2>
+  <p>We may update these terms. When we do, we'll change the "Last updated" date above and describe what changed. Material changes will be surfaced in the app. Continuing to use the app after a change means you accept the updated terms.</p>
+  <h2>Contact</h2>
+  <p>Questions about these terms: <strong>rsb.baker+movewitness@gmail.com</strong> · Baker Ventures LLC, Utah, USA.</p>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="../">MoveWitness</a> &middot; <a href="../privacy/">Privacy Policy</a> &middot; <a href="../support/">Support</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+</body>
+</html>
