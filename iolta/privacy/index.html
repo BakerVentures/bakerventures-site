@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — IOLTA Recon</title>
+  <meta name="description" content="IOLTA Recon&#x27;s privacy policy: an on-device attorney trust-account reconciliation app from Baker Ventures LLC.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/iolta/privacy/">
+  <meta name="robots" content="index,follow">
+  <style>
+    :root { color-scheme: light; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
+    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    h3 { font-size: 16px; margin: 24px 0 8px; }
+    p { margin: 12px 0; }
+    ul { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
+    a { color: #1F4E5F; }
+    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+    strong { font-weight: 700; }
+    blockquote { margin: 16px 0; padding: 12px 16px; background: #fafafa;
+                 border-left: 3px solid #1F4E5F; font-size: 15px; }
+    blockquote p { margin: 8px 0; }
+    blockquote p:first-child { margin-top: 0; }
+    blockquote p:last-child { margin-bottom: 0; }
+    .nav { font-size: 14px; margin: 0 0 20px; }
+    .nav a { color: #666; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+  </style>
+</head>
+<body>
+  <p class="nav"><a href="../">IOLTA Recon</a> &rsaquo; Privacy Policy</p>
+  <h1>Privacy Policy — IOLTA Recon</h1>
+  <p><strong>Publishing requirements this file has to meet once hosted</strong> (Google Play Developer Program Policies, User Data): the live page must be publicly accessible with no login, not geo-blocked, not editable by viewers, served as a real web page rather than a PDF download, and must name the developer — Baker Ventures LLC — and the app it covers. Apple guideline 5.1.1(i) additionally requires the same policy be reachable from <em>inside</em> the app, which <code>app/privacy.tsx</code> satisfies.</p>
+  <p><strong>Last updated:</strong> September 23, 2026</p>
+  <p>IOLTA Recon ("the app") is published by <strong>Baker Ventures LLC</strong> ("we," "us"). This policy explains what the app does with your information — and, just as importantly for a trust-accounting tool, what it does with your clients'.</p>
+  <h2>The short version</h2>
+  <p><strong>We never receive your data.</strong> There is no account, no sign-in, and no server of ours for the app to talk to. Every trust account, client ledger, transaction, and reconciliation you enter is written to a database on your own device and stays there. The app makes no network requests of any kind.</p>
+  <h2>1. The sensitivity of what this app holds — stated plainly</h2>
+  <p>This app holds <strong>client trust ledger data</strong>: client names, matter names, the dates and amounts of money you hold in trust for each of them, and what you did with it. That is among the most sensitive information a law practice keeps. It is very likely confidential client information under your jurisdiction's equivalent of ABA Model Rule 1.6, and some of it may be privileged. A leak is not a privacy inconvenience — it is a professional-responsibility problem.</p>
+  <p>The app is built around that fact: <strong>it takes no copy.</strong> Nothing is uploaded, synced, backed up to us, or shared with any vendor, so there is no server of ours to breach, no employee of ours who can read your ledgers, no subpoena that can be served on us for them, and no analytics vendor who has ever seen a client name.</p>
+  <p>The trade is that <strong>the security of this data is on you and on your device.</strong> Use a device passcode/biometrics and full-device encryption, keep the OS updated, and be deliberate about where your device's own backups go (an iCloud or Google device backup may include this app's data — that is your operating system's backup, governed by Apple's or Google's terms, not something this app initiates or controls). See section 5.</p>
+  <h2>2. What the app collects, and every use of it</h2>
+  <p>The app transmits nothing to us or to anyone else. The following is stored locally on your device in a SQLite database (<code>iolta-recon.db</code>) inside the app's own sandbox:</p>
+  <p>| What is stored | Where it comes from | Every use it is put to | | --- | --- | --- | | <strong>Trust accounts</strong> — display name, jurisdiction, created date | You type them | Grouping ledgers and transactions; labelling reconciliations | | <strong>Client ledgers</strong> — client name, matter name | You type them | Showing per-client balances; the client-ledger total in a three-way reconciliation; appearing in a report you choose to export | | <strong>Transactions</strong> — date, type (deposit, disbursement, transfer, fee), description, amount, cleared/outstanding flag | You type them | Computing register and client-ledger balances; the reconciliation; the no-overdraw check that refuses to let one client's funds cover another's; appearing in a report you choose to export | | <strong>Bank statement figures</strong> — period end date, ending balance | You type them | The bank side of the three-way reconciliation | | <strong>Reconciliation history</strong> — the balances, whether they tied, the number of findings, and the frozen report text, with a timestamp | Generated when you run a reconciliation | Letting you reopen what was actually reported for a past period rather than a number recomputed today | | <strong>App settings</strong> — whether the monthly reminder is on, which day it fires, the OS identifier of that scheduled notification, and a local flag used only to exercise the locked/unlocked export states in development builds | Set by you | Scheduling and cancelling the reminder; deciding whether the export button shows locked or unlocked |</p>
+  <p>That is the complete list. There is no hidden second category.</p>
+  <p><strong>What the app does not collect at all:</strong> no account credentials; no name, email address, phone number, or postal address for you; no bar number; no payment or financial information about <em>you</em>; no bank login, and no connection to any bank — you type statement figures in, the app never links to an institution; no location; no contacts, photos, camera, microphone, or calendar access; no advertising or device identifier; no crash reports; no usage or diagnostic telemetry. Beyond notifications (below), the app requests no operating-system permissions.</p>
+  <p><strong>No tracking.</strong> The app does not track you across apps or websites, contains no advertising SDK, and builds no profile. There is nothing about you or your clients for us to sell or share, and we do not.</p>
+  <p><strong>No AI or language model is used anywhere in the app.</strong> Nothing you type — no client name, no matter, no amount — is sent to a model provider.</p>
+  <h2>3. Notifications</h2>
+  <p>If you turn on the monthly reconciliation reminder, the app asks for notification permission and schedules <strong>one repeating local notification</strong> on your device. It is local-only: nothing is sent to a push server, the app registers for no remote push, and the remote-push entitlement is explicitly stripped from the build. The reminder text is fixed and generic — "Monthly trust reconciliation / … check that bank, book, and client ledgers still tie out" — and <strong>never contains a client name, a matter, or an amount</strong>, because a lock screen is not a private place for client information. Turning the reminder off in Settings cancels it. The reminder is entirely optional; the app works fully without granting notification permission.</p>
+  <h2>4. Third parties</h2>
+  <p><strong>There are none.</strong> The app contains no analytics SDK, no crash-reporting SDK, no advertising SDK, no attribution SDK, and no backend of ours. It makes no network requests — it functions identically in airplane mode. No third party receives your data from this app, and consequently no third party processes, stores, or discloses it on our behalf.</p>
+  <p>Two clarifications, since a reader may reasonably wonder:</p>
+  <ul>
+    <li><strong>There is no cloud sync and no Supabase project for this app.</strong> A database schema for a possible future hosted version exists in the source repository as unapplied SQL. It is not deployed anywhere, the app contains no code that connects to it, and no data has ever been sent to it. If a synced version is ever built, it will be a new version of this app, announced as such, with this policy rewritten before it ships — not a silent change.</li>
+    <li><strong>Exports you share.</strong> When you export a reconciliation report, the app renders the PDF (or plain text) on your device and hands the finished file to your operating system's standard share sheet. You choose the destination — your own files, a printer, an email to your accountant or bar auditor. That destination's own terms then apply, and <strong>an exported report can contain client names, matters, and amounts</strong>, so choose deliberately. The file never passes through us.</li>
+  </ul>
+  <h2>5. Retention, deletion, and withdrawing consent</h2>
+  <p><strong>Retention.</strong> Your data stays on your device for as long as you keep it there. We hold nothing, so there is no retention period on our side, no backup of yours we keep, and no record we could produce about you or your clients if compelled.</p>
+  <p><strong>A caution specific to this app.</strong> Trust-accounting records are normally subject to a jurisdictional retention requirement (commonly five to seven years after the representation ends — check your own rule). This app stores records only on one device. <strong>It is not a records-retention system</strong>, and deleting data here does not satisfy, and may conflict with, your duty to preserve trust records. Keep your authoritative records the way your jurisdiction requires — exported reports, your accounting system, or paper — independently of this app.</p>
+  <p><strong>Deletion.</strong> Uninstalling the app removes its entire local database from the device: every trust account, ledger, transaction, bank statement figure, and saved reconciliation. There is no account to close afterwards and no server copy to request the deletion of, because none was ever created. This version of the app does <strong>not</strong> provide an in-app "delete this account/ledger" action — deleting individual records is a planned feature, and until it ships, uninstalling is the way to remove data from the device. Any report you already exported and shared is outside the app's control; delete it wherever you sent it.</p>
+  <p><strong>Withdrawing consent.</strong> Because the app collects, transmits, and shares no personal data, there is no data-processing consent to grant or revoke, no tracking prompt to decline, and no marketing list to leave. The one permission the app can ask for is notifications, which you can decline outright, turn off in the app's Settings screen, or revoke at any time in your device's system settings.</p>
+  <p><strong>Rights of access, correction, portability, and erasure</strong> (GDPR, CCPA/CPRA and similar laws) are exercised directly in the app: the data is on your device, viewable and editable by you at any time without asking us. We cannot access it, so we cannot produce, correct, or delete it on your behalf. For your clients' information, you — not us — are the controller; we are not a processor for it, because we never receive it.</p>
+  <h2>6. Children</h2>
+  <p>IOLTA Recon is a professional tool for attorneys and law-firm staff. It is not directed at children and collects no personal data from anyone of any age.</p>
+  <h2>7. Not legal or accounting advice</h2>
+  <p>The app tracks transactions and reconciles balances. It is not legal or accounting advice, it never tells you your trust account is compliant with any jurisdiction's rule, and using it creates no professional relationship. See the Terms of Use (<code>docs/terms.md</code>).</p>
+  <h2>8. Changes to this policy</h2>
+  <p>If the app ever changes what it stores, contacts, or shares, this page and the in-app privacy screen will be updated in the same release that makes the change, and the date above will change with it.</p>
+  <h2>9. Contact</h2>
+  <p>Questions about this policy, or about privacy in the app: <strong>rsb.baker+iolta@gmail.com</strong></p>
+  <p>Baker Ventures LLC</p>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="../">IOLTA Recon</a> &middot; <a href="../terms/">Terms of Use</a> &middot; <a href="../support/">Support</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+</body>
+</html>
