@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy &mdash; HormoneLog</title>
+  <meta name="robots" content="index,follow">
+  <style>
+    :root { color-scheme: light; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
+    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    h3 { font-size: 16px; margin: 24px 0 8px; }
+    p { margin: 12px 0; }
+    ul { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
+    a { color: #8C5B94; }
+    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+    th { font-weight: 700; }
+    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+    strong { font-weight: 700; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy for HormoneLog</h1>
+  <p class="meta"><strong>Effective date:</strong> September 6, 2026<br><strong>Last updated:</strong> September 23, 2026</p>
+  <p>HormoneLog (&ldquo;HormoneLog,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;) is a perimenopause and menopause symptom, HRT, and cycle tracking app operated by <strong>Baker Ventures LLC</strong>. This policy explains what data the app handles, where it lives, and what we do and don&rsquo;t do with it. We wrote it to describe exactly what the app does &mdash; not generic boilerplate.</p>
+  <p><strong>The short version:</strong> your logs are stored on your device by default, not on our servers. No account is required to use HormoneLog. We never sell your data, and we never send symptom values to any analytics or advertising service.</p>
+  <hr>
+  <h2>1. Data stored on your device</h2>
+  <p>Everything you log &mdash; symptoms, severity, mood/energy/sleep ratings, period dates, HRT regimen details, notes, and generated reports &mdash; is stored in a local database on your phone, and is used to show you your own history and summaries inside the app. Free-text fields that are most likely to contain sensitive detail (log notes and any HRT dose you type in) are additionally encrypted at rest with AES-256-GCM before being written to that database; the encryption key is generated on your device and held in your device&rsquo;s secure hardware-backed keychain (iOS Keychain / Android Keystore), never transmitted anywhere, including to us.</p>
+  <p>On iOS, your health log is deliberately kept out of your phone&rsquo;s own backups. The database is marked as excluded from iCloud Backup, and the encryption key is stored so that it never leaves the handset &mdash; it is not synced to iCloud Keychain and is not included in a device backup. The practical consequence is worth stating plainly: if you lose, wipe, or replace your phone, that data is gone, because there is no copy of it anywhere else and no key escrow that would let anyone &mdash; including us &mdash; recover it. Use the export option in Settings if you want a copy you control.</p>
+  <hr>
+  <h2>2. Cloud backup (opt-in, not yet available)</h2>
+  <p>HormoneLog is designed to support an optional, opt-in cloud backup so you can restore your data on a new device. This feature is not live in the current version &mdash; the setting exists in Settings, but turning it on does not yet sync anything anywhere. If and when it ships, it will remain off by default, require an explicit action from you to enable, and will be described here in detail (what&rsquo;s sent, where it&rsquo;s stored, and how to delete it) before it goes live.</p>
+  <hr>
+  <h2>3. Generating a clinician PDF report (Premium)</h2>
+  <p>When you tap &ldquo;Generate PDF for my doctor,&rdquo; the already-computed summary shown on that screen &mdash; your Symptom Burden Index and its category breakdown, your top symptom frequencies (which symptoms and how often, not your individual daily log entries), and a short text summary of your HRT regimen (form, dose, and schedule, exactly as you typed it) &mdash; is sent over an encrypted (TLS) connection to a report-rendering service we operate, which lays it out as a PDF and returns it to your device. That service is stateless: it does not write anything to a database, and keeps nothing after it responds to your request. Your raw daily symptom log, mood/energy/sleep ratings, and free-text notes are never sent &mdash; only the aggregate scores and summary described above, and only when you choose to generate a report.</p>
+  <hr>
+  <h2>4. Apple Health (HealthKit)</h2>
+  <p>If you grant permission, HormoneLog reads sleep analysis, heart-rate variability, resting heart rate, and body temperature data from Apple Health, to show it alongside your symptom log in Insights. HormoneLog never writes any data back to Apple Health, and this data never leaves your device &mdash; it is not sent to us or to any third party. You can deny or later revoke this permission in iOS Settings at any time; the rest of the app works fully without it.</p>
+  <hr>
+  <h2>5. Analytics</h2>
+  <p>We use a minimal, privacy-conscious analytics setup to understand how people use the app in aggregate &mdash; for example, that someone completed onboarding, logged a symptom, or viewed the paywall. The complete list of events we can ever record is fixed in the app&rsquo;s source code and contains no symptom names, severities, notes, dose text, or any other health content &mdash; only that a screen was viewed or an action was taken, plus a randomly generated device identifier that is not tied to your name, email, or Apple/Google account.</p>
+  <hr>
+  <h2>6. Payments and subscriptions</h2>
+  <p>Subscription purchases are processed entirely by Apple (App Store) or Google (Play Store) and managed via RevenueCat, a subscription-management service. We receive confirmation that you have an active subscription and which plan it is; we never see or store your payment card details &mdash; those are handled directly by Apple/Google.</p>
+  <hr>
+  <h2>7. Who we share your data with</h2>
+  <p>The only parties that ever receive anything are the ones named above, and only what each needs:</p>
+  <ul>
+    <li><strong>Our report-rendering service</strong> (operated by Baker Ventures LLC) &mdash; the aggregate report summary described in Section 3, only when you generate a report, kept by nothing after the response.</li>
+    <li><strong>Our analytics provider</strong> &mdash; the fixed, health-content-free event list described in Section 5.</li>
+    <li><strong>Apple, Google, and RevenueCat</strong> &mdash; purchase and subscription status only.</li>
+  </ul>
+  <p><strong>Each of these third parties is contractually required to protect your data to at least the standard set out in this policy.</strong> Each is bound by an agreement that permits it to use the data only to provide the service we have asked it for, and forbids it from using that data for its own purposes, from selling it, and from disclosing it further.</p>
+  <h3>What we don&rsquo;t do</h3>
+  <ul>
+    <li>We do not sell your data, to anyone, ever.</li>
+    <li>We do not use third-party advertising SDKs, and HormoneLog does not show ads.</li>
+    <li>We do not track you across other apps or websites.</li>
+    <li>We do not require an account, email address, or phone number to use the app.</li>
+    <li>We do not share your health data with employers, insurers, or advertisers.</li>
+  </ul>
+  <hr>
+  <h2>8. Data retention, deletion, exporting, and withdrawing consent</h2>
+  <ul>
+    <li><strong>Retention.</strong> Your logs stay on your device until you delete them; we hold no copy of them. The report-rendering service in Section 3 retains nothing after it responds.</li>
+    <li><strong>Export.</strong> You can export your full data as a JSON or CSV file at any time from Settings, and share or save it yourself &mdash; this happens entirely on your device.</li>
+    <li><strong>Deletion.</strong> &ldquo;Delete everything&rdquo; in Settings permanently erases your local database immediately; this cannot be undone. Uninstalling the app also removes its local data, subject to your device&rsquo;s own backup behavior described in Section 1.</li>
+    <li><strong>Withdrawing consent.</strong> You can revoke Apple Health permission at any time in iOS Settings, and you can stop generating PDF reports at any time. If an opt-in cloud backup ships in a future version, you will be asked for a specific, explicit consent first and will be able to withdraw it.</li>
+    <li><strong>Requests.</strong> Write to the address in Section 12 with any access, correction, or deletion request.</li>
+  </ul>
+  <hr>
+  <h2>9. Health data and special categories (GDPR/UK)</h2>
+  <p>Symptom, HRT, and cycle data are &ldquo;special category&rdquo; health data under GDPR and UK data protection law. This data is stored locally on your device by default and not transmitted to us as part of ordinary use of the app &mdash; the one exception is the brief, stateless PDF-generation processing described in Section 3, which only happens when you explicitly choose to generate a report. If you enable a future cloud backup feature, we will present a specific, explicit consent step before any health data leaves your device, as required by law.</p>
+  <hr>
+  <h2>10. Children</h2>
+  <p>HormoneLog is not directed at, or intended for use by, children. It is rated for users 17 and older due to medical content, per App Store guidelines.</p>
+  <hr>
+  <h2>11. Changes to this policy</h2>
+  <p>If we make a material change to how HormoneLog handles data, we&rsquo;ll update the &ldquo;last updated&rdquo; date above and, where required, notify you in the app.</p>
+  <hr>
+  <h2>12. Contact</h2>
+  <ul>
+    <li><strong>Email:</strong> <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a></li>
+    <li><strong>Data controller:</strong> Baker Ventures LLC, 355 E 1200 N, Logan, UT 84341, USA</li>
+  </ul>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="../">HormoneLog Legal</a></footer>
+</body>
+</html>

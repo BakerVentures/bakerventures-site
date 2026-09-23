@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy &mdash; MileTruth</title>
+  <meta name="robots" content="index,follow">
+  <style>
+    :root { color-scheme: light; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
+    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    h3 { font-size: 16px; margin: 24px 0 8px; }
+    p { margin: 12px 0; }
+    ul { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
+    a { color: #F2A93B; }
+    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+    th { font-weight: 700; }
+    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+    strong { font-weight: 700; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy for MileTruth</h1>
+  <p class="meta"><strong>Effective date:</strong> September 18, 2026<br><strong>Last updated:</strong> September 18, 2026</p>
+  <p>MileTruth is a gig-driver mileage and net-pay app built by <strong>Baker Ventures LLC</strong> (&ldquo;we,&rdquo; &ldquo;us&rdquo;). This policy explains what the MileTruth app collects, why, how it&rsquo;s stored, and how you can export or delete it. MileTruth is in development and has not yet been released; this policy governs the app as designed and will stay in force once it ships.</p>
+  <hr>
+  <h2>1. The short version</h2>
+  <p>We don&rsquo;t sell your data, to anyone, ever. MileTruth is local-first: your trips, earnings, and vehicle data live on your device by default. Location data is used only to detect trips automatically and is never sold or shared with advertisers. We run no ad SDKs.</p>
+  <hr>
+  <h2>2. What we collect, how, and what it is used for</h2>
+  <h3>Location data</h3>
+  <p>With your permission, MileTruth uses your device&rsquo;s location &mdash; including background (&ldquo;Always&rdquo;) location &mdash; to detect when you start and stop driving, so your mileage log fills in automatically. This includes GPS coordinates and, on supported devices, motion-activity signals (for example, &ldquo;in vehicle&rdquo; vs. &ldquo;walking&rdquo;) used to decide when to start and stop tracking efficiently. Location is processed to build trip records (route, distance, start/end points) stored primarily on your device. We do not sell location data, and we do not include coordinates or addresses in analytics events sent to our service providers.</p>
+  <h3>Trip and earnings data</h3>
+  <p>Trip records (distance, timestamps, classification as business or personal, platform, purpose, notes) and earnings you enter or import (gross pay, tips, bonuses, fees, per platform) are stored on your device and, if you enable cloud backup, in our backend so you can restore them on a new device.</p>
+  <h3>Vehicle and cost data</h3>
+  <p>Vehicle details you provide (year, make, model, fuel economy) and any cost overrides you enter are used to calculate your personal cost-per-mile and true net pay. This data stays with your account and is never used for anything other than powering your own reports.</p>
+  <h3>Account and subscription data</h3>
+  <p>If you create a backup account, we store an email address or device-linked identifier. Subscription status is managed by RevenueCat, our subscription-billing provider; app-store purchase receipts are validated through RevenueCat, which does not receive your trip or earnings data.</p>
+  <h3>Diagnostics and usage data</h3>
+  <p>We use Sentry for crash and error reporting, with personal-data collection turned off and a scrubber that strips anything location- or address-shaped before it leaves your device. We use PostHog for product analytics (for example, which screens are used, whether onboarding completes) &mdash; analytics events never include location coordinates, addresses, or health data.</p>
+  <hr>
+  <h2>3. How your data is stored</h2>
+  <p>MileTruth stores your data locally on your device by default. Cloud backup, when you turn it on, syncs to a Supabase-hosted database operated by Baker Ventures LLC, protected by row-level security so only your account can read your own rows. Raw GPS points used to compute a trip&rsquo;s route are retained for a limited window to allow re-processing (for example, if map-matching improves) and are then discarded; the resulting trip summary (distance, times, addresses) is kept as part of your log.</p>
+  <hr>
+  <h2>4. Who we share your data with</h2>
+  <p>We do not sell your personal data. We share the minimum necessary data with the service providers that make the app work:</p>
+  <ul>
+    <li><strong>RevenueCat</strong> &mdash; subscription and purchase management</li>
+    <li><strong>Supabase</strong> &mdash; optional cloud backup and database hosting, encrypted in transit</li>
+    <li><strong>Sentry</strong> &mdash; crash and error diagnostics, PII scrubbing enabled</li>
+    <li><strong>PostHog</strong> &mdash; anonymized product-usage analytics, no location or health data</li>
+  </ul>
+  <p><strong>Each of these providers is contractually required to protect your data to at least the standard set out in this policy.</strong> Each is bound by an agreement that permits it to use your data only to provide the service we have asked it for, and forbids it from using that data for its own purposes, from selling it, and from disclosing it further.</p>
+  <p>We may also disclose information if required by law, or to protect the rights, property, or safety of Baker Ventures LLC, our users, or the public.</p>
+  <hr>
+  <h2>5. Data retention, deletion, and your choices</h2>
+  <ul>
+    <li><strong>Export.</strong> You can export your full mileage log and reports (PDF/CSV) from inside the app at any time.</li>
+    <li><strong>Delete.</strong> You can delete individual trips, or delete your account and all associated data, from Settings inside the app. Deleting your account removes your cloud-backed data; data that was never backed up existed only on your device and is removed when you delete the app.</li>
+    <li><strong>Retention.</strong> Cloud-backed data is retained for as long as your account exists and is deleted when you delete the account. Raw GPS points are retained only for the limited re-processing window described in Section 3 and are then discarded.</li>
+    <li><strong>Location permission &mdash; withdrawing consent.</strong> You can grant, downgrade (Always &rarr; While Using), or revoke location permission at any time in your device&rsquo;s system settings. Revoking it disables automatic trip detection; manual trip entry still works.</li>
+    <li><strong>Contact us.</strong> Email <a href="mailto:rsb.baker+miletruth@gmail.com">rsb.baker+miletruth@gmail.com</a> for any privacy request, including data export or deletion requests we can help with directly.</li>
+  </ul>
+  <hr>
+  <h2>6. Children&rsquo;s privacy</h2>
+  <p>MileTruth is not directed at children and is not intended for use by anyone under 13. We do not knowingly collect data from children under 13.</p>
+  <hr>
+  <h2>7. Changes to this policy</h2>
+  <p>If we make a material change to this policy, we&rsquo;ll update the effective date above and, where required, notify you in the app.</p>
+  <hr>
+  <h2>8. Contact</h2>
+  <ul>
+    <li><strong>Email:</strong> <a href="mailto:rsb.baker+miletruth@gmail.com">rsb.baker+miletruth@gmail.com</a></li>
+    <li><strong>Operator:</strong> Baker Ventures LLC, 355 E 1200 N, Logan, UT 84341, USA</li>
+  </ul>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="../">MileTruth Legal</a></footer>
+</body>
+</html>
