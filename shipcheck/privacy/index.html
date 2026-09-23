@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy &mdash; ShipCheck</title>
+  <meta name="description" content="Privacy policy for ShipCheck, the Claude Code plugin by Baker Ventures LLC: what the scanner reads locally, the license validation endpoint, and the documentation site.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/shipcheck/privacy/">
+  <meta name="robots" content="index,follow">
+  <style>
+    :root { color-scheme: light; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
+    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    h3 { font-size: 16px; margin: 24px 0 8px; }
+    h4 { font-size: 15px; margin: 20px 0 6px; }
+    p { margin: 12px 0; }
+    ul, ol { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
+    a { color: #3D5A80; }
+    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    .tablewrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+    th { font-weight: 700; }
+    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em;
+           word-break: break-word; }
+    strong { font-weight: 700; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+  </style>
+</head>
+<body>
+  <h1>ShipCheck Privacy Policy</h1>
+  <p><strong>Last updated: 23 September 2026.</strong> Applies to ShipCheck v0.2.16.</p>
+  <p>ShipCheck is operated by <strong>Baker Ventures LLC</strong>. Questions, deletion requests, or anything else about this page: <strong><a href="mailto:rsb.baker+shipcheck@gmail.com">rsb.baker+shipcheck@gmail.com</a></strong>.</p>
+  <p>This policy covers three separate things, which have very different data flows:</p>
+  <ol>
+    <li>the <strong>ShipCheck plugin</strong> — the scanner, the slash commands, and the GitHub Action;</li>
+    <li>the <strong>license validation endpoint</strong> — the only service Baker Ventures runs that a ShipCheck user&#x27;s machine ever talks to;</li>
+    <li>the <strong>documentation site</strong> at <code>bakerventures.github.io/shipcheck/</code> and <code>shipcheck.bakerventuresstudio.com</code>.</li>
+  </ol>
+  <p>Where this page and the code disagree, the code is the truth. The two files that matter are short enough to read in full: <code>scripts/license.py</code> (the function <code>_payload()</code> is the entire outbound request body) and <code>server/validate.js</code>.</p>
+  <hr>
+  <h2>The short version</h2>
+  <ul>
+    <li><strong>Your project never leaves your machine.</strong> No source, no file paths, no dependency list, no store metadata, no findings, no scores. The scanner has no telemetry, no analytics, no crash reporting, and no install identifier of any kind.</li>
+    <li><strong>The only data that reaches Baker Ventures</strong> is a license check: your license key, the plugin version, and an opaque per-app hash. That is three fields, and only if you have bought a license.</li>
+    <li><strong>There are no analytics or error-tracking services</strong> anywhere in the plugin, the server, or the site.</li>
+    <li><strong>We never see your payment details.</strong> Purchases are handled by Lemon Squeezy as merchant of record.</li>
+  </ul>
+  <hr>
+  <h2>1. The scanner — what it does and does not do</h2>
+  <p><code>/shipcheck:scan</code>, <code>/shipcheck:android</code>, <code>/shipcheck:reply</code>, the <code>shipcheck</code> CLI and the GitHub Action all run the same scanner (<code>scripts/scan.py</code>) inside your own Claude Code session or your own CI runner.</p>
+  <p><strong>What it reads, locally:</strong> <code>app.json</code> / <code>app.config.js</code>, <code>package.json</code> and <code>node_modules</code> package manifests, <code>Info.plist</code>, <code>PrivacyInfo.xcprivacy</code>, <code>AndroidManifest.xml</code>, <code>build.gradle</code>, <code>eas.json</code>, app icon PNGs, your source files, and the <code>shipcheck.metadata.md</code> file you write yourself.</p>
+  <p><strong>What it writes, locally:</strong> <code>shipcheck-report.md</code> in your project (only when you ask for a report), and nothing else. <code>/shipcheck:refresh</code> additionally writes a policy corpus into the plugin&#x27;s own data directory.</p>
+  <p><strong>What it transmits: nothing about your project.</strong> There is no &quot;ShipCheck server&quot; that receives a scan. The scanner contains exactly one network function, <code>head_ok()</code>, and it is used for one purpose, described next.</p>
+  <h3>The one outbound request the scanner makes</h3>
+  <p>If your <code>shipcheck.metadata.md</code> lists a <strong>privacy policy URL, support URL, or marketing URL</strong>, ShipCheck sends an HTTP <code>HEAD</code> (falling back to <code>GET</code>) to each one, to check it is reachable — because App Review opens every link in your listing and a dead privacy policy URL is a routine rejection.</p>
+  <ul>
+    <li>Those requests go to <strong>your own servers</strong>, not to ours. We never learn the URLs, the result, or that a scan happened.</li>
+    <li>The request carries the User-Agent <code>ShipCheck/0.1 (link checker)</code> and nothing else about you or your project.</li>
+    <li>Whoever hosts those URLs will see the request in their own logs, the same as any other visitor.</li>
+    <li><strong><code>--offline</code> skips this entirely</strong>, and the scan still runs.</li>
+  </ul>
+  <hr>
+  <h2>2. Fetching Apple and Google policy text</h2>
+  <p>ShipCheck ships with a cached copy of the Apple and Google policy corpus, so a normal scan fetches nothing. When you run <strong><code>/shipcheck:refresh</code></strong>, <code>scripts/fetch_corpus.py</code> downloads the public policy pages listed in <code>scripts/sources.py</code> — <code>developer.apple.com</code>, <code>developer.android.com</code>, <code>support.google.com</code>, <code>play.google.com</code>, <code>docs.expo.dev</code> and similar.</p>
+  <ul>
+    <li>These requests go <strong>directly from your machine to Apple, Google and Expo.</strong> They do not pass through any Baker Ventures server, and we receive no record of them.</li>
+    <li>Those sites can see what any web server sees: your IP address, the timestamp, the page requested, and a User-Agent string. For compatibility, the fetcher sends a standard desktop-browser User-Agent rather than identifying itself as ShipCheck, and it keeps session cookies only in memory for the duration of a single request.</li>
+    <li>Nothing about your project is included in, or inferable from, these requests.</li>
+    <li>If you never run <code>/shipcheck:refresh</code>, ShipCheck makes no policy-corpus requests at all.</li>
+  </ul>
+  <hr>
+  <h2>3. The license check — the only data flow that reaches Baker Ventures</h2>
+  <p>This section is the one that matters. If you use ShipCheck without a license key, skip it: with no key on the machine, <code>scripts/license.py</code> returns &quot;free&quot; without making any request at all.</p>
+  <h3>3.1 What is sent</h3>
+  <p>When a report is generated and a license key is present (in <code>~/.shipcheck/license</code> or the <code>SHIPCHECK_LICENSE_KEY</code> environment variable), the plugin makes <strong>one</strong> HTTPS POST to the validation endpoint. The complete request body is:</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Field</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td><code>license_key</code></td><td>The key you bought.</td></tr>
+      <tr><td><code>plugin_version</code></td><td>A version string, e.g. <code>0.2.11</code>.</td></tr>
+      <tr><td><code>app_token</code></td><td>Optional. <code>sha256(license_key + &quot;:&quot; + bundle_id)</code>, truncated to 32 hex characters, computed <strong>on your machine</strong>. Omitted when the project has no bundle identifier.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>That is the entire body. No project path, no repository name, no dependency list, no store metadata, no findings, no score, no username, no machine identifier, no hardware fingerprint.</p>
+  <p>The <code>app_token</code> exists so a $29 <strong>single-app</strong> license can be pinned to one app. It is a hash: the server cannot recover your bundle identifier from it without already knowing that bundle identifier. It is stable for a given (license, app) pair, which is exactly what binding requires and the only thing it can be used for.</p>
+  <p>As with any HTTPS request, the transport itself carries your <strong>source IP address</strong>, the <strong>timestamp</strong>, TLS connection metadata, and the User-Agent <code>ShipCheck/&lt;version&gt;</code>. We list these because they are real, even though the application does not record them — see §3.4.</p>
+  <h3>3.2 What the server does with it</h3>
+  <p><code>server/validate.js</code> is a single Express route. On receiving a request it:</p>
+  <ol>
+    <li>checks an in-memory cache for a recent verdict on that key;</li>
+    <li>if there is none, forwards <strong>the license key alone</strong> to Lemon Squeezy&#x27;s license validation API (<code>api.lemonsqueezy.com</code>) using our API key, to confirm the key is real and active;</li>
+    <li>maps the returned product variant to a tier (<code>single</code>, <code>unlimited</code>, <code>agency</code>);</li>
+    <li>for a <code>single</code> tier only, records the <code>app_token</code> against that key so the license stays bound to one app;</li>
+    <li>answers <code>{valid, tier, bound_app}</code>.</li>
+  </ol>
+  <p>The plugin version is received but is not used, stored, or logged.</p>
+  <h3>3.3 What the server stores</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Store</th><th>Contents</th><th>Where</th><th>Retention</th></tr></thead>
+    <tbody>
+      <tr><td>Verdict cache</td><td>License key → <code>{valid, tier, timestamp}</code></td><td>Memory only</td><td>7 days for a positive verdict, 10 minutes for a refusal; capped at 50,000 entries; <strong>erased on every restart or redeploy</strong></td></tr>
+      <tr><td>Rate-limit counters</td><td>License key → recent request timestamps</td><td>Memory only</td><td>60-second rolling window</td></tr>
+      <tr><td>App bindings</td><td>License key → list of <code>app_token</code> hashes, in <code>bindings.json</code></td><td>Disk</td><td><strong>Indefinite.</strong> There is no automatic expiry — see §7 for deletion</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><code>bindings.json</code> is the only durable record we keep. It contains license keys and opaque hashes. It contains no bundle identifiers, no email addresses, no IP addresses, no project data.</p>
+  <p>The <code>/health</code> route returns two aggregate numbers — how many verdicts are cached and how many licenses have bindings. It returns no keys, tokens, or per-customer data.</p>
+  <h3>3.4 What the server logs</h3>
+  <p>The application writes <strong>no request log</strong>. It has no logging middleware. It prints to standard error in exactly two situations: when the upstream Lemon Squeezy call fails, and when writing <code>bindings.json</code> fails. Both lines contain only an error message — never your license key, your <code>app_token</code>, or your IP address.</p>
+  <p><strong>What we cannot fully determine, and will not guess:</strong> the hosting provider keeps its own HTTP access logs, outside the application&#x27;s control. The deployment blueprint in <code>render.yaml</code> targets <strong>Render</strong>, whose platform logging typically records source IP, request path, status code, timestamp and User-Agent, with retention set by Render&#x27;s own policy and plan. We do not control the contents or the retention period of those logs and we are not going to state a figure we cannot verify. If you need that answered precisely, email us and we will check the provider&#x27;s current policy and tell you what we find.</p>
+  <h3>3.5 Fail-open, and why it is a privacy fact and not just an uptime one</h3>
+  <p>The client treats <strong>only</strong> a well-formed, explicit <code>{&quot;valid&quot;: false}</code> as a reason to downgrade you to the free tier. A timeout, a DNS failure, a 5xx, a rate-limit response, an unreachable host, a captive portal, or any malformed reply all cause ShipCheck to <strong>fail open</strong> and treat you as fully licensed.</p>
+  <p>The practical consequence: <strong>you can block the validation endpoint at your firewall and ShipCheck keeps working at full tier.</strong> No license data will reach us, and nothing will break. A positive verdict is also cached locally for 7 days, so a licensed user&#x27;s machine contacts us at most about once a week per license-and-app pair, not on every scan.</p>
+  <h3>3.6 Current deployment status</h3>
+  <p>As of the date at the top of this page, the default endpoint <code>https://api.shipcheck.dev/validate</code> <strong>does not resolve in DNS and the validation server is not deployed.</strong> Every license check therefore fails open, and <strong>no license data currently reaches any Baker Ventures server at all.</strong> Sections 3.1–3.5 describe what the server receives and stores once it is deployed, so that the description is on record before any data flows rather than after. The date at the top of this page will be updated when that changes.</p>
+  <hr>
+  <h2>4. Purchases</h2>
+  <p>ShipCheck licenses are sold through <strong>Lemon Squeezy</strong>, acting as merchant of record. When you buy a license you give Lemon Squeezy your name, email address, payment details and the tax-location information they are required to collect. <strong>We never see or handle your card details.</strong></p>
+  <p>From Lemon Squeezy&#x27;s dashboard we can see your order: the license key, your email address and the product bought. We use that only to deliver the license, to answer support email, and to honour refunds. Lemon Squeezy&#x27;s own privacy policy governs their processing and their retention, including records they must keep for tax purposes.</p>
+  <hr>
+  <h2>5. Third parties — the complete list</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Party</th><th>What they get</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Lemon Squeezy</strong></td><td>Your purchase details directly from you at checkout; your license key from our server at each validation</td><td>License issuance, payment processing, license validation</td></tr>
+      <tr><td><strong>Our hosting provider</strong> (Render, per <code>render.yaml</code>)</td><td>The validation request in transit, plus their own platform access logs (§3.4)</td><td>Running the validation endpoint</td></tr>
+      <tr><td><strong>GitHub</strong></td><td>Your IP address when you install the plugin from the repository or view the docs site on GitHub Pages</td><td>Distribution and documentation hosting</td></tr>
+      <tr><td><strong>Cloudflare</strong></td><td>Your IP address when you visit <code>shipcheck.bakerventuresstudio.com</code></td><td>CDN/DNS for the marketing site</td></tr>
+      <tr><td><strong>Google Fonts</strong> (<code>fonts.googleapis.com</code>)</td><td>Your IP address when you view a page on the documentation site</td><td>Web fonts on the site only — <strong>the plugin itself loads nothing from Google</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>These providers process this data to provide their service to us, under their own terms. We do not authorise them to use it for any other purpose.</p>
+  <p><strong>There are no other third parties.</strong> No analytics (no PostHog, Google Analytics, Plausible, or anything else), no error tracking (no Sentry), no advertising or attribution SDKs, no data brokers, no session recording. We do not sell your data, share it for advertising, or combine it with data from other sources. There is nothing to sell: the durable record we hold is a license key and a list of hashes.</p>
+  <hr>
+  <h2>6. CI and the GitHub Action</h2>
+  <p>The ShipCheck GitHub Action runs the same scanner inside <strong>your</strong> runner. The report is written into your workspace and stays in your CI. If you supply a license key as a repo secret, the license check described in §3 runs from your runner&#x27;s IP address instead of your laptop&#x27;s; nothing else changes. Whatever your CI provider logs about your own jobs is governed by their policy, not this one.</p>
+  <hr>
+  <h2>7. Retention, deletion, and how to revoke</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Data</th><th>Where it lives</th><th>How long</th><th>How to get rid of it</th></tr></thead>
+    <tbody>
+      <tr><td>Your license key</td><td><code>~/.shipcheck/license</code> on your machine (mode <code>600</code>)</td><td>Until you delete it</td><td><code>rm ~/.shipcheck/license</code></td></tr>
+      <tr><td>Cached verdicts</td><td><code>~/.shipcheck/cache.json</code> on your machine (mode <code>600</code>)</td><td>7 days positive / 10 minutes negative</td><td><code>python3 scripts/license.py --clear-cache</code>, or just delete the file</td></tr>
+      <tr><td>Server verdict cache</td><td>Our server&#x27;s memory</td><td>≤ 7 days, and erased on restart</td><td>Expires by itself</td></tr>
+      <tr><td>App bindings</td><td><code>bindings.json</code> on our server</td><td>Indefinite</td><td><strong>Email us</strong> — see below</td></tr>
+      <tr><td>Hosting access logs</td><td>Our hosting provider</td><td>Set by the provider; not determined by us (§3.4)</td><td>Ask us and we will check</td></tr>
+      <tr><td>Purchase records</td><td>Lemon Squeezy</td><td>Their policy plus their tax-record obligations</td><td>Request via Lemon Squeezy; we will support the request</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>To stop all outbound traffic, in order of bluntness:</strong></p>
+  <ol>
+    <li>Run scans with <code>--offline</code> and do not run <code>/shipcheck:refresh</code>. Nothing leaves the machine at all.</li>
+    <li><code>rm -rf ~/.shipcheck</code> — removes your key and cache. With no key, the plugin makes no license request; it reverts to the free tier.</li>
+    <li>Block <code>api.shipcheck.dev</code> at your firewall. ShipCheck fails open and keeps working at full tier (§3.5).</li>
+    <li>Uninstall the plugin. Nothing of ours remains on the machine except files you can delete yourself: <code>~/.shipcheck/</code> and any <code>shipcheck-report.md</code> you generated.</li>
+  </ol>
+  <p><strong>To have the record on our side deleted, or to ask what we hold about you:</strong> email <strong><a href="mailto:rsb.baker+shipcheck@gmail.com">rsb.baker+shipcheck@gmail.com</a></strong> from the address on your order, or include your license key. We will delete the license&#x27;s entry from <code>bindings.json</code> and confirm. Note that deleting a binding frees a single-app license to bind to a different app; it does not cancel or refund the license. If you want the purchase record removed as well, say so and we will pass the request to Lemon Squeezy, who hold it.</p>
+  <hr>
+  <h2>8. Other disclosures</h2>
+  <p><strong>Children.</strong> ShipCheck is a developer tool, not directed at children, and we do not knowingly collect data from anyone under 13.</p>
+  <p><strong>Sensitive data.</strong> We do not collect, and the product has no use for, health data, precise location, biometric data, contacts, or any special-category personal data.</p>
+  <p><strong>International.</strong> Our validation endpoint and our providers are based in the United States, so a license check is processed in the US. If you are in the EEA or UK, our lawful bases are performance of a contract (validating the license you bought) and legitimate interests (rate limiting, to stop a leaked key being abused). You may ask us for access to, correction of, or deletion of what we hold, using the email address above.</p>
+  <p><strong>Security.</strong> The local verdict cache is written mode <code>600</code> by the code itself, and <code>/shipcheck:unlock</code> creates the license file mode <code>600</code> as well. The license check and the upstream Lemon Squeezy call are HTTPS. Our Lemon Squeezy API key lives in the server&#x27;s environment and is never sent to a client.</p>
+  <p><strong>Changes.</strong> Material changes get a new date at the top of this page. Because this file lives in the public repository, every revision and its diff are visible in the ShipCheck commit history — you never have to take our word for what changed.</p>
+  <hr>
+  <h2>Contact</h2>
+  <p><strong>Baker Ventures LLC</strong> — <strong><a href="mailto:rsb.baker+shipcheck@gmail.com">rsb.baker+shipcheck@gmail.com</a></strong></p>
+  <p>This page describes the behaviour of the code in this repository. If you find a discrepancy between what it says and what the code does, that is a bug in one of them and we want to hear about it.</p>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="../">ShipCheck</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+</body>
+</html>
