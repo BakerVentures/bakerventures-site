@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — PolicyReady</title>
+  <meta name="description" content="PolicyReady&#x27;s privacy policy: an on-device cyber-insurance readiness app from Baker Ventures LLC.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/policyready/privacy/">
+  <meta name="robots" content="index,follow">
+  <style>
+    :root { color-scheme: light; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
+    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    h3 { font-size: 16px; margin: 24px 0 8px; }
+    p { margin: 12px 0; }
+    ul { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+    th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; color: #666; }
+    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
+    a { color: #5B4B9E; }
+    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+    strong { font-weight: 700; }
+    blockquote { margin: 16px 0; padding: 12px 16px; background: #fafafa;
+                 border-left: 3px solid #5B4B9E; font-size: 15px; }
+    blockquote p { margin: 8px 0; }
+    blockquote p:first-child { margin-top: 0; }
+    blockquote p:last-child { margin-bottom: 0; }
+    .nav { font-size: 14px; margin: 0 0 20px; }
+    .nav a { color: #666; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+  </style>
+</head>
+<body>
+  <p class="nav"><a href="../">PolicyReady</a> &rsaquo; Privacy Policy</p>
+  <h1>Privacy Policy — PolicyReady</h1>
+  <p><strong>Publishing requirements this file has to meet once hosted</strong> (Google Play Developer Program Policies, User Data): the live page must be publicly accessible without a login, not geo-blocked, not editable by viewers (no Google Doc / Notion "anyone can edit" link), served as a real web page rather than a PDF download, and must name the developer — Baker Ventures LLC — and the app it covers. Apple guideline 5.1.1(i) additionally requires the same policy be reachable from <em>inside</em> the app, which <code>src/app/privacy.tsx</code> satisfies.</p>
+  <p><strong>Last updated:</strong> September 23, 2026</p>
+  <p>PolicyReady ("the app") is published by <strong>Baker Ventures LLC</strong> ("we," "us"). This policy explains what the app does with your information. It is short because the app does very little with it.</p>
+  <h2>The short version</h2>
+  <p>PolicyReady collects nothing. There is no account, no sign-in, and no server of ours for the app to talk to. Everything you type — your business name, your answers to the control questionnaire, your notes — is written to a database on your own device and never leaves it unless you deliberately share an exported summary yourself.</p>
+  <h2>1. What the app collects, and every use of it</h2>
+  <p>The app does not transmit any information to us or to anyone else. The following is stored locally on your device, in a SQLite database (<code>cyberclose.db</code>) that belongs to the app's own sandbox:</p>
+  <table>
+    <thead><tr><th>What is stored</th><th>Where it comes from</th><th>Every use it is put to</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Business/profile name</strong></td><td>You type it (you can keep several profiles, e.g. a broker working through multiple clients)</td><td>Labelling your assessments in the app, and appearing as the heading of a summary you choose to export</td></tr>
+      <tr><td><strong>Your answer to each security control</strong> (in place / partially in place / not in place / not yet assessed)</td><td>You tap it in the questionnaire</td><td>Computing your readiness score, your per-category breakdown, and your prioritized gap list; appearing in a summary you choose to export</td></tr>
+      <tr><td><strong>Free-text notes you attach to a control</strong></td><td>You type them</td><td>Shown back to you against that control; included in a summary you choose to export</td></tr>
+      <tr><td><strong>App settings</strong> (a single on/off flag, set only inside a development build and reachable by no one using the released app)</td><td>Set by a developer in a development build only</td><td>Exercising a screen state during development; it changes nothing in the released app, which is free with every feature unlocked</td></tr>
+    </tbody>
+  </table>
+  <p>That is the complete list. There is no hidden second category.</p>
+  <p><strong>What the app does not collect at all:</strong> no name, email address, phone number, postal address, or any other contact detail; no account credentials; no payment or financial information; no precise or coarse location; no contacts, photos, camera, microphone, calendar, or health data; no advertising identifier; no device identifier; no crash reports; no usage or diagnostic telemetry. The app requests no operating-system permissions.</p>
+  <p><strong>No tracking.</strong> The app does not track you across apps or websites, does not use an advertising SDK, and does not build or buy a profile about you. Because it collects nothing, there is nothing to sell, and we do not sell or share personal information with anyone, for any purpose, ever.</p>
+  <p><strong>No AI or LLM is used anywhere in the app.</strong> All guidance text is static and written in advance, so nothing you type is sent to a model provider for processing.</p>
+  <h2>2. Third parties</h2>
+  <p><strong>There are none.</strong> The app contains no analytics SDK, no crash-reporting SDK, no advertising SDK, no attribution SDK, and no backend of ours. It makes no network requests of any kind — it will function identically in airplane mode. No third party receives your data from this app, because the app sends your data to no one, and consequently no third party processes, stores, or discloses it on our behalf.</p>
+  <p>The only moment anything leaves the app is one you start deliberately:</p>
+  <ul>
+    <li><strong>The export you share.</strong> When you tap to export your posture summary, the app renders the PDF (or plain text) locally on your device and hands the finished file to your operating system's standard share sheet. You choose where it goes — your broker's email, a messaging app, your files, a printer. We are not a party to that; once you pick a destination, that destination's own privacy terms apply. The file never passes through us.</li>
+  </ul>
+  <h2>3. Retention, deletion, and withdrawing consent</h2>
+  <p><strong>Retention.</strong> Your data stays on your device for as long as you keep it there. We hold nothing, so there is no retention period on our side to describe, no backup of yours we keep, and no record we could produce about you if asked.</p>
+  <p><strong>Deletion — in the app.</strong> "Delete business" on a profile's screen deletes that profile and all of its answers and notes from the device immediately.</p>
+  <p><strong>Deletion — everything.</strong> Uninstalling the app removes the app's entire local database, including every profile, answer, and note. There is no account to close afterwards and no server copy to request the deletion of, because none was ever created.</p>
+  <p><strong>Your exported files are yours.</strong> A PDF or text summary you already shared is outside the app's control — delete it wherever you sent it.</p>
+  <p><strong>Withdrawing consent.</strong> Since the app collects, transmits, and shares no personal data, there is no data-processing consent to grant or revoke, no tracking prompt to decline, and no marketing list to unsubscribe from. If you no longer want the app holding your answers, delete the profile or uninstall the app, as above, and nothing about you remains anywhere.</p>
+  <p><strong>Your rights.</strong> Rights to access, correct, port, or erase your data (GDPR, CCPA/CPRA and similar laws) are exercised directly in the app: your data is in your hands, on your device, viewable and editable and deletable at any time without asking us. We cannot access it, so we cannot produce, correct, or delete it on your behalf.</p>
+  <h2>4. Children</h2>
+  <p>PolicyReady is a business tool for people running or advising a small business. It is not directed at children, and it collects no personal data from anyone of any age.</p>
+  <h2>5. Not insurance, legal, or security advice</h2>
+  <p>PolicyReady is a self-assessment organizational tool. It is not insurance, legal, or security-audit advice, it does not certify compliance with any insurer's requirements, and using it creates no professional relationship. The insurer's own application and its definitions always govern. See the Terms of Use (<code>docs/terms.md</code>) for the full statement.</p>
+  <h2>6. Changes to this policy</h2>
+  <p>If the app ever changes what it stores, contacts, or shares, this page and the in-app privacy screen will be updated in the same release that makes the change, and the date above will change with it.</p>
+  <h2>7. Contact</h2>
+  <p>Questions about this policy, or about privacy in the app: <strong>rsb.baker+policyready@gmail.com</strong></p>
+  <p>Baker Ventures LLC</p>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="../">PolicyReady</a> &middot; <a href="../terms/">Terms of Use</a> &middot; <a href="../support/">Support</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+</body>
+</html>

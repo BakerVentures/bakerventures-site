@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hatch Window Support &mdash; Baker Ventures LLC</title>
+  <meta name="description" content="Support for Hatch Window: how to get help, restore a purchase, cancel, request a refund, report a bug, and contact a human who answers.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/hatchwindow/support/">
+  <meta name="robots" content="index,follow">
+  <style>
+    :root { color-scheme: light; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
+    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    h3 { font-size: 16px; margin: 24px 0 8px; }
+    p { margin: 12px 0; }
+    ul { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
+    a { color: #1F6F5C; }
+    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+    strong { font-weight: 700; }
+    .note { background: #fafafa; border-left: 3px solid #1F6F5C; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
+    .contact { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
+    .contact a { font-weight: 700; }
+    .faq { margin: 0; }
+    .faq dt { font-weight: 700; margin: 22px 0 4px; }
+    .faq dd { margin: 0 0 4px; }
+    .nav { font-size: 14px; margin: 0 0 20px; }
+    .nav a { color: #666; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+  </style>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://bakerventuresstudio.com/hatchwindow/support/#faq",
+ "name": "Hatch Window Support",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Where do the water conditions come from?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The USGS Water Services API — real, public streamflow and gauge-height data. It's attributed in the app. We never show a made-up number."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does a spot say “no current data”?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "That gauge isn't reporting right now, or the network's down. Rather than guess, Hatch Window tells you the reading is unavailable."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "There's no data for my river or spot.",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "That usually means there's no nearby public streamflow gauge for that water — Hatch Window leans on gauges that exist, so ungauged creeks come up thin. The solunar feeding windows still work anywhere, since they're calculated from date and location. Send us the spot and we'll see whether there's a usable nearby gauge we can wire in."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How are the “best times” calculated?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On your device, from sunrise/sunset, twilight, and solunar major/minor feeding periods for the spot's location — standard astronomy math, no server."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Are the fly recommendations reliable?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "They come from a curated hatch database of real, commonly-tied patterns by region, water type, and month. Coverage is honest about what's included — check the coverage notes. Treat them as a starting point, not a promise."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do I need a fishing license?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Almost certainly, and regulations vary by water. Hatch Window doesn't track your license or local rules — confirm them with your state agency before you fish, and put safety first on the water."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I add my own spots?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Add any spot; if you know its USGS gauge number, Hatch Window will pull live conditions for it."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does the app work without signal on the river?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Your saved spots, catch log, times, and flies work offline. Live conditions need a connection to fetch fresh USGS data, so grab a look before you lose signal and you'll have the latest reading with you."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Where is my catch log stored?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "On your device. Hatch Window has no account and no studio server, so your spots, catches, and notes never come to us and aren't uploaded anywhere. They're in your phone's iCloud or Google backup if that's enabled, and deleting the app deletes them — so export anything you'd hate to lose. Your honey holes stay yours."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does Pro unlock?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The full hatch database, a multi-spot conditions dashboard, the 7-day outlook, unlimited logging, and shareable outing reports."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I share what worked?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes — generate a text summary of an outing (spot, date, conditions, flies that worked) to share."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I restore my purchase?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Your unlock is tied to the store account you bought with. In Hatch Window, open Settings or the paywall and tap Restore Purchases while signed into the same Apple ID or Google account. That should bring it back — if not, send a screenshot and we'll help."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I cancel, or ask a billing question?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Billing runs through the store, not us. iPhone: Settings → your name → Subscriptions → Hatch Window. Android: Play Store → Subscriptions. Cancelling stops the next renewal; you keep access until the period ends."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I get a refund?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "We don't handle the charge — Apple processes App Store refunds — so head to reportaproblem.apple.com (Android: play.google.com/store/account), pick the purchase, and choose “Request a refund.” If Apple gives you any trouble, let us know."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Something's broken, or a reading looks wrong. How do I report it?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Email us with: (1) device and OS version, (2) what you were doing (viewing conditions, logging a catch…), (3) the location if it's data-related, (4) expected vs. actual, and (5) a screenshot. If a specific reading looked off, tell us the location and we'll check our data source."
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+  <p class="nav"><a href="../">Hatch Window</a> &rsaquo; Support</p>
+  <h1>Hatch Window Support</h1>
+  <p class="meta">Published by Baker Ventures LLC &middot; Last updated: September 23, 2026</p>
+  <p>Hatch Window pulls the conditions that matter — solunar feeding windows, water and weather, and seasonal hatches — into one screen, and keeps a log of what worked.</p>
+  <div class="contact">
+    <p style="margin-top:0"><strong>Need help? Email us.</strong></p>
+    <p style="margin-bottom:0"><a href="mailto:rsb.baker+hatchwindow@gmail.com">rsb.baker+hatchwindow@gmail.com</a><br>
+    We read every message and reply personally. For a bug, include your device and OS version, what you
+    were doing, what you expected versus what happened, and a screenshot &mdash; that usually points us
+    straight at it.</p>
+  </div>
+  <div class="note"><strong>Please note.</strong> Conditions and feeding windows are estimates built from public data plus solunar math and a curated hatch list. They are a starting point, not a promise — rivers and fish don&#x27;t read the forecast. Always check current local flow and weather yourself, follow your state&#x27;s fishing regulations and access rules, and put safety first on the water. Hatch Window doesn&#x27;t track your license or local rules; confirm them with your state agency before you fish.</div>
+  <h2>Frequently asked questions</h2>
+  <dl class="faq">
+    <dt>Where do the water conditions come from?</dt>
+    <dd>The USGS Water Services API — real, public streamflow and gauge-height data. It&#x27;s attributed in the app. We never show a made-up number.</dd>
+    <dt>Why does a spot say “no current data”?</dt>
+    <dd>That gauge isn&#x27;t reporting right now, or the network&#x27;s down. Rather than guess, Hatch Window tells you the reading is unavailable.</dd>
+    <dt>There&#x27;s no data for my river or spot.</dt>
+    <dd>That usually means there&#x27;s no nearby public streamflow gauge for that water — Hatch Window leans on gauges that exist, so ungauged creeks come up thin. The solunar feeding windows still work anywhere, since they&#x27;re calculated from date and location. Send us the spot and we&#x27;ll see whether there&#x27;s a usable nearby gauge we can wire in.</dd>
+    <dt>How are the “best times” calculated?</dt>
+    <dd>On your device, from sunrise/sunset, twilight, and solunar major/minor feeding periods for the spot&#x27;s location — standard astronomy math, no server.</dd>
+    <dt>Are the fly recommendations reliable?</dt>
+    <dd>They come from a curated hatch database of real, commonly-tied patterns by region, water type, and month. Coverage is honest about what&#x27;s included — check the coverage notes. Treat them as a starting point, not a promise.</dd>
+    <dt>Do I need a fishing license?</dt>
+    <dd>Almost certainly, and regulations vary by water. Hatch Window doesn&#x27;t track your license or local rules — confirm them with your state agency before you fish, and put safety first on the water.</dd>
+    <dt>Can I add my own spots?</dt>
+    <dd>Yes. Add any spot; if you know its USGS gauge number, Hatch Window will pull live conditions for it.</dd>
+    <dt>Does the app work without signal on the river?</dt>
+    <dd>Your saved spots, catch log, times, and flies work offline. Live conditions need a connection to fetch fresh USGS data, so grab a look before you lose signal and you&#x27;ll have the latest reading with you.</dd>
+    <dt>Where is my catch log stored?</dt>
+    <dd>On your device. Hatch Window has no account and no studio server, so your spots, catches, and notes never come to us and aren&#x27;t uploaded anywhere. They&#x27;re in your phone&#x27;s iCloud or Google backup if that&#x27;s enabled, and deleting the app deletes them — so export anything you&#x27;d hate to lose. Your honey holes stay yours.</dd>
+    <dt>What does Pro unlock?</dt>
+    <dd>The full hatch database, a multi-spot conditions dashboard, the 7-day outlook, unlimited logging, and shareable outing reports.</dd>
+    <dt>Can I share what worked?</dt>
+    <dd>Yes — generate a text summary of an outing (spot, date, conditions, flies that worked) to share.</dd>
+    <dt>How do I restore my purchase?</dt>
+    <dd>Your unlock is tied to the store account you bought with. In Hatch Window, open Settings or the paywall and tap Restore Purchases while signed into the same Apple ID or Google account. That should bring it back — if not, send a screenshot and we&#x27;ll help.</dd>
+    <dt>How do I cancel, or ask a billing question?</dt>
+    <dd>Billing runs through the store, not us. iPhone: Settings → your name → Subscriptions → Hatch Window. Android: Play Store → Subscriptions. Cancelling stops the next renewal; you keep access until the period ends.</dd>
+    <dt>How do I get a refund?</dt>
+    <dd>We don&#x27;t handle the charge — Apple processes App Store refunds — so head to reportaproblem.apple.com (Android: play.google.com/store/account), pick the purchase, and choose “Request a refund.” If Apple gives you any trouble, let us know.</dd>
+    <dt>Something&#x27;s broken, or a reading looks wrong. How do I report it?</dt>
+    <dd>Email us with: (1) device and OS version, (2) what you were doing (viewing conditions, logging a catch…), (3) the location if it&#x27;s data-related, (4) expected vs. actual, and (5) a screenshot. If a specific reading looked off, tell us the location and we&#x27;ll check our data source.</dd>
+  </dl>
+  <h2>Billing, cancelling, and refunds</h2>
+  <p>Hatch Window sells through the App Store and Google Play, so Apple and Google &mdash; not Baker
+  Ventures &mdash; hold the money and process refunds.</p>
+  <ul>
+    <li><strong>Cancel:</strong> iPhone &mdash; Settings &rsaquo; your name &rsaquo; Subscriptions &rsaquo; Hatch Window. Android &mdash; Play Store &rsaquo; Subscriptions. Cancelling stops the next renewal; you keep access until the period ends.</li>
+    <li><strong>Refund:</strong> <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> (Android: <a href="https://play.google.com/store/account">play.google.com/store/account</a>) &mdash; pick the purchase and choose &ldquo;Request a refund.&rdquo; If the store gives you trouble, email us and we'll help where we can.</li>
+    <li><strong>Restore a purchase:</strong> open Hatch Window &rsaquo; Settings or the paywall &rsaquo; <strong>Restore Purchases</strong>, signed into the same store account you bought with.</li>
+  </ul>
+  <h2>Contact</h2>
+  <ul>
+    <li><strong>Email:</strong> <a href="mailto:rsb.baker+hatchwindow@gmail.com">rsb.baker+hatchwindow@gmail.com</a></li>
+    <li><strong>Publisher:</strong> Baker Ventures LLC, 355 E 1200 N, Logan, UT 84341, USA</li>
+    <li><a href="../privacy/">Privacy Policy</a> &middot; <a href="../terms/">Terms of Use</a> &middot; <a href="../">Hatch Window home</a></li>
+  </ul>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="/">Baker Ventures Studio</a></footer>
+</body>
+</html>
