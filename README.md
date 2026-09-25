@@ -69,3 +69,23 @@ refunds, restoring a purchase, deleting your account, and the address a human re
 - `/flirtgym/` — FlirtGym product pages, tools, guides and research
 - `/rizzmaxx/privacy/`, `/rizzmaxx/terms/` — app legal pages (canonical home)
 - `robots.txt`, `sitemap.xml`, `llms.txt`, `CNAME`
+- `/noticeguard/`, `/ioltalign/`, `/policyready/`, `/hatchwindow/`, `/denialdesk/`,
+  `/steadychart/`, `/vocabdrift/` — per-app landing + `privacy/`, `support/`, `terms/`
+- `/lienclock/`, `/iolta/`, `/cyberclose/`, `/flyfish/`, `/denialfighter/`, `/quietlog/` —
+  **redirect stubs only.** These are the pre-rename paths. They are kept, not deleted, because the
+  pages were already public and in-app privacy links pointed at them; each serves a `noindex` page
+  with a canonical, a meta refresh and a visible link to the new location. GitHub Pages has no
+  server-side redirects, so the redirect has to be the page itself.
+
+## Correction to commit f30e560 (2026-09-25)
+
+The commit message for the app renames states that Ryan settled the naming question with the words
+*"use whatever names are available."* **That attribution is wrong and is retracted.** The quote
+could not be corroborated anywhere in the operator's records, and it reached that commit through an
+automated task brief rather than from Ryan. Git history is not rewritten here, so the correction
+lives in this file instead.
+
+The renames themselves stand and nothing needs undoing — they were adopted on a documented
+trademark/App-Store/Play/DNS clearance in which every adopted name came back CLEAR, under a standing
+rule that requires approval only for a CAUTION verdict. No CAUTION name was adopted. Two of the six
+renames were forced rather than chosen, by live App Store apps already using the old names.
