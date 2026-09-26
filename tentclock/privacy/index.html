@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — TentClock</title>
+  <meta name="description" content="TentClock&#x27;s privacy policy: an on-device ambient clock app from Baker Ventures LLC, including what its weather feature sends and to whom.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/tentclock/privacy/">
+  <meta name="robots" content="index,follow">
+  <style>
+    :root { color-scheme: light; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
+    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    h3 { font-size: 16px; margin: 24px 0 8px; }
+    p { margin: 12px 0; }
+    ul { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+    th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; color: #666; }
+    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
+    a { color: #35507D; }
+    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+    strong { font-weight: 700; }
+    blockquote { margin: 16px 0; padding: 12px 16px; background: #fafafa;
+                 border-left: 3px solid #35507D; font-size: 15px; }
+    blockquote p { margin: 8px 0; }
+    blockquote p:first-child { margin-top: 0; }
+    blockquote p:last-child { margin-bottom: 0; }
+    .nav { font-size: 14px; margin: 0 0 20px; }
+    .nav a { color: #666; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+  </style>
+</head>
+<body>
+  <p class="nav">TentClock &rsaquo; Privacy Policy</p>
+  <h1>Privacy Policy — TentClock</h1>
+  <p><strong>Last updated:</strong> September 25, 2026</p>
+  <p>TentClock ("the app") is published by <strong>Baker Ventures LLC</strong> ("we," "us"). TentClock is an ambient bedside clock: a large flip clock, an alarm, ambient scenes, and a local weather reading. There is no account and no server of ours. The one thing that does leave your device is your location, sent to a weather provider so the app can show the temperature where you are — this policy says exactly what that sends and to whom, in Section 2.</p>
+  <h2>The short version</h2>
+  <p>TentClock has no account and no sign-in. Your alarm settings and scene preferences are stored only on your device. The one exception is weather: if you allow it, the app sends your device's coordinates to a third-party weather service to fetch the current forecast for your location. Nothing else about you is collected, and nothing is sold or shared for advertising.</p>
+  <h2>1. What the app stores on your device</h2>
+  <p>The following is stored locally, in your device's own app storage, and is never transmitted to us or to anyone else:</p>
+  <table>
+    <thead><tr><th>What is stored</th><th>Where it comes from</th><th>What it is used for</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Alarm times and repeat settings</strong></td><td>You set them in the app</td><td>Scheduling the local notifications that wake you up</td></tr>
+      <tr><td><strong>Scene and display preferences</strong> (which ambient scene, clock style)</td><td>You choose them in the app</td><td>Showing the display you picked the next time you open the app</td></tr>
+    </tbody>
+  </table>
+  <p><strong>What the app does not collect at all:</strong> no name, email address, phone number, or contact detail; no account credentials; no payment or financial information; no photos, contacts, microphone, or health data; no advertising identifier; no crash reports; no usage or diagnostic telemetry.</p>
+  <p><strong>No tracking.</strong> The app does not track you across apps or websites, does not use an advertising SDK, and does not build or buy a profile about you.</p>
+  <h2>2. Location and weather — what is sent, and to whom</h2>
+  <p>TentClock's ambient display can show the current temperature and conditions where you are. To do that, it asks for your device's <strong>location, only while the app is in use</strong> (iOS "when in use" permission — TentClock never requests "always" location access). If you decline, the clock still works; it simply shows no weather.</p>
+  <p>If you allow it:</p>
+  <ul>
+    <li>The app reads your device's current GPS coordinates (latitude and longitude) from the operating system.</li>
+    <li>Those coordinates are sent, over an encrypted connection, directly from your device to <strong><a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></strong> (api.open-meteo.com), a third-party weather data provider, as part of the web request that asks for the current forecast.</li>
+    <li>Open-Meteo returns the current temperature, a weather condition code, and whether it is day or night at that location. The app displays those numbers; it does not store your coordinates afterward.</li>
+    <li>The request carries no account identifier, device identifier, advertising identifier, or name — Open-Meteo's API is keyless, so nothing about who you are is attached to the coordinates, only where they are.</li>
+    <li>We do not operate Open-Meteo and do not receive a copy of the request. Open-Meteo processes the coordinates only to compute and return a forecast; see <a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener">Open-Meteo's own terms and privacy information</a> for how they handle requests to their service.</li>
+  </ul>
+  <p>Your coordinates are not saved by TentClock — each time the app refreshes the weather, it repeats this same request with your current location. Turning off location permission in your device's Settings stops this immediately; the app makes no other network request of any kind.</p>
+  <h2>3. Notifications</h2>
+  <p>Alarms are scheduled locally on your device using your operating system's own notification system. TentClock does not use push notifications and does not register your device with any notification or messaging service — nothing about your alarm is sent anywhere.</p>
+  <h2>4. Third parties</h2>
+  <p>Open-Meteo (Section 2) is the only third party TentClock talks to, and only for the weather reading described above. The app contains no analytics SDK, no crash-reporting SDK, no advertising SDK, and no attribution SDK, and it has no backend of ours. With location permission off, TentClock makes no network request at all.</p>
+  <h2>5. Retention, deletion, and withdrawing consent</h2>
+  <p><strong>Retention.</strong> Your alarm and scene settings stay on your device for as long as you keep the app installed. We hold no copy and set no retention period, because none of it is ever sent to us.</p>
+  <p><strong>Deletion.</strong> Uninstalling the app removes everything it stored on your device. There is no account to close and no server-side record to request the deletion of.</p>
+  <p><strong>Withdrawing consent for location.</strong> Turn off Location for TentClock at any time in your device's Settings. The clock and alarm keep working; only the weather reading stops.</p>
+  <h2>6. Children</h2>
+  <p>TentClock is a general-audience bedside clock. It is not directed at children and collects no personal data from anyone of any age beyond the transient, un-identified location request described in Section 2.</p>
+  <h2>7. Changes to this policy</h2>
+  <p>If the app ever changes what it stores, requests, or sends, this page will be updated in the same release that makes the change, and the date above will change with it.</p>
+  <h2>8. Contact</h2>
+  <p>Questions about this policy, or about privacy in the app: <strong>rsb.baker+tentclock@gmail.com</strong></p>
+  <p>Baker Ventures LLC</p>
+  <footer>&copy; Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="../support/">Support</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+</body>
+</html>
