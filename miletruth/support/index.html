@@ -69,7 +69,7 @@
    "name": "Why does MileTruth ask for \"Always\" location?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "So it can log your driving without you having to remember to start and stop it. The app's own permission text puts it this way: \"MileTruth detects your drives automatically in the background so your mileage log is complete. Location is never sold.\" With \"While Using\" instead, it can only see what happens while the app is open. You can grant, downgrade or revoke the permission at any time in your device's system settings."
+    "text": "So it can log your driving without you having to start and stop it yourself, once that's built. Automatic background trip detection is not finished yet, and the permission prompt says so plainly: it has no effect in this version. Until it ships, you add trips yourself. With \"While Using\" instead, it can only see what happens while the app is open. You can grant, downgrade or revoke the permission at any time in your device's system settings."
    }
   },
   {
@@ -77,7 +77,7 @@
    "name": "Why does it also ask for Motion & Fitness?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "It's a separate permission from location, and it's what lets MileTruth tell a drive apart from a bike ride or a walk to the corner store — so short non-driving trips don't end up in your mileage log."
+    "text": "It's a separate permission from location, and it's what automatic trip detection will use, once it's built, to tell a drive apart from a walk or a bike ride. That detection isn't shipped yet, so granting the permission doesn't change anything today."
    }
   },
   {
@@ -192,9 +192,9 @@
     <dt>Where is my data stored? Is any of it uploaded?</dt>
     <dd>On your device. Cloud backup and sync are not available yet, so what&#x27;s on your phone is the only copy — export before you switch phones or delete the app. Crash diagnostics are the one thing that leaves the device, and anything location- or address-shaped is stripped out before they are sent.</dd>
     <dt>Why does MileTruth ask for &quot;Always&quot; location?</dt>
-    <dd>So it can log your driving without you having to remember to start and stop it. The app&#x27;s own permission text puts it this way: &quot;MileTruth detects your drives automatically in the background so your mileage log is complete. Location is never sold.&quot; With &quot;While Using&quot; instead, it can only see what happens while the app is open. You can grant, downgrade or revoke the permission at any time in your device&#x27;s system settings.</dd>
+    <dd>So it can log your driving without you having to start and stop it yourself, once that&#x27;s built. Automatic background trip detection is not finished yet, and the permission prompt says so plainly: it has no effect in this version. Until it ships, you add trips yourself. With &quot;While Using&quot; instead, it can only see what happens while the app is open. You can grant, downgrade or revoke the permission at any time in your device&#x27;s system settings.</dd>
     <dt>Why does it also ask for Motion &amp; Fitness?</dt>
-    <dd>It&#x27;s a separate permission from location, and it&#x27;s what lets MileTruth tell a drive apart from a bike ride or a walk to the corner store — so short non-driving trips don&#x27;t end up in your mileage log.</dd>
+    <dd>It&#x27;s a separate permission from location, and it&#x27;s what automatic trip detection will use, once it&#x27;s built, to tell a drive apart from a walk or a bike ride. That detection isn&#x27;t shipped yet, so granting the permission doesn&#x27;t change anything today.</dd>
     <dt>How do I mark a trip as business or personal?</dt>
     <dd>On the Trips tab, swipe a trip right for business or left for personal, or open the trip and use the buttons there. With VoiceOver or TalkBack, each row offers &quot;Mark as business&quot; and &quot;Mark as personal&quot; as actions. If you&#x27;ve set a home location in Settings, a trip that both starts and ends there shows a one-tap &quot;Suggested: Personal (home)&quot; chip — it&#x27;s a suggestion and never changes the trip on its own.</dd>
     <dt>Which IRS mileage rate does it apply?</dt>
