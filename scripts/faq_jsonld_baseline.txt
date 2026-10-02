@@ -1,0 +1,21 @@
+# Pages whose FAQPage ld+json contains questions that appear nowhere in the visible
+# page (class ORPHAN in scripts/check_faq_jsonld.py). These are pre-existing and are
+# a content decision, not drift: the structured block carries search-targeted question
+# variants that were never written into the page. Google's FAQPage guidance requires
+# the question and answer both be visible, so each of these needs either the visible
+# copy written or the extra structured entries removed. Baselined 2026-10-01 so the
+# check can gate new drift today; nothing here is hidden, and new orphans still fail.
+#
+# DRIFT findings are never baselineable.
+
+# 17 structured Q&As, no answers on the page at all — it is a link index to the pages
+# that answer them. Likely the whole FAQPage block does not belong on this page.
+questions-answered/index.html
+
+# Tool pages: structured questions are keyword variants of the visible ones
+# ("How is the opener score calculated?" vs visible "How is the score calculated?").
+flirtgym/opener-score/index.html
+flirtgym/prompt-check/index.html
+flirtgym/conversation-check/index.html
+flirtgym/flirting-style/index.html
+flirtgym/photo-lineup/index.html

@@ -62,7 +62,7 @@
    "name": "Where is my health data stored?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "On your device only. Steadychart has no account and no studio server. Your symptoms, notes, and triggers stay on your phone; we never receive them and nothing is uploaded to us. They're part of your iCloud or Google backup if that's on, and deleting the app deletes them. Nothing leaves your device unless you export it yourself."
+    "text": "On your device only. Steadychart has no account and no studio server. Your symptoms, notes, and severities stay on your phone; we never receive them and nothing is uploaded to us. They're part of your iCloud or Google backup if that's on, and deleting the app deletes them. Nothing leaves your device unless you export it yourself."
    }
   },
   {
@@ -86,7 +86,7 @@
    "name": "What happens if the app shuts down someday?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Your data is already on your device and you can export a full CSV and clinician PDF at any time — so you never lose your history the way people did when other trackers closed."
+    "text": "Your data is already on your device and you can export a full CSV, a JSON file, and a clinician PDF at any time — so you never lose your history the way people did when other trackers closed."
    }
   },
   {
@@ -94,15 +94,15 @@
    "name": "How do I move my data to a new phone?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "There isn't a way to yet. Steadychart only exports — as a CSV or a clinician PDF — it doesn't import. Export before you switch phones so you have a saved copy of your history, but there's currently no way to bring it into the app on a new device."
+    "text": "Steadychart exports a CSV, a JSON file, and a clinician PDF. It does not import, so export before you switch phones and keep the file. There is currently no way to load it back into the app on a new device."
    }
   },
   {
    "@type": "Question",
-   "name": "Why are there no streaks or reminders to log every day?",
+   "name": "Why are there no streaks?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Because guilt mechanics work against people managing a chronic illness. Log when you can; missing days costs you nothing."
+    "text": "No streaks, and nothing counts the days you miss. There is one optional daily reminder in Settings. If you turn it on it says the same fixed line at the time you pick, and it never names anything you logged."
    }
   },
   {
@@ -118,7 +118,7 @@
    "name": "What do the trend insights mean?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Steadychart surfaces statistical patterns in your own data, free and included for everyone, with the sample size shown and a “not medical advice” note. They describe what you logged — they never predict or diagnose."
+    "text": "It compares the average of your overall ratings on days you logged a symptom against the days you didn't, and prints both day counts next to the result. It runs no statistical test and says 'we do not have enough data yet' until there are at least 10 logged days and 5 on each side."
    }
   },
   {
@@ -177,21 +177,21 @@
     <dt>Can it tell me how much medication to take?</dt>
     <dd>No — never. Steadychart can record medications you took or skipped, but it does not calculate or suggest any dose. For dosing, talk to your prescriber.</dd>
     <dt>Where is my health data stored?</dt>
-    <dd>On your device only. Steadychart has no account and no studio server. Your symptoms, notes, and triggers stay on your phone; we never receive them and nothing is uploaded to us. They&#x27;re part of your iCloud or Google backup if that&#x27;s on, and deleting the app deletes them. Nothing leaves your device unless you export it yourself.</dd>
+    <dd>On your device only. Steadychart has no account and no studio server. Your symptoms, notes, and severities stay on your phone; we never receive them and nothing is uploaded to us. They&#x27;re part of your iCloud or Google backup if that&#x27;s on, and deleting the app deletes them. Nothing leaves your device unless you export it yourself.</dd>
     <dt>Is my data sold or shared?</dt>
     <dd>No. It is never sold, and with no server there&#x27;s nothing to share. If sync is ever added, it will be opt-in and end-to-end encrypted.</dd>
     <dt>Can I export a summary for my doctor?</dt>
     <dd>Yes — that&#x27;s exactly what the export is for. Generate the summary in the app and use the share sheet to email it, save it to Files or Drive, or print it to bring along. Since your data lives only on your phone, exporting is also a good way to keep your own copy.</dd>
     <dt>What happens if the app shuts down someday?</dt>
-    <dd>Your data is already on your device and you can export a full CSV and clinician PDF at any time — so you never lose your history the way people did when other trackers closed.</dd>
+    <dd>Your data is already on your device and you can export a full CSV, a JSON file, and a clinician PDF at any time — so you never lose your history the way people did when other trackers closed.</dd>
     <dt>How do I move my data to a new phone?</dt>
-    <dd>There isn&#x27;t a way to yet. Steadychart only exports &mdash; as a CSV or a clinician PDF &mdash; it doesn&#x27;t import. Export before you switch phones so you have a saved copy of your history, but there&#x27;s currently no way to bring it into the app on a new device.</dd>
-    <dt>Why are there no streaks or reminders to log every day?</dt>
-    <dd>Because guilt mechanics work against people managing a chronic illness. Log when you can; missing days costs you nothing.</dd>
+    <dd>Steadychart exports a CSV, a JSON file, and a clinician PDF. It does not import, so export before you switch phones and keep the file. There is currently no way to load it back into the app on a new device.</dd>
+    <dt>Why are there no streaks?</dt>
+    <dd>No streaks, and nothing counts the days you miss. There is one optional daily reminder in Settings. If you turn it on it says the same fixed line at the time you pick, and it never names anything you logged.</dd>
     <dt>Can it remind me to log each day?</dt>
     <dd>It can, if you want one. Turn on reminders in Settings and allow notifications for Steadychart (Settings → Notifications → Steadychart) so a nudge shows up at the time you pick. If reminders aren&#x27;t appearing, check that notification permission and tell us your device — we&#x27;ll help sort it.</dd>
     <dt>What do the trend insights mean?</dt>
-    <dd>Steadychart surfaces statistical patterns in your own data, free and included for everyone, with the sample size shown and a “not medical advice” note. They describe what you logged — they never predict or diagnose.</dd>
+    <dd>It compares the average of your overall ratings on days you logged a symptom against the days you didn&#x27;t, and prints both day counts next to the result. It runs no statistical test and says &#x27;we do not have enough data yet&#x27; until there are at least 10 logged days and 5 on each side.</dd>
     <dt>Can I track diabetes-related readings?</dt>
     <dd>Not as a number. You can add a custom tracked item &mdash; name it anything, including &quot;Blood glucose&quot; &mdash; but like every tracked item it only takes a 0-3 severity rating, not a reading, so there&#x27;s no field for an actual glucose value or a dose. Steadychart will never advise on insulin or any dose.</dd>
     <dt>The app looks wrong about my health, or a pattern seems off.</dt>
