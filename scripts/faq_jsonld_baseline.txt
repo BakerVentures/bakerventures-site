@@ -8,14 +8,15 @@
 #
 # DRIFT findings are never baselineable.
 
-# 17 structured Q&As, no answers on the page at all — it is a link index to the pages
-# that answer them. Likely the whole FAQPage block does not belong on this page.
-questions-answered/index.html
-
-# Tool pages: structured questions are keyword variants of the visible ones
-# ("How is the opener score calculated?" vs visible "How is the score calculated?").
-flirtgym/opener-score/index.html
-flirtgym/prompt-check/index.html
-flirtgym/conversation-check/index.html
-flirtgym/flirting-style/index.html
-flirtgym/photo-lineup/index.html
+# EMPTY as of 2026-10-01. Both baselined groups were resolved rather than carried:
+#   * questions-answered/index.html — the whole FAQPage block was removed. All 17 Q&As
+#     were exact duplicates of the FAQPage markup already on /, /about/, /apps/ and
+#     /editorial-standards/ (4+5+3+5=17), where the answers ARE visible, so the page
+#     lost no rich-result eligibility. It is a link index; no answer was ever on it,
+#     and two questions appeared twice with conflicting answers.
+#   * the five flirtgym tool pages — their structured Q&As were not keyword variants
+#     of the visible ones, which is how this was first read. Neither the question nor
+#     the answer was on the page: 20 Q&As with zero text overlap with the visible FAQ.
+#     Each page's mainEntity was rebuilt from its own three visible Q&As.
+# Keep this file: a new orphan still fails, and baselining one is still better than
+# suppressing the check. Nothing is baselined today.
