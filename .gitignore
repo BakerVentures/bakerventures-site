@@ -1,2 +1,6 @@
 # Local Cloudflare Pages CLI cache — machine-local, may hold account state. Never committed.
 .wrangler/
+
+# Python bytecode from scripts/ (check_faq_jsonld.py). Regenerated on every run;
+# left untracked it makes the tree dirty, which verify-push.sh correctly refuses.
+__pycache__/
