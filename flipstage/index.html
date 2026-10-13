@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FlipStage &mdash; Two-Pane Presenting on One iPhone</title>
-  <meta name="description" content="Present from one iPhone with two panes on screen: your speaker notes and timer on your half, the slide on theirs. Import photos as slides. Free, no account.">
+  <title>FlipStage &mdash; Your notes. Their slide.</title>
+  <meta name="description" content="Stand your iPhone upright between you and one other person. They see the slide, turned around to read upright from their side. You see your speaker notes and a timer. Free, on-device, no account.">
   <link rel="canonical" href="https://bakerventuresstudio.com/flipstage/">
   <meta name="robots" content="index,follow">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="FlipStage">
-  <meta property="og:title" content="FlipStage &mdash; Two-Pane Presenting on One iPhone">
-  <meta property="og:description" content="Present from one iPhone with two panes on screen: your speaker notes and timer on your half, the slide on theirs.">
+  <meta property="og:title" content="FlipStage &mdash; Your notes. Their slide.">
+  <meta property="og:description" content="One iPhone screen, split into two facing halves. They see the slide. You see your speaker notes and a timer. Free, on-device, no account.">
   <meta property="og:url" content="https://bakerventuresstudio.com/flipstage/">
   <meta name="twitter:card" content="summary">
-<style>
+  <style>
     :root { color-scheme: light; }
     body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
            font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -25,13 +25,11 @@
     ul { margin: 12px 0; padding-left: 22px; }
     li { margin: 6px 0; }
     .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
-    a { color: #1F6F5C; }
+    a { color: #A85A2C; }
     hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
     code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
     strong { font-weight: 700; }
-    .note { background: #fafafa; border-left: 3px solid #1F6F5C; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
-    .contact { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
-    .contact a { font-weight: 700; }
+    .note { background: #fafafa; border-left: 3px solid #A85A2C; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
     .faq { margin: 0; }
     .faq dt { font-weight: 700; margin: 22px 0 4px; }
     .faq dd { margin: 0 0 4px; }
@@ -46,6 +44,9 @@
     .benefit b { display: block; }
     ol.how { padding-left: 22px; }
     ol.how li { margin: 10px 0; }
+    .cta { display: inline-block; background: #A85A2C; color: #fff; font-weight: 700;
+           padding: 13px 24px; border-radius: 8px; text-decoration: none; margin: 4px 0; }
+    .cta:visited { color: #fff; }
   </style>
   <script type="application/ld+json">
 {
@@ -53,75 +54,137 @@
  "@type": "SoftwareApplication",
  "name": "FlipStage",
  "applicationCategory": "BusinessApplication",
- "operatingSystem": "iOS",
+ "operatingSystem": "iOS 16.4 or later",
  "url": "https://bakerventuresstudio.com/flipstage/",
- "description": "Two-pane presenting app for iPhone. Splits one screen into an audience pane showing the slide and a presenter pane showing speaker notes, a slide counter and a timer. Slides are imported from the photo library.",
- "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
- "publisher": { "@type": "Organization", "name": "Baker Ventures LLC" }
+ "installUrl": "https://apps.apple.com/us/app/flipstage-present-two-sided/id6816274152",
+ "downloadUrl": "https://apps.apple.com/us/app/flipstage-present-two-sided/id6816274152",
+ "inLanguage": "en",
+ "description": "FlipStage splits one iPhone screen into two facing halves. The half pointing at the other person shows the current slide, turned 180 degrees so it reads upright from their side. The half pointing at you shows your speaker notes, a timer and the controls. Free, on-device, no account.",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "featureList": [
+  "Splits one screen into an audience half and a presenter half",
+  "The audience half is turned 180 degrees so it reads upright from the other side",
+  "Speaker notes stay on your half only, in a pane you can scroll",
+  "Elapsed timer you can pause, with optional targets of 5, 10, 15 or 20 minutes",
+  "Prev and Next controls on your half move both halves together",
+  "Import photos from your library as slides, reorder them and type notes on any of them"
+ ],
+ "publisher": {
+  "@type": "Organization",
+  "name": "Baker Ventures LLC"
+ }
 }
-</script>
+  </script>
   <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "@id": "https://bakerventuresstudio.com/flipstage/#faq",
- "name": "FlipStage",
+ "name": "FlipStage questions",
  "mainEntity": [
-  {"@type":"Question","name":"What does Present actually do?","acceptedAnswer":{"@type":"Answer","text":"It divides the one screen into two panes: the slide and a slide counter on the audience pane, and your speaker notes, the prev and next controls and a timer on your pane. The panes stack in portrait and sit side by side in landscape."}},
-  {"@type":"Question","name":"Can I import a PDF, Keynote or PowerPoint file?","acceptedAnswer":{"@type":"Answer","text":"No. FlipStage imports photos from your library. Export your slides as images first, then import those."}},
-  {"@type":"Question","name":"Will my deck still be there next time I open the app?","acceptedAnswer":{"@type":"Answer","text":"No. FlipStage holds a deck for the current session only and nothing is written to storage. Re-import your slides the next time you present. Your original photos are untouched in your library either way."}},
-  {"@type":"Question","name":"Is anything I import sent anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. FlipStage has no account and no server, and the app contains no networking code at all. Your photos and notes stay on the device."}},
-  {"@type":"Question","name":"Is there anything to buy?","acceptedAnswer":{"@type":"Answer","text":"No. FlipStage is free, with every feature included. There is no subscription, no in-app purchase, no advertising and no account, so there is nothing to cancel or refund."}}
+  {
+   "@type": "Question",
+   "name": "How do I hold the phone?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Upright. The two-sided view opens when the window is taller than it is wide, so stand the phone on its end between the two of you. The top half faces them and is turned around for them; the bottom half faces you."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can the other person see my speaker notes?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Their half shows the slide and its position in the deck, and nothing else. The notes pane is on your half only, and their half is not tappable."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does FlipStage save my deck?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Not yet. Photos you import, notes you type and any reordering last until you close the app, then it returns to the built-in sample slides. If you need a deck to survive a restart, wait for that update."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I import a PowerPoint, Keynote or PDF?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Slides come from your photo library — you pick photos and each one becomes a slide. There is also a four-slide sample deck built in."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it need an account or an internet connection?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Neither. There is no sign-in and the app makes no network calls. Nothing you type or import leaves the device."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does it cost?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "FlipStage is free. There is no subscription, no in-app purchase and no advertising."
+   }
+  }
  ]
 }
-</script>
+  </script>
 </head>
 <body>
-  <p class="nav"><a href="/">Baker Ventures Studio</a> &rsaquo; FlipStage</p>
   <div class="hero">
-    <h1>Your notes on your half. The slide on theirs.</h1>
-    <p class="sub">FlipStage splits one iPhone into two panes, so you can present across a table without a projector, a second screen or a laptop. You read your notes and watch the clock. They just see the slide.</p>
-    <p class="meta" style="margin-top:16px">FlipStage &middot; an app by Baker Ventures LLC &middot; free, no account</p>
+    <h1>Your notes. Their slide.</h1>
+    <p class="sub">Stand your iPhone upright between you and one other person. They see the slide, turned around so it reads upright from their side. You see your speaker notes and a timer.</p>
+    <p style="margin-top:20px"><a class="cta" href="https://apps.apple.com/us/app/flipstage-present-two-sided/id6816274152">Get FlipStage on the App Store</a></p>
+    <p class="meta" style="margin-top:12px">Free, with nothing to buy inside it. No account, and no network calls at all. iPhone, iOS 16.4 or later.</p>
+    <p class="meta">FlipStage &middot; an app by Baker Ventures LLC</p>
   </div>
 
   <h2>What it does</h2>
-  <div class="benefit"><b>Two panes, one phone.</b>Present mode divides the screen in two. The audience pane shows the current slide and a position badge. Your pane shows your speaker notes, the prev and next controls and the slide count. The panes stack in portrait and sit side by side in landscape.</div>
-  <div class="benefit"><b>Your slides are your photos.</b>Import from your photo library with the standard iOS picker and each photo becomes a slide. Pick several at once.</div>
-  <div class="benefit"><b>Notes written where you will read them.</b>Type talking points onto any slide before you start, and they appear on your half while you present.</div>
-  <div class="benefit"><b>Reorder before you walk in.</b>Move a slide up or down the running order, or delete it.</div>
-  <div class="benefit"><b>A clock you can actually see.</b>The elapsed timer starts with the presentation and pauses on a tap. Set a target of 5, 10, 15 or 20 minutes and the time turns red once you pass it.</div>
+  <div class="benefit"><b>Two facing halves of one screen.</b>The half pointing at the other person shows the current slide, turned 180 degrees so it reads upright from where they are sitting. No more sliding the phone across the table and then narrating from memory.</div>
+  <div class="benefit"><b>Your notes stay on your half.</b>Speaker notes sit in a pane only you can see and scroll. Their half shows the slide and its position in the deck &mdash; <code>Slide 2 / 4</code> &mdash; and nothing else.</div>
+  <div class="benefit"><b>A timer with a target.</b>Elapsed time you can pause, with optional targets of 5, 10, 15 or 20 minutes. It turns red once you pass the target you set.</div>
+  <div class="benefit"><b>Bring your own slides.</b>Four sample slides are built in, or import photos from your library. Reorder them, remove them, and type speaker notes on any slide before you start.</div>
+  <div class="benefit"><b>Nothing leaves the phone.</b>No account, no sign-in, no analytics and no network requests. The only permission it asks for is your photo library, and only when you import.</div>
 
   <h2>How it works</h2>
   <ol class="how">
-    <li><strong>Import your slides</strong> as photos from your library.</li>
-    <li><strong>Add notes and set the order.</strong></li>
-    <li><strong>Hit Present and put the phone down between you.</strong></li>
+    <li><strong>Add your slides</strong> &mdash; keep the sample deck or import photos from your library, then type notes on any of them.</li>
+    <li><strong>Stand the phone upright between you,</strong> on its end. The screen splits into two halves, and the half facing them is turned around for them.</li>
+    <li><strong>Drive it from your half</strong> with Prev and Next. Both halves move together, and the timer runs where only you can see it.</li>
   </ol>
+  <p><a class="cta" href="https://apps.apple.com/us/app/flipstage-present-two-sided/id6816274152">Get FlipStage on the App Store</a></p>
+  <p class="meta">Free. iPhone, iOS 16.4 or later.</p>
 
-  <div class="note"><strong>Two things to know before you download.</strong> FlipStage keeps a deck for the current session only: nothing is saved, so when you close the app the deck is gone and you re-import next time. Your photos themselves are never moved or altered. And it imports <strong>photos</strong>, not documents, so a PDF or a Keynote file has to be exported as images first. Both are deliberate, and both are the first things we would change.</div>
-
-  <h2>Privacy, in one line</h2>
-  <p>FlipStage has no account, no server and no analytics, and the app contains no networking code, so there is nothing for your slides or notes to be sent over. Its only permission request is access to your photo library, and that is what the import button uses. The full detail is in the <a href="privacy/">Privacy Policy</a>.</p>
+  <div class="note"><strong>Before you download.</strong> FlipStage does not save decks yet. Photos you import, notes you type and any reordering last until you close the app, and then it returns to the built-in sample slides. It also does not film, record, or scroll text automatically &mdash; it puts a slide on one side and your notes on the other.</div>
 
   <h2>Questions</h2>
   <dl class="faq">
-    <dt>What does Present actually do?</dt>
-    <dd>It divides the one screen into two panes: the slide and a slide counter on the audience pane, and your speaker notes, the prev and next controls and a timer on your pane. The panes stack in portrait and sit side by side in landscape.</dd>
-    <dt>Can I import a PDF, Keynote or PowerPoint file?</dt>
-    <dd>No. FlipStage imports photos from your library. Export your slides as images first, then import those.</dd>
-    <dt>Will my deck still be there next time I open the app?</dt>
-    <dd>No. FlipStage holds a deck for the current session only and nothing is written to storage. Re-import your slides the next time you present. Your original photos are untouched in your library either way.</dd>
-    <dt>Is anything I import sent anywhere?</dt>
-    <dd>No. FlipStage has no account and no server, and the app contains no networking code at all. Your photos and notes stay on the device.</dd>
-    <dt>Does it need an account?</dt>
-    <dd>No. There is no sign-in and no setup beyond importing your first slide.</dd>
-    <dt>Is there anything to buy?</dt>
-    <dd>No. FlipStage is free, with every feature included. There is no subscription, no in-app purchase, no advertising and no account, so there is nothing to cancel or refund.</dd>
+    <dt>How do I hold the phone?</dt>
+    <dd>Upright. The two-sided view opens when the window is taller than it is wide, so stand the phone on its end between the two of you. The top half faces them and is turned around for them; the bottom half faces you.</dd>
+    <dt>Can the other person see my speaker notes?</dt>
+    <dd>No. Their half shows the slide and its position in the deck, and nothing else. The notes pane is on your half only, and their half is not tappable.</dd>
+    <dt>Does FlipStage save my deck?</dt>
+    <dd>Not yet. Photos you import, notes you type and any reordering last until you close the app, then it returns to the built-in sample slides. If you need a deck to survive a restart, wait for that update.</dd>
+    <dt>Can I import a PowerPoint, Keynote or PDF?</dt>
+    <dd>No. Slides come from your photo library &mdash; you pick photos and each one becomes a slide. There is also a four-slide sample deck built in.</dd>
+    <dt>Does it need an account or an internet connection?</dt>
+    <dd>Neither. There is no sign-in and the app makes no network calls. Nothing you type or import leaves the device.</dd>
+    <dt>What does it cost?</dt>
+    <dd>FlipStage is free. There is no subscription, no in-app purchase and no advertising.</dd>
   </dl>
 
   <h2>Help and legal</h2>
   <ul>
-    <li><strong>Support:</strong> <a href="support/">FlipStage Support</a>, with the FAQ and how to reach us</li>
+    <li><strong>Download:</strong> <a href="https://apps.apple.com/us/app/flipstage-present-two-sided/id6816274152">FlipStage on the App Store</a></li>
+    <li><strong>Support:</strong> <a href="support/">FlipStage Support</a> &mdash; FAQ and how to reach us</li>
     <li><strong>Email:</strong> <a href="mailto:rsb.baker+flipstage@gmail.com">rsb.baker+flipstage@gmail.com</a></li>
     <li><strong>Legal:</strong> <a href="privacy/">Privacy Policy</a></li>
   </ul>

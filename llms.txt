@@ -116,3 +116,22 @@ No signup, no account, no upload. Each one scores locally in the browser; nothin
 - Contact: support@bakerventuresstudio.com
 - https://bakerventuresstudio.com/about/
 - https://bakerventuresstudio.com/editorial-standards/
+
+## The MileTruth section of this host
+
+This host serves MileTruth's product page at /miletruth/ and its free browser
+calculators at /miletruth/tools/. MileTruth is a mileage log and net-pay tracker
+for gig and delivery drivers. **It is not released: there is no App Store or Play
+listing and no waiting list.** The calculators are free, standalone and work
+whether or not the app ships.
+
+- [Free gig driver calculators](https://bakerventuresstudio.com/miletruth/tools/): Three browser calculators for delivery and rideshare drivers. No account, nothing uploaded, no cost.
+- [Net pay calculator](https://bakerventuresstudio.com/miletruth/net-pay-calculator/): Subtracts a per-mile vehicle operating cost from gross earnings to show what a shift or a year actually paid, and prices business miles at both 2026 IRS rates separately. Keeps the cash figure and the tax deduction apart rather than subtracting one from the other.
+- [2026 mileage deduction calculator](https://bakerventuresstudio.com/miletruth/mileage-deduction-calculator/): Prices each mile at the rate in force the day it was driven. Accepts an odometer split at June 30 or a pasted log. A date outside 2026 is excluded and reported rather than priced at a guessed rate.
+- [Dollar per mile offer calculator](https://bakerventuresstudio.com/miletruth/dollar-per-mile-calculator/): One delivery offer at a time: dollars per paid mile, net after the driver's own car cost, the implied hourly rate, and the break-even offer. Counts unpaid deadhead miles.
+- [IRS mileage rate 2026](https://bakerventuresstudio.com/miletruth/irs-mileage-rate-2026/): The 2026 business standard mileage rate is split-year: 72.5 cents a mile for miles driven January 1 to June 30, 76 cents July 1 to December 31. Sourced to irs.gov, IR-2025-128 / Notice 2026-10 and IR-2026-29.
+- [Cost per mile by vehicle](https://bakerventuresstudio.com/miletruth/cost-per-mile/): Per-mile operating cost for nine vehicle classes, split into depreciation, fuel, maintenance and insurance, derived from AAA Your Driving Costs 2025. Depreciation exceeds fuel in all nine.
+- [What a mileage log must contain](https://bakerventuresstudio.com/miletruth/schedule-c-mileage-log-requirements/): The elements of an adequate mileage record, quoted verbatim from IRS Publication 463, plus what it says about recording at or near the time and about sampling part of a year.
+
+None of these pages is tax advice, none claims IRS endorsement or affiliation,
+and each cites its primary source with the date it was read.

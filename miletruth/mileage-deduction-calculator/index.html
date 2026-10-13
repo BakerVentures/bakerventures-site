@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026 IRS Mileage Deduction Calculator (Both Rates, Split at June 30)</title>
+<meta name="description" content="Free 2026 mileage deduction calculator. Prices every mile at the rate in force the day it was driven: 72.5 cents to June 30, 76 cents from July 1.">
+<link rel="canonical" href="https://bakerventuresstudio.com/miletruth/mileage-deduction-calculator/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MileTruth">
+<meta property="og:title" content="2026 IRS Mileage Deduction Calculator (Both Rates)">
+<meta property="og:description" content="Prices every mile at the rate in force the day it was driven. 72.5 cents to June 30, 76 cents from July 1. Free, nothing uploaded.">
+<meta property="og:url" content="https://bakerventuresstudio.com/miletruth/mileage-deduction-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026 IRS Mileage Deduction Calculator (Both Rates)">
+<meta name="twitter:description" content="Prices every mile at the rate in force the day it was driven. Free, nothing uploaded.">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "@id": "https://bakerventuresstudio.com/miletruth/mileage-deduction-calculator/#app",
+   "name": "2026 Mileage Deduction Calculator",
+   "url": "https://bakerventuresstudio.com/miletruth/mileage-deduction-calculator/",
+   "applicationCategory": "FinanceApplication",
+   "operatingSystem": "Any browser",
+   "browserRequirements": "Requires JavaScript",
+   "description": "A free browser calculator for the 2026 IRS standard mileage deduction. Looks up the rate period for each trip's own date, so a log spanning June 30 is priced at 72.5 cents before the boundary and 76 cents after it. Runs entirely on the device.",
+   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+   "publisher": { "@id": "https://bakerventuresstudio.com/#org" },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://bakerventuresstudio.com/#org",
+   "name": "Baker Ventures LLC",
+   "url": "https://bakerventuresstudio.com/",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "355 E 1200 N",
+    "addressLocality": "Logan",
+    "addressRegion": "UT",
+    "postalCode": "84341",
+    "addressCountry": "US"
+   },
+   "sameAs": ["https://github.com/BakerVentures"]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://bakerventuresstudio.com/miletruth/mileage-deduction-calculator/",
+   "name": "2026 IRS Mileage Deduction Calculator (Both Rates, Split at June 30)",
+   "isPartOf": { "@id": "https://bakerventuresstudio.com/#org" },
+   "inLanguage": "en",
+   "datePublished": "2026-10-13",
+   "dateModified": "2026-10-13"
+  }
+ ]
+}
+</script>
+<style>:root{--acc:#F2A93B;--acc2:#FFC861;--bg:#0C0C0D;--card:#151517;--bd:#2A2A2A;--fg:#FFF;--fg2:#AAA}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+nav{padding:20px 0;border-bottom:1px solid var(--bd);font-size:14px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+nav .b{font-weight:800;color:var(--acc);text-transform:uppercase;letter-spacing:.04em;margin-right:auto}
+nav a{color:var(--fg2);text-decoration:none}nav a:hover{color:var(--acc)}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.14;letter-spacing:-.03em;margin:34px 0 14px;font-weight:800}
+.lede{font-size:19px;color:#DDD;margin:0 0 22px}
+.upd{color:#666;font-size:13px;margin:0 0 26px}
+h2{font-size:23px;letter-spacing:-.02em;margin:44px 0 12px;font-weight:800}
+h3{font-size:17px;margin:24px 0 6px;font-weight:700}
+p{color:#DDD}
+.ans{background:var(--card);border:1px solid var(--bd);border-left:3px solid var(--acc);border-radius:12px;padding:18px 20px;margin:18px 0}
+.ans p{margin:0;color:#EEE}
+.meta{color:#777;font-size:14px;margin-top:12px}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
+th,td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--bd);vertical-align:top}
+th{color:var(--acc);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+ul,ol{padding-left:20px;color:#DDD}li{margin:7px 0}
+footer{margin-top:56px;padding:28px 0 56px;border-top:1px solid var(--bd);color:#777;font-size:14px}
+footer a,a{color:var(--acc)}nav a{color:var(--fg2)}
+.tool{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:22px;margin:26px 0}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tabs button{background:none;border:1px solid var(--bd);color:var(--fg2);font:700 14px/1 inherit;padding:11px 16px;border-radius:10px}
+.tabs button[aria-selected="true"]{background:var(--acc);color:#1A1206;border-color:var(--acc)}
+label{display:block;font-size:12px;color:#999;text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:6px}
+input,textarea{width:100%;background:#0E0E10;color:#FFF;border:1px solid var(--bd);border-radius:10px;padding:12px;font:16px/1.45 inherit}
+textarea{min-height:150px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px}
+input:focus,textarea:focus{outline:none;border-color:var(--acc)}
+.hint{color:#666;font-size:12px;margin:5px 0 0;text-transform:none;letter-spacing:0;font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+button.go{background:linear-gradient(180deg,var(--acc2),var(--acc));color:#1A1206;font:800 16px/1 inherit;padding:14px 26px;border:0;border-radius:12px;cursor:pointer}
+button.ghost{background:none;color:var(--fg2);border:1px solid var(--bd);font-weight:600;font:600 16px/1 inherit;padding:14px 22px;border-radius:12px;cursor:pointer}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.res{margin-top:24px;display:none;border-top:1px solid var(--bd);padding-top:22px}
+.headline{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.big{font-size:54px;font-weight:800;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.tag{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#999}
+.err{color:#FF8A6B;font-size:14px;margin-top:12px;display:none}
+.warn{background:#1A1410;border:1px solid #4A3A1E;border-left:3px solid var(--acc);border-radius:11px;padding:14px 16px;margin:18px 0;font-size:14px;color:#DDD}
+.warn b{color:#FFF}
+.bad{background:#1C1210;border-color:#5A2A20;border-left-color:#FF8A6B}
+.src{color:#777;font-size:13px}.src a{color:var(--acc)}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><span class="b">MileTruth</span><a href="/miletruth/">Overview</a><a href="/miletruth/tools/">Calculators</a><a href="/miletruth/net-pay-calculator/">Net pay</a><a href="/miletruth/dollar-per-mile-calculator/">Per-mile offer</a><a href="/miletruth/irs-mileage-rate-2026/">2026 rate</a></nav>
+
+<h1>2026 mileage deduction, priced by the day you drove</h1>
+<p class="lede">2026 has two business standard mileage rates. This prices every mile at the one in force on its own date, instead of running the whole year at a single number and getting both halves wrong.</p>
+<p class="upd">Free, no account, no limit. Runs entirely in your browser, so your log is never uploaded. Last updated 2026-10-13.</p>
+
+<div class="tool">
+<div class="tabs" role="tablist">
+  <button id="tOdo" role="tab" aria-selected="true">Split an odometer</button>
+  <button id="tLog" role="tab" aria-selected="false">Paste a log</button>
+</div>
+
+<div id="pOdo">
+  <div class="grid">
+    <div><label for="o1">Business miles driven Jan 1 to Jun 30</label><input id="o1" type="number" inputmode="decimal" min="0" step="1" value="4120"><p class="hint">Priced at 72.5&cent;.</p></div>
+    <div><label for="o2">Business miles driven Jul 1 to Dec 31</label><input id="o2" type="number" inputmode="decimal" min="0" step="1" value="6380"><p class="hint">Priced at 76&cent;.</p></div>
+  </div>
+  <p class="hint" style="margin-top:12px">If you only have a start and end odometer reading for the year, you need one more number: the reading on June 30. Without it the split is a guess, and guessing is the thing this page exists to stop.</p>
+</div>
+
+<div id="pLog" class="hide">
+  <label for="log">Your log, one trip per line</label>
+  <textarea id="log" spellcheck="false">2026-05-28, 41.2
+2026-06-30, 55.0
+2026-07-01, 61.8
+2026-08-14, 120
+2026-11-02, 88.5</textarea>
+  <p class="hint">Date first, then miles. <code>2026-07-01, 61.8</code> or <code>07/01/2026 61.8</code> or tab-separated all work. Blank lines and a header row are skipped.</p>
+</div>
+
+<div class="row">
+  <button class="go" id="go">Calculate</button>
+  <button class="ghost" id="clear">Clear</button>
+</div>
+<p class="err" id="err"></p>
+
+<div class="res" id="res">
+  <div class="headline"><span class="big" id="total">&ndash;</span><span class="tag">standard mileage deduction, 2026</span></div>
+  <p class="meta" id="sub"></p>
+  <table id="tbl"><tbody></tbody></table>
+  <div class="warn" id="impact"></div>
+  <div class="warn bad hide" id="problems"></div>
+</div>
+</div>
+
+<h2>What the two rates are</h2>
+<table>
+<thead><tr><th>Miles driven</th><th class="n">Business</th><th class="n">Medical or military moving</th><th class="n">Charitable</th></tr></thead>
+<tbody>
+<tr><td>Jan 1 to Jun 30, 2026</td><td class="n">72.5&cent;</td><td class="n">20.5&cent;</td><td class="n">14&cent;</td></tr>
+<tr><td>Jul 1 to Dec 31, 2026</td><td class="n">76&cent;</td><td class="n">23.5&cent;</td><td class="n">14&cent;</td></tr>
+</tbody>
+</table>
+<p class="src">Source: Internal Revenue Service, <a href="https://www.irs.gov/tax-professionals/standard-mileage-rates" rel="nofollow">Standard mileage rates</a>, read 2026-10-13. First-half rates announced in IR-2025-128 and Notice 2026-10; second-half rates in IR-2026-29. This calculator computes the business figure only.</p>
+
+<h2>Why the date of each mile matters</h2>
+<div class="ans"><p>The rate is not a property of the tax year. It is a property of the day the mile was driven. A 100-mile delivery day on June 29 is worth $72.50 and the identical day on July 1 is worth $76.00. There is no averaging, no weighting by when you filed, and no option to pick the better one.</p></div>
+<p>So a mid-year rate change turns a single annual mileage figure into a number that cannot be right. Run the whole year at 72.5 cents and every second-half mile is underclaimed by 3.5 cents. Run it at 76 cents and every first-half mile is overclaimed by the same amount. On 10,000 miles either error is $350.</p>
+<p>This is only the second mid-year change in roughly a decade, which is exactly why so much software and so many spreadsheets still assume one rate per year. If you are using a tool that asked you for a year and a mileage total and nothing else, it is giving you the wrong number for 2026.</p>
+
+<h2>What this does with a date it does not recognise</h2>
+<p>It excludes the line and tells you, rather than pricing it at a guessed rate. A 2025 or 2027 date is not a rounding problem, it is a different rate table, and silently folding it into a 2026 total is how a wrong figure ends up on a return looking confident. Unparseable lines and negative mileage are reported the same way.</p>
+
+<h2>Keeping a log that holds up</h2>
+<p>A mileage total on its own is not a record. The IRS asks for the mileage for each use, the date, the destination and the business purpose, kept at or near the time of the trip. A figure reconstructed in April from memory is the weakest version of this and a contemporaneous log is the strongest.</p>
+<p>Full detail on what a record has to contain is in <a href="/miletruth/schedule-c-mileage-log-requirements/">what a mileage log needs</a>, with the IRS publication it comes from.</p>
+
+<h2>Questions</h2>
+<h3>Is this tax advice?</h3>
+<p>No. It multiplies miles by the published rate for the period each mile falls in. It does not tell you whether you qualify to use the standard mileage method, whether actual expenses would serve you better, or what you owe. Ask a tax professional before you file.</p>
+<h3>Does my log get uploaded?</h3>
+<p>No. The parsing and the arithmetic are JavaScript running on your device. There is no request, no logging and no storage. You can disconnect and it still works.</p>
+<h3>Can I use the standard mileage rate and also deduct gas?</h3>
+<p>No. The standard mileage rate exists instead of itemising your vehicle operating costs, so claiming both for the same miles is double-counting. Which method you are eligible for and which is better for you is a question for a tax professional, not a calculator.</p>
+<h3>What about parking and tolls?</h3>
+<p>Those are separate from the per-mile figure rather than inside it, so this calculator does not include them and you should not expect the number here to cover them.</p>
+<h3>Why does it refuse a 2027 date?</h3>
+<p>Because the 2027 rates are a different table and this page only holds 2026. Pricing a 2027 mile at a 2026 rate to avoid showing you an error would be the wrong answer delivered quietly, which is worse than an error.</p>
+
+<h2>The app this came from</h2>
+<p>MileTruth keeps the log so the split is not something you have to remember. Each trip is stored with its own date and priced at the rate in force that day, business and personal miles are separated by a swipe, and the report totals the periods separately. It is the same lookup this page runs, against a log instead of a paste box.</p>
+<p><strong>MileTruth is not released yet.</strong> There is no store listing and no waiting list. It is being built for January. These calculators are free either way.</p>
+<p><a href="/miletruth/">What MileTruth is</a> &middot; <a href="/miletruth/tools/">All the free calculators</a> &middot; <a href="/miletruth/net-pay-calculator/">What the driving actually paid</a></p>
+
+<footer><p><strong>MileTruth</strong> is built by Baker Ventures LLC, 355 E 1200 N, Logan, UT 84341. Page published 2026-10-13.<br><a href="/miletruth/support/">Support</a> &middot; <a href="/miletruth/privacy/">Privacy Policy</a> &middot; <a href="/miletruth/terms/">Terms of Use</a> &middot; <a href="mailto:rsb.baker+miletruth@gmail.com">rsb.baker+miletruth@gmail.com</a></p><p>A record-keeping and arithmetic tool, not a tax advisor. &copy; 2026 Baker Ventures LLC</p></footer>
+</div>
+
+<script>
+/* The 2026 IRS business standard mileage rate periods, as half-open UTC day
+   boundaries. Ported from MileTruth's packages/tax/src/mileageRate.ts, which
+   keeps the same table for the same reason: the rate belongs to the DAY a mile
+   was driven, so the lookup has to be per trip, not per report.
+   72.5c  Jan 1 - Jun 30  (IR-2025-128, Notice 2026-10)
+   76c    Jul 1 - Dec 31  (IR-2026-29)
+   https://www.irs.gov/tax-professionals/standard-mileage-rates - read 2026-10-13 */
+var RATES = [
+  {label:'Jan 1 – Jun 30, 2026', cents:72.5,
+   startMs: Date.UTC(2026,0,1,0,0,0,0),  endMs: Date.UTC(2026,5,30,23,59,59,999)},
+  {label:'Jul 1 – Dec 31, 2026', cents:76,
+   startMs: Date.UTC(2026,6,1,0,0,0,0),  endMs: Date.UTC(2026,11,31,23,59,59,999)}
+];
+
+var $ = function(id){ return document.getElementById(id); };
+
+/* A bare YYYY-MM-DD is read as a UTC calendar day, not local midnight, so the
+   June 30 / July 1 boundary lands in the same place in every timezone. This is
+   the bug that would otherwise move a trip across the boundary depending on
+   where the reader happens to be sitting. */
+function parseDateUtc(s){
+  s = s.trim();
+  var m = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(s);
+  if(m) return Date.UTC(+m[1], +m[2]-1, +m[3]);
+  m = /^(\d{1,2})[\/.](\d{1,2})[\/.](\d{4})$/.exec(s);          // US M/D/YYYY
+  if(m) return Date.UTC(+m[3], +m[1]-1, +m[2]);
+  m = /^(\d{1,2})[\/.](\d{1,2})[\/.](\d{2})$/.exec(s);          // M/D/YY
+  if(m) return Date.UTC(2000+(+m[3]), +m[1]-1, +m[2]);
+  return null;
+}
+
+function periodFor(ms){
+  for(var i=0;i<RATES.length;i++){
+    if(ms >= RATES[i].startMs && ms <= RATES[i].endMs) return RATES[i];
+  }
+  return null;   // deliberately null, never a nearest-rate fallback
+}
+
+function money(n){
+  return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+}
+function milesFmt(n){
+  return (Math.round(n*10)/10).toLocaleString(undefined,{maximumFractionDigits:1});
+}
+
+var mode = 'odo';
+function setMode(m){
+  mode = m;
+  $('tOdo').setAttribute('aria-selected', m==='odo' ? 'true':'false');
+  $('tLog').setAttribute('aria-selected', m==='log' ? 'true':'false');
+  $('pOdo').className = m==='odo' ? '' : 'hide';
+  $('pLog').className = m==='log' ? '' : 'hide';
+  $('res').style.display='none'; $('err').style.display='none';
+}
+
+function fail(msg){
+  $('err').textContent = msg; $('err').style.display='block'; $('res').style.display='none';
+}
+
+function fromOdo(){
+  var a = parseFloat($('o1').value), b = parseFloat($('o2').value);
+  a = Number.isFinite(a) ? a : 0; b = Number.isFinite(b) ? b : 0;
+  if(a < 0 || b < 0) return fail('Miles cannot be negative.');
+  if(a + b <= 0) return fail('Enter the business miles for at least one half of 2026.');
+  var buckets = [];
+  if(a > 0) buckets.push({period:RATES[0], miles:a});
+  if(b > 0) buckets.push({period:RATES[1], miles:b});
+  show(buckets, [], [], (a>0?1:0)+(b>0?1:0));
+}
+
+function fromLog(){
+  var lines = $('log').value.split(/\r?\n/);
+  var byPeriod = {}, order = [], uncovered = [], malformed = [], counted = 0;
+  for(var i=0;i<lines.length;i++){
+    var raw = lines[i].trim();
+    if(!raw) continue;
+    /* Date off the front, mileage off the back. The mileage is taken as the LAST
+       number on the line, not the second field, because a real log is often
+       "date, destination, purpose, miles" rather than two columns. Thousands
+       separators are stripped first and only where they are genuinely thousands
+       separators - splitting on every comma read "1,234.5" as 234.5, which is a
+       silently wrong total rather than an error, and that is the worst kind. */
+    var dm = /^(\d{4}-\d{1,2}-\d{1,2}|\d{1,2}[\/.]\d{1,2}[\/.]\d{2,4})(?:\s*[,;\t]\s*|\s+)(.*)$/.exec(raw);
+    if(!dm){
+      // a header row is the one unreadable line that is not an error
+      if(i === 0 && /date|mile|trip|day/i.test(raw) && !/\d{4}-\d{2}/.test(raw)) continue;
+      malformed.push({line:i+1, text:raw, why:'could not read a date at the start of the line'}); continue;
+    }
+    var ms = parseDateUtc(dm[1]);
+    if(ms === null){ malformed.push({line:i+1, text:raw, why:'could not read a date'}); continue; }
+    var rest = dm[2].replace(/(\d),(?=\d{3}(?:\D|$))/g, '$1');
+    var nums = rest.match(/-?\d+(?:\.\d+)?/g);
+    var miles = nums ? parseFloat(nums[nums.length-1]) : NaN;
+    if(!Number.isFinite(miles)){
+      malformed.push({line:i+1, text:raw, why:'found a date but no mileage number'}); continue;
+    }
+    if(miles < 0){
+      malformed.push({line:i+1, text:raw, why:'mileage is negative'}); continue;
+    }
+    var p = periodFor(ms);
+    if(!p){
+      uncovered.push({line:i+1, date:dm[1], miles:miles}); continue;
+    }
+    if(!byPeriod[p.label]){ byPeriod[p.label] = {period:p, miles:0, trips:0}; order.push(p.label); }
+    byPeriod[p.label].miles += miles; byPeriod[p.label].trips += 1; counted += 1;
+  }
+  if(counted === 0 && uncovered.length === 0 && malformed.length === 0){
+    return fail('Nothing to read. Put one trip per line, date first then miles.');
+  }
+  var buckets = order
+    .map(function(k){ return byPeriod[k]; })
+    .sort(function(x,y){ return x.period.startMs - y.period.startMs; });
+  show(buckets, uncovered, malformed, counted);
+}
+
+function show(buckets, uncovered, malformed, counted){
+  $('err').style.display='none';
+  var totalMiles = 0, totalUsd = 0;
+  buckets.forEach(function(b){ b.usd = b.miles * b.period.cents / 100; totalMiles += b.miles; totalUsd += b.usd; });
+
+  $('total').textContent = money(totalUsd);
+  $('sub').textContent = milesFmt(totalMiles) + ' business miles across '
+    + buckets.length + (buckets.length === 1 ? ' rate period.' : ' rate periods.')
+    + (mode === 'log' ? ' ' + counted + ' trip' + (counted===1?'':'s') + ' read.' : '');
+
+  var head = '<tr><th>Rate period</th><th class="n">Miles</th><th class="n">Rate</th><th class="n">Deduction</th></tr>';
+  var body = buckets.map(function(b){
+    return '<tr><td>'+b.period.label+'</td><td class="n">'+milesFmt(b.miles)
+      +'</td><td class="n">'+b.period.cents+'¢</td><td class="n">'+money(b.usd)+'</td></tr>';
+  }).join('');
+  var foot = '<tr><td><strong>Total</strong></td><td class="n"><strong>'+milesFmt(totalMiles)
+    +'</strong></td><td class="n"></td><td class="n"><strong>'+money(totalUsd)+'</strong></td></tr>';
+  $('tbl').querySelector('tbody').innerHTML = head + body + foot;
+
+  var msg;
+  if(buckets.length === 2){
+    var h2 = buckets[1];
+    var delta = h2.miles * (RATES[1].cents - RATES[0].cents) / 100;
+    var single725 = totalMiles * RATES[0].cents / 100;
+    var single76  = totalMiles * RATES[1].cents / 100;
+    msg = '<b>This period spans the July 1 rate change, so a single-rate calculator cannot get it right.</b> '
+      + 'At 72.5&cent; for the whole year you would show ' + money(single725) + ', which is '
+      + money(totalUsd - single725) + ' low. At 76&cent; for the whole year you would show ' + money(single76)
+      + ', which is ' + money(single76 - totalUsd) + ' high. The correct figure is ' + money(totalUsd) + '. '
+      + 'Of that, ' + money(delta) + ' exists only because the rate moved on ' + milesFmt(h2.miles) + ' second-half miles.';
+  } else if(buckets.length === 1){
+    msg = '<b>Every mile here falls in one rate period</b> (' + buckets[0].period.label
+      + ', ' + buckets[0].period.cents + '&cent;), so there is no split to make. '
+      + 'If any of these miles were really driven on the other side of June 30, they price differently and belong in their own period.';
+  } else {
+    msg = '<b>No miles landed in a 2026 rate period.</b> Check the dates.';
+  }
+  msg += ' This is a deduction figure, not cash, and not advice about what you may claim.';
+  $('impact').innerHTML = msg;
+
+  var probs = [];
+  if(uncovered.length){
+    probs.push('<b>' + uncovered.length + ' line' + (uncovered.length===1?'':'s')
+      + ' excluded: the date is outside 2026.</b> This page only holds the 2026 rate table, and a mile from another year prices at another year’s rate. '
+      + uncovered.slice(0,6).map(function(u){ return 'line '+u.line+' ('+u.date+', '+milesFmt(u.miles)+' mi)'; }).join(', ')
+      + (uncovered.length>6 ? ', and '+(uncovered.length-6)+' more' : '') + '.');
+  }
+  if(malformed.length){
+    probs.push('<b>' + malformed.length + ' line' + (malformed.length===1?'':'s') + ' could not be read.</b> '
+      + malformed.slice(0,6).map(function(m){ return 'line '+m.line+': '+m.why; }).join('; ')
+      + (malformed.length>6 ? '; and '+(malformed.length-6)+' more' : '') + '.');
+  }
+  if(probs.length){
+    $('problems').innerHTML = probs.join('<br><br>');
+    $('problems').className = 'warn bad';
+  } else {
+    $('problems').innerHTML = '';
+    $('problems').className = 'warn bad hide';
+  }
+  $('res').style.display='block';
+}
+
+$('tOdo').addEventListener('click', function(){ setMode('odo'); });
+$('tLog').addEventListener('click', function(){ setMode('log'); });
+$('go').addEventListener('click', function(){ mode==='odo' ? fromOdo() : fromLog(); });
+$('clear').addEventListener('click', function(){
+  $('o1').value=''; $('o2').value=''; $('log').value='';
+  $('res').style.display='none'; $('err').style.display='none';
+});
+fromOdo();
+</script>
+</body>
+</html>
