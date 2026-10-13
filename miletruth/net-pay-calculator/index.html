@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gig Driver Net Pay Calculator: What the Driving Actually Paid (2026)</title>
+<meta name="description" content="Free net pay calculator for DoorDash, Uber, Lyft, Instacart and Spark drivers. Subtracts the real per-mile cost of your vehicle from your gross, and prices your miles at both 2026 IRS rates: 72.5 cents through June 30, 76 cents from July 1. Runs in your browser.">
+<link rel="canonical" href="https://bakerventuresstudio.com/miletruth/net-pay-calculator/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MileTruth">
+<meta property="og:title" content="Gig Driver Net Pay Calculator: What the Driving Actually Paid">
+<meta property="og:description" content="Subtract the real per-mile cost of your car from your gross. Both 2026 IRS mileage rates handled separately. Free, no signup, nothing leaves your browser.">
+<meta property="og:url" content="https://bakerventuresstudio.com/miletruth/net-pay-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gig Driver Net Pay Calculator: What the Driving Actually Paid">
+<meta name="twitter:description" content="Subtract the real per-mile cost of your car from your gross. Both 2026 IRS mileage rates handled separately. Free, no signup.">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "@id": "https://bakerventuresstudio.com/miletruth/net-pay-calculator/#app",
+   "name": "Gig Driver Net Pay Calculator",
+   "url": "https://bakerventuresstudio.com/miletruth/net-pay-calculator/",
+   "applicationCategory": "FinanceApplication",
+   "operatingSystem": "Any browser",
+   "browserRequirements": "Requires JavaScript",
+   "description": "A free browser calculator that subtracts a per-mile vehicle operating cost from a gig driver's gross earnings, and separately prices business miles at both 2026 IRS standard mileage rates. Runs entirely on the device.",
+   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+   "publisher": { "@id": "https://bakerventuresstudio.com/#org" },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://bakerventuresstudio.com/#org",
+   "name": "Baker Ventures LLC",
+   "url": "https://bakerventuresstudio.com/",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "355 E 1200 N",
+    "addressLocality": "Logan",
+    "addressRegion": "UT",
+    "postalCode": "84341",
+    "addressCountry": "US"
+   },
+   "sameAs": [
+    "https://github.com/BakerVentures",
+    "https://apps.apple.com/us/developer/baker-ventures-llc/id6784050953"
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://bakerventuresstudio.com/miletruth/net-pay-calculator/",
+   "name": "Gig Driver Net Pay Calculator: What the Driving Actually Paid (2026)",
+   "isPartOf": { "@id": "https://bakerventuresstudio.com/#org" },
+   "inLanguage": "en",
+   "datePublished": "2026-10-13",
+   "dateModified": "2026-10-13"
+  }
+ ]
+}
+</script>
+<style>:root{--acc:#F2A93B;--acc2:#FFC861;--bg:#0C0C0D;--card:#151517;--bd:#2A2A2A;--fg:#FFF;--fg2:#AAA}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+nav{padding:20px 0;border-bottom:1px solid var(--bd);font-size:14px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+nav .b{font-weight:800;color:var(--acc);text-transform:uppercase;letter-spacing:.04em;margin-right:auto}
+nav a{color:var(--fg2);text-decoration:none}nav a:hover{color:var(--acc)}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.14;letter-spacing:-.03em;margin:34px 0 14px;font-weight:800}
+.lede{font-size:19px;color:#DDD;margin:0 0 22px}
+.upd{color:#666;font-size:13px;margin:0 0 26px}
+h2{font-size:23px;letter-spacing:-.02em;margin:44px 0 12px;font-weight:800}
+h3{font-size:17px;margin:24px 0 6px;font-weight:700}
+p{color:#DDD}
+.ans{background:var(--card);border:1px solid var(--bd);border-left:3px solid var(--acc);border-radius:12px;padding:18px 20px;margin:18px 0}
+.ans p{margin:0;color:#EEE}
+.meta{color:#777;font-size:14px;margin-top:12px}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
+th,td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--bd);vertical-align:top}
+th{color:var(--acc);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+ul,ol{padding-left:20px;color:#DDD}li{margin:7px 0}
+footer{margin-top:56px;padding:28px 0 56px;border-top:1px solid var(--bd);color:#777;font-size:14px}
+footer a,a{color:var(--acc)}nav a{color:var(--fg2)}
+.note{color:#999;font-size:14px;font-style:italic}
+.tool{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:22px;margin:26px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+label{display:block;font-size:12px;color:#999;text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:6px}
+input,select{width:100%;background:#0E0E10;color:#FFF;border:1px solid var(--bd);border-radius:10px;padding:12px;font:16px/1.4 inherit}
+input:focus,select:focus{outline:none;border-color:var(--acc)}
+.hint{color:#666;font-size:12px;margin:5px 0 0;text-transform:none;letter-spacing:0;font-weight:400}
+fieldset{border:0;padding:0;margin:0 0 20px}
+legend{font-size:12px;color:var(--acc);text-transform:uppercase;letter-spacing:.07em;font-weight:800;padding:0;margin-bottom:12px}
+.chk{display:flex;align-items:flex-start;gap:9px;margin:9px 0;font-size:14px;color:#CCC}
+.chk input{width:18px;height:18px;flex:0 0 18px;margin-top:2px}
+button{background:linear-gradient(180deg,var(--acc2),var(--acc));color:#1A1206;font:800 16px/1 inherit;padding:14px 26px;border:0;border-radius:12px;cursor:pointer}
+button.ghost{background:none;color:var(--fg2);border:1px solid var(--bd);font-weight:600}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.res{margin-top:24px;display:none;border-top:1px solid var(--bd);padding-top:22px}
+.headline{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.big{font-size:54px;font-weight:800;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.tag{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#999}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:20px 0}
+.kpi div{background:#0E0E10;border:1px solid var(--bd);border-radius:11px;padding:13px 14px}
+.kpi .k{color:#888;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.kpi .v{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums;margin-top:4px}
+.err{color:#FF8A6B;font-size:14px;margin-top:12px}
+.warn{background:#1A1410;border:1px solid #4A3A1E;border-left:3px solid var(--acc);border-radius:11px;padding:14px 16px;margin:18px 0;font-size:14px;color:#DDD}
+.warn b{color:#FFF}
+.src{color:#777;font-size:13px}
+.src a{color:var(--acc)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><span class="b">MileTruth</span><a href="/miletruth/">Overview</a><a href="/miletruth/tools/">Calculators</a><a href="/miletruth/mileage-deduction-calculator/">Mileage deduction</a><a href="/miletruth/dollar-per-mile-calculator/">Per-mile offer</a><a href="/miletruth/irs-mileage-rate-2026/">2026 rate</a></nav>
+
+<h1>What did the driving actually pay?</h1>
+<p class="lede">Enter a week, a day or a whole year. This subtracts what your vehicle really costs per mile from what the apps paid you, and prices your business miles at both of 2026's IRS standard mileage rates separately.</p>
+<p class="upd">Free, no account, no limit. Runs entirely in your browser, so nothing you type is sent anywhere. Last updated 2026-10-13.</p>
+
+<div class="tool">
+<fieldset>
+<legend>What you earned and drove</legend>
+<div class="grid">
+  <div><label for="gross">Gross earnings ($)</label><input id="gross" type="number" inputmode="decimal" min="0" step="0.01" value="820"><p class="hint">Everything the apps paid, tips and bonuses included.</p></div>
+  <div><label for="hours">Hours worked</label><input id="hours" type="number" inputmode="decimal" min="0" step="0.1" value="38"><p class="hint">Optional. Leave blank to skip per-hour figures.</p></div>
+  <div><label for="m1">Business miles, Jan 1 to Jun 30</label><input id="m1" type="number" inputmode="decimal" min="0" step="1" value="0"><p class="hint">Priced at 72.5&cent;.</p></div>
+  <div><label for="m2">Business miles, Jul 1 to Dec 31</label><input id="m2" type="number" inputmode="decimal" min="0" step="1" value="940"><p class="hint">Priced at 76&cent;.</p></div>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Your vehicle</legend>
+<div class="grid">
+  <div><label for="veh">Vehicle class</label><select id="veh"></select><p class="hint">Sets the starting cost figures. Override any of them below.</p></div>
+  <div><label for="annual">Miles you drive a year, all purposes</label><input id="annual" type="number" inputmode="numeric" min="1" step="500" value="25000"><p class="hint">Depreciation per mile falls as this rises.</p></div>
+  <div><label for="fuel">Fuel price ($ / gallon)</label><input id="fuel" type="number" inputmode="decimal" min="0" step="0.01" value="3.15"><p class="hint">Use what you actually pay.</p></div>
+  <div><label for="mpg">Your MPG</label><input id="mpg" type="number" inputmode="decimal" min="0" step="0.1"><p class="hint">Blank uses the class default.</p></div>
+</div>
+<div style="margin-top:14px">
+  <div class="chk"><input type="checkbox" id="inclic"><label for="inclic" style="text-transform:none;letter-spacing:0;font-size:14px;color:#CCC;font-weight:400;margin:0">Include license, registration and taxes</label></div>
+  <div class="chk"><input type="checkbox" id="incfin"><label for="incfin" style="text-transform:none;letter-spacing:0;font-size:14px;color:#CCC;font-weight:400;margin:0">Include loan or lease finance charges</label></div>
+  <div class="chk"><input type="checkbox" id="incse"><label for="incse" style="text-transform:none;letter-spacing:0;font-size:14px;color:#CCC;font-weight:400;margin:0">Show a self-employment tax set-aside</label></div>
+</div>
+</fieldset>
+
+<div class="row">
+  <button id="go">Work it out</button>
+  <button class="ghost" id="reset">Reset</button>
+</div>
+<p class="err" id="err" style="display:none"></p>
+
+<div class="res" id="res">
+  <div class="headline"><span class="big" id="net">&ndash;</span><span class="tag" id="netlbl">left after the vehicle</span></div>
+  <p class="meta" id="sub"></p>
+
+  <div class="kpi" id="kpi"></div>
+
+  <h3 style="margin-top:26px">Where the money went</h3>
+  <table id="flow"><tbody></tbody></table>
+
+  <h3>Your cost per mile, broken out</h3>
+  <table id="cpm"><tbody></tbody></table>
+
+  <h3>Standard mileage deduction, by rate period</h3>
+  <table id="ded"><tbody></tbody></table>
+  <div class="warn" id="splitnote"></div>
+</div>
+</div>
+
+<h2>The two numbers almost every calculator mixes up</h2>
+<div class="ans"><p>Your vehicle cost and your mileage deduction are not the same number and they do not belong in the same subtraction. The vehicle cost is money that actually left your pocket or came off your car's value. The deduction is a figure that reduces taxable income on a return. Subtracting the deduction from your gross as if it were an expense, which several free calculators do, double-counts the car and makes the week look worse than it was.</p></div>
+<p>This page shows them apart on purpose. The headline figure is cash reality: gross minus what the miles cost you. The deduction table underneath is the tax figure, priced at the rate in force on the day each mile was driven.</p>
+
+<h2>Why there are two mileage boxes</h2>
+<p>2026 is a split year. The IRS set the business standard mileage rate at 72.5 cents a mile for January 1 through June 30, then raised it to 76 cents for July 1 through December 31. A mile is worth 3.5 cents more in August than it was in May.</p>
+<p>That means one rate for the whole year is wrong in both directions: it understates the second half and overstates the first. Any log that covers both halves needs the miles split at June 30 and each half priced on its own. That is what the second table does, and it is why this calculator asks for two mileage figures rather than one.</p>
+<p class="src">Source: Internal Revenue Service, <a href="https://www.irs.gov/tax-professionals/standard-mileage-rates" rel="nofollow">Standard mileage rates</a>, read 2026-10-13. First-half rate per IR-2025-128 and Notice 2026-10; second-half rate per IR-2026-29. Charitable mileage stayed at 14 cents both halves; medical and military-moving went from 20.5 to 23.5 cents.</p>
+
+<h2>Where the vehicle cost figures come from</h2>
+<p>The starting numbers for each vehicle class are the five-year averages published in AAA's annual <em>Your Driving Costs</em> study, 2025 edition, at its 15,000 miles a year baseline. Depreciation is then rescaled to the annual mileage you enter, because per-mile depreciation falls as you drive more: the same dollar loss spreads over more miles. Fuel is recomputed from the price and MPG you give rather than AAA's national average.</p>
+<p>Two components are off by default and most gig drivers should leave them off. License, registration and taxes are owed whether or not you drive for an app, and finance charges only apply if the car is financed. Turn them on if you want the full cost of ownership rather than the cost of driving.</p>
+<p class="src">Source: AAA, <em>Your Driving Costs 2025</em>, published September 2025, <a href="https://newsroom.aaa.com/wp-content/uploads/2025/09/AAA-Brochure-Your-Driving-Cost-9.2025.pdf" rel="nofollow">newsroom.aaa.com</a>. National average regular gasoline price used in that study: $3.151 per gallon. Insurance is a national average and will be the component furthest from your own number, so override it with the vehicle class closest to your real premium if it matters.</p>
+
+<h2>Questions</h2>
+<h3>Is this tax advice?</h3>
+<p>No. It is arithmetic on the numbers you type in. It does not tell you what you may deduct, whether the standard mileage method is the right one for your situation, or what you owe. Nothing here is reviewed by a tax professional and no outcome is guaranteed. Talk to someone qualified before you file.</p>
+<h3>Does anything I type get sent anywhere?</h3>
+<p>No. The whole calculation is JavaScript running on your device. There is no request, no logging, no cookie and no storage. You can turn off your connection and it still works.</p>
+<h3>Which rate applies if my week straddles June 30?</h3>
+<p>Each mile takes the rate in force on the day it was driven, so a week running from June 28 to July 4 has miles in both periods. Split the odometer at the end of June 30 and enter each half in its own box.</p>
+<h3>Why is my per-hour figure lower than the app's?</h3>
+<p>Because the platforms quote gross and count only the time they consider you engaged. This counts every hour you enter and takes the vehicle out first. The gap between those two numbers is the entire point of the exercise.</p>
+<h3>What is the self-employment tax set-aside?</h3>
+<p>Self-employment tax is 15.3 percent, made up of 12.4 percent for Social Security and 2.9 percent for Medicare, and it generally applies to 92.35 percent of net earnings from self-employment. The optional line applies those two figures to your net so you can see roughly what not to spend. It is an estimate of one tax only, it ignores income tax, deductions, credits, the Social Security wage cap and anything else on your return, and it is not advice.</p>
+<h3>Can I use this for Uber, DoorDash and Instacart in the same week?</h3>
+<p>Yes. Add the gross from every platform together and enter total miles. Per-platform numbers are a different question, and the useful version of it needs a log rather than a calculator.</p>
+
+<h2>The app this came from</h2>
+<p>These figures are the same arithmetic MileTruth runs, ported to run in a browser. The app's job is the part a calculator cannot do: keeping the log. It records each trip with its own date, classifies business against personal, and prices every mile at the rate in force that day, so the June 30 split happens by itself instead of being something you have to remember at tax time.</p>
+<p><strong>MileTruth is not released yet.</strong> There is no App Store or Play listing to send you to and no waiting list to join. It is being built for January, which is when a year of missing mileage records becomes expensive. The calculators on this site are free and will stay free whether or not the app ever ships.</p>
+<p><a href="/miletruth/">What MileTruth is</a> &middot; <a href="/miletruth/tools/">All the free calculators</a> &middot; <a href="/miletruth/irs-mileage-rate-2026/">The 2026 split-year rate, explained</a></p>
+
+<footer><p><strong>MileTruth</strong> is built by Baker Ventures LLC, 355 E 1200 N, Logan, UT 84341. Page published 2026-10-13.<br><a href="/miletruth/support/">Support</a> &middot; <a href="/miletruth/privacy/">Privacy Policy</a> &middot; <a href="/miletruth/terms/">Terms of Use</a> &middot; <a href="mailto:rsb.baker+miletruth@gmail.com">rsb.baker+miletruth@gmail.com</a></p><p>A record-keeping and arithmetic tool, not a tax advisor. &copy; 2026 Baker Ventures LLC</p></footer>
+</div>
+
+<script>
+/* Vehicle operating cost model. Every figure below is the five-year average from
+   AAA "Your Driving Costs" 2025 (Sept 2025) at its 15,000 mi/yr baseline, and the
+   depreciation slopes are derived from AAA's published 10k/15k/20k mi/yr figures.
+   This is a direct port of MileTruth's own packages/cpm module so the browser and
+   the app give the same answer. Nothing here is sent anywhere. */
+var AAA_FUEL = 3.151;               // national avg regular gasoline in that study
+function mpgFrom(c){ return (AAA_FUEL*100)/c; }
+function dep(d10,d15,d20){ return {a15:d15, under:(d15-d10)/5000, over:(d20-d15)/5000}; }
+
+var CLASSES = [
+ {k:'small_sedan',      label:'Small sedan',               fuelC:9.9,  maint:10.23, ins:1511, lic:519,  fin:701,  d:dep(2280,2629,3032)},
+ {k:'medium_sedan',     label:'Medium sedan',              fuelC:11.13,maint:11.91, ins:1572, lic:613,  fin:854,  d:dep(3108,3462,3873)},
+ {k:'subcompact_suv',   label:'Subcompact SUV',            fuelC:12.12,maint:10.79, ins:1695, lic:625,  fin:867,  d:dep(2940,3293,3702)},
+ {k:'compact_suv',      label:'Compact SUV (FWD)',         fuelC:11.43,maint:11.64, ins:1726, lic:641,  fin:898,  d:dep(3188,3554,3980)},
+ {k:'medium_suv',       label:'Medium SUV (4WD)',          fuelC:14.65,maint:11.79, ins:1833, lic:835,  fin:1190, d:dep(4374,4760,5209)},
+ {k:'midsize_pickup',   label:'Midsize pickup',            fuelC:16.79,maint:11.44, ins:1527, lic:877,  fin:1223, d:dep(3611,4004,4460)},
+ {k:'fullsize_pickup',  label:'Half-ton / crew-cab pickup',fuelC:17.84,maint:11.36, ins:1699, lic:1098, fin:1565, d:dep(5632,6041,6515)},
+ {k:'hybrid',           label:'Hybrid',                    fuelC:8.55, maint:9.75,  ins:1651, lic:725,  fin:999,  d:dep(3100,3472,3904)},
+ {k:'electric',         label:'Electric',                  fuelC:5.07, maint:10.07, ins:1995, lic:859,  fin:1044, d:dep(4128,4513,4961), ev:true}
+];
+
+/* The 2026 split-year IRS business standard mileage rates, in cents per mile.
+   Jan 1 - Jun 30: 72.5 (IR-2025-128 / Notice 2026-10). Jul 1 - Dec 31: 76 (IR-2026-29).
+   https://www.irs.gov/tax-professionals/standard-mileage-rates - read 2026-10-13.
+   Kept as two periods rather than one rate for the same reason the app does it:
+   one rate for the whole year is wrong on both sides of June 30. */
+var RATES = [
+ {label:'Jan 1 – Jun 30, 2026', cents:72.5},
+ {label:'Jul 1 – Dec 31, 2026', cents:76}
+];
+
+var SE_RATE = 0.153, SE_BASE = 0.9235;   // IRS Topic no. 554, read 2026-10-13
+
+var $ = function(id){ return document.getElementById(id); };
+var sel = $('veh');
+CLASSES.forEach(function(c,i){
+  var o = document.createElement('option'); o.value=i; o.textContent=c.label; sel.appendChild(o);
+});
+sel.value = 3; // compact SUV: the commonest gig vehicle shape, and a middling cost
+
+function money(n){
+  var s = Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  return (n<0?'-$':'$')+s;
+}
+function cents(n){ return n.toFixed(2)+'¢'; }
+function num(id){ var v = parseFloat($(id).value); return Number.isFinite(v) ? v : null; }
+
+/* Per-mile depreciation, rescaled from AAA's 15k baseline to the driver's real
+   annual mileage. Per-mile cost FALLS as annual miles rise: the same wear-driven
+   dollar loss amortises over more miles. */
+function depCpm(c, annual){
+  var a = c.d.a15;
+  var annualUsd = annual === 15000 ? a
+    : annual < 15000 ? a - c.d.under*(15000-annual)
+    : a + c.d.over*(annual-15000);
+  return (Math.max(0, annualUsd)/annual)*100;
+}
+
+function compute(){
+  $('err').style.display='none';
+  var gross = num('gross'), hours = num('hours');
+  var m1 = num('m1') || 0, m2 = num('m2') || 0;
+  var annual = num('annual'), fuelPrice = num('fuel'), mpgOv = num('mpg');
+  var c = CLASSES[parseInt(sel.value,10)];
+
+  if(gross===null || gross<0){ return fail('Enter your gross earnings for the period.'); }
+  if(m1<0 || m2<0){ return fail('Miles cannot be negative.'); }
+  var miles = m1+m2;
+  if(miles<=0){ return fail('Enter the business miles you drove, in whichever half of 2026 you drove them.'); }
+  if(annual===null || annual<=0){ annual = 15000; $('annual').value = 15000; }
+  if(annual < miles){ return fail('Your miles for this period ('+miles.toLocaleString()+') exceed the miles you say you drive in a year ('+annual.toLocaleString()+'). Fix one of them.'); }
+
+  var fuelCpm;
+  if(c.ev){ fuelCpm = c.fuelC; }
+  else {
+    var mpg = (mpgOv && mpgOv>0) ? mpgOv : mpgFrom(c.fuelC);
+    var fp = (fuelPrice && fuelPrice>0) ? fuelPrice : AAA_FUEL;
+    fuelCpm = (fp/mpg)*100;
+  }
+  var dCpm = depCpm(c, annual);
+  var insCpm = (c.ins/annual)*100;
+  var licCpm = $('inclic').checked ? (c.lic/annual)*100 : 0;
+  var finCpm = $('incfin').checked ? (c.fin/annual)*100 : 0;
+  var totalCpm = dCpm + fuelCpm + c.maint + insCpm + licCpm + finCpm;
+
+  var vehCost = miles * totalCpm / 100;
+  var net = gross - vehCost;
+
+  // Deduction: each half priced at its own rate. Deliberately NOT subtracted
+  // from net above - it is a tax figure, not cash out of pocket.
+  var parts = [];
+  if(m1>0) parts.push({label:RATES[0].label, miles:m1, cents:RATES[0].cents, usd:m1*RATES[0].cents/100});
+  if(m2>0) parts.push({label:RATES[1].label, miles:m2, cents:RATES[1].cents, usd:m2*RATES[1].cents/100});
+  var dedTotal = parts.reduce(function(s,p){ return s+p.usd; },0);
+
+  render({c:c, gross:gross, hours:hours, m1:m1, m2:m2, miles:miles, annual:annual,
+          dCpm:dCpm, fuelCpm:fuelCpm, insCpm:insCpm, licCpm:licCpm, finCpm:finCpm,
+          totalCpm:totalCpm, vehCost:vehCost, net:net, parts:parts, dedTotal:dedTotal});
+}
+
+function fail(msg){
+  $('err').textContent = msg; $('err').style.display='block'; $('res').style.display='none';
+}
+
+function render(r){
+  $('net').textContent = money(r.net);
+  $('net').style.color = r.net < 0 ? '#FF8A6B' : '#FFF';
+  $('netlbl').textContent = r.net < 0 ? 'you paid to work' : 'left after the vehicle';
+  $('sub').textContent = money(r.gross)+' gross, minus '+money(r.vehCost)+' of vehicle cost over '
+    + r.miles.toLocaleString()+' business miles at '+cents(r.totalCpm)+' a mile.';
+
+  var k = [];
+  k.push(['Kept per mile', money(r.net/r.miles)]);
+  k.push(['Gross per mile', money(r.gross/r.miles)]);
+  if(r.hours && r.hours>0){
+    k.push(['Kept per hour', money(r.net/r.hours)]);
+    k.push(['Gross per hour', money(r.gross/r.hours)]);
+  }
+  k.push(['Share eaten by the car', (r.vehCost/r.gross*100).toFixed(0)+'%']);
+  $('kpi').innerHTML = k.map(function(x){
+    return '<div><div class="k">'+x[0]+'</div><div class="v">'+x[1]+'</div></div>';
+  }).join('');
+
+  var flow = [['Gross earnings', money(r.gross)], ['Vehicle cost, '+r.miles.toLocaleString()+' mi at '+cents(r.totalCpm), '− '+money(r.vehCost)]];
+
+  if($('incse').checked && r.net > 0){
+    var se = r.net * SE_BASE * SE_RATE;
+    flow.push(['Self-employment tax set-aside, 15.3% of 92.35%', '− '+money(se)]);
+    flow.push(['<strong>Left after both</strong>', '<strong>'+money(r.net - se)+'</strong>']);
+  } else {
+    flow.push(['<strong>Net after the vehicle</strong>', '<strong>'+money(r.net)+'</strong>']);
+  }
+  $('flow').querySelector('tbody').innerHTML =
+    '<tr><th>Line</th><th class="n">Amount</th></tr>' + flow.map(function(x){
+      return '<tr><td>'+x[0]+'</td><td class="n">'+x[1]+'</td></tr>';
+    }).join('');
+
+  var rows = [
+    ['Depreciation', cents(r.dCpm)],
+    [r.c.ev ? 'Electricity' : 'Fuel', cents(r.fuelCpm)],
+    ['Maintenance, repair and tires', cents(r.c.maint)],
+    ['Insurance', cents(r.insCpm)]
+  ];
+  if(r.licCpm>0) rows.push(['License, registration and taxes', cents(r.licCpm)]);
+  if(r.finCpm>0) rows.push(['Finance charges', cents(r.finCpm)]);
+  rows.push(['<strong>Total cost per mile</strong>', '<strong>'+cents(r.totalCpm)+'</strong>']);
+  $('cpm').querySelector('tbody').innerHTML =
+    '<tr><th>Component</th><th class="n">Per mile</th></tr>' + rows.map(function(x){
+      return '<tr><td>'+x[0]+'</td><td class="n">'+x[1]+'</td></tr>';
+    }).join('');
+
+  $('ded').querySelector('tbody').innerHTML =
+    '<tr><th>Rate period</th><th class="n">Miles</th><th class="n">Rate</th><th class="n">Deduction</th></tr>'
+    + r.parts.map(function(p){
+        return '<tr><td>'+p.label+'</td><td class="n">'+p.miles.toLocaleString()+'</td><td class="n">'+p.cents+'¢</td><td class="n">'+money(p.usd)+'</td></tr>';
+      }).join('')
+    + '<tr><td><strong>Total</strong></td><td class="n"><strong>'+r.miles.toLocaleString()+'</strong></td><td class="n"></td><td class="n"><strong>'+money(r.dedTotal)+'</strong></td></tr>';
+
+  var note;
+  if(r.parts.length === 2){
+    var delta = r.m2 * (RATES[1].cents - RATES[0].cents) / 100;
+    note = '<b>This period spans the July 1 rate change.</b> Your '+r.m2.toLocaleString()
+      + ' second-half miles are worth '+money(delta)+' more than the same miles would have been at the first-half rate. '
+      + 'A calculator using one rate for all of 2026 gets this wrong by that much.';
+  } else if(r.m2>0){
+    note = '<b>All these miles fall in the second half of 2026</b>, so they price at 76&cent;. '
+      + 'If any of them were actually driven before July 1 they belong in the other box at 72.5&cent;.';
+  } else {
+    note = '<b>All these miles fall in the first half of 2026</b>, so they price at 72.5&cent;. '
+      + 'Miles driven on or after July 1 belong in the other box at 76&cent;.';
+  }
+  note += ' This is the deduction figure, not cash. It does not get subtracted from the net above, and it is not advice about what you may claim.';
+  $('splitnote').innerHTML = note;
+
+  $('res').style.display='block';
+}
+
+$('go').addEventListener('click', compute);
+$('reset').addEventListener('click', function(){
+  ['gross','hours','m1','m2','annual','fuel','mpg'].forEach(function(id){ $(id).value=''; });
+  $('annual').value = 15000; $('fuel').value = '3.15';
+  ['inclic','incfin','incse'].forEach(function(id){ $(id).checked=false; });
+  sel.value = 3; $('res').style.display='none'; $('err').style.display='none';
+});
+['gross','hours','m1','m2','annual','fuel','mpg'].forEach(function(id){
+  $(id).addEventListener('keydown', function(e){ if(e.key==='Enter') compute(); });
+});
+compute();
+</script>
+</body>
+</html>
