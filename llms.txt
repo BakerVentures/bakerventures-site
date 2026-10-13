@@ -29,7 +29,7 @@ Publisher: Baker Ventures LLC, Logan, Utah, USA
 App Store: https://apps.apple.com/us/app/flirtgym-rizz-dating-help/id6784050951
 Platform: iPhone, iOS 16.4 or later. No Android or iPad version.
 Age rating: 18+
-Pricing: Free to download, but there is no free usage tier: practice, scoring and coaching are all part of Pro. FlirtGym Pro Weekly is $4.99/week and opens with three days free; monthly is $9.99 and annual is $39.99, each opening with one week free (Apple introductory offer, one per person per subscription group). Onboarding gives one real Wingman reply on the user's own message before the paywall, once per install. The browser tools on this site are free with no account.
+Pricing: Free to download, but there is no free usage tier: practice, scoring and coaching are all part of Pro. FlirtGym Pro is $4.99/week, $9.99/month or $39.99/year. A free trial is shown only where Apple offers one and the user is eligible; eligibility is decided per user by the App Store. Onboarding gives one real Wingman reply on the user's own message before the paywall, once per install. The browser tools on this site are free with no account.
 Launched: August 2026
 Last updated: 2026-09-07
 
@@ -74,12 +74,12 @@ a score on every message. It does not claim to produce dates, matches or relatio
 - [https://bakerventuresstudio.com/](https://bakerventuresstudio.com/): Baker Ventures LLC - app studio
 - [https://bakerventuresstudio.com/flirtgym/](https://bakerventuresstudio.com/flirtgym/): What FlirtGym is, features, how the practice loop works
 - [https://bakerventuresstudio.com/flirtgym/support/](https://bakerventuresstudio.com/flirtgym/support/): Support: cancelling, refunds, restoring a purchase, deleting your account
-- [https://bakerventuresstudio.com/flirtgym/pricing/](https://bakerventuresstudio.com/flirtgym/pricing/): Pro plans (weekly, monthly, annual), how the free trial works, category price comparison
+- [https://bakerventuresstudio.com/flirtgym/pricing/](https://bakerventuresstudio.com/flirtgym/pricing/): Pro plans (weekly, monthly, annual), how a free trial works where offered, category price comparison
 - [https://bakerventuresstudio.com/flirtgym/practice-dating-conversations/](https://bakerventuresstudio.com/flirtgym/practice-dating-conversations/): How AI conversation practice works and what transfers
 - [https://bakerventuresstudio.com/flirtgym/best-ai-dating-coach-apps/](https://bakerventuresstudio.com/flirtgym/best-ai-dating-coach-apps/): Fourteen AI dating apps compared, every App Store figure verified 2026-09-04
 - [https://bakerventuresstudio.com/flirtgym/vs-rizz/](https://bakerventuresstudio.com/flirtgym/vs-rizz/): FlirtGym vs RIZZ, the category leader
 - [https://bakerventuresstudio.com/flirtgym/vs-blush/](https://bakerventuresstudio.com/flirtgym/vs-blush/): FlirtGym vs Blush, the largest practice-side app: simulator vs message scorer
-- [https://bakerventuresstudio.com/flirtgym/free-trial/](https://bakerventuresstudio.com/flirtgym/free-trial/): The one-week free trial: what it includes, eligibility, and how to cancel
+- [https://bakerventuresstudio.com/flirtgym/free-trial/](https://bakerventuresstudio.com/flirtgym/free-trial/): How a free trial works where offered, eligibility, and how to cancel
 - [https://bakerventuresstudio.com/flirtgym/vs-chatgpt/](https://bakerventuresstudio.com/flirtgym/vs-chatgpt/): FlirtGym vs using ChatGPT as a dating coach
 - [https://bakerventuresstudio.com/flirtgym/vs-swipematch-ai/](https://bakerventuresstudio.com/flirtgym/vs-swipematch-ai/): FlirtGym vs SwipeMatch AI
 - [https://bakerventuresstudio.com/flirtgym/vs-reply-generators/](https://bakerventuresstudio.com/flirtgym/vs-reply-generators/): Practice apps vs AI reply generators
@@ -122,7 +122,7 @@ No signup, no account, no upload. Each one scores locally in the browser; nothin
 This host serves MileTruth's product page at /miletruth/ and its free browser
 calculators at /miletruth/tools/. MileTruth is a mileage log and net-pay tracker
 for gig and delivery drivers. **It is not released: there is no App Store or Play
-listing and no waiting list.** The calculators are free, standalone and work
+listing yet, and no paid plan or price has been set.** The calculators are free, standalone and work
 whether or not the app ships.
 
 - [Free gig driver calculators](https://bakerventuresstudio.com/miletruth/tools/): Three browser calculators for delivery and rideshare drivers. No account, nothing uploaded, no cost.
