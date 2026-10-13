@@ -37,7 +37,7 @@
 <body>
   <p class="nav"><a href="../">MoveWitness</a> &rsaquo; Terms</p>
   <h1>Terms of Service — MoveWitness</h1>
-  <p class="meta"><strong>Last updated:</strong> September 23, 2026</p>
+  <p class="meta"><strong>Last updated:</strong> October 1, 2026</p>
   <p>These terms are the agreement between you and <strong>Baker Ventures LLC</strong> ("we," "us"), a Utah limited liability company, covering your use of the MoveWitness mobile app ("the app"). By installing or using the app, you agree to them. If you don't agree, don't use the app — deleting it ends the agreement, and there is no account to close.</p>
   <p>How your data is handled is covered by the separate <a href="../privacy/">Privacy Policy</a>.</p>
   <h2>Not legal advice</h2>
@@ -53,7 +53,7 @@
     <li><strong>You are responsible for what you record and what you claim.</strong> Photograph and describe accurately; take the photos you actually need; and check your own state's statute or ask a lawyer licensed in your state before relying on any of it in a dispute.</li>
   </ul>
   <h2>What the integrity digest is — and is not</h2>
-  <p>Every report the app generates carries a SHA-256 <strong>integrity digest</strong> computed over the report's own contents: the property label, the inspection's identifiers and timestamps, each room's name, notes and condition, the actual bytes of every photo included, and the time the report itself was generated. Because that generation time is part of what gets hashed, two exports of the same, unchanged inspection will have different digests — regenerating a report does not reproduce its earlier digest. The digest is a fingerprint of one export's exact contents at the moment it was made, not a reproducible check you can run again later to confirm the underlying facts haven't changed.</p>
+  <p>Every report the app generates carries a SHA-256 <strong>integrity digest</strong> computed over the report's own contents: the property label and address, whether it is a move-in or a move-out, the inspection's identifiers and timestamps, each room's name, notes and condition, each photo's caption and which kind of time is shown for it, the actual bytes of every photo included, whether each photo could be shown in the report, and the time the report itself was generated. The footer prints the digest's format number beside it, so a reader can tell which version of that list applied to the report in their hands. Because that generation time is part of what gets hashed, two exports of the same, unchanged inspection will have different digests — regenerating a report does not reproduce its earlier digest. The digest is a fingerprint of one export's exact contents at the moment it was made, not a reproducible check you can run again later to confirm the underlying facts haven't changed.</p>
   <p>What it is not, in the app's own words, printed in that same footer:</p>
   <blockquote>
     <p>A content digest, not a signature — it does not prove when this file was created.</p>
