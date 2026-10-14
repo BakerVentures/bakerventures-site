@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talk Timing Planner: Time Per Slide From Your Speaker Notes | FlipStage</title>
+  <meta name="description" content="Paste your speaker notes, one block per slide, set your time limit and your pace, and get speaking time per slide, the clock time to be on each slide by, and whether the talk fits. Free, runs in your browser.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/flipstage/talk-timing-planner/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FlipStage">
+  <meta property="og:title" content="Talk Timing Planner: Time Per Slide From Your Speaker Notes">
+  <meta property="og:description" content="Paste speaker notes, get time per slide and the checkpoints to hit. Nothing leaves your browser.">
+  <meta property="og:url" content="https://bakerventuresstudio.com/flipstage/talk-timing-planner/">
+  <meta name="twitter:card" content="summary">
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 30px; margin: 0 0 4px; line-height: 1.25; }
+    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    p { margin: 12px 0; }
+    ul { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    a { color: #A85A2C; }
+    .note { background: #fafafa; border-left: 3px solid #A85A2C; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
+    .warn { background: #fffaf3; border-left: 3px solid #c47d2a; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
+    .nav { font-size: 14px; margin: 0 0 20px; }
+    .nav a { color: #666; }
+    .sub { font-size: 18px; color: #444; margin: 10px 0 24px; }
+    label { display: block; font-weight: 600; margin: 16px 0 4px; font-size: 15px; }
+    textarea, input[type=number] { width: 100%; padding: 10px; font: inherit; border: 1px solid #bbb; border-radius: 6px; background: #fff; }
+    textarea { min-height: 220px; }
+    .row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .row > div { flex: 1 1 150px; }
+    button { margin-top: 14px; background: #A85A2C; color: #fff; font: inherit; font-weight: 700; padding: 11px 22px; border: 0; border-radius: 8px; cursor: pointer; }
+    #out { margin-top: 24px; }
+    .verdict { font-size: 22px; font-weight: 700; margin: 4px 0; }
+    .over { color: #b3261e; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 15px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+    th { background: #fafafa; font-size: 13px; text-transform: uppercase; letter-spacing: .03em; color: #555; }
+    .cite { font-size: 13px; color: #666; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+    @media (max-width: 560px) { th, td { padding: 6px 5px; font-size: 14px; } }
+  </style>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Talk Timing Planner","url":"https://bakerventuresstudio.com/flipstage/talk-timing-planner/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Baker Ventures LLC"}}
+  </script>
+</head>
+<body>
+  <div class="nav"><a href="/flipstage/">FlipStage</a> &rsaquo; Talk timing planner</div>
+  <h1>Talk Timing Planner</h1>
+  <p class="sub">Words-to-minutes calculators tell you how long the whole script runs. This one splits your notes by slide, so you see which slides eat the clock and where you should be at each point in the talk.</p>
+
+  <form id="f" autocomplete="off">
+    <label for="notes">Speaker notes, one block per slide</label>
+    <textarea id="notes" placeholder="Paste your notes. Separate slides with a blank line, or with a line that is just ---"></textarea>
+    <div class="row">
+      <div><label for="min">Time limit (minutes)</label><input type="number" id="min" min="1" max="600" step="0.5" value="10"></div>
+      <div><label for="wpm">Your pace (words per minute)</label><input type="number" id="wpm" min="60" max="300" step="1" value="130"></div>
+      <div><label for="gap">Pause per slide (seconds)</label><input type="number" id="gap" min="0" max="120" step="1" value="0"></div>
+    </div>
+    <button type="submit">Plan the talk</button>
+  </form>
+  <div id="out" aria-live="polite"></div>
+
+  <h2>Using it</h2>
+  <ul>
+    <li><strong>Find your own pace.</strong> The 130 default is a placeholder, not a fact about you. Time yourself reading one slide's notes aloud at talk speed, divide words by minutes, and type that in. Nervous speakers often run faster than they practiced, so leave slack.</li>
+    <li><strong>Notes are not the whole talk.</strong> If you ad-lib, take questions or run a demo, put those minutes into the pause box or shorten the limit.</li>
+    <li><strong>Words are counted by spaces.</strong> Numbers, acronyms and long words all count as one word, so a notes block full of figures will run slower than its count suggests.</li>
+    <li><strong>Private.</strong> The math runs in your browser. Your notes are not sent anywhere or stored.</li>
+  </ul>
+
+  <div class="note"><strong>The same idea in the app.</strong> <a href="/flipstage/">FlipStage</a> is a free iPhone app for presenting from one phone stood upright between you and one other person: your speaker notes and a timer on your half of the screen, the slide on theirs. You can set a time budget of 5, 10, 15 or 20 minutes, and the timer turns red when you go over it. It does not split time per slide or calculate your pace. That is what this page is for. <a href="https://apps.apple.com/us/app/flipstage-present-two-sided/id6816274152">FlipStage on the App Store</a>.</div>
+  <p class="cite">App facts traced to the FlipStage repo: time budget presets and the over-budget state in <code>lib/presentMode.ts</code> (<code>DURATION_PRESETS</code>, <code>paceStatus</code>) and the red timer in <code>components/PresentMode.tsx</code>; per-slide speaker notes in <code>lib/deck.ts</code>. The arithmetic here is words divided by words per minute, plus the pause you enter.</p>
+  <footer>&copy; Baker Ventures LLC &middot; <a href="/flipstage/">FlipStage</a> &middot; <a href="/flipstage/privacy/">Privacy Policy</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+
+  <script>
+  (function () {
+    var f = document.getElementById('f'), out = document.getElementById('out');
+    function el(tag, text, cls) { var e = document.createElement(tag); if (text != null) e.textContent = text; if (cls) e.className = cls; return e; }
+    function clock(sec) { sec = Math.round(sec); var m = Math.floor(sec / 60), s = sec % 60; return m + ':' + (s < 10 ? '0' : '') + s; }
+    function words(t) { var m = t.trim().match(/\S+/g); return m ? m.length : 0; }
+    function split(text) {
+      var blocks = text.replace(/\r\n?/g, '\n').split(/\n[ \t]*(?:-{3,})[ \t]*\n|\n[ \t]*\n+/);
+      return blocks.map(function (b) { return b.trim(); }).filter(function (b) { return b.length > 0 && !/^-{3,}$/.test(b); });
+    }
+    f.addEventListener('submit', function (e) {
+      e.preventDefault(); out.textContent = '';
+      var slides = split(document.getElementById('notes').value);
+      var limit = parseFloat(document.getElementById('min').value) * 60;
+      var wpm = parseFloat(document.getElementById('wpm').value);
+      var gap = parseFloat(document.getElementById('gap').value) || 0;
+      if (!slides.length) { out.appendChild(el('p', 'Paste some notes first.', 'warn')); return; }
+      if (!(limit > 0) || !(wpm >= 1)) { out.appendChild(el('p', 'Enter a time limit and a pace.', 'warn')); return; }
+      var t = 0, rows = [], total = 0;
+      slides.forEach(function (s, i) {
+        var w = words(s), sec = w / wpm * 60 + gap;
+        rows.push({ n: i + 1, w: w, sec: sec, start: t, preview: s.split('\n')[0].slice(0, 48) });
+        t += sec; total += w;
+      });
+      var diff = t - limit;
+      var v = el('div', diff > 0 ? 'Over by ' + clock(diff) + '. Total ' + clock(t) + ' against ' + clock(limit) + '.' : 'Fits. Total ' + clock(t) + ' against ' + clock(limit) + ', ' + clock(-diff) + ' to spare.', 'verdict' + (diff > 0 ? ' over' : ''));
+      out.appendChild(v);
+      out.appendChild(el('p', slides.length + ' slides, ' + total + ' words at ' + wpm + ' words per minute' + (gap ? ', plus ' + gap + ' s per slide' : '') + '.'));
+      if (diff > 0) {
+        var cut = Math.ceil(diff / 60 * wpm);
+        out.appendChild(el('p', 'To fit at this pace you would cut about ' + cut + ' words' + (gap ? ' (not counting the pause time)' : '') + '.'));
+      }
+      var tb = el('table'), hd = el('tr');
+      ['Slide', 'Words', 'Time', 'Be on it by', 'Starts with'].forEach(function (h) { hd.appendChild(el('th', h)); });
+      tb.appendChild(hd);
+      rows.forEach(function (r) {
+        var tr = el('tr');
+        [r.n, r.w, clock(r.sec), clock(r.start), r.preview].forEach(function (c) { tr.appendChild(el('td', String(c))); });
+        tb.appendChild(tr);
+      });
+      out.appendChild(tb);
+      var longest = rows.slice().sort(function (a, b) { return b.sec - a.sec; })[0];
+      if (rows.length > 1) out.appendChild(el('p', 'Longest block: slide ' + longest.n + ', ' + clock(longest.sec) + ' (' + Math.round(longest.sec / t * 100) + '% of the talk).'));
+    });
+  })();
+  </script>
+</body>
+</html>
