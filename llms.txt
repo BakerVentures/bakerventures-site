@@ -137,3 +137,39 @@ and work whether or not the app ships.
 
 None of these pages is tax advice, none claims IRS endorsement or affiliation,
 and each cites its primary source with the date it was read.
+
+## The FlipStage section of this host
+
+This host serves FlipStage's product page at /flipstage/ and one free browser tool
+at /flipstage/speaking-time/. **FlipStage is on the App Store now** (id6816274152).
+It splits one iPhone screen into two facing halves: the half pointing at the other
+person shows the current slide, turned 180 degrees so it reads upright for them, and
+the half pointing at you shows your speaker notes, the Prev and Next controls and a
+timer. It is free with nothing to buy inside it, needs no account, and makes no
+network calls.
+
+Known limits, stated because they are true of the shipped build: decks are not saved
+yet, so imported photos, typed notes and any reordering last until the app is closed;
+slides come only from the photo library or the built-in four-slide sample deck, not
+from PowerPoint, Keynote or PDF; and the app does not film, record or scroll text.
+
+- [FlipStage](https://bakerventuresstudio.com/flipstage/): What it is, what it does not do, and the App Store link.
+- [Speaking time calculator](https://bakerventuresstudio.com/flipstage/speaking-time/): Counts the words in a script and converts them to spoken minutes at a rate the reader measures themselves with a built-in reading timer, rather than at an assumed words-per-minute figure. Adds a stated overhead percentage for pauses and questions, splits the total evenly across a slide count, and says which of FlipStage's own 5, 10, 15 or 20 minute timer targets the result fits. Runs entirely in the browser; the app itself does not do this arithmetic.
+
+## The PolicyReady section of this host
+
+This host serves PolicyReady's product page at /policyready/ and two free browser
+tools. **PolicyReady is not released: it is in App Store review as of 2026-10-13**,
+so it cannot be installed yet. Both tools work now and do not need it.
+
+PolicyReady assesses the security controls cyber insurers ask about, ranks the gaps
+and exports a readiness report. The tools below are generated from the app's own
+control registry and run the app's own scoring function in the browser, with its
+TypeScript types erased and nothing else changed.
+
+- [Small business cybersecurity checklist, mapped to CISA CPG 2.0](https://bakerventuresstudio.com/policyready/cyber-readiness-checklist/): All 50 controls in 8 categories, each with the question an insurer asks, why they ask it, how to satisfy it, and the CISA Cross-Sector Cybersecurity Performance Goals (CPG 2.0) code and official report title where the app cites one.
+- [Cybersecurity readiness self-check](https://bakerventuresstudio.com/policyready/readiness-self-check/): Answer 50 questions yes, partial or no and get a weighted readiness score, a per-category breakdown and the gaps ranked heaviest first. Nothing is sent anywhere and nothing is stored.
+
+Neither page is a security audit, a penetration test, a certification or a compliance
+determination, and neither promises an insurance outcome. CPG codes and titles come
+from CISA's own CPG 2.0 report, with the retrieval date printed on the page.

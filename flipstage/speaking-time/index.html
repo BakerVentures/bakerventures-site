@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Speaking Time Calculator &mdash; How Long Will My Talk Take?</title>
+  <meta name="description" content="Paste your script or speaker notes and see how long it takes to say out loud, at your own measured speaking rate rather than a guess. Splits the time across your slides. Free, runs in your browser, nothing is uploaded.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/flipstage/speaking-time/">
+  <meta name="robots" content="index,follow,max-snippet:-1">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FlipStage">
+  <meta property="og:title" content="Speaking Time Calculator &mdash; How Long Will My Talk Take?">
+  <meta property="og:description" content="Paste your script, measure your real speaking rate, and see how long the talk takes and how it splits across your slides. Free, in the browser, nothing uploaded.">
+  <meta property="og:url" content="https://bakerventuresstudio.com/flipstage/speaking-time/">
+  <meta name="twitter:card" content="summary">
+  <meta name="author" content="Baker Ventures LLC">
+  <meta name="dcterms.modified" content="2026-10-13">
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 30px; margin: 0 0 8px; line-height: 1.22; }
+    h2 { font-size: 20px; margin: 38px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    h3 { font-size: 16px; margin: 24px 0 6px; }
+    p { margin: 12px 0; }
+    ul, ol { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    a { color: #A85A2C; }
+    .meta { color: #666; font-size: 14px; margin: 0 0 20px; }
+    .nav { font-size: 14px; margin: 0 0 18px; }
+    .nav a { color: #666; }
+    .sub { font-size: 18px; color: #444; margin: 10px 0 24px; }
+    .tool { border: 1px solid #e4e4e4; border-radius: 10px; padding: 18px; margin: 24px 0; background: #fcfcfc; }
+    .tool h2 { margin-top: 0; border: none; padding: 0; font-size: 18px; }
+    label { display: block; font-weight: 700; font-size: 14px; margin: 16px 0 4px; }
+    textarea { width: 100%; min-height: 160px; padding: 10px; font: inherit; font-size: 15px;
+               border: 1px solid #ccc; border-radius: 8px; resize: vertical; background: #fff; }
+    input[type=number] { width: 110px; padding: 8px 10px; font: inherit; border: 1px solid #ccc; border-radius: 8px; }
+    .row { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-end; }
+    .hint { color: #666; font-size: 13px; margin: 4px 0 0; }
+    button { font: inherit; font-weight: 700; padding: 10px 18px; border-radius: 8px; border: 1px solid #A85A2C;
+             background: #A85A2C; color: #fff; cursor: pointer; }
+    button.sec { background: #fff; color: #A85A2C; }
+    button:disabled { opacity: .5; cursor: default; }
+    .out { margin: 18px 0 0; padding: 16px; border-radius: 8px; background: #fff; border: 1px solid #e4e4e4; }
+    .big { font-size: 30px; font-weight: 700; line-height: 1.15; margin: 0 0 4px; }
+    .lede { color: #666; font-size: 14px; margin: 0; }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 0; font-size: 15px; }
+    th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid #eee; }
+    th { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: #666; font-weight: 700; }
+    td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+    .fit { margin: 14px 0 0; padding: 12px 14px; border-radius: 8px; font-size: 15px; background: #f4f7f3; border-left: 3px solid #4a7c43; }
+    .fit.over { background: #fbf3f1; border-left-color: #A8402C; }
+    .note { background: #fafafa; border-left: 3px solid #A85A2C; padding: 12px 16px; margin: 22px 0; font-size: 15px; }
+    .read { background: #fff; border: 1px solid #e4e4e4; border-radius: 8px; padding: 14px; margin: 10px 0 0; font-size: 15px; }
+    .faq dt { font-weight: 700; margin: 22px 0 4px; }
+    .faq dd { margin: 0 0 4px; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+    .cta { display: inline-block; background: #A85A2C; color: #fff; font-weight: 700;
+           padding: 12px 22px; border-radius: 8px; text-decoration: none; margin: 4px 0; }
+    .cta:visited { color: #fff; }
+  </style>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "@id": "https://bakerventuresstudio.com/flipstage/speaking-time/#tool",
+   "name": "Speaking Time Calculator",
+   "applicationCategory": "UtilitiesApplication",
+   "browserRequirements": "Requires JavaScript",
+   "operatingSystem": "Any",
+   "url": "https://bakerventuresstudio.com/flipstage/speaking-time/",
+   "description": "Counts the words in a script and converts them to spoken minutes at a speaking rate you measure yourself, then splits the time across a number of slides. Runs entirely in the browser.",
+   "isAccessibleForFree": true,
+   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+   "publisher": { "@type": "Organization", "name": "Baker Ventures LLC" }
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://bakerventuresstudio.com/flipstage/speaking-time/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How long does it take to read 1000 words out loud?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It depends entirely on your own speaking rate, which is why this page asks you to measure it rather than assuming one. At 100 words a minute 1000 words takes 10 minutes; at 160 it takes 6 minutes and 15 seconds. That is a four minute spread on the same script, which is the difference between finishing and being cut off."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I measure my own speaking rate?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Read a passage of known length out loud at the pace you would actually present at, and time it. Words divided by minutes is your rate. The timer on this page does the arithmetic: it counts the words in the passage, times your reading, and writes the result into the calculator."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does this calculator upload my script?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The page makes no network requests after it loads. There is no account, no analytics and nothing is stored. Closing the tab discards everything you typed."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why is my talk always longer in the room than at my desk?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Because the script is only part of what you say. Questions, pauses, a laugh, finding your place again and the sentence you add on the spot all take real time and none of them are in the word count. The overhead field on this page exists so you can add that time deliberately instead of discovering it at the twenty minute mark."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Baker Ventures", "item": "https://bakerventuresstudio.com/" },
+    { "@type": "ListItem", "position": 2, "name": "FlipStage", "item": "https://bakerventuresstudio.com/flipstage/" },
+    { "@type": "ListItem", "position": 3, "name": "Speaking time calculator", "item": "https://bakerventuresstudio.com/flipstage/speaking-time/" }
+   ]
+  }
+ ]
+}
+  </script>
+</head>
+<body>
+  <p class="nav"><a href="/">Baker Ventures</a> &rsaquo; <a href="/flipstage/">FlipStage</a> &rsaquo; Speaking time</p>
+
+  <h1>How long will your talk actually take?</h1>
+  <p class="sub">Paste the script or your speaker notes, measure how fast you really speak, and see the number before you are standing in front of someone. Then see how it splits across your slides.</p>
+  <p class="meta">Free. Runs in your browser, makes no network requests, and keeps nothing. Updated October 13, 2026.</p>
+
+  <div class="tool">
+    <h2>1. Your script</h2>
+    <label for="script">Paste your script or speaker notes</label>
+    <textarea id="script" spellcheck="false" placeholder="Paste the words you intend to say."></textarea>
+    <p class="hint" id="wc">0 words.</p>
+
+    <h2 style="margin-top:26px">2. Your speaking rate</h2>
+    <p class="hint" style="margin-bottom:0">A guessed rate is the reason these calculators are wrong. Read the passage below out loud at the pace you would actually present at, and this will work out your real rate.</p>
+    <div class="read" id="passage"></div>
+    <p style="margin:12px 0 0">
+      <button id="startread" type="button">Start reading</button>
+      <button id="stopread" type="button" class="sec" disabled>Done</button>
+    </p>
+    <p class="hint" id="readout">Not measured yet.</p>
+
+    <div class="row">
+      <div>
+        <label for="wpm">Words per minute</label>
+        <input id="wpm" type="number" min="40" max="400" step="1" value="130">
+        <p class="hint">Measured, or set it by hand.</p>
+      </div>
+      <div>
+        <label for="slides">Slides</label>
+        <input id="slides" type="number" min="1" max="200" step="1" value="4">
+        <p class="hint">How many you will move through.</p>
+      </div>
+      <div>
+        <label for="overhead">Overhead, %</label>
+        <input id="overhead" type="number" min="0" max="200" step="1" value="15">
+        <p class="hint">Pauses, questions, finding your place.</p>
+      </div>
+    </div>
+
+    <div class="out" id="out" aria-live="polite"></div>
+  </div>
+
+  <h2>Why the rate has to be yours</h2>
+  <p>Every other calculator for this picks a words-per-minute number for you and hides it. That single number is the whole answer, and it is different for every person in every room. The same 1,400 word script is 10 minutes and 46 seconds at 130 words a minute and 14 minutes at 100. If the slot is twelve minutes, that choice decides whether you finish.</p>
+  <p>So this page does not tell you what your rate is. The 130 in the box is a starting value, not a finding, and the reading timer above replaces it with a measurement of you. Measure it once, at the pace you would actually use with someone sitting across from you, and reuse the number.</p>
+
+  <h2>What the overhead field is for</h2>
+  <p>A word count only prices the words. It does not price the pause after the line that matters, the question at slide three, the ten seconds spent finding your place, or the sentence you add because they looked confused. None of that is in the script and all of it is in the room.</p>
+  <p>Fifteen percent is the default here and it is an assumption, not a measurement. If you have timed a real run of this talk, use what the clock said instead. If you take no questions and read verbatim, set it to zero.</p>
+
+  <h2>The app this sits next to</h2>
+  <p><strong>FlipStage</strong> splits one iPhone screen into two facing halves, one showing the slide to the person across from you and one showing your speaker notes, controls and a timer. It is free, on-device and has nothing to buy inside it.</p>
+  <p>To be clear about the division of labour: <strong>FlipStage does not do this arithmetic.</strong> It runs an elapsed timer you can pause, with optional targets of 5, 10, 15 or 20 minutes, and turns the timer red once you pass the target you set. Working out which target your script fits is this page's job, and you only need to do it once.</p>
+  <p><a class="cta" href="https://apps.apple.com/us/app/flipstage-present-two-sided/id6816274152">Get FlipStage on the App Store</a></p>
+  <p class="meta">Free. iPhone, iOS 16.4 or later.</p>
+
+  <div class="note"><strong>One limit worth knowing before you download.</strong> FlipStage does not save decks yet. Photos you import, notes you type and any reordering last until you close the app, and then it returns to the built-in sample slides.</div>
+
+  <h2>Questions</h2>
+  <dl class="faq">
+    <dt>How long does it take to read 1000 words out loud?</dt>
+    <dd>At 100 words a minute, 10 minutes. At 130, 7 minutes and 42 seconds. At 160, 6 minutes and 15 seconds. The spread across ordinary speaking rates is about four minutes on the same script, which is why the rate is an input here and not a constant.</dd>
+    <dt>How do I measure my own speaking rate?</dt>
+    <dd>Read a passage of known length out loud at your real presenting pace and time it. Words divided by minutes is your rate. The timer above counts the passage, times your reading and writes the answer into the box.</dd>
+    <dt>Does this upload my script?</dt>
+    <dd>No. The page makes no network requests after it loads, there is no account and nothing is stored. Closing the tab discards it.</dd>
+    <dt>Why is my talk longer in the room than at my desk?</dt>
+    <dd>Because the script is only part of what you say. The overhead field is there so you can add that time on purpose rather than finding it at the twenty minute mark.</dd>
+    <dt>Is the per-slide split a plan I should follow?</dt>
+    <dd>It is an even division, nothing cleverer. Slides are never equal, and a split that says 1:36 each is a sanity check on whether you have too many slides for the time, not an instruction.</dd>
+  </dl>
+
+  <h2>More free tools</h2>
+  <p><a href="/miletruth/net-pay-calculator/">Gig driver net pay calculator</a> &middot; <a href="/policyready/readiness-self-check/">Cybersecurity readiness self-check</a> &middot; <a href="/flirtgym/opener-score/">Opener score</a> &middot; <a href="/apps/">All the apps, with honest status</a></p>
+
+  <footer>&copy; 2026 Baker Ventures LLC &middot; 355 E 1200 N, Logan, UT 84341 &middot; <a href="/flipstage/">FlipStage</a> &middot; <a href="/flipstage/privacy/">Privacy Policy</a> &middot; <a href="/flipstage/support/">Support</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+
+  // The reading passage. Original text, written for this page, and long enough that
+  // a few seconds of reaction time at either end does not dominate the measurement.
+  var PASSAGE =
+    'Speak this at the pace you would actually use with one other person sitting across ' +
+    'the table from you, not the pace you read at in your head. Do not rush it and do not ' +
+    'perform it. The point of this passage is to catch your ordinary presenting voice, ' +
+    'including the small pauses you take between sentences without noticing them, because ' +
+    'those pauses are part of how long your talk really runs. When you reach the end of ' +
+    'this paragraph, stop the timer. The number it gives you is worth more than any ' +
+    'average, because the average is not reading your slides to your audience on Thursday.';
+
+  function words(s) {
+    var m = String(s).trim().match(/[^\s]+/g);
+    return m ? m.length : 0;
+  }
+  var PASSAGE_WORDS = words(PASSAGE);
+  $('passage').textContent = PASSAGE;
+
+  function mmss(totalSeconds) {
+    var t = Math.max(0, Math.round(totalSeconds));
+    var h = Math.floor(t / 3600);
+    var m = Math.floor((t % 3600) / 60);
+    var s = t % 60;
+    var pad = function (n) { return n < 10 ? '0' + n : String(n); };
+    return h > 0 ? h + ':' + pad(m) + ':' + pad(s) : m + ':' + pad(s);
+  }
+  function phrase(totalSeconds) {
+    var t = Math.max(0, Math.round(totalSeconds));
+    var m = Math.floor(t / 60), s = t % 60;
+    var parts = [];
+    if (m) parts.push(m + (m === 1 ? ' minute' : ' minutes'));
+    if (s || !m) parts.push(s + (s === 1 ? ' second' : ' seconds'));
+    return parts.join(' and ');
+  }
+
+  // FlipStage's own targets, from the shipped app: DURATION_PRESETS in
+  // lib/presentMode.ts is [0, 5, 10, 15, 20] minutes, 0 meaning no target.
+  var TARGETS = [5, 10, 15, 20];
+
+  function num(id, fallback) {
+    var v = parseFloat($(id).value);
+    return isFinite(v) ? v : fallback;
+  }
+
+  function update() {
+    var w = words($('script').value);
+    $('wc').textContent = w === 1 ? '1 word.' : w.toLocaleString() + ' words.';
+
+    var wpm = num('wpm', 0);
+    var slides = Math.max(1, Math.floor(num('slides', 1)));
+    var overhead = Math.max(0, num('overhead', 0));
+
+    if (!(w > 0)) {
+      $('out').innerHTML = '<p class="lede">Paste a script above and the time appears here.</p>';
+      return;
+    }
+    if (!(wpm > 0)) {
+      $('out').innerHTML = '<p class="lede">Enter a words-per-minute rate, or measure one with the timer above.</p>';
+      return;
+    }
+
+    var spoken = (w / wpm) * 60;
+    var total = spoken * (1 + overhead / 100);
+    var perSlide = total / slides;
+
+    var html =
+      '<p class="big">' + mmss(total) + '</p>' +
+      '<p class="lede">' + phrase(total) + ' for ' + w.toLocaleString() + ' words at ' +
+      wpm.toLocaleString() + ' words a minute' +
+      (overhead > 0 ? ', including ' + overhead + '% overhead' : ', with no overhead added') + '.</p>' +
+      '<table><tr><th>Part</th><th class="n">Time</th></tr>' +
+      '<tr><td>The words themselves</td><td class="n">' + mmss(spoken) + '</td></tr>' +
+      '<tr><td>Overhead at ' + overhead + '%</td><td class="n">' + mmss(total - spoken) + '</td></tr>' +
+      '<tr><td><strong>Total</strong></td><td class="n"><strong>' + mmss(total) + '</strong></td></tr>' +
+      '<tr><td>Each of ' + slides + (slides === 1 ? ' slide' : ' slides') + ', split evenly</td><td class="n">' + mmss(perSlide) + '</td></tr>' +
+      '</table>';
+
+    // Which of FlipStage's targets covers this, stated as arithmetic rather than advice.
+    var fits = null;
+    for (var i = 0; i < TARGETS.length; i++) {
+      if (total <= TARGETS[i] * 60) { fits = TARGETS[i]; break; }
+    }
+    if (fits !== null) {
+      var slack = fits * 60 - total;
+      html += '<p class="fit"><strong>Fits FlipStage’s ' + fits + ' minute target</strong> with ' +
+        phrase(slack) + ' to spare. Its targets are 5, 10, 15 and 20 minutes.</p>';
+    } else {
+      var over = total - 20 * 60;
+      html += '<p class="fit over"><strong>Longer than every FlipStage target.</strong> Its longest is ' +
+        '20 minutes and this runs ' + phrase(over) + ' past it, so the timer would be red from there on. ' +
+        'Cut roughly ' + Math.ceil(over / 60 * wpm / (1 + overhead / 100)).toLocaleString() + ' words to land inside 20 minutes' + (overhead > 0 ? ', which is less than the raw overrun suggests because cutting words also cuts the overhead riding on them' : '') + '.</p>';
+    }
+
+    $('out').innerHTML = html;
+  }
+
+  // ---- the reading timer: measures the user's own rate -----------------------
+  var t0 = null, tick = null;
+  $('startread').addEventListener('click', function () {
+    t0 = Date.now();
+    $('startread').disabled = true;
+    $('stopread').disabled = false;
+    $('readout').textContent = 'Reading. 0:00 so far.';
+    tick = setInterval(function () {
+      $('readout').textContent = 'Reading. ' + mmss((Date.now() - t0) / 1000) + ' so far.';
+    }, 250);
+  });
+  $('stopread').addEventListener('click', function () {
+    if (t0 === null) return;
+    clearInterval(tick);
+    var secs = (Date.now() - t0) / 1000;
+    t0 = null;
+    $('startread').disabled = false;
+    $('stopread').disabled = true;
+    if (secs < 5) {
+      $('readout').textContent = 'That was ' + mmss(secs) + ', too short to be a reading of ' +
+        PASSAGE_WORDS + ' words. Not used.';
+      return;
+    }
+    var rate = Math.round(PASSAGE_WORDS / (secs / 60));
+    if (rate < 40 || rate > 400) {
+      $('readout').textContent = 'That works out to ' + rate + ' words a minute, which is outside the ' +
+        'range this accepts, so it was not used. Read the whole passage and try again.';
+      return;
+    }
+    $('wpm').value = rate;
+    $('readout').textContent = 'Your rate: ' + rate + ' words a minute. ' + PASSAGE_WORDS +
+      ' words in ' + mmss(secs) + '. Written into the box below.';
+    update();
+  });
+
+  ['script', 'wpm', 'slides', 'overhead'].forEach(function (id) {
+    $(id).addEventListener('input', update);
+  });
+  update();
+})();
+</script>
+</body>
+</html>
