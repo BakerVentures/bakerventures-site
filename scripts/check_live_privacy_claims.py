@@ -202,14 +202,36 @@ def normalise(text: str) -> str:
     text = text.replace("’", "'").replace("‘", "'")
     text = text.replace("“", '"').replace("”", '"')
     text = text.replace("—", " - ").replace("–", " - ")
-    text = text.replace("&apos;", "'").replace("&quot;", '"')
+    # Named/numeric entities for quotes and apostrophes. These appear LITERALLY in
+    # JSX source -- `&ldquo;` in a .tsx file is not unescaped by anything upstream.
+    # Getting this wrong is not cosmetic: an unconverted `&ldquo;` made the quoted
+    # retraction in lienclock/src/app/privacy.tsx look like an assertion, and R1
+    # reported NoticeGuard green for the wrong reason on 2026-10-14. See strip_quoted.
+    for ent in ("&ldquo;", "&rdquo;", "&quot;", "&#34;", "&#x22;"):
+        text = text.replace(ent, '"')
+    for ent in ("&rsquo;", "&lsquo;", "&apos;", "&#39;", "&#x27;"):
+        text = text.replace(ent, "'")
     text = re.sub(r"\s+", " ", text)
     return text.lower()
 
 
 def strip_quoted(text: str) -> str:
-    """Remove double-quoted spans, so a quoted retraction cannot satisfy R1."""
-    return re.sub(r'"[^"]{0,400}"', " ", text)
+    """Remove double-quoted spans, so a quoted retraction is not read as an assertion.
+
+    Applied to BOTH sides. A retracted sentence gets quoted in the paragraph that
+    retracts it, and that happens on the published page as often as in the repo:
+
+        But "none of it ever leaves your device" was not an accurate sentence,
+        so it is gone.
+
+    If only the repo side were stripped, the page's own quoted retraction would read
+    as the page still making the claim -- a false alarm. If neither were, the repo's
+    retraction would satisfy the rule -- a false pass, which is worse. Strip both and
+    the rule tests what each document actually asserts.
+    """
+    # Non-greedy and bounded, so one unbalanced quote swallows at most a short span
+    # instead of resynchronising against every later quote in the document.
+    return re.sub(r'"[^"\n]{0,400}?"', " ", text)
 
 
 def parse_last_updated(text: str) -> dt.date | None:
@@ -302,8 +324,9 @@ def check_app(entry: dict, use_local: bool, verbose: bool) -> list[str]:
         print(f"    src  {entry['repo']} :: {', '.join(read)}")
 
     # --- R1 retracted claim ----------------------------------------------
+    live_unquoted = strip_quoted(live)
     for pattern in CLAIM_PATTERNS:
-        on_live = re.search(pattern, live)
+        on_live = re.search(pattern, live_unquoted)
         if not on_live:
             continue
         if re.search(pattern, src_unquoted):
@@ -318,7 +341,7 @@ def check_app(entry: dict, use_local: bool, verbose: bool) -> list[str]:
         )
         failures.append(
             f"R1 RETRACTED-CLAIM: the live page still says "
-            f'"...{excerpt(live, on_live)}..." but {entry["repo"]} no longer '
+            f'"...{excerpt(live_unquoted, on_live)}..." but {entry["repo"]} no longer '
             f"asserts /{pattern}/{detail}"
         )
 
