@@ -10,7 +10,7 @@ License: content on this site may be quoted and cited with attribution to Baker 
 - [Small tools that do one thing](https://bakerventuresstudio.com/): What Baker Ventures builds, which apps you can install today, and the free source-linked reference material published for each app’s category.
 - [About Baker Ventures](https://bakerventuresstudio.com/about/): An independent one-person software studio building small, single-purpose iOS and developer tools, and publishing free source-linked answers for each of their categories.
 - [The apps](https://bakerventuresstudio.com/apps/): Every Baker Ventures app — what each one does, who it is not for, and its real status: on sale, with Apple for review, or not submitted yet.
-- [Editorial standards](https://bakerventuresstudio.com/editorial-standards/): How Baker Ventures sources claims, prices competitors, labels evidence and discloses its own products across all six of its websites. Written to be checkable rather than reassuring.
+- [Editorial standards](https://bakerventuresstudio.com/editorial-standards/): How Baker Ventures sources claims, prices competitors, labels evidence and discloses its own products across every one of its websites. Written to be checkable rather than reassuring.
 - [Every question this site answers](https://bakerventuresstudio.com/questions-answered/): All 17 questions answered across Baker Ventures, each linked to its full answer. Generated from the pages themselves.
 
 ## Machine-readable facts

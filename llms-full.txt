@@ -195,7 +195,7 @@ URL: https://bakerventuresstudio.com/editorial-standards/
 Updated: 2026-09-06
 
 :::answer
-**These are the rules every page across all six Baker Ventures sites is written under.** They are published so they can be held against us, which is the only thing that makes a statement like this worth anything.
+**These are the rules every page across every Baker Ventures site is written under.** They are published so they can be held against us, which is the only thing that makes a statement like this worth anything.
 
 The short version: **every claim links to a primary source, competitor prices come from the vendor's own page and carry a date, unverifiable figures are omitted rather than estimated, and we disclose our own products on every page they appear on — including the pages where a competitor is the better answer.**
 :::
@@ -244,7 +244,7 @@ The same applies to claims about how our software behaves. FlirtGym's pages said
 
 **Our own products are disclosed on every page they appear on**, including comparison and roundup pages.
 
-**Status is stated plainly and never softened.** Four of our six products are in development and not released, and every page they appear on says so. FlirtGym is live and its date is given. "Coming soon" with no date is not used.
+**Status is stated plainly and never softened.** Most of our apps are not on sale yet, and every page they appear on says so. Where an app is with Apple for review it is described that way, not as "coming soon", and no release date is published, because Apple sets it and does not tell us in advance. Where an app is live, its date is given.
 
 **Competitors that beat us are named, with the reason.** Rizz has tens of thousands of App Store ratings and FlirtGym does not. MileIQ is free with Microsoft 365 Business, which makes it the cheapest capable option in its own comparison table. Jobber and Housecall Pro are more capable products than Rigsheet. Balance is the sensible first install for most people looking at menopause apps.
 
