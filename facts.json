@@ -1,85 +1,161 @@
 {
   "name": "Baker Ventures",
   "url": "https://bakerventuresstudio.com",
-  "tagline": "Independent studio building small, single-purpose iOS and developer tools",
+  "tagline": "Independent one-person studio building small, single-purpose iOS apps and developer tools",
   "publisher": "Baker Ventures LLC",
   "publisher_url": "https://bakerventuresstudio.com",
-  "updated": "2026-09-07",
+  "updated": "2026-10-14",
   "category": "BusinessApplication",
-  "operating_system": "iOS, Android, macOS",
+  "operating_system": "iOS, macOS",
   "sibling_products": [
-    {
-      "name": "MileTruth",
-      "url": "https://miletruth.bakerventuresstudio.com",
-      "description": "Mileage and true net pay for gig drivers"
-    },
-    {
-      "name": "HormoneLog",
-      "url": "https://hormonelog.bakerventuresstudio.com",
-      "description": "Perimenopause symptom and HRT tracking"
-    },
-    {
-      "name": "Rigsheet",
-      "url": "https://rigsheet.bakerventuresstudio.com",
-      "description": "Job management for mobile detailers and cleaners"
-    },
     {
       "name": "shipcheck",
       "url": "https://shipcheck.bakerventuresstudio.com",
-      "description": "App Store and Play pre-submission checks for React Native and Expo"
-    },
-    {
-      "name": "Nearvo",
-      "url": "https://nearvo.bakerventuresstudio.com",
-      "description": "A daily connection habit for couples"
+      "description": "App Store and Play pre-submission checks for React Native and Expo, inside Claude Code"
     },
     {
       "name": "FlirtGym",
       "url": "https://flirtgym.app",
-      "description": "Practice conversations before they are real"
+      "description": "Dating conversation practice, formerly RizzMaxx. Subscription only, no free tier"
+    },
+    {
+      "name": "FlipStage",
+      "url": "https://bakerventuresstudio.com/flipstage/",
+      "description": "Two-sided presenting from one iPhone: their slide, your speaker notes and a timer"
+    },
+    {
+      "name": "MoveWitness",
+      "url": "https://bakerventuresstudio.com/rentcheck/",
+      "description": "Room-by-room rental photo record and a dated move-in or move-out PDF report"
+    },
+    {
+      "name": "Vocabdrift",
+      "url": "https://bakerventuresstudio.com/vocabdrift/",
+      "description": "A word and its definition on the iPhone Lock Screen, on the device, no network calls"
     }
   ],
   "facts": {
     "legal_name": "Baker Ventures LLC",
     "founded": "2026",
-    "what_it_does": "Builds small, single-purpose iOS and developer tools.",
+    "what_it_does": "Builds small, single-purpose iOS apps and developer tools. One person. Every app states what it is not for, and every page states whether the app is on sale yet.",
     "products": [
       {
-        "name": "MileTruth",
-        "url": "https://miletruth.bakerventuresstudio.com",
-        "status": "in development",
-        "what": "Mileage and true net pay for gig and delivery drivers"
-      },
-      {
-        "name": "Rigsheet",
-        "url": "https://rigsheet.bakerventuresstudio.com",
-        "status": "in development",
-        "what": "Job management for mobile detailers and residential cleaners"
-      },
-      {
-        "name": "HormoneLog",
-        "url": "https://hormonelog.bakerventuresstudio.com",
-        "status": "in development",
-        "what": "Perimenopause symptom and HRT record-keeping"
-      },
-      {
-        "name": "Nearvo",
-        "url": "https://nearvo.bakerventuresstudio.com",
-        "status": "in development",
-        "what": "A daily connection habit for couples"
+        "name": "shipcheck",
+        "url": "https://shipcheck.bakerventuresstudio.com",
+        "status": "shipping",
+        "what": "App Store and Play pre-submission checks for React Native and Expo, inside Claude Code"
       },
       {
         "name": "FlirtGym",
         "url": "https://flirtgym.app",
         "status": "live on the App Store since 2026-08-12",
-        "what": "Dating conversation practice, formerly RizzMaxx",
+        "what": "Dating conversation practice, formerly RizzMaxx. Subscription only, no free tier",
         "app_store_id": "6784050951"
       },
       {
-        "name": "shipcheck",
-        "url": "https://shipcheck.bakerventuresstudio.com",
-        "status": "shipping",
-        "what": "App Store and Play pre-submission checks for React Native and Expo"
+        "name": "FlipStage",
+        "url": "https://bakerventuresstudio.com/flipstage/",
+        "status": "live on the App Store",
+        "what": "Two-sided presenting from one iPhone: their slide, your speaker notes and a timer",
+        "app_store_id": "6816274152"
+      },
+      {
+        "name": "MoveWitness",
+        "url": "https://bakerventuresstudio.com/rentcheck/",
+        "status": "live on the App Store",
+        "what": "Room-by-room rental photo record and a dated move-in or move-out PDF report",
+        "app_store_id": "6816228166"
+      },
+      {
+        "name": "Vocabdrift",
+        "url": "https://bakerventuresstudio.com/vocabdrift/",
+        "status": "live on the App Store",
+        "what": "A word and its definition on the iPhone Lock Screen, on the device, no network calls",
+        "app_store_id": "6816214136"
+      },
+      {
+        "name": "Hatch Window",
+        "url": "https://bakerventuresstudio.com/hatchwindow/",
+        "status": "approved by Apple, waiting to be released",
+        "what": "Streamflow, solunar windows, a freshwater hatch chart and a catch log"
+      },
+      {
+        "name": "MileTruth",
+        "url": "https://miletruth.bakerventuresstudio.com",
+        "status": "with Apple for review",
+        "what": "A gig mileage log you enter by hand, plus cost per mile, so gross pay becomes net"
+      },
+      {
+        "name": "PolicyReady",
+        "url": "https://bakerventuresstudio.com/policyready/",
+        "status": "with Apple for review",
+        "what": "Cyber-insurance control self-assessment, gaps ranked, readiness summary export"
+      },
+      {
+        "name": "DenialDesk",
+        "url": "https://bakerventuresstudio.com/denialdesk/",
+        "status": "with Apple for review",
+        "what": "Health-insurance denial appeal letters, and the appeal deadline with the rule it used"
+      },
+      {
+        "name": "Foldbook",
+        "url": "https://bakerventuresstudio.com/foldbook/",
+        "status": "with Apple for review",
+        "what": "A two-page reader for iPhone, with three short original stories included"
+      },
+      {
+        "name": "IOLTAlign",
+        "url": "https://bakerventuresstudio.com/ioltalign/",
+        "status": "with Apple for review",
+        "what": "Three-way IOLTA trust reconciliation for solo and small-firm attorneys"
+      },
+      {
+        "name": "NoticeGuard",
+        "url": "https://bakerventuresstudio.com/noticeguard/",
+        "status": "with Apple for review",
+        "what": "Mechanics lien deadlines for 50 states and DC, each citing its statute text"
+      },
+      {
+        "name": "TentClock",
+        "url": "https://bakerventuresstudio.com/tentclock/",
+        "status": "with Apple for review",
+        "what": "An animated flip clock for a shelf, twelve colour scenes, repeating alarms"
+      },
+      {
+        "name": "Steadychart",
+        "url": "https://bakerventuresstudio.com/steadychart/",
+        "status": "built, not submitted",
+        "what": "A symptom and severity log, patterns over time, and a PDF, CSV or JSON export"
+      },
+      {
+        "name": "Rigsheet",
+        "url": "https://rigsheet.bakerventuresstudio.com",
+        "status": "built, not submitted",
+        "what": "Job management for a one-van detailing or cleaning business"
+      },
+      {
+        "name": "Nearvo",
+        "url": "https://nearvo.bakerventuresstudio.com",
+        "status": "built, not submitted",
+        "what": "A daily question for two people"
+      },
+      {
+        "name": "HormoneLog",
+        "url": "https://hormonelog.bakerventuresstudio.com",
+        "status": "built, not submitted",
+        "what": "Perimenopause symptom and HRT record-keeping, local-first"
+      },
+      {
+        "name": "rsuvest",
+        "url": "https://bakerventuresstudio.com/rsuvest/",
+        "status": "built, not submitted",
+        "what": "One vesting schedule across every equity grant you type in"
+      },
+      {
+        "name": "RiderDeck",
+        "url": "https://bakerventuresstudio.com/riderdeck/",
+        "status": "built, not submitted",
+        "what": "A stage plot, input list and rider for a band, exported as one PDF"
       }
     ],
     "open_data": [
@@ -89,38 +165,40 @@
         "license": "CC BY 4.0"
       }
     ],
-    "editorial_standards": "https://bakerventuresstudio.com/editorial-standards"
+    "editorial_standards": "https://bakerventuresstudio.com/editorial-standards",
+    "status_read_from_app_store_connect": "2026-10-14",
+    "availability_summary": "Five of nineteen products are on sale: shipcheck as a Claude Code plugin, and FlirtGym, FlipStage, MoveWitness and Vocabdrift on the App Store. One is approved and waiting to be released, seven are with Apple for review and publish automatically on approval, six are built but not submitted. No release dates are published, because Apple sets them and does not announce them in advance."
   },
   "pages": [
     {
       "url": "https://bakerventuresstudio.com/",
       "title": "Small tools that do one thing",
       "type": "answer",
-      "updated": "2026-09-06"
+      "updated": "2026-10-14"
     },
     {
       "url": "https://bakerventuresstudio.com/about/",
       "title": "About Baker Ventures",
       "type": "answer",
-      "updated": "2026-09-06"
+      "updated": "2026-10-14"
     },
     {
       "url": "https://bakerventuresstudio.com/apps/",
       "title": "The apps",
       "type": "roundup",
-      "updated": "2026-09-06"
+      "updated": "2026-10-14"
     },
     {
       "url": "https://bakerventuresstudio.com/editorial-standards/",
       "title": "Editorial standards",
       "type": "answer",
-      "updated": "2026-09-06"
+      "updated": "2026-10-14"
     },
     {
       "url": "https://bakerventuresstudio.com/questions-answered/",
       "title": "Every question this site answers",
       "type": "answer",
-      "updated": "2026-09-07"
+      "updated": "2026-10-14"
     }
   ]
 }
