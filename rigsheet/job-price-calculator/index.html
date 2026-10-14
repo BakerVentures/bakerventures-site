@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobile Detailing and Cleaning Job Price Calculator (Free)</title>
+<meta name="description" content="Work out what to charge for a mobile detailing or cleaning job from your own labor rate, drive time, mileage, materials, overhead, card fees and target margin. Free, runs in your browser.">
+<link rel="canonical" href="https://bakerventuresstudio.com/rigsheet/job-price-calculator/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Rigsheet">
+<meta property="og:title" content="Mobile Detailing and Cleaning Job Price Calculator (Free)"><meta property="og:description" content="Work out what to charge for a mobile detailing or cleaning job from your own labor rate, drive time, mileage, materials, overhead, card fees and target margin. Free, runs in your browser."><meta property="og:url" content="https://bakerventuresstudio.com/rigsheet/job-price-calculator/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Mobile Service Job Price Calculator",
+   "url": "https://bakerventuresstudio.com/rigsheet/job-price-calculator/",
+   "applicationCategory": "BusinessApplication",
+   "operatingSystem": "Any browser",
+   "browserRequirements": "Requires JavaScript",
+   "description": "Computes a job price for a mobile detailing or cleaning job from labor, drive time, vehicle mileage, materials, overhead, payment fees and target margin, and shows the same price across vehicle or home size tiers.",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Baker Ventures LLC",
+    "url": "https://bakerventuresstudio.com/"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "WebPage",
+   "name": "Mobile Detailing and Cleaning Job Price Calculator (Free)",
+   "url": "https://bakerventuresstudio.com/rigsheet/job-price-calculator/",
+   "datePublished": "2026-10-13",
+   "dateModified": "2026-10-13"
+  }
+ ]
+}</script>
+<style>
+:root{color-scheme:light;--ac:#2F7FB5}
+body{max-width:780px;margin:0 auto;padding:28px 20px 80px;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:#fff}
+h1{font-size:30px;line-height:1.25;margin:8px 0 6px}h2{font-size:21px;margin:36px 0 10px;border-bottom:1px solid #eee;padding-bottom:6px}
+a{color:var(--ac)}.nav{font-size:14px}.nav a{color:#666;margin-right:14px}.meta{color:#666;font-size:14px}
+.tool{background:#f7fafc;border:1px solid #dbe6ee;border-radius:12px;padding:20px;margin:22px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+label{display:block;font-size:13px;font-weight:700;margin-bottom:4px}
+input{width:100%;box-sizing:border-box;padding:10px;font:16px inherit;border:1px solid #b9c9d6;border-radius:8px;background:#fff}
+.hint{font-size:12px;color:#666;margin:3px 0 0;font-weight:400}
+.out{margin-top:20px;border-top:1px solid #dbe6ee;padding-top:16px}
+.big{font-size:42px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.kpi div{background:#fff;border:1px solid #dbe6ee;border-radius:8px;padding:10px 12px}.kpi b{display:block;font-size:12px;color:#666;text-transform:uppercase;letter-spacing:.04em}.kpi span{font-size:20px;font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:12px 0}th,td{text-align:right;padding:8px;border-bottom:1px solid #e5edf3}th:first-child,td:first-child{text-align:left}
+.note{background:#fafafa;border-left:3px solid var(--ac);padding:12px 16px;margin:20px 0;font-size:15px}
+.err{color:#b3261e;font-size:14px}footer{margin-top:50px;padding-top:14px;border-top:1px solid #eee;color:#888;font-size:13px}
+</style>
+</head>
+<body>
+<div class="nav"><a href="/rigsheet/">Rigsheet</a><a href="/rigsheet/tools/">Free calculators</a><a href="/rigsheet/job-price-calculator/">Job price</a><a href="/rigsheet/effective-hourly-rate-calculator/">Effective hourly rate</a></div>
+<h1>What should this job cost the customer?</h1>
+<p>Most quotes in mobile detailing and cleaning are a number that felt right. This one starts from what the job costs you, including the drive and the card fee, then works up to a price that leaves the margin you pick. Change any box and the price moves.</p>
+<p class="meta">Free, no signup. Last updated 2026-10-13.</p>
+<div class="tool">
+<h2 style="margin-top:0;border:0">The job</h2>
+<div class="grid">
+<div><label for="hrs">Hours on site</label><input id="hrs" type="number" inputmode="decimal" min="0" step="0.25" value="3"><p class="hint">Base size job, e.g. a sedan interior and exterior.</p></div>
+<div><label for="rate">Your labor rate ($/hour)</label><input id="rate" type="number" inputmode="decimal" min="0" step="0.01" value="30"><p class="hint">What you want to pay yourself or an employee, before profit.</p></div>
+<div><label for="drive">Drive time, round trip (minutes)</label><input id="drive" type="number" inputmode="decimal" min="0" step="5" value="40"><p class="hint">From the last stop or home to the job and back.</p></div>
+<div><label for="miles">Miles, round trip</label><input id="miles" type="number" inputmode="decimal" min="0" step="1" value="18"><p class="hint">Business miles driven for this job.</p></div>
+<div><label for="cpm">Vehicle cost per mile ($)</label><input id="cpm" type="number" inputmode="decimal" min="0" step="0.01" value="0.72"><p class="hint">Fuel, tires, repairs, insurance, depreciation. A work van usually costs more than the IRS rate suggests; use your own number.</p></div>
+<div><label for="mat">Materials ($)</label><input id="mat" type="number" inputmode="decimal" min="0" step="0.01" value="14"><p class="hint">Chemicals, pads, towels, water, supplies used on this job.</p></div>
+</div>
+<h2 style="border:0">Overhead, fees and margin</h2>
+<div class="grid">
+<div><label for="ovm">Monthly overhead ($)</label><input id="ovm" type="number" inputmode="decimal" min="0" step="10" value="450"><p class="hint">Insurance, software, phone, equipment replacement, anything you pay whether or not you work.</p></div>
+<div><label for="jobs">Jobs per month</label><input id="jobs" type="number" inputmode="decimal" min="1" step="1" value="24"><p class="hint">Overhead is spread across this many jobs.</p></div>
+<div><label for="feep">Card fee (%)</label><input id="feep" type="number" inputmode="decimal" min="0" step="0.01" value="2.9"><p class="hint">Assumed. Check your own processor's current rate.</p></div>
+<div><label for="feef">Card fee fixed ($)</label><input id="feef" type="number" inputmode="decimal" min="0" step="0.01" value="0.3"><p class="hint">Per transaction. Set both fee boxes to 0 for cash.</p></div>
+<div><label for="mar">Target profit margin (%)</label><input id="mar" type="number" inputmode="decimal" min="0" step="1" value="20"><p class="hint">Share of the final price you keep after every cost above.</p></div>
+<div><label for="dep">Deposit (% of price)</label><input id="dep" type="number" inputmode="decimal" min="0" step="1" value="25"><p class="hint">Informational. Shows the deposit amount for this price.</p></div>
+</div>
+<div style="margin:14px 0"><label style="font-weight:400"><input id="paydrive" type="checkbox" checked style="width:auto"> Pay my labor rate for drive time too</label></div>
+<div class="out" id="out"></div>
+</div>
+
+<h2>The same job at every size</h2>
+<p>A flat price undercharges the big vehicle and overcharges the small one. Enter how much longer each size takes you; the table prices each with the settings above. Materials are held flat to keep it simple, and drive time does not change with size.</p>
+<div class="tool"><div class="grid">
+<div><label for="u1">Mid-size / SUV: extra time (%)</label><input id="u1" type="number" inputmode="decimal" min="0" step="1" value="30"><p class="hint"></p></div>
+<div><label for="u2">Truck / van: extra time (%)</label><input id="u2" type="number" inputmode="decimal" min="0" step="1" value="35"><p class="hint"></p></div>
+<div><label for="u3">XL: extra time (%)</label><input id="u3" type="number" inputmode="decimal" min="0" step="1" value="50"><p class="hint"></p></div>
+</div><div id="ladder"></div></div>
+<p class="meta">Rigsheet's starter detailing packages ship with these time uplifts for SUV, truck, van and XL (30, 35, 35 and 50 percent), and every number is editable in the app. Source: <code>packages/shared/src/onboarding.ts</code> in the Rigsheet repo. These are starting points, not industry standards.</p>
+
+<h2>How the price is built</h2>
+<p>Labor is hours on site times your rate, plus drive time at the same rate if the box is ticked. Mileage is miles times your cost per mile. Overhead is monthly overhead divided by jobs per month. Add materials and you have your cost before fees.</p>
+<p>The card fee is a percentage of the price, so it cannot simply be added. The price solves <code>price = (cost + fixed fee) / (1 - fee% - margin%)</code>, which means the fee and your margin are both taken out of the final number, not out of your cost.</p>
+<div class="note">Two reference points, both from trade guides rather than from any primary survey, and both checked on 2026-10-13. <a href="https://getjobber.com/academy/auto-detailing/how-much-to-charge-for-car-detailing/">Jobber's detailing pricing guide</a> (originally published October 2023, last updated 16 April 2026) says "hourly rates generally fall between $50 and $100/hour". <a href="https://invoicefly.com/academy/mobile-detailing-prices/">InvoiceFly's mobile detailing prices</a> (published 27 May 2025, updated 9 July 2026) says "mobile services typically charge 15-20% more than fixed location detailers due to travel expenses", and elsewhere on the same page puts the premium at 15 to 25 percent. These are two companies selling software to detailers, not a standard anyone is bound by, and there is no primary source for either figure that I could find. Check your own local competitors before you trust any of them, including this page.</div>
+
+<h2>If you want this inside the job flow</h2>
+<p><a href="/rigsheet/">Rigsheet</a> is a job app for mobile detailers and cleaners. Its pricing engine applies a percent uplift per vehicle or home size to a package's base price and base duration, adds add-ons and tax, and computes a deposit (see <code>pricing.ts</code> in the repo). You do not need the app to use this page.</p>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+function n(i){var v=parseFloat($(i).value);return isFinite(v)&&v>=0?v:0}
+function usd(x){return x.toLocaleString('en-US',{style:'currency',currency:'USD'})}
+function price(hrs){
+ var driveH=n('drive')/60, pd=$('paydrive').checked;
+ var labor=n('rate')*(hrs+(pd?driveH:0));
+ var mile=n('miles')*n('cpm');
+ var over=n('ovm')/Math.max(n('jobs'),1);
+ var cost=labor+mile+over+n('mat');
+ var d=1-n('feep')/100-n('mar')/100;
+ if(d<=0.02)return null;
+ var p=(cost+n('feef'))/d;
+ return {p:p,cost:cost,labor:labor,mile:mile,over:over,fee:p*n('feep')/100+n('feef'),profit:p*n('mar')/100,hrs:hrs,driveH:driveH};
+}
+function run(){
+ var o=$('out'),r=price(n('hrs'));
+ if(!r){o.innerHTML='<p class="err">Fee percent plus margin percent leaves nothing of the price. Lower one of them.</p>';$('ladder').innerHTML='';return}
+ var allH=r.hrs+r.driveH;
+ var net=r.p-r.fee-r.mile-r.over-n('mat');
+ o.innerHTML='<div class="big">'+usd(r.p)+'</div><p class="meta">Suggested price for the base job</p>'+
+ '<div class="kpi"><div><b>Your cost</b><span>'+usd(r.cost)+'</span></div><div><b>Card fee</b><span>'+usd(r.fee)+'</span></div><div><b>Profit at target</b><span>'+usd(r.profit)+'</span></div>'+
+ '<div><b>Deposit</b><span>'+usd(r.p*n('dep')/100)+'</span></div>'+
+ '<div><b>Take-home per hour, all-in</b><span>'+usd(allH>0?net/allH:0)+'</span></div></div>'+
+ '<table><tr><th>Line</th><th>Amount</th></tr><tr><td>Labor ('+r.hrs.toFixed(2)+' h on site'+($('paydrive').checked?' + '+(r.driveH*60).toFixed(0)+' min drive':'')+')</td><td>'+usd(r.labor)+'</td></tr><tr><td>Vehicle mileage</td><td>'+usd(r.mile)+'</td></tr><tr><td>Overhead share</td><td>'+usd(r.over)+'</td></tr><tr><td>Materials</td><td>'+usd(n('mat'))+'</td></tr></table>'+
+ '<p class="meta">Take-home per hour is price minus fee, mileage, overhead and materials, divided by on-site plus drive hours. It is pay plus profit per hour of your day on this job, before any tax.</p>';
+ var us=[0,n('u1'),n('u2'),n('u3')],ns=['Base size','Mid-size / SUV','Truck / van','XL'],h='<table><tr><th>Size</th><th>Hours</th><th>Price</th><th>vs base</th></tr>';
+ us.forEach(function(u,k){var rr=price(n('hrs')*(1+u/100));h+='<tr><td>'+ns[k]+'</td><td>'+(n('hrs')*(1+u/100)).toFixed(2)+'</td><td>'+(rr?usd(rr.p):'n/a')+'</td><td>'+(rr?'+'+((rr.p/r.p-1)*100).toFixed(0)+'%':'')+'</td></tr>'});
+ $('ladder').innerHTML=h+'</table>';
+}
+document.querySelectorAll('.tool input').forEach(function(e){e.addEventListener('input',run);e.addEventListener('change',run)});
+run();
+})();
+</script>
+<footer>Baker Ventures LLC, Logan, UT. These calculators run in your browser and send nothing anywhere. They do arithmetic on the numbers you type; they are not accounting, tax or legal advice. <a href="/rigsheet/">About Rigsheet</a></footer>
+</body></html>
