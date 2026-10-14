@@ -121,9 +121,11 @@ No signup, no account, no upload. Each one scores locally in the browser; nothin
 
 This host serves MileTruth's product page at /miletruth/ and its free browser
 calculators at /miletruth/tools/. MileTruth is a mileage log and net-pay tracker
-for gig and delivery drivers. **It is not released: there is no App Store or Play
-listing yet, and no paid plan or price has been set.** The calculators are free, standalone and work
-whether or not the app ships.
+for gig and delivery drivers. You enter each trip by hand; there is no background
+trip detection in this version. **It is not on sale yet: version 1.0 is with Apple for review and
+goes on sale by itself when Apple approves it, which Apple does not announce in advance. Version 1.0
+is free, with no subscription and nothing to buy inside it.** The calculators are free, standalone
+and work whether or not the app ships.
 
 - [Free gig driver calculators](https://bakerventuresstudio.com/miletruth/tools/): Three browser calculators for delivery and rideshare drivers. No account, nothing uploaded, no cost.
 - [Net pay calculator](https://bakerventuresstudio.com/miletruth/net-pay-calculator/): Subtracts a per-mile vehicle operating cost from gross earnings to show what a shift or a year actually paid, and prices business miles at both 2026 IRS rates separately. Keeps the cash figure and the tax deduction apart rather than subtracting one from the other.

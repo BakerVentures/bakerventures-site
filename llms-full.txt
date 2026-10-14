@@ -1,36 +1,31 @@
 # Baker Ventures: full text
 
-Baker Ventures LLC is an independent software studio building small, single-purpose iOS and developer tools. Its products are MileTruth, Rigsheet, HormoneLog, Nearvo, FlirtGym and shipcheck.. Published by Baker Ventures LLC. Last updated 2026-09-07.
-Every page on this site in one file, for retrieval. Quote freely with attribution.
+Baker Ventures LLC is an independent software studio run by one person, building small, single-purpose iOS apps and developer tools. Published by Baker Ventures LLC. Last updated 2026-10-14.
+Every studio-level page on this site in one file, for retrieval. Quote freely with attribution. Where this file and the page disagree, the page is right: this one is generated from them.
 
 
 ---
 
 ## Small tools that do one thing
 URL: https://bakerventuresstudio.com/
-Updated: 2026-09-06
+Updated: 2026-10-14
 
 :::answer
-**Baker Ventures LLC builds small tools that do one thing.** Six products, six categories, and a website for each one publishing that category's real answers free, with sources attached and no signup.
+**Baker Ventures LLC builds small tools that do one thing.** One person, nineteen products, and a website for each one publishing that category’s real answers free, with sources attached and no signup.
 
-**Two of the six are actually available.** shipcheck ships as a Claude Code plugin; FlirtGym has been on the App Store since 12 August 2026. The other four are in development, and every page about them says so.
+**Five of them you can install today.** shipcheck ships as a Claude Code plugin; FlirtGym, FlipStage, MoveWitness and Vocabdrift are on the App Store. Seven more are with Apple for review and go on sale by themselves when Apple approves them, which is why no date for them appears anywhere on this site. [The apps page carries the status of every one.](/apps/)
 :::
 
-## The products
-
-<div class="cards">
-<a class="card" href="https://shipcheck.bakerventuresstudio.com"><b>shipcheck — shipping</b><span>Catch the App Store or Play rejection before you submit. Scans a React Native or Expo project inside Claude Code, cites the exact clause, names the file. Nothing uploaded anywhere.</span></a>
-<a class="card" href="https://flirtgym.app"><b>FlirtGym — live since 12 Aug 2026</b><span>Practise the conversation before it is real. Screenshot a message and get three replies with the reason each one works. Formerly RizzMaxx.</span></a>
-<a class="card" href="https://miletruth.bakerventuresstudio.com"><b>MileTruth — in development</b><span>The gig mileage tracker that does not miss trips and tells you what the driving actually paid after the car took its cut.</span></a>
-<a class="card" href="https://rigsheet.bakerventuresstudio.com"><b>Rigsheet — in development</b><span>Job management for one-van detailing and cleaning businesses. Flat price, no per-seat fee, vehicle-size and home-size pricing built in.</span></a>
-<a class="card" href="https://hormonelog.bakerventuresstudio.com"><b>HormoneLog — in development</b><span>An HRT regimen and a symptom history in a form a clinician can actually read.</span></a>
-<a class="card" href="https://nearvo.bakerventuresstudio.com"><b>Nearvo — in development</b><span>A daily connection habit for couples. One subscription unlocks both partners.</span></a>
-</div>
+## On sale today
+- **shipcheck — shipping** — Catch the App Store or Play rejection before you submit. Scans a React Native or Expo project inside Claude Code, quotes the exact guideline clause from a local copy of the policy, and names the file to change. Nothing from your repository is uploaded.
+- **FlirtGym — live since 12 Aug 2026** — Practise the conversation before it is real. Screenshot a message and get three replies with the reason each one works, or rehearse with an AI character whose interest drops when your messages do. Subscription only, with no free tier. Formerly RizzMaxx.
+- **FlipStage — on the App Store** — Your phone upright between two people: they read the slide turned around on their side, you get your speaker notes and a timer on yours. Free, no account.
+- **MoveWitness — on the App Store** — Photograph a rental room by room and export a dated move-in or move-out PDF report. A finished inspection locks, so the report cannot quietly change months later. Free.
+- **Vocabdrift — on the App Store** — A word and its definition rotate on your iPhone Lock Screen through the day. 1,383 words, all on the device, with no network request of any kind. Free.
+- **Everything else, with its real status** — Hatch Window is approved and waiting to be released. Seven apps are with Apple for review. Six are built and not submitted. Each one on the apps page says what it does, what it does not do, and where it actually stands.
 
 ## Free tools, no signup
-
 Every one of these works whether or not the app it belongs to ever ships.
-
 - **[The 2026 two-rate mileage calculator](https://miletruth.bakerventuresstudio.com/mileage-deduction-calculator)** — 2026 has two IRS business mileage rates split at June 30. Most calculators still use one.
 - **[Apple's required-reason API reference](https://shipcheck.bakerventuresstudio.com/rejections/required-reason-api-reference)** — all five categories and all sixteen approved reason codes, transcribed from Apple's rendered documentation because that page returns an empty shell to a plain fetch.
 - **[The job pricing floor calculator](https://rigsheet.bakerventuresstudio.com/pricing-calculator)** — your costs and your real sellable hours produce the number below which a job loses you money.
@@ -38,161 +33,229 @@ Every one of these works whether or not the app it belongs to ever ships.
 - **[What menopause symptom scales are](https://hormonelog.bakerventuresstudio.com/guides/what-are-menopause-symptom-scales)** — and what a score can and cannot tell you.
 
 ## Open data
-
 **[Apple privacy-manifest SDK → npm map](https://github.com/BakerVentures/apple-privacy-manifest-sdk-map)** — all 86 SDKs on Apple's third-party requirements list mapped to the React Native and Expo packages that pull each one in. 50 have an RN route; 32 of those arrive transitively, which is where `ITMS-91061` rejections come from. **CC BY 4.0**, corrections welcome.
 
 ## How this is written
-
 Every claim links to a primary source. Competitor prices come from the vendor's own page with a date, and where a price cannot be verified at source, **no number is published at all.** Evidence is labelled by its strength. Our own products are disclosed on every page they appear on — including the comparison pages where a competitor is the better answer, which is most of them.
-
-**[Read the editorial standards.](/editorial-standards)** They are published so they can be held against us.
+**[Read the editorial standards.](/editorial-standards/)** They are published so they can be held against us.
 
 ## Contact
+**rsb.baker@gmail.com.** [About](/about/) · One person, so that reaches whoever wrote both the code and the page.
 
-**rsb.baker@gmail.com.** [About](/about) · One person, so that reaches whoever wrote both the code and the page.
-
-**What is Baker Ventures?** Baker Ventures LLC is an independent one-person software studio building small, single-purpose iOS and developer tools. Its products are MileTruth, Rigsheet, HormoneLog, Nearvo, FlirtGym and shipcheck.
-
-**What apps does Baker Ventures make?** shipcheck, a Claude Code plugin checking React Native and Expo apps for App Store and Play rejection risk, and FlirtGym, an iOS dating conversation practice app formerly called RizzMaxx. MileTruth, Rigsheet, HormoneLog and Nearvo are in development.
-
-**Are Baker Ventures apps available now?** Two of six. shipcheck ships and FlirtGym has been on the App Store since 12 August 2026. The other four are in development and not released, and every page about them says so.
-
+## Questions and answers
+**What is Baker Ventures?** Baker Ventures LLC is an independent one-person software studio building small, single-purpose iOS apps and developer tools. Every app does one thing, says what it is not for, and states whether you can install it yet.
+**What apps does Baker Ventures make?** Five you can install today: shipcheck, a Claude Code plugin that checks React Native and Expo apps for App Store and Play rejection risk, and FlirtGym, FlipStage, MoveWitness and Vocabdrift on the App Store. Fourteen more are listed on the apps page with the status of each one.
+**Are Baker Ventures apps available now?** Five of nineteen. shipcheck ships as a Claude Code plugin, FlirtGym has been on the App Store since 12 August 2026, and FlipStage, MoveWitness and Vocabdrift are on it now. Hatch Window is approved and waiting to be released, seven apps are with Apple for review, and six are built but not submitted. Every page about an unreleased app says so.
 **Where can I find Baker Ventures' free tools?** Each product has its own site with free tools and answers, no signup - a two-rate 2026 mileage calculator at miletruth, a job pricing calculator at rigsheet, the Apple required-reason API reference at shipcheck, and free question sets at nearvo.
+
+### Sources
+- [FlirtGym on the App Store](https://apps.apple.com/app/id6784050951)
+- [FlipStage on the App Store](https://apps.apple.com/app/id6816274152)
+- [MoveWitness on the App Store](https://apps.apple.com/app/id6816228166)
+- [Vocabdrift on the App Store](https://apps.apple.com/app/id6816214136)
+- [Apple privacy-manifest SDK map (open data, CC BY 4.0)](https://github.com/BakerVentures/apple-privacy-manifest-sdk-map)
 
 ---
 
 ## About Baker Ventures
 URL: https://bakerventuresstudio.com/about/
-Updated: 2026-09-06
+Updated: 2026-10-14
 
 :::answer
-**Baker Ventures LLC is a one-person independent software studio.** It builds small, single-purpose iOS and developer tools, and it publishes free, source-linked answers for each of their categories.
+**Baker Ventures LLC is a one-person independent software studio.** It builds small, single-purpose iOS apps and developer tools, and it publishes free, source-linked answers for each of their categories.
 
-Being straight about the size: **two of six products are actually available.** shipcheck ships as a Claude Code plugin. FlirtGym has been on the App Store since 12 August 2026. MileTruth, Rigsheet, HormoneLog and Nearvo are in development and not released, and every page about them says so.
+Being straight about the size: **five of nineteen products are actually available.** shipcheck ships as a Claude Code plugin, and FlirtGym, FlipStage, MoveWitness and Vocabdrift are on the App Store. One more is approved and waiting to be released, seven are with Apple for review, and six are built but not submitted. Every page about an unreleased app says so.
 
 That is relevant context rather than modesty. It tells you what to expect from support, from release cadence, and from a roadmap.
+
+**No release dates are published anywhere on this site.** The apps in review go on sale by themselves the moment Apple approves them, Apple decides when that is, and it does not tell us in advance.
 :::
 
 ## The products
-
 | Product | What it is | Status |
 |---|---|---|
 | [**shipcheck**](https://shipcheck.bakerventuresstudio.com) | App Store and Play pre-submission checks for React Native and Expo, running inside Claude Code | **Shipping** |
-| [**FlirtGym**](https://flirtgym.app) | Dating conversation practice for iOS, formerly RizzMaxx | **Live since 12 Aug 2026** |
-| [**MileTruth**](https://miletruth.bakerventuresstudio.com) | Gig mileage tracking and true net pay after vehicle cost | In development |
-| [**Rigsheet**](https://rigsheet.bakerventuresstudio.com) | Job management for mobile detailers and residential cleaners | In development |
-| [**HormoneLog**](https://hormonelog.bakerventuresstudio.com) | Perimenopause symptom and HRT record-keeping | In development |
-| [**Nearvo**](https://nearvo.bakerventuresstudio.com) | A daily connection habit for couples | In development |
+| [**FlirtGym**](https://flirtgym.app) | Dating conversation practice for iPhone, formerly RizzMaxx | **Live since 12 Aug 2026** |
+| [**FlipStage**](https://bakerventuresstudio.com/flipstage/) | Two-sided presenting from one iPhone: their slide, your notes | **On the App Store** |
+| [**MoveWitness**](https://bakerventuresstudio.com/rentcheck/) | Room-by-room rental photo record and a dated PDF report | **On the App Store** |
+| [**Vocabdrift**](https://bakerventuresstudio.com/vocabdrift/) | A word and its definition on the iPhone Lock Screen | **On the App Store** |
+| [**Hatch Window**](https://bakerventuresstudio.com/hatchwindow/) | Streamflow, solunar windows, hatch chart and a catch log | Approved, waiting to be released |
+| [**MileTruth**](https://miletruth.bakerventuresstudio.com) | A gig mileage log and true net pay after vehicle cost | With Apple for review |
+| [**PolicyReady**](https://bakerventuresstudio.com/policyready/) | Cyber-insurance control self-assessment and readiness summary | With Apple for review |
+| [**DenialDesk**](https://bakerventuresstudio.com/denialdesk/) | Health-insurance denial appeal letters and the appeal deadline | With Apple for review |
+| [**Foldbook**](https://bakerventuresstudio.com/foldbook/) | A two-page reader for iPhone | With Apple for review |
+| [**IOLTAlign**](https://bakerventuresstudio.com/ioltalign/) | Three-way IOLTA trust reconciliation for solo attorneys | With Apple for review |
+| [**NoticeGuard**](https://bakerventuresstudio.com/noticeguard/) | Mechanics lien deadlines with the statute behind each one | With Apple for review |
+| [**TentClock**](https://bakerventuresstudio.com/tentclock/) | A flip clock for a shelf, with alarms and colour scenes | With Apple for review |
+| [**Steadychart**](https://bakerventuresstudio.com/steadychart/) | A symptom log and an export for an appointment | Built, not submitted |
+| [**Rigsheet**](https://rigsheet.bakerventuresstudio.com) | Job management for a one-van detailing or cleaning business | Built, not submitted |
+| [**Nearvo**](https://nearvo.bakerventuresstudio.com) | A daily question for two people | Built, not submitted |
+| [**HormoneLog**](https://hormonelog.bakerventuresstudio.com) | Perimenopause symptom and HRT record-keeping | Built, not submitted |
+| [**rsuvest**](https://bakerventuresstudio.com/rsuvest/) | One vesting schedule across every equity grant you type in | Built, not submitted |
+| [**RiderDeck**](https://bakerventuresstudio.com/riderdeck/) | A stage plot, input list and rider for a band, as one PDF | Built, not submitted |
 
 ## The pattern
-
-All six are the same shape: **one problem, named narrowly, solved without a platform around it.**
-
-Not a mileage suite — a tracker that does not lose trips and tells you whether the driving paid. Not a field-service platform — quoting and scheduling for someone with one van, priced flat. Not a health platform — a record of what you take and how you feel, in a form a clinician can read.
-
+Every one of them is the same shape: **one problem, named narrowly, solved without a platform around it.**
+Not a mileage suite — a log that shows a gig driver what the shift actually paid after the car takes its cut. Not practice-management software — a three-way trust reconciliation that ties three ledgers to the penny, or shows exactly where they do not. Not a sleep platform — a flip clock for a shelf. Not a health platform — a record of what you take and how you feel, in a form a clinician can read.
 The consistent design constraint is **saying what a thing is not for.** Every product page here has a "who this is not for" section, because a product that claims to suit everyone is describing a category rather than a tool.
+The second constraint is **that a claim has to be true of the build you can install**, not the one in the repository and not the next version. Where a feature is missing, the page says so.
 
 ## Why the websites give everything away
-
 Each product has a site that publishes its category's real answers, free, with sources attached and no signup: the two-rate 2026 mileage calculator, the required-reason API reference, the job pricing floor calculator, the question sets, the menopause symptom-scale explainers.
-
 Two reasons.
-
-**The answers are useful whether or not the apps ship.** Four of these products may never launch. The two-rate calculator still works, and the person who needed it still got it.
-
+**The answers are useful whether or not the apps ship.** Some of these products may never launch. The two-rate calculator still works, and the person who needed it still got it.
 **A page that only makes sense as an advert is not worth writing.** The test applied to every page is whether it would still be worth reading if the product did not exist. Most of them would.
 
 ## Open data
-
 **[The Apple privacy-manifest SDK → npm map](https://github.com/BakerVentures/apple-privacy-manifest-sdk-map)** — all 86 SDKs on Apple's third-party requirements list mapped to the React Native and Expo packages that pull each one in, with the five required-reason API categories and all sixteen approved reason codes transcribed from Apple's rendered documentation. **CC BY 4.0**, corrections welcome as issues or pull requests.
-
 Published openly because it is the kind of thing that should exist and did not, and because a dataset other people can correct stays accurate longer than one that only we can edit.
 
 ## How the writing works
-
 Everything published here follows one set of rules, which are themselves published so they can be held against us: primary sources on every claim, competitor prices from the vendor's own page with a date, no number published if it cannot be verified at source, evidence labelled by its strength, and our own products disclosed on every page they appear on — including the pages where a competitor is the better answer.
-
-**[Read the editorial standards.](/editorial-standards)**
+**[Read the editorial standards.](/editorial-standards/)**
 
 ## Contact
-
 **rsb.baker@gmail.com.** One person, so that address reaches whoever wrote the code and whoever wrote the page.
-
 Corrections are genuinely welcome. If a claim on any of these sites is wrong, it is a bug.
 
-**What is Baker Ventures?** Baker Ventures LLC is an independent software studio building small, single-purpose iOS and developer tools. Its products are MileTruth, Rigsheet, HormoneLog, Nearvo, FlirtGym and shipcheck.
+## About Baker Ventures
+**Baker Ventures LLC** is an independent software studio run by one person. It builds small, single-purpose iOS apps and developer tools, each one named narrowly: a mileage log that shows a gig driver what a shift actually paid, a three-way IOLTA reconciliation for a solo attorney, a reader that shows two pages at once, a flip clock for a shelf. [The current list, with the status of each one.](/apps/)
+Every Baker Ventures product is built on the same rule: cite the source, name the limit, and never claim an outcome the product cannot deliver. The reference material on these sites is free, needs no account, and states where each fact came from.
 
+## Questions and answers
+**What is Baker Ventures?** Baker Ventures LLC is an independent software studio building small, single-purpose iOS apps and developer tools. Every app does one thing, says what it is not for, and states whether you can install it yet.
 **Who runs Baker Ventures?** Ryan Baker, an independent developer. It is a one-person studio, which is stated plainly because it is relevant context for how much you should expect from support, roadmap and release cadence.
-
-**How many Baker Ventures apps are actually available?** Two. shipcheck ships as a Claude Code plugin, and FlirtGym has been on the App Store since 12 August 2026. MileTruth, Rigsheet, HormoneLog and Nearvo are in development and not released.
-
+**How many Baker Ventures apps are actually available?** Five of nineteen. shipcheck ships as a Claude Code plugin, and FlirtGym, FlipStage, MoveWitness and Vocabdrift are on the App Store. Hatch Window is approved and waiting to be released, seven are with Apple for review, and six are built but not submitted.
 **Why do the websites give everything away for free?** Because the answers are useful whether or not the apps ever ship, and because a page that only makes sense as an advert is not worth writing. Every site publishes its category's real answers with sources attached, with no signup.
-
 **How do I contact Baker Ventures?** rsb.baker@gmail.com. It is a one-person studio, so that address reaches the person who wrote the code.
+
+### Sources
+- [FlirtGym on the App Store](https://apps.apple.com/app/id6784050951)
 
 ---
 
 ## The apps
 URL: https://bakerventuresstudio.com/apps/
-Updated: 2026-09-06
+Updated: 2026-10-14
 
 :::answer
-**Six products, two of them actually available.** Status is stated on every page of every site because a product you cannot install is not a recommendation, and pretending otherwise would undermine everything else we publish.
+**Nineteen products. Five you can install today.** One is approved and waiting to be released, seven are with Apple for review, and six are built but not submitted. Status is stated on every page of every site, because a product you cannot install is not a recommendation, and pretending otherwise would undermine everything else we publish.
+
+**No release dates appear anywhere on this page.** The seven apps in review are set to go on sale by themselves the moment Apple approves them. Apple decides when that is and does not tell us in advance, so a date here would be a guess dressed as a fact.
 :::
 
-## Available now
+## On sale now
 
 ### [shipcheck](https://shipcheck.bakerventuresstudio.com) — shipping
-**Catch the App Store or Play rejection before you submit.** A Claude Code plugin that scans a React Native or Expo project, cites the exact guideline clause, predicts what the reviewer will say and names the file to change. Runs locally — no account, no repository upload. First scan free with real findings; $29 one-time per app, $49/yr unlimited, $149/yr agency.
-
-**Not for:** native Swift or Kotlin-only projects, or teams wanting a hosted dashboard.
+**Catch the App Store or Play rejection before you submit.** A Claude Code plugin that scans a React Native or Expo project, quotes the exact guideline clause from a local copy of Apple’s and Google’s policy, and names the file to change. Nothing from your repository is uploaded. Free on every app: your risk score and the three findings most likely to get the build rejected, each with its fix. Beyond that it needs a licence — $29 once for one app, $49 a year for any number of apps, $149 a year with team seats.
+**Not for:** native Swift or Kotlin-only projects, or teams wanting a hosted dashboard. The free scan shows three findings and counts the rest by severity rather than showing them.
 
 ### [FlirtGym](https://flirtgym.app) — live since 12 August 2026
-**Practise the conversation before it is real.** Screenshot a message and get three replies with the reason each one works, or rehearse a whole conversation with an AI that loses interest if it goes flat. Previously called **RizzMaxx** — same app, same App Store listing. iOS.
+**Practise the conversation before it is real.** Screenshot a message and get three replies with the reason each one works, or rehearse a whole conversation with an AI character whose interest drops when your messages do. Over a hundred practice scenarios. Previously called **RizzMaxx** — same app, same App Store listing. iPhone, iOS 16.4 or later.
+**Not for:** anyone looking for manipulation tactics, or anyone wanting a matching app. **And plainly:** practice, scoring and coaching are all part of Pro, so there is no free tier, and this is a small, new app with very few ratings and no press.
 
-**Not for:** anyone looking for manipulation tactics, or anyone wanting a matching app. **And plainly:** a small, new app with very few ratings and no press.
+### [FlipStage](https://bakerventuresstudio.com/flipstage/) — on the App Store
+**Present from one iPhone with two panes on screen: your speaker notes and a timer on your half, the slide turned around on theirs.** Stand the phone upright between you and one other person. Four sample slides are included, and your own photos import as slides. Free, no account, no network calls. iPhone.
+**Not for:** anyone who already has a second screen or casts to a TV — this is for when you do not. There is no PDF or Keynote import: photos are the only way to add your own content. [FlipStage on the App Store](https://apps.apple.com/app/id6816274152).
 
-## In development
+### [MoveWitness](https://bakerventuresstudio.com/rentcheck/) — on the App Store
+**Photograph your rental room by room and export a dated move-in or move-out PDF report.** Each photo shows its own capture date where the file carries one, and an import time where it does not. A finished inspection locks, and the lock is enforced in the database rather than the interface, so the report cannot quietly change months later. Free, no account. iPhone.
+**Not for:** landlords managing a large multi-property portfolio — this is a tenant’s tool. It will not tell you what to photograph: you get room names and a blank notes field, not a checklist of what deposits get withheld over. [MoveWitness on the App Store](https://apps.apple.com/app/id6816228166).
+
+### [Vocabdrift](https://bakerventuresstudio.com/vocabdrift/) — on the App Store
+**A word and its definition rotate on your iPhone Lock Screen through the day.** 1,383 words, 1,165 of them with written IPA and 535 with an example sentence, all on the device. Free, no account, and no network request of any kind. iPhone.
+**Not for:** structured, course-based vocabulary study. There is no spaced repetition — words you miss simply come back more often — and no audio at all, so “pronunciation” here means the written IPA. [Vocabdrift on the App Store](https://apps.apple.com/app/id6816214136).
+
+## Approved, waiting to be released
+
+### [Hatch Window](https://bakerventuresstudio.com/hatchwindow/) — approved by Apple, waiting to be released
+**Live streamflow, solunar windows and a hatch chart by month and region for your own spots, plus a log of what worked.** Free, no account, no ads. iPhone.
+**Not for:** saltwater or steelhead fishing — the hatch charts are freshwater trout. A spot you add yourself needs a USGS gauge number before it can show flow, and the solunar windows are an angling tradition the app computes rather than a validated model, which it says on screen.
+
+## With Apple for review
+Each of these is submitted and waiting, and each is set to go on sale by itself when Apple approves it. An update to FlirtGym is in the same queue.
 
 ### [MileTruth](https://miletruth.bakerventuresstudio.com)
-**The gig mileage tracker that does not miss trips, and tells you what the driving actually paid.** Capture rate as the primary engineering metric, plus a personal cost-per-mile model so gross becomes net. Handles 2026's two IRS rates on the correct side of June 30. Planned $59.99/yr — MileIQ's 2024 price.
+**What a shift actually paid.** A mileage log plus a cost-per-mile model for your own car, so gross pay becomes net. **You enter each trip by hand. There is no background trip detection in this version**, and the app says so on its own Home screen. Every trip is priced at the 2026 IRS rate for that trip’s own date: 72.5 cents through June 30, 76 cents from July 1. Weekly earnings statements import as CSV. Version 1.0 is free, with no subscription and nothing to buy inside it.
+**Not for:** W-2 employees, multi-driver reimbursement administration, or anyone wanting the phone to detect drives by itself. It gives no tax advice.
 
-**Not for:** W-2 employees, or multi-driver reimbursement administration.
+### [PolicyReady](https://bakerventuresstudio.com/policyready/)
+**Answer the control questions cyber insurers typically ask** — MFA, backups, patching, access and forty-six more — see your gaps ranked by what matters most, and export a readiness summary before you apply or renew. Free, on your device.
+**Not for:** teams wanting continuous compliance monitoring rather than a pre-renewal check. It is not a quote and not an offer of coverage, it certifies nothing, and the insurer’s own application is what governs.
+
+### [DenialDesk](https://bakerventuresstudio.com/denialdesk/)
+**Make sense of a health-insurance denial and draft the appeal letter in your own words.** Pick the denial type, enter the date on the notice, and it works out the appeal deadline, shows the plain-language basis it used and links the rule it read. The letter is assembled from your own answers, and anything you have not filled in stays visible as a gap rather than being invented. Free, on your device.
+**Not for:** anyone needing legal representation — it drafts a letter and works out a date; it is not legal advice. It stores no documents: your paperwork stays yours.
+
+### [Foldbook](https://bakerventuresstudio.com/foldbook/)
+**A two-page reader for iPhone**: two pages at once instead of one — side by side with a gutter when the phone is turned, stacked when it is upright. Night, day and sepia, text size from 13 to 28 point, a bookmark on any page. Three short original stories included. Free.
+**Not for:** readers wanting a library of books. There is no file import of any kind, so the three included stories are the whole library.
+
+### [IOLTAlign](https://bakerventuresstudio.com/ioltalign/)
+**Three-way IOLTA trust reconciliation for solo and small-firm attorneys** — bank, book and client ledgers tied out to the penny, or the exact amount by which they do not. Export the reconciliation as a PDF when you want the paper trail. Free, no account, no cloud.
+**Not for:** firms needing full practice-management or billing software. It reports a finding rather than a verdict, and it never certifies compliance with any jurisdiction’s trust-accounting rule.
+
+### [NoticeGuard](https://bakerventuresstudio.com/noticeguard/)
+**Mechanics lien deadlines for all 50 states and the District of Columbia, each one citing its statute section with the verbatim text one tap away.** It shows the arithmetic it used — so many days after which anchor date — and says when an outer limit shortened it. Local reminders and calendar export included. Free.
+**Not for:** anyone needing the filings done for them: it reports what the statute says and cites the section it read, and it does not file, mail or record anything. Which deadlines exist depends on the state; not every state has a preliminary notice or a notice of intent.
+
+### [TentClock](https://bakerventuresstudio.com/tentclock/)
+**A large animated flip clock for a shelf or nightstand**, in twelve colour scenes, with repeating alarms and an optional local temperature. Free, no ads, nothing to buy.
+**Not for:** anyone wanting smart-home integration — it is a standalone clock. The alarms are ordinary local notifications, so they follow your volume and Focus settings rather than overriding them, and the temperature is in Fahrenheit and needs location and a connection.
+
+## Built, not submitted yet
+
+### [Steadychart](https://bakerventuresstudio.com/steadychart/)
+**Log symptoms and severity in seconds, see the pattern over time, and export a summary for your next appointment** as a PDF, a CSV or a JSON file. Private and on your device. Free, no account.
+**Not for:** diagnosis — it is a private journal, not a clinical tool. Saving a day needs an overall rating as well as the symptoms, and an export is a copy to keep rather than a backup: there is no way to read one back in.
 
 ### [Rigsheet](https://rigsheet.bakerventuresstudio.com)
-**Job management for one-van businesses.** Scheduling with drive-time gaps, quotes with vehicle-size and home-size multipliers, deposits, invoicing and customer texting. Four flat plans from $4 to $39 a month — no per-seat fee, no appointment cap. Covers detailing *and* cleaning, which most products in the category do not.
-
-**Not for:** multi-location shops with large crews, or trades outside detailing and cleaning.
-
-### [HormoneLog](https://hormonelog.bakerventuresstudio.com)
-**An HRT regimen and a symptom history in a form a clinician can read.** What you take, at what dose, since when, what changed — against how you actually felt. Local-first. Planned $49.99/yr.
-
-**Not for:** anyone seeking a diagnosis, a dose recommendation or a clinical assessment. It does none of those, deliberately.
+**Job management for a one-van business.** Scheduling that refuses a job you could not drive to in time, quotes with vehicle-size and home-size multipliers, deposits, invoices, and before-and-after photos on the job. Covers detailing, cleaning, pressure washing, window cleaning and lawn care, which most products in the category do not. Needs an account, because the schedule has to sync.
+**Not for:** multi-location shops with large crews, or trades outside those five. It does not text your customers: quotes and invoices go out by email. The price is not settled, so this page does not quote one.
 
 ### [Nearvo](https://nearvo.bakerventuresstudio.com)
-**A daily connection habit for couples.** One question a day, answered separately then revealed to each other, with shared streaks that only advance when both of you show up. **One partner subscribes and both unlock.** Planned $29.99/yr or $9.99/mo.
-
+**A daily question for two people.** Guess what your partner would say, then answer for yourself, then look back on the week together. Planned as a paid subscription at $29.99 a year or $9.99 a month.
 **Not for:** couples in crisis, who need a licensed couples therapist rather than an app.
 
+### [HormoneLog](https://hormonelog.bakerventuresstudio.com)
+**An HRT regimen and a symptom history in a form a clinician can read.** What you take, at what dose, since when, what changed — against how you actually felt, with a PDF report you can take to an appointment. Local-first: the copy on your device is the only one unless you turn sync on. Free, with no subscription and no in-app purchase.
+**Not for:** anyone seeking a diagnosis, a dose recommendation or a clinical assessment. It does none of those, deliberately. It is not a medical device, nothing in it is a validated clinical instrument, and it will never suggest a dose or a schedule.
+
+### [rsuvest](https://bakerventuresstudio.com/rsuvest/)
+**Type in each equity grant and get one vesting schedule across all of them** — vested against unvested shares, a value at a share price you enter yourself, and a reminder 14, 7 and 1 days before each vesting date.
+**Not for:** companies needing cap-table or 409A valuation tools — this is for the individual holding the grant. It does not read your grant letters, does not connect to a brokerage or an equity portal, does not fetch a share price, and is not tax or financial advice.
+
+### [RiderDeck](https://bakerventuresstudio.com/riderdeck/) — built and in testing
+**A stage plot, input list and rider for a working band, exported as one PDF you can send from the van.** Free, no account, and it makes no network requests. The detail is on [its own page](https://bakerventuresstudio.com/riderdeck/).
+**Not for:** filling in a venue’s own template — it produces its own plot and input list.
+
 ## What they have in common
+**One problem each, named narrowly.** Not a mileage suite, a log that shows a gig driver what the shift actually paid after the car takes its cut. Not practice-management software, a three-way trust reconciliation that ties three ledgers to the penny or shows exactly where they do not. Not a sleep platform, a flip clock for a shelf.
+**Every app says what it is not for**, on its store page, on its website and inside the app. That line is part of the pitch rather than a disclaimer at the bottom, because the fastest way to lose someone is to let them find out later.
+**Every claim has to be true of the build you can install**, not the one in the repository and not the next version. Where a feature is missing, the page says so. Where a number is quoted, it came from the thing it describes.
+**A free site that stands on its own.** Every product has a website publishing its category’s real answers with sources attached and no signup, and the test applied to each page is whether it would still be worth reading if the product did not exist.
+**Published standards.** Primary sources on every claim, competitor prices from the vendor’s own page with a date, evidence labelled by strength, and our own products disclosed on every page they appear on — including the comparisons where a competitor wins. [The editorial standards.](/editorial-standards/)
 
-**One problem each, named narrowly.** Not a mileage suite — a tracker that does not lose trips. Not a field-service platform — quoting and scheduling for someone with one van.
+## About Baker Ventures
+**Baker Ventures LLC** is an independent software studio run by one person. It builds small, single-purpose iOS apps and developer tools, each one named narrowly: a mileage log that shows a gig driver what a shift actually paid, a three-way IOLTA reconciliation for a solo attorney, a reader that shows two pages at once, a flip clock for a shelf. [The current list, with the status of each one.](/apps/)
+Every Baker Ventures product is built on the same rule: cite the source, name the limit, and never claim an outcome the product cannot deliver. The reference material on these sites is free, needs no account, and states where each fact came from.
 
-**A free site that stands on its own.** Every product has a website publishing its category's real answers with sources attached and no signup, and the test applied to each page is whether it would still be worth reading if the product did not exist.
+## Questions and answers
+**What apps does Baker Ventures make?** Nineteen, and the status of each one is on this page. Five you can install today: the shipcheck plugin, plus FlirtGym, FlipStage, MoveWitness and Vocabdrift on the App Store. Hatch Window is approved and waiting to be released. MileTruth, PolicyReady, DenialDesk, Foldbook, IOLTAlign, NoticeGuard and TentClock are with Apple for review. Steadychart, Rigsheet, Nearvo, HormoneLog, rsuvest and RiderDeck are built but not submitted.
+**Which Baker Ventures apps can I use today?** Five. shipcheck ships as a Claude Code plugin, and FlirtGym, FlipStage, MoveWitness and Vocabdrift are on the App Store now. Nothing else is on sale yet, and no release date is published for the ones in review, because Apple sets it and does not tell us in advance.
+**Are Baker Ventures apps free?** Most of them. FlirtGym and Nearvo charge a subscription, because each one makes AI calls that cost money per person using it, and shipcheck is free for your score and the top three findings on every app, with a paid licence beyond that. Everything else is free with nothing to buy inside it, except Rigsheet, whose price is not settled. Every product website is free with no signup, including the calculators, references and question sets, and those are useful whether or not the app they belong to ever ships.
 
-**Published standards.** Primary sources on every claim, competitor prices from the vendor's own page with a date, evidence labelled by strength, and our own products disclosed on every page they appear on — including the comparisons where a competitor wins. [The editorial standards.](/editorial-standards)
-
-**What apps does Baker Ventures make?** Six. shipcheck for App Store and Play pre-submission checks, FlirtGym for dating conversation practice, MileTruth for gig mileage and net pay, Rigsheet for detailing and cleaning job management, HormoneLog for perimenopause and HRT record-keeping, and Nearvo for couples.
-
-**Which Baker Ventures apps can I use today?** Two. shipcheck ships as a Claude Code plugin and FlirtGym has been on the App Store since 12 August 2026. MileTruth, Rigsheet, HormoneLog and Nearvo are in development and not released.
-
-**Are Baker Ventures apps free?** The apps are paid. Every product website is free with no signup, including the calculators, references and question sets, and those are useful whether or not the app they belong to ever ships.
+### Sources
+- [FlirtGym on the App Store](https://apps.apple.com/app/id6784050951)
+- [FlipStage on the App Store](https://apps.apple.com/app/id6816274152)
+- [MoveWitness on the App Store](https://apps.apple.com/app/id6816228166)
+- [Vocabdrift on the App Store](https://apps.apple.com/app/id6816214136)
 
 ---
 
 ## Editorial standards
 URL: https://bakerventuresstudio.com/editorial-standards/
-Updated: 2026-09-06
+Updated: 2026-10-14
 
 :::answer
 **These are the rules every page across every Baker Ventures site is written under.** They are published so they can be held against us, which is the only thing that makes a statement like this worth anything.
@@ -201,131 +264,123 @@ The short version: **every claim links to a primary source, competitor prices co
 :::
 
 ## Sourcing
-
 **Every factual claim links to a primary source.** IRS claims link to irs.gov. Apple claims link to developer.apple.com. Google Play claims link to Google's own support documentation. Research claims link to the paper.
-
 **Where a primary source renders client-side, we read it in a browser and say so.** Apple's required-reason API reason codes are the clearest case: that documentation page returns an empty shell to a plain HTTP fetch, which is precisely why incorrect copies of the table circulate. Ours carries the date it was transcribed and the method.
-
 **Where sources conflict, both are given and the conflict is named.** RWS Life Sciences and the NIH-funded PhenX Toolkit take contradictory positions on whether the Greene Climacteric Scale requires permission for use. We do not resolve that by choosing the answer that suits us; we state that it is unresolved.
-
 **Where a widely repeated claim is wrong, it is corrected — including when the correction is against our interest.** NICE guideline NG23 does not recommend menopause symptom diaries, and HormoneLog would be easier to market if it did. The frequently-cited "28 apps averaged 3.1 out of 5" statistic does not appear in the review it is attributed to.
 
 ## Competitor pricing
-
 **From the vendor's own pricing page, with the date it was checked.** Not from aggregators, review sites or comparison directories, which in these categories are routinely stale.
-
 **If it cannot be verified at source, no number is published.** DetailPilot's pricing page is client-side rendered and DetailDeck's `/pricing` has returned a 404, so **no price for either appears anywhere on our sites.** These are small companies whose founders read what is written about them, and an unverified price is a correction waiting to happen.
-
 **We name the tier you actually need, not the advertised one.** Where a vendor's entry tier omits something most buyers require — Jobber's Core lacking QuickBooks and GPS, Housecall Pro's Basic doing the same — the comparison uses the realistic tier and says why.
 
 ## Our own product facts
-
 **Our own numbers get the same verification a competitor's price page gets.** Counted from the source, dated, and re-counted before any page carrying them is re-dated.
-
 This line exists because it failed. FlirtGym's site claimed "190 practice scenarios" as a distinguishing feature. Counted from the code, the real number is **101**: a cull had been executed and the advertised figure was never updated. The claim was live on this site, in the app's store listing, and in the advertising copy pack, where it was specifically offered as an example of an honest proof point on the reasoning that fabricated social proof is prohibited so only verifiable product facts remain.
-
 That reasoning is correct. What failed is that "verifiable" was assumed rather than performed, on the one class of number nobody thought to check because we own it. A rule saying every number traces to a source is weaker than it sounds when the source is us and nobody goes and looks.
-
 The same applies to claims about how our software behaves. FlirtGym's pages said the practice AI "disengages if the conversation goes flat"; that instruction exists only at the hardest of three settings, and the default is the middle one. Both claims are corrected, and both corrections came from someone reading the code rather than the copy.
-
 **A claim also lives in more places than the sentence you wrote it in.** Both of the above were additionally sitting in `_facts.json`, which feeds the structured data on every page and the public `facts.json` — the copy an AI assistant is most likely to quote verbatim. Fixing prose without fixing structured data leaves the wrong claim in the machine-readable version.
 
 ## Evidence labelling
-
 **Vendor-sourced statistics are labelled vendor-sourced.** The frequently-quoted "15–25 percent no-show rate falling to under 5 percent with deposits" appears verbatim across multiple mobile-detailing software vendors — which makes it consistent, not independent. Everyone publishing it sells deposit features.
-
 **Single tests are labelled single tests.** EntreCourier's hands-on finding that one gig app captured about 51 percent of odometer miles is one tester's experience, documented and specific, and not a controlled study.
-
 **Contested findings are labelled contested, with the counter-argument.** The 94 percent divorce-prediction figure is contested by Heyman & Slep (2001) on the grounds that the models were fitted and evaluated on the same sample without cross-validation. We do not use it.
-
 **Ranges are given where the underlying figures disagree.** Femtech market sizing varies roughly sevenfold across research firms depending on category definition, so it is cited as a range or not at all.
 
 ## Disclosure
-
 **Our own products are disclosed on every page they appear on**, including comparison and roundup pages.
-
 **Status is stated plainly and never softened.** Most of our apps are not on sale yet, and every page they appear on says so. Where an app is with Apple for review it is described that way, not as "coming soon", and no release date is published, because Apple sets it and does not tell us in advance. Where an app is live, its date is given.
-
 **Competitors that beat us are named, with the reason.** Rizz has tens of thousands of App Store ratings and FlirtGym does not. MileIQ is free with Microsoft 365 Business, which makes it the cheapest capable option in its own comparison table. Jobber and Housecall Pro are more capable products than Rigsheet. Balance is the sensible first install for most people looking at menopause apps.
-
-**Claims we could make and do not.** Rigsheet's $19 entry price is not unique — ZenMaid Starter is also $19. Unlimited users is not category-unique — Urable includes it on every tier. Both would read well and neither is true.
+**Claims we could make and do not.** Unlimited users is not category-unique — Urable includes it on every tier. It would read well and is not true.
 
 ## What we will not do
-
 **No fabricated social proof.** No invented ratings, user counts, testimonials or press placements. The FTC's rule (16 CFR Part 465, effective 21 October 2024) bans fake and AI-generated reviews with civil penalties in the tens of thousands per violation — and separately, a single invented number would make everything else on these sites worthless.
-
 **No fake community accounts or coordinated voting.**
-
 **No mass-generated thin pages.** Every page is written to be worth reading on its own.
-
 **No deficit-diagnosis marketing.** We name situations, not people. "She stopped replying — here is the message that restarts it," never "you are the reason she stopped replying." This began as an advertising rule for one product and became the house rule for all of them.
-
 **No medical, legal, tax or financial advice.** Our health, tax and compliance pages are information with primary sources attached, and they say so.
 
 ## Dates
-
 **Every page carries a visible and structured last-updated date.** A date changes only when something on the page was actually re-checked or rewritten. Touching a date to make a page look fresh would be the smallest possible version of the thing this entire page is about.
 
 ## Corrections
-
 Found something wrong? **rsb.baker@gmail.com.** Corrections are made in place with the date updated. Where we have published something materially incorrect, the correction is noted on the page rather than quietly swapped.
-
 Our open data is published on GitHub specifically so it can be corrected by other people: the [Apple privacy-manifest SDK map](https://github.com/BakerVentures/apple-privacy-manifest-sdk-map) accepts issues and pull requests.
 
 ## Why publish this
-
 Because the alternative is asking to be trusted. A statement of standards that can be checked against the pages is worth something; one that cannot is decoration.
-
 If you find a page that breaks one of these rules, that is a bug, and it is worth an email.
 
+## About Baker Ventures
+**Baker Ventures LLC** is an independent software studio run by one person. It builds small, single-purpose iOS apps and developer tools, each one named narrowly: a mileage log that shows a gig driver what a shift actually paid, a three-way IOLTA reconciliation for a solo attorney, a reader that shows two pages at once, a flip clock for a shelf. [The current list, with the status of each one.](/apps/)
+Every Baker Ventures product is built on the same rule: cite the source, name the limit, and never claim an outcome the product cannot deliver. The reference material on these sites is free, needs no account, and states where each fact came from.
+
+## Questions and answers
 **How does Baker Ventures source its claims?** Every factual claim links to a primary source - IRS claims to irs.gov, Apple claims to developer.apple.com, research claims to the paper itself. Where sources conflict, both are given and the conflict is named rather than resolved in our favour.
-
 **How is competitor pricing verified?** From each vendor's own pricing page, with the date it was checked. Where a price cannot be verified at source, no number is published at all rather than a figure taken from an aggregator.
-
 **Does Baker Ventures disclose when it is writing about its own products?** Yes, on every page a Baker Ventures product appears on, including comparison and roundup pages where a competitor is the better answer.
-
 **Does Baker Ventures use AI-generated reviews or testimonials?** No. No invented ratings, user counts, testimonials or press placements appear anywhere on these sites. The FTC's rule on fake and AI-generated reviews carries civil penalties in the tens of thousands per violation, and separately it would make the rest of the corpus worthless.
-
 **How are dates handled?** Every page carries a visible and structured last-updated date. A date is only changed when something on the page was actually re-checked or rewritten - never to make a page look fresh.
+
+### Sources
+- [FTC — Rule on the Use of Consumer Reviews and Testimonials (16 CFR Part 465)](https://www.ftc.gov/legal-library/browse/rules/rule-use-consumer-reviews-testimonials)
 
 ---
 
 ## Every question this site answers
 URL: https://bakerventuresstudio.com/questions-answered/
-Updated: 2026-09-07
+Updated: 2026-10-14
 
-Index of every question answered on this site.
+:::answer
+**Every question answered on this site, in one place: 17 of them across 4 pages.** Each links to the page that answers it in full. This index is generated from the pages themselves, so it cannot drift from them.
+:::
 
-**Are Baker Ventures apps available now?** Two of six. shipcheck ships and FlirtGym has been on the App Store since 12 August 2026. The other four are in development and not released, and every page about them says so.
+## All questions
+- [Are Baker Ventures apps available now?](/#are-baker-ventures-apps-available-now)
+- [Are Baker Ventures apps free?](/apps/#are-baker-ventures-apps-free)
+- [Does Baker Ventures disclose when it is writing about its own products?](/editorial-standards/#does-baker-ventures-disclose-when-it-is-writing-about-its-own-products)
+- [Does Baker Ventures use AI-generated reviews or testimonials?](/editorial-standards/#does-baker-ventures-use-ai-generated-reviews-or-testimonials)
+- [How are dates handled?](/editorial-standards/#how-are-dates-handled)
+- [How do I contact Baker Ventures?](/about/#how-do-i-contact-baker-ventures)
+- [How does Baker Ventures source its claims?](/editorial-standards/#how-does-baker-ventures-source-its-claims)
+- [How is competitor pricing verified?](/editorial-standards/#how-is-competitor-pricing-verified)
+- [How many Baker Ventures apps are actually available?](/about/#how-many-baker-ventures-apps-are-actually-available)
+- [What apps does Baker Ventures make?](/apps/#what-apps-does-baker-ventures-make)
+- [What apps does Baker Ventures make?](/#what-apps-does-baker-ventures-make)
+- [What is Baker Ventures?](/about/#what-is-baker-ventures)
+- [What is Baker Ventures?](/#what-is-baker-ventures)
+- [Where can I find Baker Ventures' free tools?](/#where-can-i-find-baker-ventures-free-tools)
+- [Which Baker Ventures apps can I use today?](/apps/#which-baker-ventures-apps-can-i-use-today)
+- [Who runs Baker Ventures?](/about/#who-runs-baker-ventures)
+- [Why do the websites give everything away for free?](/about/#why-do-the-websites-give-everything-away-for-free)
 
-**Are Baker Ventures apps free?** The apps are paid. Every product website is free with no signup, including the calculators, references and question sets, and those are useful whether or not the app they belong to ever ships.
+## By page
 
-**Does Baker Ventures disclose when it is writing about its own products?** Yes, on every page a Baker Ventures product appears on, including comparison and roundup pages where a competitor is the better answer.
+### [About Baker Ventures](/about/)
+- [How do I contact Baker Ventures?](/about/#how-do-i-contact-baker-ventures)
+- [How many Baker Ventures apps are actually available?](/about/#how-many-baker-ventures-apps-are-actually-available)
+- [What is Baker Ventures?](/about/#what-is-baker-ventures)
+- [Who runs Baker Ventures?](/about/#who-runs-baker-ventures)
+- [Why do the websites give everything away for free?](/about/#why-do-the-websites-give-everything-away-for-free)
 
-**Does Baker Ventures use AI-generated reviews or testimonials?** No. No invented ratings, user counts, testimonials or press placements appear anywhere on these sites. The FTC's rule on fake and AI-generated reviews carries civil penalties in the tens of thousands per violation, and separately it would make the rest of the corpus worthless.
+### [Editorial standards](/editorial-standards/)
+- [Does Baker Ventures disclose when it is writing about its own products?](/editorial-standards/#does-baker-ventures-disclose-when-it-is-writing-about-its-own-products)
+- [Does Baker Ventures use AI-generated reviews or testimonials?](/editorial-standards/#does-baker-ventures-use-ai-generated-reviews-or-testimonials)
+- [How are dates handled?](/editorial-standards/#how-are-dates-handled)
+- [How does Baker Ventures source its claims?](/editorial-standards/#how-does-baker-ventures-source-its-claims)
+- [How is competitor pricing verified?](/editorial-standards/#how-is-competitor-pricing-verified)
 
-**How are dates handled?** Every page carries a visible and structured last-updated date. A date is only changed when something on the page was actually re-checked or rewritten - never to make a page look fresh.
+### [Small tools that do one thing](/)
+- [Are Baker Ventures apps available now?](/#are-baker-ventures-apps-available-now)
+- [What apps does Baker Ventures make?](/#what-apps-does-baker-ventures-make)
+- [What is Baker Ventures?](/#what-is-baker-ventures)
+- [Where can I find Baker Ventures' free tools?](/#where-can-i-find-baker-ventures-free-tools)
 
-**How do I contact Baker Ventures?** rsb.baker@gmail.com. It is a one-person studio, so that address reaches the person who wrote the code.
+### [The apps](/apps/)
+- [Are Baker Ventures apps free?](/apps/#are-baker-ventures-apps-free)
+- [What apps does Baker Ventures make?](/apps/#what-apps-does-baker-ventures-make)
+- [Which Baker Ventures apps can I use today?](/apps/#which-baker-ventures-apps-can-i-use-today)
 
-**How does Baker Ventures source its claims?** Every factual claim links to a primary source - IRS claims to irs.gov, Apple claims to developer.apple.com, research claims to the paper itself. Where sources conflict, both are given and the conflict is named rather than resolved in our favour.
-
-**How is competitor pricing verified?** From each vendor's own pricing page, with the date it was checked. Where a price cannot be verified at source, no number is published at all rather than a figure taken from an aggregator.
-
-**How many Baker Ventures apps are actually available?** Two. shipcheck ships as a Claude Code plugin, and FlirtGym has been on the App Store since 12 August 2026. MileTruth, Rigsheet, HormoneLog and Nearvo are in development and not released.
-
-**What apps does Baker Ventures make?** Six. shipcheck for App Store and Play pre-submission checks, FlirtGym for dating conversation practice, MileTruth for gig mileage and net pay, Rigsheet for detailing and cleaning job management, HormoneLog for perimenopause and HRT record-keeping, and Nearvo for couples.
-
-**What apps does Baker Ventures make?** shipcheck, a Claude Code plugin checking React Native and Expo apps for App Store and Play rejection risk, and FlirtGym, an iOS dating conversation practice app formerly called RizzMaxx. MileTruth, Rigsheet, HormoneLog and Nearvo are in development.
-
-**What is Baker Ventures?** Baker Ventures LLC is an independent software studio building small, single-purpose iOS and developer tools. Its products are MileTruth, Rigsheet, HormoneLog, Nearvo, FlirtGym and shipcheck.
-
-**What is Baker Ventures?** Baker Ventures LLC is an independent one-person software studio building small, single-purpose iOS and developer tools. Its products are MileTruth, Rigsheet, HormoneLog, Nearvo, FlirtGym and shipcheck.
-
-**Where can I find Baker Ventures' free tools?** Each product has its own site with free tools and answers, no signup - a two-rate 2026 mileage calculator at miletruth, a job pricing calculator at rigsheet, the Apple required-reason API reference at shipcheck, and free question sets at nearvo.
-
-**Which Baker Ventures apps can I use today?** Two. shipcheck ships as a Claude Code plugin and FlirtGym has been on the App Store since 12 August 2026. MileTruth, Rigsheet, HormoneLog and Nearvo are in development and not released.
-
-**Who runs Baker Ventures?** Ryan Baker, an independent developer. It is a one-person studio, which is stated plainly because it is relevant context for how much you should expect from support, roadmap and release cadence.
-
-**Why do the websites give everything away for free?** Because the answers are useful whether or not the apps ever ship, and because a page that only makes sense as an advert is not worth writing. Every site publishes its category's real answers with sources attached, with no signup.
+## About Baker Ventures
+**Baker Ventures LLC** is an independent software studio run by one person. It builds small, single-purpose iOS apps and developer tools, each one named narrowly: a mileage log that shows a gig driver what a shift actually paid, a three-way IOLTA reconciliation for a solo attorney, a reader that shows two pages at once, a flip clock for a shelf. [The current list, with the status of each one.](/apps/)
+Every Baker Ventures product is built on the same rule: cite the source, name the limit, and never claim an outcome the product cannot deliver. The reference material on these sites is free, needs no account, and states where each fact came from.
