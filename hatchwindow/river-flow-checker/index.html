@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>River Flow Checker: Live USGS CFS, Gauge Height and Trend | Hatch Window</title>
+  <meta name="description" content="Pick a river or type any USGS site number and see current streamflow in cfs, gauge height, water temperature when the gauge reports it, and whether the river is rising or falling. Free, no signup.">
+  <link rel="canonical" href="https://bakerventuresstudio.com/hatchwindow/river-flow-checker/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hatch Window">
+  <meta property="og:title" content="River Flow Checker: Live USGS CFS, Gauge Height and Trend">
+  <meta property="og:description" content="Current cfs, gauge height and 12-hour trend for any USGS river gauge. Free, no signup.">
+  <meta property="og:url" content="https://bakerventuresstudio.com/hatchwindow/river-flow-checker/">
+  <meta name="twitter:card" content="summary">
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: #1a1a1a; background: #fff; }
+    h1 { font-size: 30px; margin: 0 0 4px; line-height: 1.25; }
+    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    p { margin: 12px 0; }
+    ul { margin: 12px 0; padding-left: 22px; }
+    li { margin: 6px 0; }
+    a { color: #1F6F5C; }
+    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: .92em; }
+    .note { background: #fafafa; border-left: 3px solid #1F6F5C; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
+    .warn { background: #fffaf3; border-left: 3px solid #c47d2a; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
+    .nav { font-size: 14px; margin: 0 0 20px; }
+    .nav a { color: #666; }
+    .sub { font-size: 18px; color: #444; margin: 10px 0 24px; }
+    label { display: block; font-weight: 600; margin: 16px 0 4px; font-size: 15px; }
+    select, input[type=text] { width: 100%; padding: 10px; font: inherit; border: 1px solid #bbb; border-radius: 6px; background: #fff; }
+    button { margin-top: 14px; background: #1F6F5C; color: #fff; font: inherit; font-weight: 700; padding: 11px 22px; border: 0; border-radius: 8px; cursor: pointer; }
+    button:disabled { opacity: .6; cursor: default; }
+    #out { margin-top: 24px; }
+    .big { font-size: 40px; font-weight: 700; line-height: 1.1; }
+    .big small { font-size: 18px; font-weight: 400; color: #555; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 15px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+    th { background: #fafafa; font-size: 13px; text-transform: uppercase; letter-spacing: .03em; color: #555; }
+    .stale { color: #a14a00; font-weight: 600; }
+    .cite { font-size: 13px; color: #666; }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
+    footer a { color: #888; }
+  </style>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"River Flow Checker","url":"https://bakerventuresstudio.com/hatchwindow/river-flow-checker/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Baker Ventures LLC"}}
+  </script>
+</head>
+<body>
+  <div class="nav"><a href="/hatchwindow/">Hatch Window</a> &rsaquo; River flow checker</div>
+  <h1>River Flow Checker</h1>
+  <p class="sub">Current cfs, gauge height and a 12-hour trend for a USGS river gauge. Pick one of ten Mountain West waters or type any USGS site number.</p>
+
+  <form id="f" autocomplete="off">
+    <label for="spot">Starter water</label>
+    <select id="spot">
+      <option value="06700000">South Platte River (Cheesman Canyon / Deckers), CO</option>
+      <option value="07091200">Arkansas River (Numbers / Browns Canyon, near Nathrop), CO</option>
+      <option value="09050700">Blue River (below Dillon Reservoir, Silverthorne), CO</option>
+      <option value="09058000">Colorado River (near Kremmling), CO</option>
+      <option value="09080400">Fryingpan River (below Ruedi Reservoir, Basalt), CO</option>
+      <option value="09234500">Green River (below Flaming Gorge Dam), UT</option>
+      <option value="10163000" selected>Provo River (lower canyon, near Provo), UT</option>
+      <option value="06038500">Madison River (below Hebgen Lake, near West Yellowstone), MT</option>
+      <option value="06287000">Bighorn River (below Yellowtail Afterbay, Fort Smith), MT</option>
+      <option value="13042500">Henry's Fork (Island Park / Box Canyon), ID</option>
+      <option value="">Other: use the site number below</option>
+    </select>
+    <label for="site">Or any USGS site number (8 to 15 digits)</label>
+    <input type="text" id="site" inputmode="numeric" placeholder="for example 10163000" maxlength="15">
+    <button type="submit" id="go">Get current flow</button>
+  </form>
+
+  <div id="out" aria-live="polite"></div>
+
+  <h2>How to read it</h2>
+  <ul>
+    <li><strong>cfs</strong> is cubic feet per second, the volume passing the gauge. The same number means very different water on a small creek and a big river, and on a dam-controlled tailwater it often reflects a release schedule. This page does not tell you what a good number is for your water. Your local fly shop or the river's own guide does.</li>
+    <li><strong>Gauge height</strong> is the water level at the gauge in feet, measured from a local reference point. It is not water depth where you are standing.</li>
+    <li><strong>Trend</strong> compares the newest reading with the one closest to 12 hours earlier. More than 5 percent up is rising, more than 5 percent down is falling, anything else is steady.</li>
+    <li><strong>Provisional data.</strong> USGS marks recent readings provisional and revises them. A reading older than 4 hours is flagged as stale.</li>
+  </ul>
+  <p>Not every gauge reports every measurement. If a gauge has no discharge sensor you will see that rather than a guess.</p>
+
+  <h2>Sources</h2>
+  <p class="cite">Streamflow, gauge height and water temperature: U.S. Geological Survey, National Water Information System Instantaneous Values service, <code>https://waterservices.usgs.gov/nwis/iv/</code> (parameters 00060, 00065, 00010), requested from your browser at the moment you press the button. Streamflow and gauge height data: USGS Water Services, provisional and subject to revision. This site does not store or proxy the data. The ten starter waters and their gauge numbers are from the Hatch Window app's source file <code>src/data/spots.ts</code> (commit <code>3ea20fe</code>). The 12-hour trend rule and the 4-hour stale rule mirror <code>src/lib/usgs.ts</code> in the same repository.</p>
+
+  <div class="warn"><strong>Not a safety tool.</strong> A gauge reading is not a wading safety call. Conditions at your spot can differ from the gauge, which may be miles away. Check local regulations and closures, and carry a valid license.</div>
+  <div class="note">Want the hatch side? See the <a href="/hatchwindow/hatch-chart/">hatch chart by month</a> and the <a href="/hatchwindow/rivers/provo-river-ut/">river pages</a>. <a href="/hatchwindow/">Hatch Window</a> is a free fly-fishing companion app from Baker Ventures LLC that shows streamflow from USGS and weather from Open-Meteo for your saved waters. Timing and availability are on the app page.</div>
+  <footer>&copy; Baker Ventures LLC &middot; <a href="/hatchwindow/">Hatch Window</a> &middot; <a href="/hatchwindow/hatch-chart/">Hatch chart</a> &middot; <a href="/hatchwindow/privacy/">Privacy Policy</a> &middot; <a href="/hatchwindow/terms/">Terms</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+
+  <script>
+  (function () {
+    var STALE_MS = 4 * 3600 * 1000, HALF_DAY = 12 * 3600 * 1000, THRESH = 0.05;
+    var f = document.getElementById('f'), out = document.getElementById('out'), go = document.getElementById('go');
+    var spot = document.getElementById('spot'), site = document.getElementById('site');
+    function el(tag, text, cls) { var e = document.createElement(tag); if (text != null) e.textContent = text; if (cls) e.className = cls; return e; }
+    function series(json, code) {
+      var ts = (json && json.value && json.value.timeSeries) || [];
+      for (var i = 0; i < ts.length; i++) {
+        var codes = (ts[i].variable && ts[i].variable.variableCode) || [];
+        if (codes.some(function (c) { return c.value === code; })) {
+          var nd = ts[i].variable.noDataValue;
+          var raw = (ts[i].values && ts[i].values[0] && ts[i].values[0].value) || [];
+          var pts = raw.map(function (p) { return { t: new Date(p.dateTime), v: Number(p.value) }; })
+            .filter(function (p) { return isFinite(p.v) && !isNaN(p.t.valueOf()) && p.v !== nd; })
+            .sort(function (a, b) { return a.t - b.t; });
+          return { name: ts[i].sourceInfo && ts[i].sourceInfo.siteName, pts: pts };
+        }
+      }
+      return null;
+    }
+    function trend(pts) {
+      if (pts.length < 2) return 'unknown';
+      var latest = pts[pts.length - 1], ref = pts[0], best = Infinity;
+      for (var i = 0; i < pts.length - 1; i++) {
+        var d = Math.abs((latest.t - pts[i].t) - HALF_DAY);
+        if (d < best) { best = d; ref = pts[i]; }
+      }
+      if (ref.v === 0) return 'unknown';
+      var ch = (latest.v - ref.v) / Math.abs(ref.v);
+      return ch > THRESH ? 'rising' : ch < -THRESH ? 'falling' : 'steady';
+    }
+    function ago(t) {
+      var m = Math.round((Date.now() - t.valueOf()) / 60000);
+      if (m < 60) return m + ' min ago';
+      var h = Math.floor(m / 60); return h + ' h ' + (m % 60) + ' min ago';
+    }
+    function row(tb, k, v, stale) { var tr = el('tr'); tr.appendChild(el('th', k)); var td = el('td', v, stale ? 'stale' : ''); tr.appendChild(td); tb.appendChild(tr); }
+    function render(no, json) {
+      out.textContent = '';
+      var q = series(json, '00060'), g = series(json, '00065'), w = series(json, '00010');
+      var name = (q && q.name) || (g && g.name) || (w && w.name);
+      if (!q && !g && !w) {
+        out.appendChild(el('p', 'USGS returned no current readings for site ' + no + '. The number may be wrong, or the gauge may be inactive or not report discharge, gauge height or temperature.', 'warn'));
+        return;
+      }
+      out.appendChild(el('h2', name || ('USGS site ' + no)));
+      if (q && q.pts.length) {
+        var L = q.pts[q.pts.length - 1], stale = Date.now() - L.t > STALE_MS;
+        var b = el('div', null, 'big'); b.appendChild(document.createTextNode(L.v.toLocaleString(undefined, { maximumFractionDigits: 1 }) + ' ')); b.appendChild(el('small', 'cfs'));
+        out.appendChild(b);
+        out.appendChild(el('p', 'Read ' + ago(L.t) + (stale ? '. Stale: older than 4 hours, treat with caution.' : '.'), stale ? 'stale' : ''));
+      } else {
+        out.appendChild(el('p', 'This gauge reported no streamflow (cfs) in the last 3 days.', 'warn'));
+      }
+      var tb = el('table');
+      if (q && q.pts.length) {
+        var vals = q.pts.map(function (p) { return p.v; });
+        row(tb, 'Trend, about 12 h', trend(q.pts));
+        row(tb, 'Last 3 days, low to high', Math.min.apply(null, vals).toLocaleString() + ' to ' + Math.max.apply(null, vals).toLocaleString() + ' cfs');
+      }
+      if (g && g.pts.length) {
+        var G = g.pts[g.pts.length - 1];
+        row(tb, 'Gauge height', G.v.toFixed(2) + ' ft, read ' + ago(G.t), Date.now() - G.t > STALE_MS);
+      }
+      if (w && w.pts.length) {
+        var W = w.pts[w.pts.length - 1];
+        row(tb, 'Water temperature', (W.v * 9 / 5 + 32).toFixed(1) + ' °F (' + W.v.toFixed(1) + ' °C), read ' + ago(W.t), Date.now() - W.t > STALE_MS);
+      }
+      out.appendChild(tb);
+      var a = el('p'); var l = el('a', 'Open this gauge on the official USGS page'); l.href = 'https://waterdata.usgs.gov/monitoring-location/' + no + '/'; l.rel = 'noopener'; a.appendChild(l); out.appendChild(a);
+      out.appendChild(el('p', 'Streamflow and gauge height data: USGS Water Services (waterservices.usgs.gov), provisional and subject to revision.', 'cite'));
+    }
+    spot.addEventListener('change', function () { if (spot.value) site.value = ''; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var no = (site.value || '').trim() || spot.value;
+      if (!/^\d{8,15}$/.test(no)) { out.textContent = ''; out.appendChild(el('p', 'A USGS site number is 8 to 15 digits, for example 10163000.', 'warn')); return; }
+      go.disabled = true; out.textContent = ''; out.appendChild(el('p', 'Asking USGS...'));
+      var ctl = new AbortController(), timer = setTimeout(function () { ctl.abort(); }, 12000);
+      fetch('https://waterservices.usgs.gov/nwis/iv/?format=json&sites=' + encodeURIComponent(no) + '&parameterCd=00060,00065,00010&siteStatus=all&period=P3D', { signal: ctl.signal })
+        .then(function (r) { if (!r.ok) throw new Error('USGS returned HTTP ' + r.status); return r.json(); })
+        .then(function (j) { render(no, j); })
+        .catch(function (err) { out.textContent = ''; out.appendChild(el('p', 'Could not get data from USGS (' + (err && err.message ? err.message : 'network error') + '). Try again, or use the official USGS page.', 'warn')); })
+        .then(function () { clearTimeout(timer); go.disabled = false; });
+    });
+  })();
+  </script>
+</body>
+</html>
