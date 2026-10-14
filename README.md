@@ -26,13 +26,13 @@ No signup, no upload, no account. Everything scores locally in the browser.
 
 ### Support
 
-[FlirtGym support](https://bakerventuresstudio.com/flirtgym/support/) — cancelling,
+[FlirtGym support](https://bakerventuresstudio.com/flirtgym/support/): cancelling,
 refunds, restoring a purchase, deleting your account, and the address a human reads.
 
 ### Research
 
-- [Opener Score Study](https://bakerventuresstudio.com/flirtgym/research/opener-score-study/)
-  — 40 dating app openers across 8 patterns, each scored twice by the same rubric.
+- [Opener Score Study](https://bakerventuresstudio.com/flirtgym/research/opener-score-study/):
+  40 dating app openers across 8 patterns, each scored twice by the same rubric.
   Raw scores and category summaries are published as JSON:
   [`opener_study_raw.json`](flirtgym/research/opener_study_raw.json),
   [`opener_study_summary.json`](flirtgym/research/opener_study_summary.json).
@@ -130,13 +130,13 @@ a decision on which copy is canonical.
 
 ## Layout
 
-- `/` — company one-pager
-- `/flirtgym/` — FlirtGym product pages, tools, guides and research
-- `/rizzmaxx/privacy/`, `/rizzmaxx/terms/` — app legal pages (canonical home)
+- `/`: company one-pager
+- `/flirtgym/`: FlirtGym product pages, tools, guides and research
+- `/rizzmaxx/privacy/`, `/rizzmaxx/terms/`: app legal pages (canonical home)
 - `robots.txt`, `sitemap.xml`, `llms.txt`, `CNAME`
 - `/noticeguard/`, `/ioltalign/`, `/policyready/`, `/hatchwindow/`, `/denialdesk/`,
-  `/steadychart/`, `/vocabdrift/` — per-app landing + `privacy/`, `support/`, `terms/`
-- `/lienclock/`, `/iolta/`, `/cyberclose/`, `/flyfish/`, `/denialfighter/`, `/quietlog/` —
+  `/steadychart/`, `/vocabdrift/`: per-app landing + `privacy/`, `support/`, `terms/`
+- `/lienclock/`, `/iolta/`, `/cyberclose/`, `/flyfish/`, `/denialfighter/`, `/quietlog/`:
   **redirect stubs only.** These are the pre-rename paths. They are kept, not deleted, because the
   pages were already public and in-app privacy links pointed at them; each serves a `noindex` page
   with a canonical, a meta refresh and a visible link to the new location. GitHub Pages has no
@@ -150,7 +150,7 @@ could not be corroborated anywhere in the operator's records, and it reached tha
 automated task brief rather than from Ryan. Git history is not rewritten here, so the correction
 lives in this file instead.
 
-The renames themselves stand and nothing needs undoing — they were adopted on a documented
+The renames themselves stand and nothing needs undoing, because they were adopted on a documented
 trademark/App-Store/Play/DNS clearance in which every adopted name came back CLEAR, under a standing
 rule that requires approval only for a CAUTION verdict. No CAUTION name was adopted. Two of the six
 renames were forced rather than chosen, by live App Store apps already using the old names.
