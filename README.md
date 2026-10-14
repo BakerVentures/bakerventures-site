@@ -82,6 +82,48 @@ refunds, restoring a purchase, deleting your account, and the address a human re
   with a canonical, a meta refresh and a visible link to the new location. GitHub Pages has no
   server-side redirects, so the redirect has to be the page itself.
 
+## Web analytics
+
+This site has never been measured. A grep for every common analytics tag found
+**zero hits across all pages**, so there is currently no way to tell a page
+nobody visits from a page people visit and do not click, and no way to see
+which app landing page actually sends anyone to an App Store product page.
+
+`scripts/add_web_analytics.py` adds the free Cloudflare Web Analytics beacon to
+every page. It needs no cookie banner (no cookies, no localStorage, no
+fingerprinting, no cross-site identifier; the visitor IP is used transiently to
+derive a country and then discarded) and has no traffic ceiling.
+
+```bash
+python3 scripts/add_web_analytics.py --check      # coverage, changes nothing
+CF_WEB_ANALYTICS_TOKEN=<token> python3 scripts/add_web_analytics.py
+python3 scripts/add_web_analytics.py --remove     # reverses it byte-for-byte
+```
+
+The token comes from Cloudflare > Web Analytics > this site > the JS snippet. It
+is a public, write-only beacon token, so committing it in the HTML is fine — and
+necessary, since these pages are served as static files with no build step.
+
+**The beacon is NOT committed yet**, because the token has to be read from the
+Cloudflare dashboard and this repo has no access to it. Until that one command is
+run and committed, the site stays unmeasured.
+
+Two things worth knowing before changing this:
+
+- **The apex cannot use Cloudflare's dashboard toggle.** For a hostname proxied
+  through Cloudflare, Web Analytics can be enabled with no code at all. This one
+  is not proxied: `dig +short bakerventuresstudio.com A` returns GitHub Pages
+  addresses (185.199.108–111.153), not Cloudflare anycast. The zone's nameservers
+  are Cloudflare's, but this record is DNS-only, so requests never reach
+  Cloudflare's edge and there is nothing there to inject a beacon. The explicit
+  snippet is the only option here. (The `*.bakerventuresstudio.com` sites built
+  from `~/baker-ventures-geo` *are* proxied and can use the toggle.)
+- **The legal pages are deliberately exempt.** Several state in so many words
+  that there is no analytics. Those claims are scoped to the apps, so a beacon on
+  a marketing page does not contradict them — but a page whose whole subject is
+  "nothing is collected here" is the wrong place for a collector, and a pageview
+  count on a privacy policy answers no question anybody has.
+
 ## Correction to commit f30e560 (2026-09-25)
 
 The commit message for the app renames states that Ryan settled the naming question with the words
