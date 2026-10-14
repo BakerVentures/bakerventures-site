@@ -37,6 +37,37 @@ actually bit, which is a falsifiable negative claim:
   R5 UNREACHABLE         the listed URL does not return a usable page.
   R6 UNBACKED-EXCLUSION  a page asserts the data is EXCLUDED from iCloud/device backup while
                          the repo registers no mechanism that could do that.
+  R7 MEASURED-BACKUP     the page's backup claim disagrees with what was MEASURED on a
+                         running build -- or no such measurement exists and the page
+                         makes the claim anyway.
+
+Why R7 had to be added (2026-10-14, third pass)
+-----------------------------------------------
+R1-R6 all compare a page with a REPO. That catches a page lagging its source, and nothing
+else: a claim that is false on the page AND false in the repo is reported as agreement.
+`/vocabdrift/privacy/` passed that way twice -- before the manifest went per-page and
+after it -- while saying "none of it ever leaves your phone" about a store that is in the
+user's device backup. Three separate reasons, all of them shapes VERIFICATION-LESSON.md
+names:
+
+  * R1 never fired, because every pattern said "device" and that page says "your PHONE".
+    A rule whose vocabulary is narrower than the copy it polices cannot fail. `normalise`
+    now folds phone/iPhone/handset to "device" on both sides.
+  * R3 passed SILENTLY. The page said "Last updated: September 13, 2026"; the source says
+    `const LAST_UPDATED = "September 23, 2026"`. The page was ten days stale and should
+    have been red, but the date patterns only knew `last updated` with a space, so the
+    TSX constant parsed as None -- and a None date skipped the rule without counting
+    anything. A rule that cannot read one side must not report success: that case is now
+    R3 UNREADABLE-DATE.
+  * R2 did not apply, correctly: that repo source does not mention iCloud.
+  * And with the first two fixed, R1 would have found the claim asserted on BOTH sides and
+    called it agreement. Hence R7, which has no opinion about the repo at all.
+
+R7 complements R6 rather than duplicating it. R6 asks the repo whether a mechanism exists,
+which is the right question for a claim about a native flag -- but its own comment records
+the case it cannot answer: Vocabdrift's exclusion comes from a LIBRARY DEFAULT, so no repo
+mechanism exists to find. R7 answers it by reading the xattr off a running build instead.
+
 
 Every page a listing links to, not just the privacy one
 -------------------------------------------------------
@@ -268,6 +299,170 @@ MANIFEST = [
 
 
 # ---------------------------------------------------------------------------
+# MEASURED (R7): what was observed on a RUNNING BUILD, per app.
+#
+# This is the one hand-maintained table in this file, and deliberately so. Everywhere
+# else the expected content is read out of a repo at run time, because a hand-kept list
+# of expected SENTENCES rots as fast as the pages did. A measurement is the opposite
+# kind of fact: an observation with a date, a binary and a command behind it. It does
+# not rot -- it either still describes the shipping binary or it needs re-taking, which
+# is why every row carries its provenance and names the binary.
+#
+# `in_device_backup` answers one question asked of a running app: does the directory
+# holding this data carry com.apple.metadata:com_apple_backup_excludeItem? No attribute
+# means iOS backs it up. Intent in a config file is not an answer -- the Steadychart row
+# is exactly why, and R6 above exists because the repo can only ever show intent.
+#
+# `holds_user_content` separates "your notes are in the backup" from "a precomputed
+# slice of the bundled dictionary is in the backup". Both are in the backup; only the
+# first falsifies a claim about YOUR data. `subject` is the phrase a page uses when it
+# enumerates that store specifically: a page that lists the store by name and then says
+# nothing of it ever leaves the device is wrong about it whatever the store holds. That
+# distinction is what keeps /vocabdrift/terms/ (true, measured, left alone by the
+# 1c7aa47 worker) passing while /vocabdrift/privacy/ (which enumerates the schedule)
+# fails.
+#
+# An app with no row here is UNMEASURED, and R7 says so out loud rather than passing.
+# ---------------------------------------------------------------------------
+MEASURED = {
+    "noticeguard": {
+        "provenance": "~/guideline-audit-2026-10-14.md, table 'the backup behaviour, "
+        "measured on the running apps' -- running Release build, 2026-10-14",
+        "stores": [
+            {
+                "path": "Documents/SQLite/lienclock.db",
+                "holds": "job names, jurisdictions, roles, dates, project facts",
+                "in_device_backup": True,
+                "holds_user_content": True,
+                "evidence": "0 exclusion xattrs",
+            }
+        ],
+    },
+    "denialdesk": {
+        "provenance": "~/guideline-audit-2026-10-14.md, same table, 2026-10-14",
+        "stores": [
+            {
+                "path": "Documents/SQLite/denialfighter.db",
+                "holds": "member name, claim number, provider, amounts, notes",
+                "in_device_backup": True,
+                "holds_user_content": True,
+                "evidence": "0 exclusion xattrs",
+            }
+        ],
+    },
+    "movewitness": {
+        "provenance": "~/guideline-audit-2026-10-14.md, same table, 2026-10-14",
+        "stores": [
+            {
+                "path": "Documents/SQLite/rental-inspection.db (+ -wal, -shm), Documents/photos",
+                "holds": "inspections, room notes and photographs of the home",
+                "in_device_backup": True,
+                "holds_user_content": True,
+                "evidence": "0 exclusion xattrs",
+            }
+        ],
+    },
+    "steadychart": {
+        # The row that proves why this table reads binaries and not config. The exclusion
+        # plugin exists (symptom-tracker 1bb1c79) and works -- on a binary built AFTER a
+        # fresh prebuild. That branch is unmerged and 1.0 is in App Review with the
+        # pre-plugin binary, so the shipping answer is still "backed up".
+        "provenance": "~/guideline-audit-2026-10-14.md -- RED on pre-plugin binary "
+        "0147F599 (xattr | wc -l = 0), GREEN only on rebuilt binary 337B664B (= 1), "
+        "which is not the binary in review. 2026-10-14",
+        "stores": [
+            {
+                "path": "Documents/SQLite/symptomlog.db",
+                "holds": "the symptom log",
+                "in_device_backup": True,
+                "holds_user_content": True,
+                "evidence": "0 exclusion xattrs on the binary that is in App Review",
+            }
+        ],
+    },
+    "hatchwindow": {
+        "provenance": "~/backup-claims-measured-2026-10-14.md s1 -- HatchWindow.app "
+        "1.0.1 (1) built from flyfish 3ea20fe, installed, driven through its own UI, "
+        "2026-10-14",
+        "stores": [
+            {
+                "path": "Documents/SQLite/flyfish.db",
+                "holds": "the catch log, the custom spots and their coordinates, settings",
+                "in_device_backup": True,
+                "holds_user_content": True,
+                "evidence": "0 exclusion xattrs on the directory and on the db; `strings` "
+                "over the executable finds no isExcludedFromBackup at all",
+            }
+        ],
+    },
+    "hormonelog": {
+        "provenance": "~/backup-claims-measured-2026-10-14.md s3 -- HormoneLog.app "
+        "1.0.0 (1) prebuilt and built here, real symptom rows on disk, 2026-10-14",
+        "stores": [
+            {
+                "path": "Documents/SQLite (hormonelog.db, -wal, -shm)",
+                "holds": "the health log",
+                "in_device_backup": False,
+                "holds_user_content": True,
+                "evidence": "xattr -l -> com.apple.metadata:com_apple_backup_excludeItem "
+                "= com.apple.MobileBackup on the directory; nm over the linked binary "
+                "finds excludeHealthDataFromBackup and isExcludedFromBackup",
+            }
+        ],
+    },
+    "rsuvest": {
+        "provenance": "~/backup-claims-measured-2026-10-14.md s4 -- rsuvest.app 1.0.0 (1) "
+        "prebuilt and built here, a real grant entered through the UI, 2026-10-14",
+        "stores": [
+            {
+                "path": "Documents/SQLite/rsuvest.db",
+                "holds": "employer names, grant sizes and the whole vesting schedule",
+                "in_device_backup": True,
+                "holds_user_content": True,
+                "evidence": "0 exclusion xattrs; nm over the linked binary finds 0 "
+                "references to isExcludedFromBackup",
+            }
+        ],
+    },
+    "vocabdrift": {
+        "provenance": "~/backup-claims-measured-2026-10-14.md s2 -- Vocabdrift.app "
+        "1.0.1 (3), driven through its own UI, 2026-10-14. Applies to the live 1.0 "
+        "binary too: the exclusion comes from "
+        "@react-native-async-storage/async-storage 2.2.0's own default "
+        "(ios/RNCAsyncStorage.mm _ensureSetup defaults the Info.plist key "
+        "RCTAsyncStorageExcludeFromBackup to YES), that version is identical in the 1.0 "
+        "tree (e496af6^) and on master, and the key is absent from the whole repo",
+        "stores": [
+            {
+                "path": "Library/Application Support/<bundle id>/RCTAsyncLocalStorage_V1/",
+                "holds": "quiz history, streak, favourites, review queue, cadence, "
+                "onboarding flag",
+                "in_device_backup": False,
+                "holds_user_content": True,
+                "evidence": "xattr -l -> com.apple.metadata:com_apple_backup_excludeItem "
+                "= com.apple.MobileBackup (1 attribute)",
+            },
+            {
+                "path": "Library/Preferences/group.com.bakerventures.vocabdrift.plist",
+                "holds": "the widget rotation timeline -- 300 precomputed words from the "
+                "bundled list, each with the date the chosen cadence puts it on",
+                "in_device_backup": True,
+                # Nothing the user typed. But a page that enumerates this store and then
+                # says none of it ever leaves the device is still wrong about it, which
+                # is what `subject` is for.
+                "holds_user_content": False,
+                "subject": r"rotation schedule",
+                "evidence": "0 exclusion xattrs; nothing in the repo sets the exclusion "
+                "flag on the App Group container in any build",
+            },
+        ],
+    },
+    # miletruth and policyready: deliberately absent until measured. R7 reports
+    # UNMEASURED rather than inventing a verdict in either direction.
+}
+
+
+# ---------------------------------------------------------------------------
 # R1 patterns. Each one is a *falsifiable negative*: a sentence a user can
 # disprove from Settings -> iCloud -> Manage Storage. These are the worst kind
 # of claim to get wrong and they are the only kind this rule polices.
@@ -278,6 +473,11 @@ CLAIM_PATTERNS = [
     r"ever leaves your device",
     r"nothing leaves your device",
     r"nothing ever leaves this device",
+    # Added 2026-10-14 (third pass). lockscreen-learn's PrivacyScreen.tsx says "none of
+    # it leaves the device" and /vocabdrift/privacy/ said "none of it ever leaves your
+    # phone": the same claim, and with the patterns above alone neither matched anything.
+    r"none of it (ever )?leaves (your|the|this) device",
+    r"nothing (else )?leaves (your|the|this) device",
     r"does not transmit anything",
     r"doesn.t transmit anything",
     r"does not send your data anywhere",
@@ -307,11 +507,63 @@ CLAIM_PATTERNS = [
 # constant's name is long enough and mixed-case enough that verify-push.sh's
 # entropy rule reads it as a credential and refuses the push. Noted so nobody
 # "fixes" that by loosening the scanner.)
+# The absolute form: "no copy of this exists anywhere but this handset". Derived from
+# CLAIM_PATTERNS rather than copied, so adding a pattern above cannot leave this list
+# behind. R7 needs the distinction: an absolute claim is about EVERYTHING, so one store
+# in the backup falsifies it, whereas an exclusion claim is usually scoped to one store.
+_EXCLUSION_SHAPED = {
+    r"not in your icloud backup",
+    r"not copied into your icloud",
+    r"excluded from backup",
+    r"kept out of (your )?icloud",
+}
+
+# Claims about the app's NETWORK behaviour. A device backup does not falsify these:
+# "the app doesn't send your data anywhere" stays true while iOS copies the file into
+# iCloud, because the app is not what sent it. Keeping them separate matters twice
+# over -- R7 must not fail a page for a sentence that is true, and R1 must not read
+# "doesn't send your data anywhere" in a repo as the same claim as "nothing leaves
+# your device" on a page. Grouping them together did exactly that on 2026-10-14 and
+# silenced a real R1 finding on /steadychart/support/.
+TRANSMISSION_PATTERNS = {
+    r"does not transmit anything",
+    r"doesn.t transmit anything",
+    r"does not send your data anywhere",
+    r"doesn.t send your data anywhere",
+}
+
+# Claims about WHERE THE DATA IS. These are the ones a backup falsifies, and the ones
+# R7 tests against the measurement. Derived from CLAIM_PATTERNS rather than copied, so
+# adding a pattern above cannot leave this list behind.
+NO_COPY_PATTERNS = [
+    p
+    for p in CLAIM_PATTERNS
+    if p not in _EXCLUSION_SHAPED and p not in TRANSMISSION_PATTERNS
+]
+
+
+# A page that says any of this is at least TALKING about backups, which is the minimum
+# R7 asks of a page whose data is measurably in one.
+BACKUP_MENTION = re.compile(r"\bback(ed)?.?ups?\b|\bicloud\b", re.I)
+
 EXCLUSION_ASSERTIONS = [
     r"excluded from (icloud )?backup",
     r"not in your icloud backup",
     r"kept out of (your |the )?(phone.s own |device |your device.s )?backups?",
     r"not copied (in)?to (your )?icloud",
+]
+
+# R7's own exclusion vocabulary: EXCLUSION_ASSERTIONS plus the wordings a page reaches
+# for when the exclusion is real but comes from a library default. These are kept OUT of
+# EXCLUSION_ASSERTIONS on purpose: R6 answers an exclusion claim by looking for a
+# mechanism in the repo, and Vocabdrift has none to find -- the flag is set by
+# @react-native-async-storage/async-storage's own default -- so adding them there would
+# raise a false alarm on a true sentence, exactly as that rule's comment warns. R7 asks
+# the binary instead, which is the only question with an answer in that case.
+MEASURED_EXCLUSION_CLAIMS = EXCLUSION_ASSERTIONS + [
+    r"not in your (icloud |device )?backups?",
+    r"out of your (icloud |device )?backups?",
+    r"backup.exclusion attribute",
 ]
 
 # Directories that are build output, vendored code, or another platform --
@@ -390,11 +642,23 @@ MONTHS = (
     "november december"
 ).split()
 
+# Only complain about an unparseable source date when the source is actually TRYING to
+# state one. A support page whose sources are app screens has no "Last updated" to find,
+# and reporting that as a finding is noise -- and a noisy check gets switched off, which
+# is how a check stops catching anything.
+LAST_UPDATED_TOKEN = re.compile(r"last[_ ]updated", re.I)
+
 DATE_PATTERNS = [
     # Last updated: October 14, 2026
+    # LAST_UPDATED = "October 14, 2026"   <- the TSX/JS constant form, added 2026-10-14.
+    # Without it the SOURCE side parsed as None for every app whose policy lives in a
+    # .tsx screen, and a None date skipped R3 without counting a failure: the live
+    # /vocabdrift/privacy/ page was ten days behind its source and reported PASS.
+    # `\W{0,6}` spans the ` = "` between the name and the month; `[_ ]` accepts the
+    # underscore in the constant name.
     (
         re.compile(
-            r"last updated:?\s*\**\s*(" + "|".join(MONTHS) + r")\s+(\d{1,2}),?\s+(\d{4})",
+            r"last[_ ]updated\W{0,6}(" + "|".join(MONTHS) + r")\s+(\d{1,2}),?\s+(\d{4})",
             re.I,
         ),
         "monthname",
@@ -437,7 +701,14 @@ def normalise(text: str) -> str:
     for ent in ("&rsquo;", "&lsquo;", "&apos;", "&#39;", "&#x27;"):
         text = text.replace(ent, "'")
     text = re.sub(r"\s+", " ", text)
-    return text.lower()
+    text = text.lower()
+    # Fold the synonyms a copywriter picks freely. /vocabdrift/privacy/ said "none of it
+    # ever leaves your PHONE" while every pattern here said "device", so R1 matched
+    # nothing and the page reported PASS while making the exact claim R1 exists to
+    # catch. Applied to both sides, so the comparison is about what is asserted and not
+    # about which noun the page happened to reach for.
+    text = re.sub(r"\b(your|this|the|my) (phone|iphone|handset)\b", r"\1 device", text)
+    return text
 
 
 def strip_quoted(text: str) -> str:
@@ -457,6 +728,33 @@ def strip_quoted(text: str) -> str:
     # Non-greedy and bounded, so one unbalanced quote swallows at most a short span
     # instead of resynchronising against every later quote in the document.
     return re.sub(r'"[^"\n]{0,400}?"', " ", text)
+
+
+# A corrected page routinely NAMES the sentence it refuses to say:
+#
+#   "we are not going to tell you nothing leaves the device when that isn't accurate"
+#   "we are not going to say nothing leaves the device when your backup holds a copy"
+#
+# Both are live right now on /denialdesk/privacy/ and /rentcheck/privacy/, neither is in
+# quotation marks, so strip_quoted cannot see them. Reading those as assertions flags the
+# two pages that were corrected FIRST -- the mirror image of the false pass this file
+# exists to stop, and the fastest way to get a check switched off. (Found exactly that
+# way: widening the vocabulary in A above turned both pages red until this was added.)
+DISCLAIMER_CUES = re.compile(
+    r"(?:not going to (?:tell you|say)|no longer says?|"
+    r"(?:do not|don't|will not|won't|cannot|can't|wouldn't|would not) (?:say|tell you|claim)|"
+    r"used to say|stopped saying|instead of saying|rather than say(?:ing)?|"
+    r"was not an accurate|is not accurate to say)",
+    re.I,
+)
+
+
+def strip_disclaimed(text: str, window: int = 140) -> str:
+    """Blank the span after a disclaimer cue, so a named-and-refused sentence is not
+    counted as an assertion. Bounded, so it cannot swallow the rest of a document."""
+    return re.sub(
+        DISCLAIMER_CUES.pattern + r".{0," + str(window) + r"}", " ", text, flags=re.I
+    )
 
 
 def parse_last_updated(text: str) -> dt.date | None:
@@ -497,6 +795,123 @@ def read_sources(entry: dict) -> tuple[str, list[str], list[str]]:
             chunks.append(fh.read())
         read.append(rel)
     return "\n\n".join(chunks), read, missing
+
+
+def check_measured_backup(entry: dict, live_unquoted: str, live: str, ok) -> list[str]:
+    """R7: the live page's backup claim against a measurement off a RUNNING BUILD.
+
+    Every other rule in this file compares a page with a repo, which catches a page
+    lagging its source and nothing else -- a claim false in both passes as agreement.
+    This rule has no opinion about the repo. It asks what was observed on a running
+    build and fails the page for asserting more than the observation supports.
+
+    The two directions are asymmetric, because the claims are:
+
+      * a "no copy of this exists off the handset" is a claim about
+        EVERYTHING, so one measured store sitting in the device backup falsifies it --
+        provided that store either holds something the user put there, or is itself
+        enumerated on the page (`subject`);
+      * "this is kept out of the backup" is usually scoped to one store, so it fails
+        only when NOTHING measured is excluded. R6 asks the repo for a mechanism; this
+        asks the binary for the result, which is the only question with an answer when
+        the exclusion comes from a library default (Vocabdrift) rather than a plugin.
+
+    And a page whose data is measurably in a backup must at least mention backups: the
+    pre-fix /vocabdrift/privacy/ never used the word, which is how four separate commits
+    could "fix the privacy policy" while the page a user reads said nothing.
+    """
+    failures: list[str] = []
+    app = entry["app"]
+    absolute_hits = [
+        (p, m)
+        for p in NO_COPY_PATTERNS
+        for m in [re.search(p, live_unquoted)]
+        if m
+    ]
+    absolutes = [p for p, _ in absolute_hits]
+    exclusions = [p for p in MEASURED_EXCLUSION_CLAIMS if re.search(p, live_unquoted)]
+    record = MEASURED.get(app)
+
+    if record is None:
+        if absolutes or exclusions:
+            claimed = ", ".join(f"/{p}/" for p in absolutes + exclusions)
+            failures.append(
+                f"R7 UNMEASURED-CLAIM: the live page asserts {claimed}, which a user can "
+                "disprove from Settings, and nobody has measured this app's backup "
+                "behaviour. Add a row to MEASURED once a Release build has been driven "
+                "through its own UI and the exclusion xattr read off the live container. "
+                "'Nobody looked' must not read the same as 'it is fine'."
+            )
+        else:
+            ok("R7 no falsifiable backup claim on the page, and none needed")
+        return failures
+
+    # How far after a claim a list it introduces can still be running. Direction is
+    # what does the work, not the number: the sentence that ENUMERATES a store is the
+    # one claiming nothing in the list leaves the device, and it introduces that list
+    # (it ends in a colon). /vocabdrift/privacy/ names the rotation schedule 243
+    # characters AFTER its claim, inside that list. /vocabdrift/terms/ mentions the
+    # same words 638 characters BEFORE its own claim, in a different section about what
+    # the app is -- which is not a claim about that store, and is why the 1c7aa47
+    # worker measured that page true and left it alone. A mere mention anywhere on the
+    # page would have overturned their verdict as a side effect.
+    ENUMERATION_WINDOW = 600
+
+    def relevant(store: dict) -> bool:
+        """Does this in-backup store bear on what THIS page claims?"""
+        if store.get("holds_user_content", True):
+            return True
+        subject = store.get("subject")
+        if not subject:
+            return False
+        return any(
+            claim.end() <= sm.start() <= claim.end() + ENUMERATION_WINDOW
+            for _, claim in absolute_hits
+            for sm in re.finditer(subject, live_unquoted)
+        )
+
+    in_backup = [st for st in record["stores"] if st["in_device_backup"]]
+    excluded = [st for st in record["stores"] if not st["in_device_backup"]]
+    bearing = [st for st in in_backup if relevant(st)]
+
+    if absolutes and bearing:
+        # One finding per store, not per pattern: several wordings of one claim on one
+        # page are one defect, and a rule that multiplies them reads like several.
+        claimed = ", ".join(f"/{p}/" for p in absolutes)
+        for store in bearing:
+            failures.append(
+                f"R7 MEASURED-CONTRADICTION: the live page asserts {claimed}, but "
+                f"{store['path']} holds {store['holds']} and is IN the user's device "
+                f"backup ({store['evidence']}). Measured: {record['provenance']}"
+            )
+
+    if exclusions and not excluded:
+        failures.append(
+            "R7 UNSUPPORTED-EXCLUSION: the live page claims the data is kept out of the "
+            f"backup ({', '.join('/' + p + '/' for p in exclusions)}), but no measured "
+            f"store of this app is excluded. Measured: {record['provenance']}"
+        )
+
+    if bearing and not BACKUP_MENTION.search(live):
+        failures.append(
+            "R7 UNDISCLOSED-BACKUP: "
+            + "; ".join(f"{st['path']} ({st['holds']})" for st in bearing)
+            + " is in the user's device backup, and this published page never mentions a "
+            f"backup or iCloud at all. Measured: {record['provenance']}"
+        )
+
+    if not failures:
+        claims = (
+            f"{len(absolutes)} no-copy claim(s), {len(exclusions)} exclusion claim(s)"
+            if (absolutes or exclusions)
+            else "no falsifiable backup claim"
+        )
+        ok(
+            f"R7 page agrees with the measurement -- {claims}; {len(excluded)} store(s) "
+            f"excluded, {len(in_backup)} in the backup, {len(bearing)} of those bearing "
+            "on this page"
+        )
+    return failures
 
 
 def check_app(entry: dict, use_local: bool, verbose: bool) -> list[str]:
@@ -542,20 +957,38 @@ def check_app(entry: dict, use_local: bool, verbose: bool) -> list[str]:
         )
 
     src = normalise(src_raw)
-    src_unquoted = strip_quoted(src)
+    src_unquoted = strip_disclaimed(strip_quoted(src))
 
     if verbose:
         print(f"    page {where}")
         print(f"    src  {entry['repo']} :: {', '.join(read)}")
 
     # --- R1 retracted claim ----------------------------------------------
-    live_unquoted = strip_quoted(live)
+    live_unquoted = strip_disclaimed(strip_quoted(live))
     for pattern in CLAIM_PATTERNS:
         on_live = re.search(pattern, live_unquoted)
         if not on_live:
             continue
         if re.search(pattern, src_unquoted):
             ok(f"R1 '{pattern}' asserted on both page and source")
+            continue
+        # The page and the source can assert the SAME claim in different words ("none of
+        # it ever leaves your phone" vs "none of it leaves the device"). That is not a
+        # retraction, and calling it one sends the next worker to edit a repo that never
+        # changed -- a red for the wrong reason misleads as badly as a green for the
+        # wrong reason. Whether the claim is TRUE is R7's question, not this rule's.
+        if pattern in _EXCLUSION_SHAPED:
+            group = EXCLUSION_ASSERTIONS
+        elif pattern in TRANSMISSION_PATTERNS:
+            group = sorted(TRANSMISSION_PATTERNS)
+        else:
+            group = NO_COPY_PATTERNS
+        equivalents = [q for q in group if q != pattern and re.search(q, src_unquoted)]
+        if equivalents:
+            ok(
+                f"R1 '{pattern}' on the page, '{equivalents[0]}' in the source -- the "
+                "same claim in different words, so nothing was retracted (see R7)"
+            )
             continue
         quoted_only = bool(re.search(pattern, src))
         detail = (
@@ -591,6 +1024,17 @@ def check_app(entry: dict, use_local: bool, verbose: bool) -> list[str]:
             )
         else:
             ok(f"R3 date page={live_date} source={src_date}")
+    elif live_date and not src_date and LAST_UPDATED_TOKEN.search(src):
+        # Not a pass. The source side could not be read, so R3 did not run -- and until
+        # 2026-10-14 that printed nothing and counted nothing, which is how a page ten
+        # days behind its source came back PASS. A rule that could not run must say so.
+        failures.append(
+            f"R3 UNREADABLE-DATE: the page says Last updated {live_date}, and the source "
+            "declares a 'last updated' of its own that no pattern here could parse, but no "
+            f"'Last updated' date could be parsed out of {', '.join(read)} in "
+            f"{entry['repo']}, so the staleness comparison never ran. Give the source a "
+            "parseable date, or point `sources` at a file that has one."
+        )
     elif verbose:
         print(
             f"    note no comparable Last-updated date "
@@ -613,6 +1057,9 @@ def check_app(entry: dict, use_local: bool, verbose: bool) -> list[str]:
                 f"but {entry['repo']}: {detail}. A claim about a native flag needs something "
                 "that sets the native flag."
             )
+
+    # --- R7 measured backup behaviour -------------------------------------
+    failures.extend(check_measured_backup(entry, live_unquoted, live, ok))
 
     return failures
 
