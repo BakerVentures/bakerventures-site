@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Effective Hourly Rate Calculator for Flat-Price Detailing and Cleaning Jobs</title>
+<meta name="description" content="Find out what a flat-price package really pays per hour after drive time, prep, cleanup, materials, mileage and card fees, and the price needed to hit your target hourly. Free.">
+<link rel="canonical" href="https://bakerventuresstudio.com/rigsheet/effective-hourly-rate-calculator/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Rigsheet">
+<meta property="og:title" content="Effective Hourly Rate Calculator for Flat-Price Detailing and Cleaning Jobs"><meta property="og:description" content="Find out what a flat-price package really pays per hour after drive time, prep, cleanup, materials, mileage and card fees, and the price needed to hit your target hourly. Free."><meta property="og:url" content="https://bakerventuresstudio.com/rigsheet/effective-hourly-rate-calculator/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Effective Hourly Rate Calculator for Flat-Price Jobs",
+   "url": "https://bakerventuresstudio.com/rigsheet/effective-hourly-rate-calculator/",
+   "applicationCategory": "BusinessApplication",
+   "operatingSystem": "Any browser",
+   "browserRequirements": "Requires JavaScript",
+   "description": "Computes the real hourly take-home of a flat-price service package after drive, prep and cleanup time, materials, mileage and payment fees, and the flat price needed to reach a target hourly rate.",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Baker Ventures LLC",
+    "url": "https://bakerventuresstudio.com/"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "WebPage",
+   "name": "Effective Hourly Rate Calculator for Flat-Price Detailing and Cleaning Jobs",
+   "url": "https://bakerventuresstudio.com/rigsheet/effective-hourly-rate-calculator/",
+   "datePublished": "2026-10-13",
+   "dateModified": "2026-10-13"
+  }
+ ]
+}</script>
+<style>
+:root{color-scheme:light;--ac:#2F7FB5}
+body{max-width:780px;margin:0 auto;padding:28px 20px 80px;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:#fff}
+h1{font-size:30px;line-height:1.25;margin:8px 0 6px}h2{font-size:21px;margin:36px 0 10px;border-bottom:1px solid #eee;padding-bottom:6px}
+a{color:var(--ac)}.nav{font-size:14px}.nav a{color:#666;margin-right:14px}.meta{color:#666;font-size:14px}
+.tool{background:#f7fafc;border:1px solid #dbe6ee;border-radius:12px;padding:20px;margin:22px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+label{display:block;font-size:13px;font-weight:700;margin-bottom:4px}
+input{width:100%;box-sizing:border-box;padding:10px;font:16px inherit;border:1px solid #b9c9d6;border-radius:8px;background:#fff}
+.hint{font-size:12px;color:#666;margin:3px 0 0;font-weight:400}
+.out{margin-top:20px;border-top:1px solid #dbe6ee;padding-top:16px}
+.big{font-size:42px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.kpi div{background:#fff;border:1px solid #dbe6ee;border-radius:8px;padding:10px 12px}.kpi b{display:block;font-size:12px;color:#666;text-transform:uppercase;letter-spacing:.04em}.kpi span{font-size:20px;font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:12px 0}th,td{text-align:right;padding:8px;border-bottom:1px solid #e5edf3}th:first-child,td:first-child{text-align:left}
+.note{background:#fafafa;border-left:3px solid var(--ac);padding:12px 16px;margin:20px 0;font-size:15px}
+.err{color:#b3261e;font-size:14px}footer{margin-top:50px;padding-top:14px;border-top:1px solid #eee;color:#888;font-size:13px}
+</style>
+</head>
+<body>
+<div class="nav"><a href="/rigsheet/">Rigsheet</a><a href="/rigsheet/tools/">Free calculators</a><a href="/rigsheet/job-price-calculator/">Job price</a><a href="/rigsheet/effective-hourly-rate-calculator/">Effective hourly rate</a></div>
+<h1>What does that flat price really pay per hour?</h1>
+<p>A $180 detail sounds fine until it eats five hours of your day. Enter the package price and every minute it takes, including the ones nobody pays for. The result is what you actually earned per hour, and the price that would have hit your target.</p>
+<p class="meta">Free, no signup. Last updated 2026-10-13.</p>
+<div class="tool"><div class="grid">
+<div><label for="price">Package price ($)</label><input id="price" type="number" inputmode="decimal" min="0" step="0.01" value="180"><p class="hint">What the customer pays before tip.</p></div>
+<div><label for="tip">Tip ($)</label><input id="tip" type="number" inputmode="decimal" min="0" step="0.01" value="0"><p class="hint">Optional. Counted as income, assumed not charged a card fee.</p></div>
+<div><label for="on">Time on site (hours)</label><input id="on" type="number" inputmode="decimal" min="0" step="0.25" value="3"><p class="hint"></p></div>
+<div><label for="drv">Drive time, round trip (minutes)</label><input id="drv" type="number" inputmode="decimal" min="0" step="5" value="40"><p class="hint"></p></div>
+<div><label for="adm">Prep, setup, cleanup, messaging (minutes)</label><input id="adm" type="number" inputmode="decimal" min="0" step="5" value="30"><p class="hint">Loading the van, quoting, texting, photos, invoicing, hauling water.</p></div>
+<div><label for="mat">Materials ($)</label><input id="mat" type="number" inputmode="decimal" min="0" step="0.01" value="14"><p class="hint"></p></div>
+<div><label for="mi">Miles, round trip</label><input id="mi" type="number" inputmode="decimal" min="0" step="1" value="18"><p class="hint"></p></div>
+<div><label for="cpm">Vehicle cost per mile ($)</label><input id="cpm" type="number" inputmode="decimal" min="0" step="0.01" value="0.72"><p class="hint">Your own number, not a tax rate.</p></div>
+<div><label for="feep">Card fee (%)</label><input id="feep" type="number" inputmode="decimal" min="0" step="0.01" value="2.9"><p class="hint">Assumed. Check your processor.</p></div>
+<div><label for="feef">Card fee fixed ($)</label><input id="feef" type="number" inputmode="decimal" min="0" step="0.01" value="0.3"><p class="hint"></p></div>
+<div><label for="tgt">Target take-home ($/hour)</label><input id="tgt" type="number" inputmode="decimal" min="0" step="0.01" value="40"><p class="hint">What an hour of your whole day should earn you.</p></div>
+</div><div class="out" id="out"></div></div>
+
+<h2>Why on-site hours lie</h2>
+<p>Booking Koala makes the same point: divide a flat package price by hours and the inconsistencies between packages show up fast. The honest denominator is the whole block of your day the job used, which is on-site time plus the drive plus the work around it. Read <a href="https://www.bookingkoala.com/blog/?p=6210">their breakdown</a> for the flat-fee example.</p>
+<h2>How it is calculated</h2>
+<ul>
+<li>Costs: materials, miles times cost per mile, and the card fee (percent of the price plus the fixed amount).</li>
+<li>Take-home is price plus tip minus those costs. Divided by on-site plus drive plus prep hours, that is the all-in hourly.</li>
+<li>Required price solves for your target: <code>(target hourly x total hours + materials + mileage - tip + fixed fee) / (1 - fee%)</code>.</li>
+<li>Overhead such as insurance and software is not in here. For a price built from overhead and margin use the <a href="/rigsheet/job-price-calculator/">job price calculator</a>.</li>
+</ul>
+<div class="note">Take-home here is before income tax and self-employment tax. This page does arithmetic; it does not tell you what to charge or what you owe.</div>
+<p>Rigsheet is a job app for mobile detailers and cleaners with quoting, scheduling with drive-time buffers and deposits. <a href="/rigsheet/">See what it does</a>. This calculator is complete without it.</p>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+function n(i){var v=parseFloat($(i).value);return isFinite(v)&&v>=0?v:0}
+function usd(x){return x.toLocaleString('en-US',{style:'currency',currency:'USD'})}
+function run(){
+ var P=n('price'),T=n('tip'),H=(n('on')+n('drv')/60+n('adm')/60);
+ var fee=P*n('feep')/100+(P>0?n('feef'):0),mile=n('mi')*n('cpm'),M=n('mat');
+ var take=P+T-fee-mile-M, hr=H>0?take/H:0, onhr=n('on')>0?take/n('on'):0;
+ var d=1-n('feep')/100; var req=d>0?(n('tgt')*H+M+mile-T+n('feef'))/d:0;
+ var gap=req-P;
+ $('out').innerHTML='<div class="big">'+usd(hr)+'<span style="font-size:18px;font-weight:600"> /hour all-in</span></div>'+
+ '<div class="kpi"><div><b>Take-home</b><span>'+usd(take)+'</span></div><div><b>Hours the job used</b><span>'+H.toFixed(2)+'</span></div><div><b>Looks like (on-site only)</b><span>'+usd(onhr)+'/h</span></div><div><b>Costs</b><span>'+usd(fee+mile+M)+'</span></div></div>'+
+ '<p>'+(H<=0?'Enter some time.':(req>0?'To reach '+usd(n('tgt'))+' an hour on this exact job you would charge <b>'+usd(req)+'</b>'+(gap>0.5?', which is '+usd(gap)+' more than '+usd(P)+'.':(gap<-0.5?', which is '+usd(-gap)+' less than you charge now.':', about what you charge now.')):''))+'</p>';
+}
+document.querySelectorAll('.tool input').forEach(function(e){e.addEventListener('input',run)});
+run();
+})();
+</script>
+<footer>Baker Ventures LLC, Logan, UT. These calculators run in your browser and send nothing anywhere. They do arithmetic on the numbers you type; they are not accounting, tax or legal advice. <a href="/rigsheet/">About Rigsheet</a></footer>
+</body></html>
