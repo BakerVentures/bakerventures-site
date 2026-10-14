@@ -38,6 +38,9 @@
     .hero p.sub { font-size: 18px; color: #444; margin: 12px 0 0; }
     .benefit { margin: 18px 0; }
     .benefit b { display: block; }
+    .cta { display: inline-block; background: #B8761A; color: #fff; font-weight: 700;
+           padding: 13px 24px; border-radius: 8px; text-decoration: none; margin: 4px 0; }
+    .cta:visited { color: #fff; }
     ol.how { padding-left: 22px; }
     ol.how li { margin: 10px 0; }
   </style>
@@ -53,8 +56,15 @@
  "@type": "SoftwareApplication",
  "name": "MileTruth",
  "applicationCategory": "FinanceApplication",
- "operatingSystem": "iOS, Android",
+ "operatingSystem": "iOS 16.4 or later",
  "url": "https://bakerventuresstudio.com/miletruth/",
+ "installUrl": "https://apps.apple.com/us/app/id6816230325",
+ "downloadUrl": "https://apps.apple.com/us/app/id6816230325",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
  "description": "Mileage and earnings tracker for gig and delivery drivers. Keeps an IRS-ready mileage log across both 2026 standard mileage rates, and subtracts a per-mile vehicle cost so gross earnings become true net pay. Data is stored on the device; no account required.",
  "publisher": {
   "@type": "Organization",
@@ -90,7 +100,7 @@
    "name": "Does it work out what I actually made?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Yes — that's the point of it. It subtracts a per-mile vehicle cost from your gross, tips and bonuses to give you a true net figure and an hourly rate, rather than the gross number the platforms show you."
+    "text": "Yes — that's the point of it. It subtracts a per-mile vehicle cost from your gross, tips and bonuses to give you a true net figure rather than the gross number the platforms show you. Dollars per hour divides by the online hours you enter, so you have to enter them. Leave them blank and the app still shows a figure, but it divides by the span between your first and last trip and labels it “$/hr · trip span” — an over-estimate for any time you were not online. Enter hours for some platforms and not others and it says “$/hr · partial hours”. The label always tells you which of the three you have."
    }
   },
   {
@@ -125,11 +135,15 @@
   <div class="hero">
     <h1>Know what the driving actually paid.</h1>
     <p class="sub">MileTruth keeps a Schedule C-ready mileage log and turns gross earnings into true net pay — after the real cost of running your vehicle.</p>
-    <p class="meta" style="margin-top:16px">MileTruth &middot; an app by Baker Ventures LLC</p>
+    <p style="margin-top:20px"><a class="cta" href="https://apps.apple.com/us/app/id6816230325">MileTruth on the App Store</a></p>
+    <p class="meta" style="margin-top:12px">Free, with no subscription, no in-app purchase and no trial. iPhone, iOS 16.4 or later. Your data stays on the device and there is no account.</p>
+    <p class="meta">iPhone first — there is no Android build yet. <strong>MileTruth 1.0 is in App Store review as of 13 October 2026</strong> and the listing opens by itself as soon as Apple approves it, so the link above may not resolve for a day or two.</p>
+    <p class="meta">MileTruth &middot; an app by Baker Ventures LLC</p>
   </div>
   <h2>What it does</h2>
   <div class="benefit"><b>A mileage log built for the IRS.</b>Business and personal miles, split across 2026&#x27;s two standard mileage rates and totalled on the line Schedule C asks for — with a checklist that flags any business trip missing a required field.</div>
-  <div class="benefit"><b>Gross is not net.</b>Your vehicle costs something every mile: depreciation, fuel, maintenance and tires, insurance. MileTruth subtracts it, so you get true net pay and a real hourly rate instead of a headline number.</div>
+  <div class="benefit"><b>Gross is not net.</b>Your vehicle costs something every mile: depreciation, fuel, maintenance and tires, insurance. MileTruth subtracts it, so you get true net pay instead of a headline number.</div>
+  <div class="benefit"><b>Dollars per hour, honest about its own denominator.</b>Enter the hours you were online and the app divides by those. Leave them blank and it still shows a figure, but it divides by the span from your first trip to your last and labels it “$/hr · trip span” — which over-states your pay for any time you were parked. You can always see which one you are reading.</div>
   <div class="benefit"><b>Every platform in one place.</b>Uber, Lyft, DoorDash, Uber Eats, Instacart, Amazon Flex, Spark and Grubhub side by side — earnings typed in, or imported from a CSV statement.</div>
   <div class="benefit"><b>Classify in one swipe.</b>Swipe a trip right for business, left for personal. Set a home location and any trip that starts and ends there gets a one-tap Personal suggestion instead.</div>
   <div class="benefit"><b>Your data stays on your phone.</b>Trips, earnings and vehicle details live in a database on your own device. There&#x27;s no account to create and no sign-in.</div>
@@ -146,7 +160,7 @@
     <dt>Which IRS mileage rate does it use?</dt>
     <dd>2026 has two standard mileage rates — 72.5 cents a mile from January 1 to June 30, and 76 cents from July 1 to December 31. MileTruth applies the rate that belongs to each trip&#x27;s own date and shows the periods broken out, then totals them on the Schedule C line.</dd>
     <dt>Does it work out what I actually made?</dt>
-    <dd>Yes — that&#x27;s the point of it. It subtracts a per-mile vehicle cost from your gross, tips and bonuses to give you a true net figure and an hourly rate, rather than the gross number the platforms show you.</dd>
+    <dd>Yes — that&#x27;s the point of it. It subtracts a per-mile vehicle cost from your gross, tips and bonuses to give you a true net figure rather than the gross number the platforms show you. Dollars per hour divides by <strong>the online hours you enter</strong>, so you have to enter them. Leave them blank and the app still shows a figure, but it divides by the span between your first and last trip and labels it “$/hr · trip span” — an over-estimate for any time you were not online. Enter hours for some platforms and not others and it says “$/hr · partial hours”. The label always tells you which of the three you have.</dd>
     <dt>Can I use it for more than one platform?</dt>
     <dd>Yes. Earnings are recorded per platform, and the Insights screen breaks miles and net pay down by platform so you can see which one is actually worth driving for.</dd>
     <dt>Does it sell my location data?</dt>
@@ -154,7 +168,7 @@
     <dt>Can I get my data out?</dt>
     <dd>Yes. You can export a tax report as a PDF and your full trip list as a CSV at any time, from inside the app.</dd>
   </dl>
-  <div class="note"><strong>Please note.</strong> MileTruth is a record-keeping tool, not a tax advisor. Its deduction figures are estimates based on what you logged &mdash; consult a tax professional before filing.</div>
+  <div class="note"><strong>Not tax advice.</strong> MileTruth logs your driving and does the arithmetic on it. It is a record-keeping tool, not a tax advisor, and nothing in the app or on this page is tax, legal or financial advice. Its deduction and net-pay figures are <strong>estimates</strong> built from IRS-published rates and from what you logged or entered, so they are only as good as your own records. It is not endorsed by, affiliated with or approved by the IRS, and we do not guarantee any figure it produces will be accepted by the IRS or any other authority. Consult a qualified tax professional about your own situation before you file.</div>
   <h2>Help and legal</h2>
   <ul>
     <li><strong>Support:</strong> <a href="support/">MileTruth Support</a> &mdash; FAQ, billing, and how to reach us</li>
