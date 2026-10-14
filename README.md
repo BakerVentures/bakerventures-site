@@ -71,6 +71,11 @@ refunds, restoring a purchase, deleting your account, and the address a human re
 - `robots.txt`, `sitemap.xml`, `llms.txt`, `CNAME`
 - `/noticeguard/`, `/ioltalign/`, `/policyready/`, `/hatchwindow/`, `/denialdesk/`,
   `/steadychart/`, `/vocabdrift/` — per-app landing + `privacy/`, `support/`, `terms/`
+- `/riderdeck/` — landing + `privacy/` + `support/` for RiderDeck, a stage plot and tech rider
+  builder. Added 2026-10-14, **before** the app is on the App Store: the landing page says so in
+  as many words, because a page implying you can download something you cannot is the kind of
+  claim that costs a review. No `terms/` — the app is free with no purchase and no account, so
+  Apple's standard EULA is the only agreement involved.
 - `/lienclock/`, `/iolta/`, `/cyberclose/`, `/flyfish/`, `/denialfighter/`, `/quietlog/` —
   **redirect stubs only.** These are the pre-rename paths. They are kept, not deleted, because the
   pages were already public and in-app privacy links pointed at them; each serves a `noindex` page
