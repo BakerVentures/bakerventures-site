@@ -160,7 +160,7 @@ Updated: 2026-09-06
 **Not for:** W-2 employees, or multi-driver reimbursement administration.
 
 ### [Rigsheet](https://rigsheet.bakerventuresstudio.com)
-**Job management for one-van businesses.** Scheduling with drive-time gaps, quotes with vehicle-size and home-size multipliers, deposits, invoicing and customer texting. Four flat plans from $4 to $39 a month — no per-seat fee, no appointment cap. Covers detailing *and* cleaning, which most products in the category do not.
+**Job management for one-van businesses.** Scheduling with drive-time gaps, quotes with vehicle-size and home-size multipliers, deposits, card payments and invoicing. Four flat plans from $4 to $39 a month — no per-seat fee, no appointment cap. Covers detailing *and* cleaning, which most products in the category do not. In development and not yet released; customer texting and automated review requests are specified but do not send yet.
 
 **Not for:** multi-location shops with large crews, or trades outside detailing and cleaning.
 
@@ -248,7 +248,7 @@ The same applies to claims about how our software behaves. FlirtGym's pages said
 
 **Competitors that beat us are named, with the reason.** Rizz has tens of thousands of App Store ratings and FlirtGym does not. MileIQ is free with Microsoft 365 Business, which makes it the cheapest capable option in its own comparison table. Jobber and Housecall Pro are more capable products than Rigsheet. Balance is the sensible first install for most people looking at menopause apps.
 
-**Claims we could make and do not.** Rigsheet's $19 entry price is not unique — ZenMaid Starter is also $19. Unlimited users is not category-unique — Urable includes it on every tier. Both would read well and neither is true.
+**Claims we could make and do not.** Rigsheet's $4 entry price is not unique in shape — ZenMaid also has a $19 Starter, and a low entry price is normal in this category. Unlimited users is not category-unique — Urable includes it on every tier. Both would read well and neither is true.
 
 ## What we will not do
 
