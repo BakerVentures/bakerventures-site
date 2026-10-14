@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Security Deposit Return Deadline Calculator by State | MoveWitness</title>
-  <meta name="description" content="Enter your state and your move-out date to see the date the landlord's security deposit deadline falls, the statute it comes from, and the condition that can change it. Eight states, each read from the statute text. Free, no signup.">
+  <meta name="description" content="Enter your state and your move-out date to see the date the landlord's security deposit deadline falls, the statute it comes from, and the condition that can change it. Eight states, each read from the statute text, with the one source that could not be verified officially flagged. Free, no signup.">
   <link rel="canonical" href="https://bakerventuresstudio.com/movewitness/deposit-return-deadline/">
   <meta name="robots" content="index,follow">
   <meta property="og:type" content="website">
@@ -55,7 +55,7 @@
   <h1>Security Deposit Return Deadline Calculator</h1>
   <p class="sub">Pick the state and the date you moved out. You get the date the statute puts the landlord's deadline on, the section it comes from, and the condition that can change it.</p>
 
-  <div class="warn"><strong>Information, not legal advice.</strong> This page reports what eight state statutes say, read from the statute text on 2026-10-13. It does not know your lease, your city or county rules, or your facts, and it does not say who wins a dispute. Statutes change. Read the linked text or ask a lawyer licensed in your state before you rely on a date.</div>
+  <div class="warn"><strong>Information, not legal advice.</strong> This page reports what eight state statutes say, read from the statute text on 2026-10-13: seven from the state legislature's own site, and Texas from a mirror because the official site could not be read, which is flagged in the sources below. It does not know your lease, your city or county rules, or your facts, and it does not say who wins a dispute. Statutes change. Read the linked text or ask a lawyer licensed in your state before you rely on a date.</div>
 
   <form id="f" class="noprint" autocomplete="off">
     <label for="st">State</label>
@@ -85,6 +85,7 @@
     <li><strong>Weekends and holidays.</strong> The sections quoted below count calendar days and say nothing about rolling a deadline off a weekend, so this page does not roll it either. Court rules on counting time may differ.</li>
     <li><strong>Local law.</strong> Some cities and counties add their own deposit rules on top of state law.</li>
     <li><strong>What a landlord may deduct, and what happens if the deadline is missed.</strong> Those are separate questions with their own sections, and this page does not answer them.</li>
+    <li><strong>Units the section itself excludes.</strong> New York's 14-day rule sits in a subsection that opens "Except in dwelling units subject to the city rent and rehabilitation law or the emergency housing rent control law", and also excepts continuing care retirement communities, assisted living providers, adult care facilities, and certain senior and not-for-profit independent retirement communities. If your unit is one of those, 7-108(1-a)(e) does not set your date and this page's New York figure does not apply to you. Read the opening words of the subsection.</li>
   </ul>
 
   <h2>Sources, all read 2026-10-13</h2>
@@ -95,7 +96,7 @@
     <li>North Carolina: N.C. Gen. Stat. 42-52, <a href="https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_42/GS_42-52.html">ncleg.gov</a>.</li>
     <li>Ohio: Ohio Rev. Code 5321.16(B), (C), <a href="https://codes.ohio.gov/ohio-revised-code/section-5321.16">codes.ohio.gov</a>.</li>
     <li>Pennsylvania: 68 P.S. 250.512(a), (e), Landlord and Tenant Act of 1951, <a href="https://www.legis.state.pa.us/WU01/LI/LI/US/HTM/1951/0/0020..HTM">legis.state.pa.us</a>.</li>
-    <li>Texas: Tex. Prop. Code 92.103(a), 92.107(a). The official site, <a href="https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm">statutes.capitol.texas.gov</a>, renders in the browser and could not be read by a script, so I read the section text on the mirror texas.public.law. Check the official page.</li>
+    <li>Texas: Tex. Prop. Code 92.103(a), (b), 92.107(a), (b). <strong>Not confirmed against the official text.</strong> The official site, <a href="https://statutes.capitol.texas.gov/Docs/PR/htm/PR.92.htm">statutes.capitol.texas.gov</a>, serves a page that builds itself in the browser and carries no statutory text that a script can read; every path tried returned the same shell. The section text here was read on the mirror texas.public.law and matched twice, but a mirror is not the statute. Treat the Texas figure as the one on this page that has not been checked against the legislature's own copy, and open the official page in a browser before you rely on it.</li>
     <li>Washington: RCW 59.18.280(1)(a), <a href="https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.280">app.leg.wa.gov</a>.</li>
   </ul>
 
@@ -107,10 +108,11 @@
     var R = {
       FL: { name: 'Florida', cite: 'Fla. Stat. 83.49(3)(a)', trigger: 'the date the rental agreement terminated (the statute counts from termination of the rental agreement, which you should confirm for your lease)',
         dl: [ { days: 15, label: 'Landlord returns the full deposit, if the landlord does not intend to claim any of it' }, { days: 30, label: 'Landlord gives written notice of an intended claim and the reason, by certified mail or by e-mail under s. 83.505, if the landlord does intend a claim' } ] },
-      IL: { name: 'Illinois', cite: '765 ILCS 710/1(a)', trigger: 'the later of the date you vacated and the date your right of possession ends',
-        dl: [ { days: 30, label: 'To withhold any part of the deposit for damage, the landlord must have furnished an itemized statement of the damage and cost, with paid receipts or copies (or, if only an estimate was given, receipts within 30 days of the statement)' }, { days: 45, label: 'If no statement and receipts are furnished, the full deposit is to be returned within 45 days of the date you vacated', fromVacated: true } ] },
+      IL: { name: 'Illinois', cite: '765 ILCS 710/1(a)', trigger: 'two different dates. The 30-day statement counts from the later of the date you vacated and the date your right of possession ended; the 45-day return counts from the date you vacated. Each row below says which',
+        dl: [ { days: 30, label: 'To withhold any part of the deposit for damage, the landlord must have furnished an itemized statement of the damage and cost, with paid receipts or copies (or, if only an estimate was given, receipts within 30 days of the statement)', tnote: 'Counted from the later of the date you vacated and the date your right of possession ended. If your right of possession ended after you moved out, count from that later date instead.' }, { days: 45, label: 'If no statement and receipts are furnished, the full deposit is to be returned within 45 days of the date you vacated', fromVacated: true, tnote: 'Counted from the date you vacated only, not from the later date used for the 30-day row.' } ] },
       NY: { name: 'New York', cite: 'N.Y. Gen. Oblig. Law 7-108(1-a)(e)', trigger: 'the date you vacated the premises',
-        dl: [ { days: 14, label: 'Landlord provides the itemized statement and returns the remaining deposit. The statute says a landlord who misses this forfeits any right to retain any portion of the deposit' } ] },
+        dl: [ { days: 14, label: 'Landlord provides the itemized statement and returns the remaining deposit. The statute says a landlord who misses this forfeits any right to retain any portion of the deposit' } ],
+        caveat: 'Subsection 7-108(1-a) opens "Except in dwelling units subject to the city rent and rehabilitation law or the emergency housing rent control law", and also excepts continuing care retirement communities, assisted living providers, adult care facilities, and certain senior and not-for-profit independent retirement communities. If your unit is one of those, paragraph (e) does not set your date and the figure above does not apply to you.' },
       NC: { name: 'North Carolina', cite: 'N.C. Gen. Stat. 42-52', trigger: 'termination of the tenancy and delivery of possession to the landlord',
         dl: [ { days: 30, label: 'Landlord mails or delivers the written itemization of damage with the balance of the deposit. If the claim cannot be determined in 30 days, an interim accounting is due within 30 days and a final accounting within 60 days' } ] },
       OH: { name: 'Ohio', cite: 'Ohio Rev. Code 5321.16(B), (C)', trigger: 'termination of the rental agreement and delivery of possession',
@@ -119,9 +121,9 @@
       PA: { name: 'Pennsylvania', cite: '68 P.S. 250.512(a), (e)', trigger: 'termination of the lease, or surrender and acceptance of the premises, whichever happens first',
         dl: [ { days: 30, label: 'Landlord provides a written list of damages claimed, with payment of the difference between the deposit (plus unpaid interest) and the actual damages' } ],
         fwdNeed: 'Section 250.512(e) says a tenant who does not give the landlord a new address in writing at termination or surrender relieves the landlord of liability under that section.' },
-      TX: { name: 'Texas', cite: 'Tex. Prop. Code 92.103(a), 92.107(a)', trigger: 'the date you surrender the premises',
+      TX: { name: 'Texas', cite: 'Tex. Prop. Code 92.103(a), (b), 92.107(a), (b)', trigger: 'the date you surrender the premises',
         dl: [ { days: 30, label: 'Landlord refunds the deposit on or before the 30th day after surrender' } ],
-        fwdNeed: 'Section 92.107(a) says the landlord is not obligated to return the deposit or give a written description of deductions until the tenant gives a written statement of the forwarding address for the purpose of refunding the deposit. Section 92.103(b) also makes an advance-notice-of-surrender requirement in a lease effective only if it is underlined or in conspicuous bold print.' },
+        fwdNeed: 'Section 92.107(a) says the landlord is not obligated to return the deposit or give a written description of deductions until the tenant gives a written statement of the forwarding address for the purpose of refunding the deposit. Section 92.107(b) then says the tenant does not forfeit the right to a refund of the deposit, or the right to receive a description of damages and charges, merely for failing to give a forwarding address. Section 92.103(b) also makes an advance-notice-of-surrender requirement in a lease effective only if it is underlined or in conspicuous bold print.' },
       WA: { name: 'Washington', cite: 'RCW 59.18.280(1)(a)', trigger: 'termination of the rental agreement and vacation of the premises (if the tenant abandons the premises as defined in RCW 59.18.310, 30 days after the landlord learns of the abandonment)',
         dl: [ { days: 30, label: 'Landlord gives a full and specific written statement of the basis for retaining any of the deposit, with required documentation, together with any refund due. Mailing it first-class within the 30 days counts as compliance' } ] }
     };
@@ -139,13 +141,15 @@
       if (!m) { out.appendChild(el('p', 'Enter the move-out date.', 'warn')); return; }
       var base = Date.UTC(+m[1], +m[2] - 1, +m[3]);
       out.appendChild(el('h2', r.name + ' (' + r.cite + ')'));
-      out.appendChild(el('p', 'The clock starts on: ' + r.trigger + '. Counted in calendar days from that date.'));
+      out.appendChild(el('p', 'The clock starts on: ' + r.trigger + '. Counted in calendar days.'));
       r.dl.forEach(function (x) {
         var box = el('div', null, 'res');
         box.appendChild(el('div', fmt(base + x.days * MS), 'due'));
         box.appendChild(el('div', x.days + ' days: ' + x.label + '.'));
+        if (x.tnote) { box.appendChild(el('div', x.tnote, 'cite')); }
         out.appendChild(box);
       });
+      if (r.caveat) { out.appendChild(el('p', r.caveat, 'warn')); }
       if (r.fwdNeed) {
         out.appendChild(el('p', (fwd.checked ? 'You said you gave a forwarding address in writing. ' : 'You did not tick the forwarding-address box. ') + r.fwdNeed, 'note'));
       }
