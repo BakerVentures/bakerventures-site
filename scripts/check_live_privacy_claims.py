@@ -35,6 +35,26 @@ actually bit, which is a falsifiable negative claim:
                          That is a finding, not a skip -- an unowned page is exactly
                          how this happened.
   R5 UNREACHABLE         the listed URL does not return a usable page.
+  R6 UNBACKED-EXCLUSION  a page asserts the data is EXCLUDED from iCloud/device backup while
+                         the repo registers no mechanism that could do that.
+
+Every page a listing links to, not just the privacy one
+-------------------------------------------------------
+Added 2026-10-14, second pass. The first version of this file checked one URL per app -- the
+Privacy Policy -- and that is exactly why `/hatchwindow/terms/`, `/vocabdrift/terms/`,
+`/hormonelog/support/`, `/miletruth/support/` and `/rsuvest/privacy/` went unexamined while
+carrying the same class of sentence. A check that cannot see a page cannot fail on it. The
+manifest is now one entry per PAGE, and an app contributes as many entries as it publishes.
+
+What this check still cannot tell you, stated plainly
+-----------------------------------------------------
+R1-R3 compare the published page against the repo. They catch a page and a repo that disagree.
+They CANNOT catch a sentence that is false in both -- which is what six pages turned out to be on
+2026-10-14. Only installing the Release build, driving it until it holds real data and reading the
+backup-exclusion xattr off the container settles that; see
+/Users/ryanbaker/backup-claims-measured-2026-10-14.md for the measurements and
+/Users/ryanbaker/VERIFICATION-LESSON.md for why it has to be the artefact. R6 is the one rule here
+that reaches toward the mechanism, and even it reads the repo's intent rather than the binary.
 
 Rule R1 ignores any phrase that appears inside quotation marks in the repo source,
 because a retracted sentence is routinely quoted in the paragraph that retracts it
@@ -86,22 +106,28 @@ SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Terms and in the privacy-label determination.
 # ---------------------------------------------------------------------------
 MANIFEST = [
+    # --- NoticeGuard -------------------------------------------------------
     {
         "app": "noticeguard",
+        "page": "privacy",
         "url": "https://bakerventuresstudio.com/noticeguard/privacy/",
         "local": "noticeguard/privacy/index.html",
         "repo": f"{HOME}/lienclock",
         "sources": ["docs/privacy-policy.md", "src/app/privacy.tsx"],
     },
+    # --- DenialDesk --------------------------------------------------------
     {
         "app": "denialdesk",
+        "page": "privacy",
         "url": "https://bakerventuresstudio.com/denialdesk/privacy/",
         "local": "denialdesk/privacy/index.html",
         "repo": f"{HOME}/denialfighter",
         "sources": ["docs/privacy-policy.md", "src/app/privacy.tsx"],
     },
+    # --- MoveWitness -------------------------------------------------------
     {
         "app": "movewitness",
+        "page": "privacy",
         "url": "https://bakerventuresstudio.com/rentcheck/privacy/",
         "local": "rentcheck/privacy/index.html",
         "repo": f"{HOME}/movewitness",
@@ -110,35 +136,136 @@ MANIFEST = [
         # App Privacy determination, so those are the source of truth here.
         "sources": ["docs/terms.md", "docs/app-privacy-determination.md"],
     },
+    # --- Steadychart -------------------------------------------------------
+    # All three Steadychart pages are KNOWN-FAILING and are meant to stay that
+    # way until the backup-exclusion fix (symptom-tracker 1bb1c79) is merged,
+    # rebuilt from a fresh prebuild, and resubmitted. The binary in App Review
+    # still backs up, so republishing the repo's wording would swap one false
+    # sentence for a different false sentence. See
+    # /Users/ryanbaker/live-pages-fix-2026-10-14.md section 6. A visible
+    # problem is better than a hidden one, so they are listed, not skipped.
     {
         "app": "steadychart",
+        "page": "privacy",
         "url": "https://bakerventuresstudio.com/steadychart/privacy/",
         "local": "steadychart/privacy/index.html",
         "repo": f"{HOME}/symptom-tracker",
         "sources": ["docs/PRIVACY.md"],
     },
     {
+        "app": "steadychart",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/steadychart/terms/",
+        "local": "steadychart/terms/index.html",
+        "repo": f"{HOME}/symptom-tracker",
+        "sources": ["docs/terms.md", "src/app/terms.tsx"],
+    },
+    {
+        "app": "steadychart",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/steadychart/support/",
+        "local": "steadychart/support/index.html",
+        "repo": f"{HOME}/symptom-tracker",
+        # No support/FAQ document exists in the repo. The app's own screens are
+        # the repo's position on what it tells a user about their data, so they
+        # are the source here rather than nothing.
+        "sources": [
+            "docs/PRIVACY.md",
+            "src/app/settings.tsx",
+            "src/app/export.tsx",
+            "src/components/privacy-disclosure.tsx",
+        ],
+    },
+    # --- PolicyReady -------------------------------------------------------
+    {
         "app": "policyready",
+        "page": "privacy",
         "url": "https://bakerventuresstudio.com/policyready/privacy/",
         "local": "policyready/privacy/index.html",
         "repo": f"{HOME}/cyberclose",
         "sources": ["docs/privacy-policy.md"],
     },
+    # --- Vocabdrift --------------------------------------------------------
     {
         "app": "vocabdrift",
+        "page": "privacy",
         "url": "https://bakerventuresstudio.com/vocabdrift/privacy/",
         "local": "vocabdrift/privacy/index.html",
         "repo": f"{HOME}/lockscreen-learn",
         "sources": ["src/screens/PrivacyScreen.tsx"],
     },
     {
+        "app": "vocabdrift",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/vocabdrift/terms/",
+        "local": "vocabdrift/terms/index.html",
+        "repo": f"{HOME}/lockscreen-learn",
+        "sources": ["docs/terms.md", "src/screens/TermsScreen.tsx"],
+    },
+    # --- Hatch Window ------------------------------------------------------
+    {
         "app": "hatchwindow",
+        "page": "privacy",
         "url": "https://bakerventuresstudio.com/hatchwindow/privacy/",
         "local": "hatchwindow/privacy/index.html",
         "repo": f"{HOME}/flyfish",
         "sources": ["src/app/privacy.tsx"],
     },
+    {
+        "app": "hatchwindow",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/hatchwindow/terms/",
+        "local": "hatchwindow/terms/index.html",
+        "repo": f"{HOME}/flyfish",
+        "sources": ["docs/terms.md", "src/app/terms.tsx"],
+    },
+    # --- HormoneLog --------------------------------------------------------
+    # HormoneLog keeps its published copy as a Next.js app under apps/web, so
+    # that is the repo source, not a markdown file.
+    {
+        "app": "hormonelog",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/hormonelog/privacy/",
+        "local": "hormonelog/privacy/index.html",
+        "repo": f"{HOME}/hormonelog",
+        "sources": ["apps/web/src/app/privacy/page.tsx"],
+    },
+    {
+        "app": "hormonelog",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/hormonelog/support/",
+        "local": "hormonelog/support/index.html",
+        "repo": f"{HOME}/hormonelog",
+        "sources": [
+            "apps/web/src/app/faq/page.tsx",
+            "apps/mobile/app/(tabs)/settings/index.tsx",
+        ],
+    },
+    # --- MileTruth ---------------------------------------------------------
+    {
+        "app": "miletruth",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/miletruth/support/",
+        "local": "miletruth/support/index.html",
+        "repo": f"{HOME}/miletruth",
+        # No docs/support.md: the app's own Settings copy and the store
+        # listing metadata are what the repo says about where data lives.
+        "sources": [
+            "apps/mobile/src/app/(tabs)/settings/index.tsx",
+            "apps/mobile/shipcheck.metadata.md",
+        ],
+    },
+    # --- RSUvest -----------------------------------------------------------
+    {
+        "app": "rsuvest",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/rsuvest/privacy/",
+        "local": "rsuvest/privacy/index.html",
+        "repo": f"{HOME}/rsuvest",
+        "sources": ["docs/privacy-policy.md", "src/app/privacy.tsx"],
+    },
 ]
+
 
 # ---------------------------------------------------------------------------
 # R1 patterns. Each one is a *falsifiable negative*: a sentence a user can
@@ -161,7 +288,100 @@ CLAIM_PATTERNS = [
     r"not copied into your icloud",
     r"excluded from backup",
     r"kept out of (your )?icloud",
+    # Added 2026-10-14 after the terms/support pages came into scope. Each of
+    # these was live on a page this check could not previously see.
+    r"the only copy",
+    r"on this device only",
+    r"no backup to restore from",
 ]
+
+# R6: the strong form -- a page claiming the data is positively EXCLUDED from
+# the device backup. This is a claim about a native flag, so it is the one
+# claim whose mechanism can be looked for. It deliberately does NOT include
+# "no cloud copy" or "the only copy": Vocabdrift's pages carry those and they
+# are true there, because @react-native-async-storage/async-storage sets
+# isExcludedFromBackup on its own storage directory by default (measured
+# 2026-10-14) -- a library default, not a repo mechanism, so requiring a
+# plugin for those phrasings would raise a false alarm. (Spelled as the Swift
+# property rather than the Foundation NSURL... constant on purpose: the
+# constant's name is long enough and mixed-case enough that verify-push.sh's
+# entropy rule reads it as a credential and refuses the push. Noted so nobody
+# "fixes" that by loosening the scanner.)
+EXCLUSION_ASSERTIONS = [
+    r"excluded from (icloud )?backup",
+    r"not in your icloud backup",
+    r"kept out of (your |the )?(phone.s own |device |your device.s )?backups?",
+    r"not copied (in)?to (your )?icloud",
+]
+
+# Directories that are build output, vendored code, or another platform --
+# never the repo's own statement of intent.
+_SKIP_DIRS = {
+    "node_modules", ".git", "ios", "android", "Pods", "build", ".expo",
+    "dist", ".next", "DerivedData", "vendor", ".yarn",
+}
+_MECHANISM_SUFFIXES = (".js", ".ts", ".tsx", ".mjs", ".cjs", ".swift", ".m", ".mm")
+_CONFIG_NAMES = ("app.json", "app.config.ts", "app.config.js", "app.config.mjs")
+
+
+def exclusion_mechanism(repo: str) -> tuple[str, str]:
+    """Does this repo register something that excludes its data from backup?
+
+    Returns (state, detail) where state is one of:
+      "registered"  a file in the repo sets isExcludedFromBackup AND its name
+                    appears in an Expo config, so `expo prebuild` will apply it
+      "unregistered" the file exists but no config references it -- it will not
+                    run, which is a worse failure than not having it
+      "none"        nothing in the repo sets the flag
+
+    This reads INTENT, not the artefact, and the difference is the whole lesson
+    of 2026-10-14: Steadychart's plugin was registered in app.json and absent
+    from the committed ios/ tree, so a local xcodebuild shipped the claim false
+    while the config said otherwise. After prebuild, and before archiving, the
+    artefact-level check is:
+
+        grep -n "isExcludedFromBackup" ios/<App>/AppDelegate.swift
+
+    and the real proof is installing the Release build and reading
+    `xattr Documents/SQLite` on the running app.
+    """
+    hits: list[str] = []
+    for root, dirs, files in os.walk(repo):
+        dirs[:] = [d for d in dirs if d not in _SKIP_DIRS]
+        for name in files:
+            if not name.endswith(_MECHANISM_SUFFIXES):
+                continue
+            path = os.path.join(root, name)
+            try:
+                with open(path, encoding="utf-8", errors="replace") as fh:
+                    if "isExcludedFromBackup" in fh.read():
+                        hits.append(path)
+            except OSError:
+                continue
+    hits = [h for h in hits if not h.endswith((".test.ts", ".test.tsx", ".test.js"))]
+    if not hits:
+        return "none", "no file in the repo sets isExcludedFromBackup"
+
+    configs = []
+    for root, dirs, files in os.walk(repo):
+        dirs[:] = [d for d in dirs if d not in _SKIP_DIRS]
+        for name in files:
+            if name in _CONFIG_NAMES:
+                try:
+                    with open(os.path.join(root, name), encoding="utf-8", errors="replace") as fh:
+                        configs.append(fh.read())
+                except OSError:
+                    continue
+    config_text = "\n".join(configs)
+    for hit in hits:
+        stem = os.path.splitext(os.path.basename(hit))[0]
+        if stem and stem in config_text:
+            return "registered", f"{os.path.relpath(hit, repo)} (registered in the Expo config)"
+    return (
+        "unregistered",
+        f"{os.path.relpath(hits[0], repo)} sets the flag but no app.json/app.config "
+        "names it, so prebuild will not apply it",
+    )
 
 ICLOUD_DISCLOSURE = re.compile(r"icloud", re.I)
 
@@ -182,6 +402,11 @@ DATE_PATTERNS = [
     # Last updated: 2026-10-14   /   LAST_UPDATED = '2026-10-14'
     (re.compile(r"last[_ ]updated\W{0,4}\s*\**\s*(\d{4})-(\d{2})-(\d{2})", re.I), "iso"),
 ]
+
+
+def key(entry: dict) -> str:
+    """How an entry is named in output and on the command line: app/page."""
+    return f"{entry['app']}/{entry.get('page', 'privacy')}"
 
 
 def strip_html(raw: str) -> str:
@@ -372,6 +597,23 @@ def check_app(entry: dict, use_local: bool, verbose: bool) -> list[str]:
             f"(page={live_date}, source={src_date})"
         )
 
+    # --- R6 unbacked exclusion claim --------------------------------------
+    asserted = next(
+        (p for p in EXCLUSION_ASSERTIONS if re.search(p, live_unquoted)),
+        None,
+    )
+    if asserted:
+        state, detail = exclusion_mechanism(entry["repo"])
+        if state == "registered":
+            ok(f"R6 exclusion claim backed by {detail}")
+        else:
+            failures.append(
+                f"R6 UNBACKED-EXCLUSION: the live page asserts the data is excluded from "
+                f'backup ("...{excerpt(live_unquoted, re.search(asserted, live_unquoted))}...") '
+                f"but {entry['repo']}: {detail}. A claim about a native flag needs something "
+                "that sets the native flag."
+            )
+
     return failures
 
 
@@ -390,14 +632,22 @@ def main() -> int:
         action="store_true",
         help="read the local working tree instead of fetching (pre-deploy dry run)",
     )
-    ap.add_argument("--app", action="append", help="limit to these app keys")
+    ap.add_argument(
+        "--app",
+        action="append",
+        help='limit to these apps or pages, e.g. "hatchwindow" or "hatchwindow/terms"',
+    )
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args()
 
     entries = MANIFEST
     if args.app:
         wanted = {a.lower() for a in args.app}
-        entries = [e for e in MANIFEST if e["app"] in wanted]
+        # Accept either a whole app ("hatchwindow", all of its pages) or one
+        # page of one app ("hatchwindow/terms").
+        entries = [
+            e for e in MANIFEST if e["app"] in wanted or key(e) in wanted
+        ]
         if not entries:
             print(f"no app in the manifest matches {sorted(wanted)}", file=sys.stderr)
             return 2
@@ -408,7 +658,7 @@ def main() -> int:
 
     total = 0
     for entry in entries:
-        print(f"  {entry['app']}")
+        print(f"  {key(entry)}")
         failures = check_app(entry, args.local, args.verbose)
         if failures:
             total += len(failures)

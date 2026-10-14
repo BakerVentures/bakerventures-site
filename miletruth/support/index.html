@@ -61,7 +61,15 @@
    "name": "Where is my data stored? Is any of it uploaded?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "On your device. Cloud backup and sync are not available yet, so what's on your phone is the only copy — export before you switch phones or delete the app. Crash diagnostics are the one thing that leaves the device, and anything location- or address-shaped is stripped out before they are sent."
+    "text": "On your device, in a database only this app can read — and, if you leave iCloud Backup on, in your own device backup as well. MileTruth's own cloud backup and sync are not available yet, so apart from that backup there is no other copy; export before you switch phones or delete the app. Crash diagnostics are the one thing the app itself sends, and anything location- or address-shaped is stripped out before they are."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is my data in my iCloud backup?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, if you have iCloud Backup switched on. iOS backs up an app's local files to iCloud by default, and MileTruth's database is included — your trips, earnings, expenses, vehicle details and settings. That backup belongs to your Apple account, not to us: it is encrypted, we have no access to it, and we hold no copy of your data. It is left there deliberately, because a mileage log is a tax record and a lost phone should not destroy it. If you would rather it were not there, turn MileTruth off under Settings → your name → iCloud → Manage Account Storage → Backups, and keep your own CSV exports instead."
    }
   },
   {
@@ -133,7 +141,7 @@
    "name": "How do I delete everything?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Settings → \"Delete all my data\". It permanently removes every trip, earning, expense and setting stored on the device, immediately, and it cannot be undone. There is no cloud copy to delete separately."
+    "text": "Settings → \"Delete all my data\". It permanently removes every trip, earning, expense and setting from the device, immediately, and it cannot be undone. We hold no copy of it, so there is nothing on our side to delete. There is one copy it does not reach: if iCloud Backup is on, a backup taken earlier still holds your data until you delete that backup too, under Settings → your name → iCloud → Manage Account Storage → Backups."
    }
   },
   {
@@ -159,7 +167,7 @@
 <body>
   <p class="nav"><a href="../">MileTruth</a> &rsaquo; Support</p>
   <h1>MileTruth Support</h1>
-  <p class="meta">Published by Baker Ventures LLC &middot; Last updated: September 23, 2026</p>
+  <p class="meta">Published by Baker Ventures LLC &middot; Last updated: October 14, 2026</p>
   <p>MileTruth is a mileage and earnings tracker for gig and delivery drivers — it keeps an IRS-ready mileage log and works out what your driving actually paid once the real cost of running your vehicle comes out of it.</p>
   <div class="contact">
     <p style="margin-top:0"><strong>Need help? Email us.</strong></p>
@@ -174,7 +182,9 @@
     <dt>Do I need an account to use MileTruth?</dt>
     <dd>No. There is no sign-up and no sign-in. Your trips, earnings, vehicle details and settings are stored in a database on your own device.</dd>
     <dt>Where is my data stored? Is any of it uploaded?</dt>
-    <dd>On your device. Cloud backup and sync are not available yet, so what&#x27;s on your phone is the only copy — export before you switch phones or delete the app. Crash diagnostics are the one thing that leaves the device, and anything location- or address-shaped is stripped out before they are sent.</dd>
+    <dd>On your device, in a database only this app can read &mdash; and, if you leave iCloud Backup on, in your own device backup as well. MileTruth&#x27;s own cloud backup and sync are not available yet, so apart from that backup there is no other copy; export before you switch phones or delete the app. Crash diagnostics are the one thing the app itself sends, and anything location- or address-shaped is stripped out before they are.</dd>
+    <dt>Is my data in my iCloud backup?</dt>
+    <dd>Yes, if you have iCloud Backup switched on. iOS backs up an app&#x27;s local files to iCloud by default, and MileTruth&#x27;s database is included &mdash; your trips, earnings, expenses, vehicle details and settings. That backup belongs to your Apple account, not to us: it is encrypted, we have no access to it, and we hold no copy of your data. It is left there deliberately, because a mileage log is a tax record and a lost phone should not destroy it. If you would rather it were not there, turn MileTruth off under Settings &rarr; your name &rarr; iCloud &rarr; Manage Account Storage &rarr; Backups, and keep your own CSV exports instead.</dd>
     <dt>Why does MileTruth ask for &quot;Always&quot; location?</dt>
     <dd>So it can log your driving without you having to start and stop it yourself, once that&#x27;s built. Automatic background trip detection is not finished yet, and the permission prompt says so plainly: it has no effect in this version. Until it ships, you add trips yourself. With &quot;While Using&quot; instead, it can only see what happens while the app is open. You can grant, downgrade or revoke the permission at any time in your device&#x27;s system settings.</dd>
     <dt>Why does it also ask for Motion &amp; Fitness?</dt>
@@ -192,7 +202,7 @@
     <dt>Is the tax report tax advice?</dt>
     <dd>No. It is a record of what you logged, and the app says so on the screen and in the report itself: estimates only, consult a tax professional. Logging fuel or maintenance as an expense while also relying on the per-mile cost estimate can double-count the same cost — the two are alternative ways of looking at it.</dd>
     <dt>How do I delete everything?</dt>
-    <dd>Settings → &quot;Delete all my data&quot;. It permanently removes every trip, earning, expense and setting stored on the device, immediately, and it cannot be undone. There is no cloud copy to delete separately.</dd>
+    <dd>Settings &rarr; &quot;Delete all my data&quot;. It permanently removes every trip, earning, expense and setting from the device, immediately, and it cannot be undone. We hold no copy of it, so there is nothing on our side to delete. There is one copy it does not reach: if iCloud Backup is on, a backup taken earlier still holds your data until you delete that backup too, under Settings &rarr; your name &rarr; iCloud &rarr; Manage Account Storage &rarr; Backups.</dd>
     <dt>Is there anything to buy, cancel, or get refunded?</dt>
     <dd>No. MileTruth 1.0 is free: no subscription, no in-app purchase, no trial and no paywall — so there is nothing to restore, cancel or request a refund on, and there is no subscription screen in the app. Everything described on this page is in the free app. If that ever changes, this page will set out the real cancellation, refund and restore steps before it does.</dd>
     <dt>Something&#x27;s broken. How do I report it?</dt>
