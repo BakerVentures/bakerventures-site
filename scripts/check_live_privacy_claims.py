@@ -441,6 +441,22 @@ MEASURED = {
                 "holds_user_content": True,
                 "evidence": "xattr -l -> com.apple.metadata:com_apple_backup_excludeItem "
                 "= com.apple.MobileBackup (1 attribute)",
+                # TRUE BY ACCIDENT. Nothing in lockscreen-learn asks for this exclusion:
+                # it is @react-native-async-storage/async-storage's own default. Setting
+                # the Info.plist key RCTAsyncStorageExcludeFromBackup to false, bumping
+                # to a version whose default changes, or migrating this app to
+                # expo-sqlite the way five siblings did, would silently make
+                # /vocabdrift/terms/ ("there is no cloud copy ... including your
+                # streak") and the backup section of /vocabdrift/privacy/ false. No test
+                # and no comment in that repo would notice. R7 prints this on every run
+                # that leans on it, so a published true sentence resting on a
+                # third-party default is at least visible.
+                "fragile": "the exclusion is @react-native-async-storage/async-storage "
+                "2.2.0's own default (Info.plist key RCTAsyncStorageExcludeFromBackup "
+                "absent -> YES), not a decision recorded anywhere in "
+                "~/lockscreen-learn. If that default or that dependency changes, "
+                "/vocabdrift/terms/ and /vocabdrift/privacy/ become false and nothing "
+                "in the app repo will notice",
             },
             {
                 "path": "Library/Preferences/group.com.bakerventures.vocabdrift.plist",
@@ -899,6 +915,17 @@ def check_measured_backup(entry: dict, live_unquoted: str, live: str, ok) -> lis
             + " is in the user's device backup, and this published page never mentions a "
             f"backup or iCloud at all. Measured: {record['provenance']}"
         )
+
+    # Not a failure, and printed whether or not -v is on: a page whose true sentence
+    # depends on something nobody in the app repo chose is one somebody will break
+    # without meaning to. Silence here is how a true claim becomes a false one.
+    if absolutes or exclusions:
+        for store in excluded:
+            if store.get("fragile"):
+                print(
+                    f"    NOTE R7 fragile basis: this page's claim holds because "
+                    f"{store['path']} is excluded from backup, but {store['fragile']}."
+                )
 
     if not failures:
         claims = (
