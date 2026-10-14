@@ -120,7 +120,7 @@ The fix is committed on `origin/fix/404-hormonelog-shipcheck` in `baker-ventures
 The apex serves a real 404 (verified before and after adding `404.html`), and every other
 app's pages are paths on the apex rather than their own hostname.
 
-**Two apex legal pages differ from the page registered with Apple.** The apex copies of
+**The apex legal pages for four apps differ from the page registered with Apple.** The apex copies of
 `/miletruth/`, `/rigsheet/`, `/hormonelog/` and `/nearvo/` privacy, terms and support pages
 are live, indexable and *not* byte-identical to the URL in App Store Connect (which is the
 subdomain, `nearvo.net`, or `bakerventures.github.io/hormonelog-legal/` depending on the
