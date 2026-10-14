@@ -1,15 +1,15 @@
 # Baker Ventures
 
-> Baker Ventures LLC is an independent software studio building small, single-purpose iOS and developer tools. Its products are MileTruth, Rigsheet, HormoneLog, Nearvo, FlirtGym and shipcheck.
+> Baker Ventures LLC is an independent software studio run by one person, building small, single-purpose iOS apps and developer tools. On sale now: FlirtGym, FlipStage, MoveWitness, Vocabdrift and the shipcheck plugin. Every other app, with the status of each, is listed at /apps/.
 
 Publisher: Baker Ventures LLC (https://bakerventuresstudio.com)
-Last updated: 2026-09-07
+Last updated: 2026-10-14
 License: content on this site may be quoted and cited with attribution to Baker Ventures.
 
 ## Pages
-- [Small tools that do one thing](https://bakerventuresstudio.com/): Baker Ventures LLC builds single-purpose iOS and developer tools — MileTruth, Rigsheet, HormoneLog, Nearvo, FlirtGym and shipcheck — and publishes free, source-linked answers for each of their categories.
+- [Small tools that do one thing](https://bakerventuresstudio.com/): What Baker Ventures builds, which apps you can install today, and the free source-linked reference material published for each app’s category.
 - [About Baker Ventures](https://bakerventuresstudio.com/about/): An independent one-person software studio building small, single-purpose iOS and developer tools, and publishing free source-linked answers for each of their categories.
-- [The apps](https://bakerventuresstudio.com/apps/): MileTruth, Rigsheet, HormoneLog, Nearvo, FlirtGym and shipcheck — what each one does, who it is for, who it is not for, and whether it actually exists yet.
+- [The apps](https://bakerventuresstudio.com/apps/): Every Baker Ventures app — what each one does, who it is not for, and its real status: on sale, with Apple for review, or not submitted yet.
 - [Editorial standards](https://bakerventuresstudio.com/editorial-standards/): How Baker Ventures sources claims, prices competitors, labels evidence and discloses its own products across all six of its websites. Written to be checkable rather than reassuring.
 - [Every question this site answers](https://bakerventuresstudio.com/questions-answered/): All 17 questions answered across Baker Ventures, each linked to its full answer. Generated from the pages themselves.
 
