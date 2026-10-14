@@ -303,7 +303,7 @@
       var over = total - 20 * 60;
       html += '<p class="fit over"><strong>Longer than every FlipStage target.</strong> Its longest is ' +
         '20 minutes and this runs ' + phrase(over) + ' past it, so the timer would be red from there on. ' +
-        'Cut roughly ' + Math.ceil(over / 60 * wpm).toLocaleString() + ' words to land inside 20 minutes.</p>';
+        'Cut roughly ' + Math.ceil(over / 60 * wpm / (1 + overhead / 100)).toLocaleString() + ' words to land inside 20 minutes' + (overhead > 0 ? ', which is less than the raw overrun suggests because cutting words also cuts the overhead riding on them' : '') + '.</p>';
     }
 
     $('out').innerHTML = html;

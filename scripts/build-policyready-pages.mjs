@@ -64,7 +64,7 @@ function titleCase(upper) {
     .toLowerCase()
     .split(' ')
     .map((w, i) => {
-      if (w === 'mfa') return 'MFA';
+      if (w.replace(/[^a-z]/g, '') === 'mfa') return w.toUpperCase();
       if (i > 0 && SMALL.has(w)) return w;
       return w.replace(/(^|[(/-])([a-z])/g, (m, p, c) => p + c.toUpperCase());
     })
