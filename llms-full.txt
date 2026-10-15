@@ -13,7 +13,7 @@ Updated: 2026-10-14
 :::answer
 **Baker Ventures LLC builds small tools that do one thing.** One person, nineteen products, and a website for each one publishing that category’s real answers free, with sources attached and no signup.
 
-**Five of them you can install today.** shipcheck ships as a Claude Code plugin; FlirtGym, FlipStage, MoveWitness and Vocabdrift are on the App Store. Seven more are with Apple for review and go on sale by themselves when Apple approves them, which is why no date for them appears anywhere on this site. [The apps page carries the status of every one.](/apps/)
+**Six of them you can install today.** shipcheck ships as a Claude Code plugin; FlirtGym, FlipStage, Hatch Window, MoveWitness and Vocabdrift are on the App Store. The other thirteen are not on sale yet, and no date for them appears anywhere on this site, because Apple sets release dates and does not tell us in advance. [The apps page carries the status of every one.](/apps/)
 :::
 
 ## On sale today
@@ -22,7 +22,7 @@ Updated: 2026-10-14
 - **FlipStage — on the App Store** — Your phone upright between two people: they read the slide turned around on their side, you get your speaker notes and a timer on yours. Free, no account.
 - **MoveWitness — on the App Store** — Photograph a rental room by room and export a dated move-in or move-out PDF report. A finished inspection locks, so the report cannot quietly change months later. Free.
 - **Vocabdrift — on the App Store** — A word and its definition rotate on your iPhone Lock Screen through the day. 1,383 words, all on the device, with no network request of any kind. Free.
-- **Everything else, with its real status** — Hatch Window is approved and waiting to be released. Seven apps are with Apple for review. Six are built and not submitted. Each one on the apps page says what it does, what it does not do, and where it actually stands.
+- **Everything else, with its real status** — Hatch Window went on sale on 15 October 2026. The other thirteen products are listed with the status of each one. Each page says what the app does, what it does not do, and where it actually stands.
 
 ## Free tools, no signup
 Every one of these works whether or not the app it belongs to ever ships.
@@ -44,8 +44,8 @@ Every claim links to a primary source. Competitor prices come from the vendor's 
 
 ## Questions and answers
 **What is Baker Ventures?** Baker Ventures LLC is an independent one-person software studio building small, single-purpose iOS apps and developer tools. Every app does one thing, says what it is not for, and states whether you can install it yet.
-**What apps does Baker Ventures make?** Five you can install today: shipcheck, a Claude Code plugin that checks React Native and Expo apps for App Store and Play rejection risk, and FlirtGym, FlipStage, MoveWitness and Vocabdrift on the App Store. Fourteen more are listed on the apps page with the status of each one.
-**Are Baker Ventures apps available now?** Five of nineteen. shipcheck ships as a Claude Code plugin, FlirtGym has been on the App Store since 12 August 2026, and FlipStage, MoveWitness and Vocabdrift are on it now. Hatch Window is approved and waiting to be released, seven apps are with Apple for review, and six are built but not submitted. Every page about an unreleased app says so.
+**What apps does Baker Ventures make?** Six you can install today: shipcheck, a Claude Code plugin that checks React Native and Expo apps for App Store and Play rejection risk, and FlirtGym, FlipStage, Hatch Window, MoveWitness and Vocabdrift on the App Store. Thirteen more are listed on the apps page with the status of each one.
+**Are Baker Ventures apps available now?** Six of nineteen. shipcheck ships as a Claude Code plugin, FlirtGym has been on the App Store since 12 August 2026, and FlipStage, Hatch Window, MoveWitness and Vocabdrift are on it now. The other thirteen are listed on the apps page with the status of each one. Every page about an unreleased app says so.
 **Where can I find Baker Ventures' free tools?** Each product has its own site with free tools and answers, no signup - a two-rate 2026 mileage calculator at miletruth, a job pricing calculator at rigsheet, the Apple required-reason API reference at shipcheck, and free question sets at nearvo.
 
 ### Sources
@@ -64,11 +64,11 @@ Updated: 2026-10-14
 :::answer
 **Baker Ventures LLC is a one-person independent software studio.** It builds small, single-purpose iOS apps and developer tools, and it publishes free, source-linked answers for each of their categories.
 
-Being straight about the size: **five of nineteen products are actually available.** shipcheck ships as a Claude Code plugin, and FlirtGym, FlipStage, MoveWitness and Vocabdrift are on the App Store. One more is approved and waiting to be released, seven are with Apple for review, and six are built but not submitted. Every page about an unreleased app says so.
+Being straight about the size: **six of nineteen products are actually available.** shipcheck ships as a Claude Code plugin, and FlirtGym, FlipStage, Hatch Window, MoveWitness and Vocabdrift are on the App Store. The other thirteen are listed on the apps page with the status of each one. Every page about an unreleased app says so.
 
 That is relevant context rather than modesty. It tells you what to expect from support, from release cadence, and from a roadmap.
 
-**No release dates are published anywhere on this site.** The apps in review go on sale by themselves the moment Apple approves them, Apple decides when that is, and it does not tell us in advance.
+**No release dates are published anywhere on this site.** An app that is waiting on Apple goes on sale by itself the moment Apple approves it, Apple decides when that is, and it does not tell us in advance.
 :::
 
 ## The products
@@ -79,7 +79,7 @@ That is relevant context rather than modesty. It tells you what to expect from s
 | [**FlipStage**](https://bakerventuresstudio.com/flipstage/) | Two-sided presenting from one iPhone: their slide, your notes | **On the App Store** |
 | [**MoveWitness**](https://bakerventuresstudio.com/rentcheck/) | Room-by-room rental photo record and a dated PDF report | **On the App Store** |
 | [**Vocabdrift**](https://bakerventuresstudio.com/vocabdrift/) | A word and its definition on the iPhone Lock Screen | **On the App Store** |
-| [**Hatch Window**](https://bakerventuresstudio.com/hatchwindow/) | Streamflow, solunar windows, hatch chart and a catch log | Approved, waiting to be released |
+| [**Hatch Window**](https://bakerventuresstudio.com/hatchwindow/) | Streamflow, solunar windows, hatch chart and a catch log | **On the App Store** |
 | [**MileTruth**](https://miletruth.bakerventuresstudio.com) | A gig mileage log and true net pay after vehicle cost | With Apple for review |
 | [**PolicyReady**](https://bakerventuresstudio.com/policyready/) | Cyber-insurance control self-assessment and readiness summary | With Apple for review |
 | [**DenialDesk**](https://bakerventuresstudio.com/denialdesk/) | Health-insurance denial appeal letters and the appeal deadline | With Apple for review |
@@ -125,7 +125,7 @@ Every Baker Ventures product is built on the same rule: cite the source, name th
 ## Questions and answers
 **What is Baker Ventures?** Baker Ventures LLC is an independent software studio building small, single-purpose iOS apps and developer tools. Every app does one thing, says what it is not for, and states whether you can install it yet.
 **Who runs Baker Ventures?** Ryan Baker, an independent developer. It is a one-person studio, which is stated plainly because it is relevant context for how much you should expect from support, roadmap and release cadence.
-**How many Baker Ventures apps are actually available?** Five of nineteen. shipcheck ships as a Claude Code plugin, and FlirtGym, FlipStage, MoveWitness and Vocabdrift are on the App Store. Hatch Window is approved and waiting to be released, seven are with Apple for review, and six are built but not submitted.
+**How many Baker Ventures apps are actually available?** Six of nineteen. shipcheck ships as a Claude Code plugin, and FlirtGym, FlipStage, Hatch Window, MoveWitness and Vocabdrift are on the App Store. The other thirteen are listed on the apps page with the status of each one.
 **Why do the websites give everything away for free?** Because the answers are useful whether or not the apps ever ship, and because a page that only makes sense as an advert is not worth writing. Every site publishes its category's real answers with sources attached, with no signup.
 **How do I contact Baker Ventures?** rsb.baker@gmail.com. It is a one-person studio, so that address reaches the person who wrote the code.
 
@@ -139,7 +139,7 @@ URL: https://bakerventuresstudio.com/apps/
 Updated: 2026-10-14
 
 :::answer
-**Nineteen products. Five you can install today.** One is approved and waiting to be released, seven are with Apple for review, and six are built but not submitted. Status is stated on every page of every site, because a product you cannot install is not a recommendation, and pretending otherwise would undermine everything else we publish.
+**Nineteen products. Six you can install today.** The other thirteen are listed below with the status of each one. Status is stated on every page of every site, because a product you cannot install is not a recommendation, and pretending otherwise would undermine everything else we publish.
 
 **No release dates appear anywhere on this page.** The seven apps in review are set to go on sale by themselves the moment Apple approves them. Apple decides when that is and does not tell us in advance, so a date here would be a guess dressed as a fact.
 :::
@@ -156,7 +156,7 @@ Updated: 2026-10-14
 
 ### [FlipStage](https://bakerventuresstudio.com/flipstage/) — on the App Store
 **Present from one iPhone with two panes on screen: your speaker notes and a timer on your half, the slide turned around on theirs.** Stand the phone upright between you and one other person. Four sample slides are included, and your own photos import as slides. Free, no account, no network calls. iPhone.
-**Not for:** anyone who already has a second screen or casts to a TV — this is for when you do not. There is no PDF or Keynote import: photos are the only way to add your own content. [FlipStage on the App Store](https://apps.apple.com/app/id6816274152).
+**Not for:** anyone who already has a second screen or casts to a TV — this is for when you do not. There is no PDF or Keynote import: photos are the only way to add your own content. [FlipStage on the App Store](https://apps.apple.com/app/id6816274152) · [free speaking time calculator](/flipstage/speaking-time/).
 
 ### [MoveWitness](https://bakerventuresstudio.com/rentcheck/) — on the App Store
 **Photograph your rental room by room and export a dated move-in or move-out PDF report.** Each photo shows its own capture date where the file carries one, and an import time where it does not. A finished inspection locks, and the lock is enforced in the database rather than the interface, so the report cannot quietly change months later. Free, no account. iPhone.
@@ -166,11 +166,9 @@ Updated: 2026-10-14
 **A word and its definition rotate on your iPhone Lock Screen through the day.** 1,383 words, 1,165 of them with written IPA and 535 with an example sentence, all on the device. Free, no account, and no network request of any kind. iPhone.
 **Not for:** structured, course-based vocabulary study. There is no spaced repetition — words you miss simply come back more often — and no audio at all, so “pronunciation” here means the written IPA. [Vocabdrift on the App Store](https://apps.apple.com/app/id6816214136).
 
-## Approved, waiting to be released
-
-### [Hatch Window](https://bakerventuresstudio.com/hatchwindow/) — approved by Apple, waiting to be released
+### [Hatch Window](https://bakerventuresstudio.com/hatchwindow/) — on the App Store
 **Live streamflow, solunar windows and a hatch chart by month and region for your own spots, plus a log of what worked.** Free, no account, no ads. iPhone.
-**Not for:** saltwater or steelhead fishing — the hatch charts are freshwater trout. A spot you add yourself needs a USGS gauge number before it can show flow, and the solunar windows are an angling tradition the app computes rather than a validated model, which it says on screen.
+**Not for:** saltwater or steelhead fishing — the hatch charts are freshwater trout. A spot you add yourself needs a USGS gauge number before it can show flow, and the solunar windows are an angling tradition the app computes rather than a validated model, which it says on screen. [Hatch Window on the App Store](https://apps.apple.com/app/id6816322811).
 
 ## With Apple for review
 Each of these is submitted and waiting, and each is set to go on sale by itself when Apple approves it. An update to FlirtGym is in the same queue.
@@ -180,7 +178,7 @@ Each of these is submitted and waiting, and each is set to go on sale by itself 
 **Not for:** W-2 employees, multi-driver reimbursement administration, or anyone wanting the phone to detect drives by itself. It gives no tax advice.
 
 ### [PolicyReady](https://bakerventuresstudio.com/policyready/)
-**Answer the control questions cyber insurers typically ask** — MFA, backups, patching, access and forty-six more — see your gaps ranked by what matters most, and export a readiness summary before you apply or renew. Free, on your device.
+**Answer the control questions cyber insurers typically ask** — MFA, backups, patching, access and forty-six more — see your gaps ranked by what matters most, and export a readiness summary before you apply or renew. Free, on your device. Free browser tools, no install: a [readiness self-check](/policyready/readiness-self-check/) and a [CISA-mapped control checklist](/policyready/cyber-readiness-checklist/).
 **Not for:** teams wanting continuous compliance monitoring rather than a pre-renewal check. It is not a quote and not an offer of coverage, it certifies nothing, and the insurer’s own application is what governs.
 
 ### [DenialDesk](https://bakerventuresstudio.com/denialdesk/)
@@ -211,7 +209,7 @@ Each of these is submitted and waiting, and each is set to go on sale by itself 
 
 ### [Rigsheet](https://rigsheet.bakerventuresstudio.com)
 **Job management for a one-van business.** Scheduling that refuses a job you could not drive to in time, quotes with vehicle-size and home-size multipliers, deposits, invoices, and before-and-after photos on the job. Covers detailing, cleaning, pressure washing, window cleaning and lawn care, which most products in the category do not. Needs an account, because the schedule has to sync.
-**Not for:** multi-location shops with large crews, or trades outside those five. It does not text your customers: quotes and invoices go out by email. The price is not settled, so this page does not quote one.
+**Not for:** multi-location shops with large crews, or trades outside those five. It does not text your customers: quotes and invoices go out by email. The price is not settled, so this page does not quote one. Free browser tools, no account: a [job price calculator](/rigsheet/job-price-calculator/) and an [effective hourly rate calculator](/rigsheet/effective-hourly-rate-calculator/).
 
 ### [Nearvo](https://nearvo.bakerventuresstudio.com)
 **A daily question for two people.** Guess what your partner would say, then answer for yourself, then look back on the week together. Planned as a paid subscription at $29.99 a year or $9.99 a month.
@@ -241,8 +239,8 @@ Each of these is submitted and waiting, and each is set to go on sale by itself 
 Every Baker Ventures product is built on the same rule: cite the source, name the limit, and never claim an outcome the product cannot deliver. The reference material on these sites is free, needs no account, and states where each fact came from.
 
 ## Questions and answers
-**What apps does Baker Ventures make?** Nineteen, and the status of each one is on this page. Five you can install today: the shipcheck plugin, plus FlirtGym, FlipStage, MoveWitness and Vocabdrift on the App Store. Hatch Window is approved and waiting to be released. MileTruth, PolicyReady, DenialDesk, Foldbook, IOLTAlign, NoticeGuard and TentClock are with Apple for review. Steadychart, Rigsheet, Nearvo, HormoneLog, rsuvest and RiderDeck are built but not submitted.
-**Which Baker Ventures apps can I use today?** Five. shipcheck ships as a Claude Code plugin, and FlirtGym, FlipStage, MoveWitness and Vocabdrift are on the App Store now. Nothing else is on sale yet, and no release date is published for the ones in review, because Apple sets it and does not tell us in advance.
+**What apps does Baker Ventures make?** Nineteen, and the status of each one is on this page. Six you can install today: the shipcheck plugin, plus FlirtGym, FlipStage, Hatch Window, MoveWitness and Vocabdrift on the App Store. Steadychart, Rigsheet, Nearvo, HormoneLog, rsuvest and RiderDeck are built but not submitted.
+**Which Baker Ventures apps can I use today?** Six. shipcheck ships as a Claude Code plugin, and FlirtGym, FlipStage, Hatch Window, MoveWitness and Vocabdrift are on the App Store now. Nothing else is on sale yet, and no release date is published for anything still unreleased, because Apple sets it and does not tell us in advance.
 **Are Baker Ventures apps free?** Most of them. FlirtGym and Nearvo charge a subscription, because each one makes AI calls that cost money per person using it, and shipcheck is free for your score and the top three findings on every app, with a paid licence beyond that. Everything else is free with nothing to buy inside it, except Rigsheet, whose price is not settled. Every product website is free with no signup, including the calculators, references and question sets, and those are useful whether or not the app they belong to ever ships.
 
 ### Sources

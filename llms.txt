@@ -1,9 +1,9 @@
 # Baker Ventures
 
-> Baker Ventures LLC is an independent software studio run by one person, building small, single-purpose iOS apps and developer tools. On sale now: FlirtGym, FlipStage, MoveWitness, Vocabdrift and the shipcheck plugin. Every other app, with the status of each, is listed at /apps/.
+> Baker Ventures LLC is an independent software studio run by one person, building small, single-purpose iOS apps and developer tools. On sale now: FlirtGym, FlipStage, Hatch Window, MoveWitness, Vocabdrift and the shipcheck plugin. Every other app, with the status of each, is listed at /apps/.
 
 Publisher: Baker Ventures LLC (https://bakerventuresstudio.com)
-Last updated: 2026-10-14
+Last updated: 2026-10-15
 License: content on this site may be quoted and cited with attribution to Baker Ventures.
 
 ## Pages

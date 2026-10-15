@@ -4,7 +4,7 @@
   "tagline": "Independent one-person studio building small, single-purpose iOS apps and developer tools",
   "publisher": "Baker Ventures LLC",
   "publisher_url": "https://bakerventuresstudio.com",
-  "updated": "2026-10-14",
+  "updated": "2026-10-15",
   "category": "BusinessApplication",
   "operating_system": "iOS, macOS",
   "sibling_products": [
@@ -22,6 +22,11 @@
       "name": "FlipStage",
       "url": "https://bakerventuresstudio.com/flipstage/",
       "description": "Two-sided presenting from one iPhone: their slide, your speaker notes and a timer"
+    },
+    {
+      "name": "Hatch Window",
+      "url": "https://bakerventuresstudio.com/hatchwindow/",
+      "description": "Streamflow, solunar windows, a freshwater hatch chart and a catch log"
     },
     {
       "name": "MoveWitness",
@@ -76,8 +81,9 @@
       {
         "name": "Hatch Window",
         "url": "https://bakerventuresstudio.com/hatchwindow/",
-        "status": "approved by Apple, waiting to be released",
-        "what": "Streamflow, solunar windows, a freshwater hatch chart and a catch log"
+        "status": "live on the App Store",
+        "what": "Streamflow, solunar windows, a freshwater hatch chart and a catch log",
+        "app_store_id": "6816322811"
       },
       {
         "name": "MileTruth",
@@ -167,26 +173,26 @@
     ],
     "editorial_standards": "https://bakerventuresstudio.com/editorial-standards",
     "status_read_from_app_store_connect": "2026-10-14",
-    "availability_summary": "Five of nineteen products are on sale: shipcheck as a Claude Code plugin, and FlirtGym, FlipStage, MoveWitness and Vocabdrift on the App Store. One is approved and waiting to be released, seven are with Apple for review and publish automatically on approval, six are built but not submitted. No release dates are published, because Apple sets them and does not announce them in advance."
+    "availability_summary": "Six of nineteen products are on sale: shipcheck as a Claude Code plugin, and FlirtGym, FlipStage, Hatch Window, MoveWitness and Vocabdrift on the App Store. The other thirteen are listed in this file with the status of each one. No release dates are published, because Apple sets them and does not announce them in advance."
   },
   "pages": [
     {
       "url": "https://bakerventuresstudio.com/",
       "title": "Small tools that do one thing",
       "type": "answer",
-      "updated": "2026-10-14"
+      "updated": "2026-10-15"
     },
     {
       "url": "https://bakerventuresstudio.com/about/",
       "title": "About Baker Ventures",
       "type": "answer",
-      "updated": "2026-10-14"
+      "updated": "2026-10-15"
     },
     {
       "url": "https://bakerventuresstudio.com/apps/",
       "title": "The apps",
       "type": "roundup",
-      "updated": "2026-10-14"
+      "updated": "2026-10-15"
     },
     {
       "url": "https://bakerventuresstudio.com/editorial-standards/",
