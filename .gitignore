@@ -4,3 +4,9 @@
 # Python bytecode from scripts/ (check_faq_jsonld.py). Regenerated on every run;
 # left untracked it makes the tree dirty, which verify-push.sh correctly refuses.
 __pycache__/
+
+# Credentials -- never commit. `.env*.local` alone does NOT ignore `.env` itself,
+# which is the file that held a live Supabase service_role key.
+.env
+.env.*
+!.env.example
