@@ -1,3 +1,27 @@
+<!--
+  COMPATIBILITY COPY -- DO NOT DELETE, DO NOT LET IT DRIFT.
+
+  MoveWitness 1.0.1 is live in the App Store with
+  https://bakerventuresstudio.com/rentcheck/support/ compiled into the binary
+  (movewitness repo, src/app/index.tsx). Every user on 1.0.1 reaches THIS file when they
+  tap the in-app legal link, and they keep reaching it until they update. Deleting this
+  path breaks a live app's required privacy link (App Review 5.1.1(i)).
+
+  The canonical page is /movewitness/support/. This file is a full copy rather than a
+  redirect because GitHub Pages cannot issue a real 301 (.nojekyll is set, so
+  jekyll-redirect-from is unavailable) and a meta-refresh is invisible to a plain
+  `curl` or a non-JS privacy crawler -- the exact failure mode that put
+  movewitness.pages.dev in this field in the first place.
+
+  WHEN YOU EDIT /movewitness/support/index.html, EDIT THIS FILE TOO.
+  scripts/check_live_privacy_claims.py checks both paths.
+
+  Why the path moved (2026-10-22): `rentcheck` was this repo's internal working name for
+  MoveWitness, but RENTCHECK is a live US registered word mark -- Reg. No. 6037775,
+  serial 87982814, RentCheck Holdings, Inc., registered 2020-04-21, International Class 9,
+  for a downloadable mobile app for tenants and landlords to record and share the
+  move-in/move-out condition of a rental property. That is MoveWitness's exact category.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +29,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MoveWitness Support &mdash; Baker Ventures LLC</title>
   <meta name="description" content="Support for MoveWitness: how to get help, report a bug, and contact a human who answers. MoveWitness is free — no subscription, no in-app purchase, no paywall.">
-  <link rel="canonical" href="https://bakerventuresstudio.com/rentcheck/support/">
-  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://bakerventuresstudio.com/movewitness/support/">
+  <meta name="robots" content="noindex,follow">
   <style>
     :root { color-scheme: light; }
     body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
@@ -38,7 +62,7 @@
 {
  "@context": "https://schema.org",
  "@type": "FAQPage",
- "@id": "https://bakerventuresstudio.com/rentcheck/support/#faq",
+ "@id": "https://bakerventuresstudio.com/movewitness/support/#faq",
  "name": "MoveWitness Support",
  "mainEntity": [
   {
@@ -150,6 +174,8 @@
 </script>
 </head>
 <body>
+<p style="margin:0 0 24px;padding:12px 14px;background:#fff8e1;border:1px solid #e6d9a8;border-radius:6px;font-size:14px;line-height:1.55;">This page has moved to <a href="https://bakerventuresstudio.com/movewitness/support/">bakerventuresstudio.com/movewitness/support/</a>. It is kept here so the link inside MoveWitness 1.0.1 keeps working. The text below is the current MoveWitness support page and is identical to the page at the new address.</p>
+
   <p class="nav"><a href="../">MoveWitness</a> &rsaquo; Support</p>
   <h1>MoveWitness Support</h1>
   <p class="meta">Published by Baker Ventures LLC &middot; Last updated: October 13, 2026</p>

@@ -30,7 +30,7 @@
     },
     {
       "name": "MoveWitness",
-      "url": "https://bakerventuresstudio.com/rentcheck/",
+      "url": "https://bakerventuresstudio.com/movewitness/",
       "description": "Room-by-room rental photo record and a dated move-in or move-out PDF report"
     },
     {
@@ -66,7 +66,7 @@
       },
       {
         "name": "MoveWitness",
-        "url": "https://bakerventuresstudio.com/rentcheck/",
+        "url": "https://bakerventuresstudio.com/movewitness/",
         "status": "live on the App Store",
         "what": "Room-by-room rental photo record and a dated move-in or move-out PDF report",
         "app_store_id": "6816228166"

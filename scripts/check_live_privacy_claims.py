@@ -159,12 +159,27 @@ MANIFEST = [
     {
         "app": "movewitness",
         "page": "privacy",
-        "url": "https://bakerventuresstudio.com/rentcheck/privacy/",
-        "local": "rentcheck/privacy/index.html",
+        "url": "https://bakerventuresstudio.com/movewitness/privacy/",
+        "local": "movewitness/privacy/index.html",
         "repo": f"{HOME}/movewitness",
         # No docs/privacy-policy.md exists: the hosted page IS the policy. The
         # repo's corrected position on the backup is in the Terms and in the
         # App Privacy determination, so those are the source of truth here.
+        "sources": ["docs/terms.md", "docs/app-privacy-determination.md"],
+    },
+    {
+        # Compatibility copy of the page above. MoveWitness 1.0.1 is live in the
+        # App Store with /rentcheck/privacy/ compiled into the binary, so this
+        # path has to keep serving the real policy until 1.0.1 is out of the
+        # field -- which is why it is a full copy and not a redirect (GitHub
+        # Pages cannot 301 with .nojekyll set, and a meta-refresh is invisible
+        # to curl and to non-JS privacy crawlers). Checked here so the copy
+        # cannot silently drift from the canonical page.
+        "app": "movewitness",
+        "page": "privacy (legacy /rentcheck/ path, 1.0.1 compatibility)",
+        "url": "https://bakerventuresstudio.com/rentcheck/privacy/",
+        "local": "rentcheck/privacy/index.html",
+        "repo": f"{HOME}/movewitness",
         "sources": ["docs/terms.md", "docs/app-privacy-determination.md"],
     },
     # --- Steadychart -------------------------------------------------------
@@ -751,7 +766,7 @@ def strip_quoted(text: str) -> str:
 #   "we are not going to tell you nothing leaves the device when that isn't accurate"
 #   "we are not going to say nothing leaves the device when your backup holds a copy"
 #
-# Both are live right now on /denialdesk/privacy/ and /rentcheck/privacy/, neither is in
+# Both are live right now on /denialdesk/privacy/ and /movewitness/privacy/, neither is in
 # quotation marks, so strip_quoted cannot see them. Reading those as assertions flags the
 # two pages that were corrected FIRST -- the mirror image of the false pass this file
 # exists to stop, and the fastest way to get a check switched off. (Found exactly that
