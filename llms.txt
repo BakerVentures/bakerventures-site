@@ -148,10 +148,15 @@ the half pointing at you shows your speaker notes, the Prev and Next controls an
 timer. It is free with nothing to buy inside it, needs no account, and makes no
 network calls.
 
-Known limits, stated because they are true of the shipped build: decks are not saved
-yet, so imported photos, typed notes and any reordering last until the app is closed;
-slides come only from the photo library or the built-in four-slide sample deck, not
-from PowerPoint, Keynote or PDF; and the app does not film, record or scroll text.
+Known limits. Whether a deck is saved depends on the version, and the App Store page
+shows which one a reader has: version 1.0 does not save decks, so imported photos,
+typed notes and any reordering last until the app is closed, while version 1.0.1 and
+later writes the deck to the app's own storage on the phone. Deleting a slide also
+deletes its speaker notes and cannot be undone, in any version. Slides come only from
+the photo library or the built-in four-slide sample deck, not from PowerPoint, Keynote
+or PDF. The app does not film, record or scroll text. The app makes no network requests
+at all and sends nothing to us; from version 1.0.1, what it saves on the phone is part
+of the user's own iCloud backup if they have backups switched on.
 
 - [FlipStage](https://bakerventuresstudio.com/flipstage/): What it is, what it does not do, and the App Store link.
 - [Speaking time calculator](https://bakerventuresstudio.com/flipstage/speaking-time/): Counts the words in a script and converts them to spoken minutes at a rate the reader measures themselves with a built-in reading timer, rather than at an assumed words-per-minute figure. Adds a stated overhead percentage for pauses and questions, splits the total evenly across a slide count, and says which of FlipStage's own 5, 10, 15 or 20 minute timer targets the result fits. Runs entirely in the browser; the app itself does not do this arithmetic.
