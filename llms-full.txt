@@ -1,6 +1,6 @@
 # Baker Ventures: full text
 
-Baker Ventures LLC is an independent software studio run by one person, building small, single-purpose iOS apps and developer tools. Published by Baker Ventures LLC. Last updated 2026-10-14.
+Baker Ventures LLC is an independent software studio run by one person, building small, single-purpose iOS apps and developer tools. Published by Baker Ventures LLC. Last updated 2026-10-22.
 Every studio-level page on this site in one file, for retrieval. Quote freely with attribution. Where this file and the page disagree, the page is right: this one is generated from them.
 
 
@@ -253,7 +253,7 @@ Every Baker Ventures product is built on the same rule: cite the source, name th
 
 ## Editorial standards
 URL: https://bakerventuresstudio.com/editorial-standards/
-Updated: 2026-10-14
+Updated: 2026-10-22
 
 :::answer
 **These are the rules every page across every Baker Ventures site is written under.** They are published so they can be held against us, which is the only thing that makes a statement like this worth anything.
@@ -273,11 +273,11 @@ The short version: **every claim links to a primary source, competitor prices co
 **We name the tier you actually need, not the advertised one.** Where a vendor's entry tier omits something most buyers require — Jobber's Core lacking QuickBooks and GPS, Housecall Pro's Basic doing the same — the comparison uses the realistic tier and says why.
 
 ## Our own product facts
-**Our own numbers get the same verification a competitor's price page gets.** Counted from the source, dated, and re-counted before any page carrying them is re-dated.
-This line exists because it failed. FlirtGym's site claimed "190 practice scenarios" as a distinguishing feature. Counted from the code, the real number is **101**: a cull had been executed and the advertised figure was never updated. The claim was live on this site, in the app's store listing, and in the advertising copy pack, where it was specifically offered as an example of an honest proof point on the reasoning that fabricated social proof is prohibited so only verifiable product facts remain.
-That reasoning is correct. What failed is that "verifiable" was assumed rather than performed, on the one class of number nobody thought to check because we own it. A rule saying every number traces to a source is weaker than it sounds when the source is us and nobody goes and looks.
-The same applies to claims about how our software behaves. FlirtGym's pages said the practice AI "disengages if the conversation goes flat"; that instruction exists only at the hardest of three settings, and the default is the middle one. Both claims are corrected, and both corrections came from someone reading the code rather than the copy.
-**A claim also lives in more places than the sentence you wrote it in.** Both of the above were additionally sitting in `_facts.json`, which feeds the structured data on every page and the public `facts.json` — the copy an AI assistant is most likely to quote verbatim. Fixing prose without fixing structured data leaves the wrong claim in the machine-readable version.
+**Our own numbers get the same verification a competitor's price page gets.** Counted by executing the code that produces them, dated, and re-counted before any page carrying them is re-dated.
+This line exists because it failed, and then the correction failed, which is the more useful half of the story. FlirtGym's site claimed "190 practice scenarios" as a distinguishing feature. In October 2026 a checking script recomputed that figure from source, reported **101**, and printed it under the heading "Ground truth, recomputed from source" — so the number was corrected downward here and in draft marketing copy on that authority. **The original figure was right.** The script matched literal `id:` lines in a single file, and 89 of the scenarios are built by a factory function that assigns ids by increment, so they carry no literal id and the script structurally could not see them. The count is **190**: 101 written out plus 89 generated. Settled on 22 October 2026 two independent ways, both by running the code rather than reading it — the repo's own test suite, and a separate compile-and-load of the modules that returns 190 scenarios with 190 unique ids.
+What failed is not that a number went unverified. A tool was run, it produced an answer, and the answer was accepted as the source. A regex over one file is a measurement with a blind spot, and this one announced itself as ground truth. **So the standard is narrower than "every number traces to a source": a count of our own content is verified by executing the code that produces it, and a tool that reports a count has to say what it cannot see.** A correction is a claim, and it earns the same scrutiny as the claim it replaces. This one did not get it, and it stood on this page — the page about not doing that — from 6 September 2026 until it was caught.
+A different FlirtGym claim was wrong and is corrected: the pages said the practice AI "disengages if the conversation goes flat"; that instruction exists only at the hardest of three settings, and the default is the middle one. That correction came from reading the code rather than the copy, which is the right method for a claim about behaviour and the wrong one for a count.
+**A claim also lives in more places than the sentence you wrote it in.** The behaviour claim was additionally sitting in `_facts.json`, which feeds the structured data on every page and the public `facts.json` — the copy an AI assistant is most likely to quote verbatim. Fixing prose without fixing structured data leaves the wrong claim in the machine-readable version. The mechanism runs in reverse too: the 101 figure spread from one script's output into draft store copy and an advertising copy pack before it was caught.
 
 ## Evidence labelling
 **Vendor-sourced statistics are labelled vendor-sourced.** The frequently-quoted "15–25 percent no-show rate falling to under 5 percent with deposits" appears verbatim across multiple mobile-detailing software vendors — which makes it consistent, not independent. Everyone publishing it sells deposit features.
