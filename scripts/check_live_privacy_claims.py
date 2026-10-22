@@ -40,6 +40,10 @@ actually bit, which is a falsifiable negative claim:
   R7 MEASURED-BACKUP     the page's backup claim disagrees with what was MEASURED on a
                          running build -- or no such measurement exists and the page
                          makes the claim anyway.
+  R8 CONTRADICTED-ABSENCE
+                         the page asserts that a CLASS OF SDK is absent while the app's
+                         package.json installs an SDK of that class that the page never
+                         names.
 
 Why R7 had to be added (2026-10-14, third pass)
 -----------------------------------------------
@@ -69,6 +73,44 @@ the case it cannot answer: Vocabdrift's exclusion comes from a LIBRARY DEFAULT, 
 mechanism exists to find. R7 answers it by reading the xattr off a running build instead.
 
 
+Why R8 had to be added (2026-10-21)
+-----------------------------------
+FlirtGym was absent from the manifest above for the whole of its life: a grep for
+`rizzmaxx|flirtgym` in this file returned zero hits until 2026-10-21. Adding the two
+entries was necessary and was not sufficient -- with them in place and nothing else
+changed, both pages came back with nothing but an unrelated R3, because every rule
+R1-R7 polices ONE claim shape: "your data does not leave this device". That is not the
+shape that was false here.
+
+`/rizzmaxx/privacy/` section 2.5 says:
+
+    The App includes the Meta SDK for advertising attribution ... We use no other
+    advertising or analytics SDKs.
+
+True on 2026-08-01 when the page was last updated. False eleven days later, and still
+false seventy days after that:
+
+    2026-08-12  RizzMaxx a82f037 adds react-native-appsflyer -- a second ad SDK
+    2026-08-24  RizzMaxx 2a9dc4a adds posthog-react-native   -- an analytics SDK
+
+Neither commit touched a privacy document, and neither word appears anywhere on the
+live page. This is the same genus as the 2026-10-14 defect -- a falsifiable negative in
+a legal document -- and a different species: it is falsified not by a measurement off a
+running build but by `npm install`. It also has form. Site commit dae30e7, "privacy:
+disclose Meta ad attribution + ATT/IDFA (build 23); fix 'no ad-tracking SDKs' claim",
+already fixed this exact sentence once. The fix did not outlive the next two SDK
+additions, because nothing held it.
+
+R8 derives its subject list from the app's `package.json` instead of listing expected
+sentences, so installing Sentry or Mixpanel extends the requirement with no edit here.
+SDK_REGISTRY is a watchlist, not a whitelist: an entry is inert until the package is
+actually installed. The same reasoning, and much of the same table, is in
+~/RizzMaxx/src/lib/__tests__/privacySdkDisclosure.test.ts, which guards the REPO docs.
+That test states its own limitation plainly -- it cannot reach the published page -- and
+R8 is the other half: it reads the artefact. Both halves are needed, because on
+2026-10-21 the sentence was false on the live page while the repo doc simply omitted the
+subject, so neither side alone sees the whole defect.
+
 Every page a listing links to, not just the privacy one
 -------------------------------------------------------
 Added 2026-10-14, second pass. The first version of this file checked one URL per app -- the
@@ -86,6 +128,13 @@ backup-exclusion xattr off the container settles that; see
 /Users/ryanbaker/backup-claims-measured-2026-10-14.md for the measurements and
 /Users/ryanbaker/VERIFICATION-LESSON.md for why it has to be the artefact. R6 is the one rule here
 that reaches toward the mechanism, and even it reads the repo's intent rather than the binary.
+
+R8 has the mirror-image limit. It reads `package.json`, which is intent to LINK rather than
+the shipped binary, so it fails a page for a dependency that is installed and never
+initialised, and it cannot see an SDK vendored into ios/ without a package entry. It also
+only knows the SDK classes SDK_REGISTRY names, and it says nothing about whether a
+correctly-named SDK's description of what it receives is accurate. The artefact-level
+question is whether the SDK's symbols are in the shipped IPA, and nothing here asks it.
 
 Rule R1 ignores any phrase that appears inside quotation marks in the repo source,
 because a retracted sentence is routinely quoted in the paragraph that retracts it
@@ -115,6 +164,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import html
+import json
 import os
 import re
 import sys
@@ -294,6 +344,40 @@ MANIFEST = [
         "local": "rsuvest/privacy/index.html",
         "repo": f"{HOME}/rsuvest",
         "sources": ["docs/privacy-policy.md", "src/app/privacy.tsx"],
+    },
+    # --- FlirtGym ----------------------------------------------------------
+    # Added 2026-10-21. FlirtGym was absent from this manifest for the whole of
+    # its life, and a grep for `rizzmaxx|flirtgym` in this file returned zero
+    # hits -- so the one check built for exactly this defect class could not see
+    # the app that had it. `/rizzmaxx/privacy/` is the URL the App Store Connect
+    # listing's Privacy Policy field points at, and the same two URLs are the
+    # ones the app itself opens from Settings (~/RizzMaxx/src/lib/legal.ts,
+    # LEGAL.privacyUrl / LEGAL.termsUrl), so these are the pages a user and an
+    # App Review reader actually read.
+    #
+    # The repo directory is RizzMaxx and the published slug is /rizzmaxx/; the
+    # shipping product name is FlirtGym. `app` follows the other entries and
+    # names the product, which is also what `--app flirtgym` takes.
+    #
+    # `sources` is the one markdown policy each page has. Deliberately NOT
+    # docs/terms-of-use-DRAFT.md (a draft, superseded) and not
+    # docs/submission-package/ (a point-in-time record of what was sent to Apple
+    # for a past build, so correcting it would be the wrong fix).
+    {
+        "app": "flirtgym",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/rizzmaxx/privacy/",
+        "local": "rizzmaxx/privacy/index.html",
+        "repo": f"{HOME}/RizzMaxx",
+        "sources": ["docs/privacy-policy.md"],
+    },
+    {
+        "app": "flirtgym",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/rizzmaxx/terms/",
+        "local": "rizzmaxx/terms/index.html",
+        "repo": f"{HOME}/RizzMaxx",
+        "sources": ["docs/terms-of-use.md"],
     },
 ]
 
@@ -650,6 +734,292 @@ def exclusion_mechanism(repo: str) -> tuple[str, str]:
         f"{os.path.relpath(hits[0], repo)} sets the flag but no app.json/app.config "
         "names it, so prebuild will not apply it",
     )
+
+# ---------------------------------------------------------------------------
+# R8: a page that asserts a CLASS OF SDK is absent, checked against what the
+# app actually installs.
+#
+# SDK_REGISTRY maps a package name to the human name a page must use if it is
+# going to name it, and to the claim CLASSES whose denial that package
+# falsifies. It is a watchlist and not a whitelist: a row does nothing at all
+# until the package appears in a `dependencies` block, so rows for packages
+# nobody has installed are the point -- they stop a new data flow from escaping
+# by virtue of nobody having thought of it when this was written.
+#
+# `classes` is what keeps the rule honest in both directions. A page saying
+# "no ADVERTISING SDKs" is not falsified by an analytics-only SDK, and vice
+# versa, so each row declares which denials it contradicts.
+#
+# Each row names the ONE class a reader would put that SDK in, and this is a
+# deliberate under-reach. AppsFlyer and the Meta SDK do report in-app events, so
+# "we use no analytics SDKs" while shipping AppsFlyer is arguably false too --
+# but classing them as both would fire this rule at every page that denies
+# analytics while correctly disclosing an ad SDK, and a rule that argues with a
+# page about taxonomy is a rule somebody switches off. The cost is recorded
+# rather than hidden: a page denying ONLY analytics while shipping ONLY an
+# attribution SDK passes here. In practice a page that denies one of these two
+# classes denies both, which is the FlirtGym sentence exactly.
+#
+# Kept deliberately parallel to REGISTRY in
+# ~/RizzMaxx/src/lib/__tests__/privacySdkDisclosure.test.ts. That one guards the
+# repo markdown; this one guards the published page. Two lists is the honest
+# answer here -- this file checks seven repos and that test checks one, and
+# importing across repos would make each unrunnable without the other.
+# ---------------------------------------------------------------------------
+ADVERTISING = "advertising"
+ANALYTICS = "analytics"
+
+SDK_REGISTRY = [
+    # Installed in RizzMaxx today. These two are the reason this rule exists.
+    {"pkg": "react-native-appsflyer", "name": r"appsflyer",
+     "classes": {ADVERTISING}, "kind": "ad attribution / install measurement"},
+    {"pkg": "posthog-react-native", "name": r"posthog",
+     "classes": {ANALYTICS}, "kind": "product analytics"},
+    # Installed somewhere in the portfolio already.
+    {"pkg": "react-native-fbsdk-next", "name": r"\bmeta\b|facebook",
+     "classes": {ADVERTISING}, "kind": "ad attribution"},
+    # Not installed anywhere today. Listed so that installing one turns a page's
+    # absence claim red instead of landing a silent new data flow.
+    {"pkg": "@sentry/react-native", "name": r"sentry",
+     "classes": {ANALYTICS}, "kind": "crash reporting / performance telemetry"},
+    {"pkg": "@react-native-firebase/analytics", "name": r"firebase",
+     "classes": {ANALYTICS}, "kind": "analytics"},
+    {"pkg": "@react-native-firebase/crashlytics", "name": r"crashlytics|firebase",
+     "classes": {ANALYTICS}, "kind": "crash reporting"},
+    {"pkg": "@amplitude/analytics-react-native", "name": r"amplitude",
+     "classes": {ANALYTICS}, "kind": "analytics"},
+    {"pkg": "mixpanel-react-native", "name": r"mixpanel",
+     "classes": {ANALYTICS}, "kind": "analytics"},
+    {"pkg": "@segment/analytics-react-native", "name": r"segment",
+     "classes": {ANALYTICS}, "kind": "analytics"},
+    {"pkg": "react-native-branch", "name": r"\bbranch\b",
+     "classes": {ADVERTISING}, "kind": "ad attribution / deep-link attribution"},
+    {"pkg": "react-native-adjust", "name": r"\badjust\b",
+     "classes": {ADVERTISING}, "kind": "ad attribution"},
+    {"pkg": "react-native-google-mobile-ads", "name": r"admob|google mobile ads",
+     "classes": {ADVERTISING}, "kind": "ad serving"},
+    {"pkg": "react-native-tiktok-business", "name": r"tiktok",
+     "classes": {ADVERTISING}, "kind": "ad attribution"},
+]
+
+# The denial shapes, each a falsifiable negative about a class of SDK.
+#
+# `hedged` is the whole difference between two sentences that look alike:
+#
+#   "We use no other advertising or analytics SDKs"   -- hedged: it excepts the
+#       SDKs the page has just named, so naming AppsFlyer on the page satisfies it.
+#   "This app contains no analytics SDKs"             -- unhedged: naming one does
+#       not rescue it, because the sentence denies all of them.
+#
+# Every pattern requires the word SDK (or an explicit tracker/tool noun) inside the
+# same sentence, which is not decoration. `/rizzmaxx/terms/` carries "Apple has no
+# other warranty obligation with respect to the App", and a pattern keyed on
+# "no other" alone would turn the Apple-EULA boilerplate on every terms page in this
+# manifest red on day one. A rule that cries wolf gets switched off; see R1's
+# DISCLAIMER_CUES for the same lesson learned the same way.
+ABSENCE_CLAIMS = [
+    r"\bno (?:other )?(?:third.party )?(?:[\w-]+[, ]{1,2}){0,4}"
+    r"(?:advertising|analytics|ad.tracking|tracking)[^.]{0,60}?"
+    r"\b(?:sdks?|trackers?|tracking (?:tools?|frameworks?|libraries))\b",
+    r"(?:does not|do not|don.t|doesn.t) (?:contain|include|use|embed|bundle|ship with)"
+    r"[^.]{0,60}?(?:advertising|analytics|ad.tracking|tracking)[^.]{0,60}?\bsdks?\b",
+]
+
+# Whether a denial EXCEPTS the SDKs the page has just named. Read off the matched
+# sentence, never off which pattern matched it -- the first version of this rule
+# decided hedgedness per pattern, both patterns matched the one FlirtGym sentence,
+# and the stricter of the two won. That turned `react-native-fbsdk-next` into a
+# finding on a page whose very next clause names the Meta SDK and says what it
+# receives: a false positive against the one SDK that page discloses correctly, and
+# the exact shape that gets a check switched off.
+HEDGE_CUES = re.compile(r"\b(?:other|besides|except|apart from|aside from|beyond)\b")
+
+
+def denied_classes(matched: str) -> set[str]:
+    """Which classes a matched sentence denies.
+
+    Read off the matched text rather than fixed per pattern, so one pattern serves
+    "no advertising SDKs", "no analytics SDKs" and "no advertising or analytics
+    SDKs", and each is answered with only the SDKs that bear on what was denied. A
+    page saying "no ADVERTISING SDKs" must not be failed by an analytics-only SDK.
+    """
+    classes: set[str] = set()
+    if re.search(r"advertis|ad.tracking", matched):
+        classes.add(ADVERTISING)
+    if re.search(r"analytic", matched):
+        classes.add(ANALYTICS)
+    if not classes and re.search(r"tracking", matched):
+        # A bare "no tracking SDKs" denies the lot.
+        classes.update({ADVERTISING, ANALYTICS})
+    return classes
+
+
+def absence_claims(live_unquoted: str) -> list[dict]:
+    """The distinct SDK-absence sentences on a page.
+
+    Deduplicated by the span matched, not by pattern: the patterns above overlap on
+    purpose (a narrow one for the hedged wording, a broad one for the rest) and
+    without this the one FlirtGym sentence was reported, and quoted, twice.
+    """
+    spans: dict[tuple[int, int], dict] = {}
+    for pattern in ABSENCE_CLAIMS:
+        for m in re.finditer(pattern, live_unquoted):
+            text = m.group(0)
+            spans.setdefault(
+                (m.start(), m.end()),
+                {
+                    "match": m,
+                    "classes": denied_classes(text),
+                    "hedged": bool(HEDGE_CUES.search(text)),
+                },
+            )
+    claims = [spans[k] for k in sorted(spans)]
+    # Drop a claim fully contained in another: one sentence, one finding.
+    kept: list[dict] = []
+    for claim in claims:
+        m = claim["match"]
+        if any(
+            other["match"].start() <= m.start() and m.end() <= other["match"].end()
+            and other is not claim
+            for other in claims
+        ):
+            continue
+        kept.append(claim)
+    return kept
+
+
+_PKG_SEARCH_DIRS = ("", "apps", "packages", "src")
+
+
+def installed_dependencies(repo: str) -> dict[str, str]:
+    """Every runtime dependency this repo installs, mapped to the file that declares it.
+
+    `dependencies` only. devDependencies do not ship in the binary, so a page cannot
+    be wrong about them. Monorepos are covered by looking one level under apps/ and
+    packages/ as well as at the root, because hormonelog and miletruth keep the app
+    that ships in apps/mobile -- a root-only read would have reported those repos as
+    installing nothing at all, which would have made this rule silently inapplicable
+    exactly where the shipping code lives.
+    """
+    found: dict[str, str] = {}
+    candidates: list[str] = []
+    for mid in _PKG_SEARCH_DIRS:
+        base = os.path.join(repo, mid) if mid else repo
+        if mid:
+            if not os.path.isdir(base):
+                continue
+            for child in sorted(os.listdir(base)):
+                if child in _SKIP_DIRS:
+                    continue
+                candidates.append(os.path.join(base, child, "package.json"))
+        else:
+            candidates.append(os.path.join(base, "package.json"))
+    for path in candidates:
+        if not os.path.isfile(path):
+            continue
+        try:
+            with open(path, encoding="utf-8", errors="replace") as fh:
+                data = json.load(fh)
+        except (OSError, ValueError):
+            continue
+        deps = data.get("dependencies")
+        if not isinstance(deps, dict):
+            continue
+        for name, version in deps.items():
+            found.setdefault(name, f"{os.path.relpath(path, repo)} ({version})")
+    return found
+
+
+def check_absence_claims(entry: dict, live_unquoted: str, live: str, ok) -> list[str]:
+    """R8: a denied class of SDK against the SDKs the app installs.
+
+    R1-R7 all police one sentence shape, "your data does not leave this device".
+    This polices the other falsifiable negative a privacy page reaches for: "we do
+    not use that kind of SDK". It is falsified by `npm install`, not by a backup, so
+    none of the rules above can see it -- demonstrated on 2026-10-21, when adding
+    FlirtGym to the manifest left both of its pages carrying nothing but an unrelated
+    R3 while section 2.5 of the live privacy policy had been false for seventy days.
+
+    The test is not "is the SDK mentioned somewhere". It is:
+
+      * a HEDGED denial ("no OTHER advertising or analytics SDKs") excepts what the
+        page names, so an installed SDK is a finding only when the page never names
+        it. That is what makes the Meta sentence on the same line fine and AppsFlyer
+        and PostHog not.
+      * an UNHEDGED denial ("contains no analytics SDKs") cannot be rescued by
+        naming: the sentence denies the whole class, so any installed member is a
+        finding.
+
+    What it cannot tell you: it reads `dependencies`, which is intent to link, not
+    the binary. A dependency installed and never initialised still fails here, and
+    that is the deliberate direction to err. The artefact-level question is whether
+    the SDK's symbols are in the shipped IPA, and nothing here asks it. It also
+    cannot judge a denial of a class no SDK_REGISTRY row covers, and it says nothing
+    about whether a named SDK's description of what it receives is accurate.
+    """
+    failures: list[str] = []
+    claims = absence_claims(live_unquoted)
+    if not claims:
+        ok("R8 no SDK-absence claim on the page")
+        return failures
+
+    deps = installed_dependencies(entry["repo"])
+    if not deps:
+        # Not a pass. The rule could not run, and a rule that cannot run must say so
+        # rather than print nothing and count nothing -- that silence is exactly how
+        # R3 passed a page ten days behind its source on 2026-10-14.
+        failures.append(
+            "R8 UNKNOWN-DEPENDENCIES: the live page asserts "
+            + "; ".join(f'"...{excerpt(live_unquoted, c["match"])}..."' for c in claims)
+            + f", but no package.json with a `dependencies` block was found under "
+            f"{entry['repo']} (looked at the root and one level under apps/, packages/ "
+            "and src/), so the claim could not be checked against what the app installs."
+        )
+        return failures
+
+    denied = set().union(*(c["classes"] for c in claims))
+    installed = [
+        row for row in SDK_REGISTRY
+        if row["pkg"] in deps and (row["classes"] & denied)
+    ]
+    for row in installed:
+        bearing = [c for c in claims if c["classes"] & row["classes"]]
+        unhedged = [c for c in bearing if not c["hedged"]]
+        quoted = "; ".join(
+            f'"...{excerpt(live_unquoted, c["match"])}..."'
+            for c in (unhedged or bearing)
+        )
+        named = re.search(row["name"], live)
+        if unhedged:
+            failures.append(
+                f"R8 CONTRADICTED-ABSENCE: the live page asserts {quoted} with no "
+                f"exception, but {entry['repo']} installs {row['pkg']} -- {row['kind']} "
+                f"-- per {deps[row['pkg']]}"
+                + (
+                    " (naming it elsewhere on the page does not rescue a denial of the "
+                    "whole class)"
+                    if named
+                    else ""
+                )
+                + ". A denial of the whole class is falsified by one member of it."
+            )
+        elif named:
+            ok(f"R8 {row['pkg']} installed, and the page names it")
+        else:
+            failures.append(
+                f"R8 CONTRADICTED-ABSENCE: the live page asserts {quoted}, but "
+                f"{entry['repo']} installs {row['pkg']} -- {row['kind']} -- per "
+                f"{deps[row['pkg']]}, and the page never names it. That sentence excepts "
+                "only the SDKs the page names, so either name this one and say what it "
+                "receives, or drop the claim."
+            )
+    if not failures:
+        ok(
+            f"R8 {len(claims)} absence claim(s) over {sorted(denied)}; "
+            f"{len(installed)} installed SDK(s) of those classes, all named on the page"
+        )
+    return failures
+
 
 ICLOUD_DISCLOSURE = re.compile(r"icloud", re.I)
 
@@ -1087,6 +1457,9 @@ def check_app(entry: dict, use_local: bool, verbose: bool) -> list[str]:
 
     # --- R7 measured backup behaviour -------------------------------------
     failures.extend(check_measured_backup(entry, live_unquoted, live, ok))
+
+    # --- R8 denied class of SDK vs what the app installs -------------------
+    failures.extend(check_absence_claims(entry, live_unquoted, live, ok))
 
     return failures
 
