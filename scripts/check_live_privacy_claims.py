@@ -40,6 +40,14 @@ actually bit, which is a falsifiable negative claim:
   R7 MEASURED-BACKUP     the page's backup claim disagrees with what was MEASURED on a
                          running build -- or no such measurement exists and the page
                          makes the claim anyway.
+  R8 SOURCE-SILENT       (opt-in per entry, added 2026-10-22) a measured store is in the
+                         device backup and the APP'S OWN text, the repo source, never says so.
+  R9 NO-COVERAGE         (added 2026-10-22) an app that is live in the App Store has a
+                         Privacy Policy URL with no entry in MANIFEST. Every other rule judges
+                         pages that are present; this is the only one that can fail on a page
+                         that is missing. Subject: LIVE_APPS. Until it existed, FlirtGym and
+                         FlipStage were simply not looked at and the run still printed a
+                         page-by-page PASS for everything that was.
 
 Why R7 had to be added (2026-10-14, third pass)
 -----------------------------------------------
@@ -295,6 +303,87 @@ MANIFEST = [
         "repo": f"{HOME}/rsuvest",
         "sources": ["docs/privacy-policy.md", "src/app/privacy.tsx"],
     },
+    # --- FlirtGym ----------------------------------------------------------
+    # Added 2026-10-22. The App Store listing's Privacy Policy URL for FlirtGym (app
+    # 6784050951) is /rizzmaxx/privacy/ -- the repo and the page kept the pre-rename name --
+    # and until today NO entry here pointed at it, so a live, earning app was not watched
+    # at all. FlirtGym transmits to a backend (AI features) and ships the Meta SDK, so its
+    # page rightly makes no "nothing leaves your device" claim; R7 therefore reports
+    # "no falsifiable backup claim" and R1-R3 do the work. There is NO MEASURED row: if
+    # this page ever grows such a claim, R7 UNMEASURED-CLAIM will say so rather than pass.
+    {
+        "app": "flirtgym",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/rizzmaxx/privacy/",
+        "local": "rizzmaxx/privacy/index.html",
+        "repo": f"{HOME}/RizzMaxx",
+        "sources": ["docs/privacy-policy.md"],
+    },
+    # --- FlipStage ---------------------------------------------------------
+    # Added 2026-10-22. FlipStage 1.0 (live) keeps nothing in Documents, so "nothing you
+    # type or import leaves the device" was TRUE of it. 1.0.1 writes the deck to
+    # Documents/flipstage-deck.json and copies picked photos into Documents/photos, which
+    # iOS includes in iCloud Backup, and expo-file-system 57 gives JavaScript no way to
+    # exclude them (lib/photoStore.ts:35 on work/flipstage-release-2026-10-22). So a
+    # DURABILITY fix falsified a PRIVACY claim, in the same release that made the app
+    # better. Three published pages carried or sat beside that claim and are listed
+    # separately because the 2026-10-14 lesson is that a check cannot fail on a page it
+    # cannot see: the home page (where the false sentences actually were), the privacy
+    # policy, and the support page.
+    {
+        "app": "flipstage",
+        "page": "home",
+        "url": "https://bakerventuresstudio.com/flipstage/",
+        "local": "flipstage/index.html",
+        "repo": f"{HOME}/FlipStage",
+        "sources": ["components/PrivacyScreen.tsx"],
+    },
+    {
+        "app": "flipstage",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/flipstage/privacy/",
+        "local": "flipstage/privacy/index.html",
+        "repo": f"{HOME}/FlipStage",
+        "sources": ["components/PrivacyScreen.tsx"],
+        # R8: the in-app policy is itself a published surface (Apple 5.1.1(i)) and the repo
+        # side of every other rule here. Once a measured in-backup store exists, the app's
+        # own text must say so too, or "the page is ahead of the app" reads as agreement.
+        "source_must_disclose_backup": True,
+    },
+    {
+        "app": "flipstage",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/flipstage/support/",
+        "local": "flipstage/support/index.html",
+        "repo": f"{HOME}/FlipStage",
+        "sources": ["components/PrivacyScreen.tsx"],
+    },
+]
+
+
+# ---------------------------------------------------------------------------
+# LIVE_APPS: the subject of the COVERAGE rule (R9). Added 2026-10-22.
+#
+# Every rule above answers "does this page agree with its source?" for pages that are IN
+# the manifest. None of them can notice a page that is not. FlirtGym and FlipStage had no
+# entry, the checker printed PASS for everything it did look at, and "all clear" meant
+# "all clear for the apps someone remembered to list" -- the exact silence-as-safety
+# failure ~/PRE-SUBMISSION-PROCESS.md names: a gate with a missing subject is NOT CHECKED,
+# not PASS. This table is the declared subject: the apps READY_FOR_SALE in App Store
+# Connect and the Privacy Policy URL each one's listing points at, read with GET against
+# the ASC API on 2026-10-22. R9 fails if any URL here has no manifest entry.
+#
+# LIMIT, stated: this is hand-maintained, so an app that goes live and is added to neither
+# table is still invisible. It converts "nobody remembered" into "somebody has to forget
+# in two places", which is better and not the same as solved. Re-read ASC when a sixth app
+# ships.
+# ---------------------------------------------------------------------------
+LIVE_APPS = [
+    ("FlirtGym", "6784050951", "https://bakerventuresstudio.com/rizzmaxx/privacy/"),
+    ("Vocabdrift", "6816214136", "https://bakerventuresstudio.com/vocabdrift/privacy/"),
+    ("MoveWitness", "6816228166", "https://bakerventuresstudio.com/rentcheck/privacy/"),
+    ("FlipStage", "6816274152", "https://bakerventuresstudio.com/flipstage/privacy/"),
+    ("Hatch Window", "6816322811", "https://bakerventuresstudio.com/hatchwindow/privacy/"),
 ]
 
 
@@ -473,6 +562,48 @@ MEASURED = {
             },
         ],
     },
+    "flipstage": {
+        # READ, NOT MEASURED -- stated up front because this table is otherwise all
+        # observations. No FlipStage container exists on any simulator on this machine
+        # (checked 2026-10-22; disk at 98% so none could be created), so the xattr was
+        # never read off a running 1.0.1 build. What is established is source, and it is
+        # unambiguous: lib/photoStore.ts:35 says Documents is in the iCloud backup and
+        # lines 53-55 say expo-file-system 57 exposes no NSURLIsExcludedFromBackupKey
+        # equivalent, so JavaScript cannot opt out; a grep of the repo and of both
+        # unmerged release branches finds no native code that sets the flag.
+        # Version-dependent: the first two stores exist from 1.0.1 and 1.0.1 is NOT in the
+        # App Store (ASC shows only 1.0 build 1 READY_FOR_SALE, 2026-10-22). The pages are
+        # written to be read by users on both builds at once, so they are held to the
+        # stricter of the two.
+        "provenance": "READ, not measured: lib/photoStore.ts:35 and :53-55 on "
+        "work/flipstage-release-2026-10-22 (4bc0f39), 2026-10-22. No 1.0.1 container "
+        "exists to xattr. Applies from 1.0.1; the live 1.0 build keeps no deck in Documents",
+        "stores": [
+            {
+                "path": "Documents/flipstage-deck.json (1.0.1+)",
+                "holds": "the slide order and the speaker notes you typed",
+                "in_device_backup": True,
+                "holds_user_content": True,
+                "evidence": "READ: Documents is in the iCloud backup (photoStore.ts:35); "
+                "no exclusion reachable from JS (photoStore.ts:53-55). Not xattr-measured",
+            },
+            {
+                "path": "Documents/photos/ (1.0.1+)",
+                "holds": "a JPEG copy of each photo you imported as a slide",
+                "in_device_backup": True,
+                "holds_user_content": True,
+                "evidence": "READ: same basis as the deck file. Not xattr-measured",
+            },
+            {
+                "path": "Library/Caches/ImagePicker/ (1.0 only)",
+                "holds": "the picker's copy of an imported photo",
+                "in_device_backup": False,
+                "holds_user_content": True,
+                "evidence": "READ: Library/Caches is not part of an iOS device backup "
+                "(Apple's documented behaviour). Not xattr-measured",
+            },
+        ],
+    },
     # miletruth and policyready: deliberately absent until measured. R7 reports
     # UNMEASURED rather than inventing a verdict in either direction.
 }
@@ -498,6 +629,11 @@ CLAIM_PATTERNS = [
     r"doesn.t transmit anything",
     r"does not send your data anywhere",
     r"doesn.t send your data anywhere",
+    # Added 2026-10-22. FlipStage's listing and home page said "Nothing you type or import
+    # leaves the device", which none of the patterns above match because of the words
+    # between "nothing" and "leaves". It was the exact sentence a durability fix falsified.
+    # A rule whose vocabulary is narrower than the copy it polices cannot fail.
+    r"nothing you [a-z ,]{0,40}leaves (your|the|this) device",
     r"there is no cloud copy",
     r"no cloud copy",
     r"not in your icloud backup",
@@ -663,6 +799,7 @@ MONTHS = (
 # and reporting that as a finding is noise -- and a noisy check gets switched off, which
 # is how a check stops catching anything.
 LAST_UPDATED_TOKEN = re.compile(r"last[_ ]updated", re.I)
+UNPUBLISHED_DRAFT = re.compile(r"last[_ ]updated\W{0,8}\[?\s*set on publish", re.I)
 
 DATE_PATTERNS = [
     # Last updated: October 14, 2026
@@ -1051,6 +1188,21 @@ def check_app(entry: dict, use_local: bool, verbose: bool) -> list[str]:
             )
         else:
             ok(f"R3 date page={live_date} source={src_date}")
+    elif live_date and not src_date and UNPUBLISHED_DRAFT.search(src):
+        # Added 2026-10-22, found on FlirtGym. The source's "Last updated" is a literal
+        # placeholder ("[SET ON PUBLISH ...]"): the file is a DRAFT of a policy change that
+        # has not shipped, not a description of the shipping app. Reporting that as an
+        # unparseable date sent the reader looking for a regex bug. It is a different and
+        # larger fact: the repo and the page legitimately differ, on purpose, and
+        # publishing the draft would change what the page says about data retention.
+        failures.append(
+            f"R3 UNPUBLISHED-DRAFT: the page says Last updated {live_date}, but "
+            f"{', '.join(read)} in {entry['repo']} carries a placeholder date "
+            "(\"SET ON PUBLISH\"), i.e. it is a pending draft and not the source of the "
+            "page. Every comparison here is against a document that does not yet describe "
+            "the shipping app. Decide: publish the draft (a material change), or point "
+            "`sources` at a file that matches what is live."
+        )
     elif live_date and not src_date and LAST_UPDATED_TOKEN.search(src):
         # Not a pass. The source side could not be read, so R3 did not run -- and until
         # 2026-10-14 that printed nothing and counted nothing, which is how a page ten
@@ -1085,6 +1237,30 @@ def check_app(entry: dict, use_local: bool, verbose: bool) -> list[str]:
                 "that sets the native flag."
             )
 
+    # --- R8 the repo side must disclose the backup too (opt-in per entry) ---
+    # R2 asks "the repo discloses iCloud, does the page?". This is the other direction:
+    # the page discloses it (or a measured store is in the backup) and the APP'S OWN TEXT
+    # is silent. For FlipStage that is the in-app policy Apple 5.1.1(i) requires, and it is
+    # the one surface a user reads without a network. Opt-in, because for most entries the
+    # source is a markdown file whose silence is already R2's business.
+    if entry.get("source_must_disclose_backup"):
+        record = MEASURED.get(app)
+        bearing = [
+            st
+            for st in (record or {}).get("stores", [])
+            if st["in_device_backup"] and st.get("holds_user_content", True)
+        ]
+        if bearing and not BACKUP_MENTION.search(src_unquoted):
+            failures.append(
+                "R8 SOURCE-UNDISCLOSED-BACKUP: "
+                + "; ".join(f"{st['path']} ({st['holds']})" for st in bearing)
+                + f" is in the user's device backup, and {', '.join(read)} in "
+                f"{entry['repo']} -- the app's own text -- never mentions a backup or "
+                f"iCloud. Measured: {record['provenance']}"
+            )
+        elif bearing:
+            ok("R8 the app's own text mentions the backup")
+
     # --- R7 measured backup behaviour -------------------------------------
     failures.extend(check_measured_backup(entry, live_unquoted, live, ok))
 
@@ -1097,7 +1273,25 @@ def excerpt(text: str, match: re.Match, width: int = 60) -> str:
     return text[start:end].strip()
 
 
+def check_coverage(entries: list[dict]) -> list[str]:
+    """R9: every LIVE app's listed Privacy Policy URL must have a manifest entry.
+
+    This is the rule the other eight cannot be: they judge pages that are present, so a
+    missing page produces no output at all and a PASS summary. A missing subject is NOT
+    CHECKED and blocks, per ~/PRE-SUBMISSION-PROCESS.md.
+    """
+    covered = {e["url"] for e in entries}
+    return [
+        f"R9 NO-COVERAGE: {name} (ASC {app_id}) is live and its listing's Privacy Policy "
+        f"URL {url} has no entry in MANIFEST, so this check has never looked at it. "
+        "NOT CHECKED is blocking, not a pass."
+        for name, app_id, url in LIVE_APPS
+        if url not in covered
+    ]
+
+
 def main() -> int:
+    global SITE_ROOT
     ap = argparse.ArgumentParser(
         description="Check published privacy pages against their repo sources."
     )
@@ -1107,6 +1301,19 @@ def main() -> int:
         help="read the local working tree instead of fetching (pre-deploy dry run)",
     )
     ap.add_argument(
+        "--site-root",
+        help="with --local: read pages from this directory instead of this script's "
+        "own checkout (used to run the check against an older or draft copy of the site)",
+    )
+    ap.add_argument(
+        "--repo-override",
+        action="append",
+        default=[],
+        metavar="APP=PATH",
+        help="read APP's source files from PATH instead of its home-directory repo "
+        "(used to test against a branch or a fixture without touching the real checkout)",
+    )
+    ap.add_argument(
         "--app",
         action="append",
         help='limit to these apps or pages, e.g. "hatchwindow" or "hatchwindow/terms"',
@@ -1114,14 +1321,24 @@ def main() -> int:
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args()
 
-    entries = MANIFEST
+    if args.site_root:
+        SITE_ROOT = os.path.abspath(args.site_root)
+
+    overrides = {}
+    for item in args.repo_override:
+        name, sep, path = item.partition("=")
+        if not sep or not os.path.isdir(path):
+            print(f"--repo-override {item!r}: want APP=<existing directory>", file=sys.stderr)
+            return 2
+        overrides[name.lower()] = os.path.abspath(path)
+
+    entries = [dict(e, repo=overrides.get(e["app"], e["repo"])) for e in MANIFEST]
+    full_manifest = entries
     if args.app:
         wanted = {a.lower() for a in args.app}
         # Accept either a whole app ("hatchwindow", all of its pages) or one
         # page of one app ("hatchwindow/terms").
-        entries = [
-            e for e in MANIFEST if e["app"] in wanted or key(e) in wanted
-        ]
+        entries = [e for e in entries if e["app"] in wanted or key(e) in wanted]
         if not entries:
             print(f"no app in the manifest matches {sorted(wanted)}", file=sys.stderr)
             return 2
@@ -1131,19 +1348,41 @@ def main() -> int:
     print(f"{dt.datetime.now().astimezone().isoformat(timespec='seconds')}\n")
 
     total = 0
+    per_page: dict[str, int] = {}
     for entry in entries:
         print(f"  {key(entry)}")
         failures = check_app(entry, args.local, args.verbose)
         if failures:
             total += len(failures)
+            per_page[key(entry)] = len(failures)
             for f in failures:
                 print(f"    FAIL {f}")
         else:
             print("    PASS")
         print()
 
+    # Coverage is judged against the WHOLE manifest, not the --app slice: asking for one
+    # app must not make the other four look uncovered, nor make a gap look like a pass.
+    if args.app:
+        print("  coverage (live apps vs manifest): NOT EVALUATED under --app -- run without it")
+        print()
+    if not args.app:
+        print("  coverage (live apps vs manifest)")
+        gaps = check_coverage(full_manifest)
+        if gaps:
+            total += len(gaps)
+            for g in gaps:
+                per_page["coverage"] = per_page.get("coverage", 0) + 1
+                print(f"    FAIL {g}")
+        else:
+            print(f"    PASS all {len(LIVE_APPS)} live apps have a privacy-page entry")
+        print()
+
     if total:
         print(f"FAIL: {total} disagreement(s) between published pages and repo sources.")
+        # Without this a standing red hides a NEW red: the exit code is 1 either way, and
+        # the only difference is which line grew. Name where every failure sits.
+        print("  by page: " + ", ".join(f"{k} {v}" for k, v in sorted(per_page.items())))
         print(
             "A published page is the artefact a user and a reviewer read. "
             "Fix the page, deploy it, then re-run this against the live URL."
