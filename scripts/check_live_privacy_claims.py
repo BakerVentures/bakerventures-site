@@ -379,6 +379,456 @@ MANIFEST = [
         "repo": f"{HOME}/RizzMaxx",
         "sources": ["docs/terms-of-use.md"],
     },
+    # =======================================================================
+    # The unwatched-page sweep (2026-10-21)
+    # =======================================================================
+    # Until today this manifest held 17 entries while the site published 70
+    # privacy/terms/support/delete-account directories, every one of them
+    # HTTP 200. 53 were unowned. R4 NO-SOURCE exists because "an unowned
+    # published page is exactly how this happened", and the rule could not be
+    # applied to a page the manifest had never heard of -- the same blindspot
+    # that hid FlirtGym, one scale up.
+    #
+    # All 53 were enumerated and triaged. 33 are added below. The other 20 are
+    # deliberately NOT added, and which is which is the judgement this block
+    # records, because an empty `sources` or a guessed repo would make this
+    # check noisy, and a noisy check gets switched off.
+    #
+    # NOT ADDED -- 18 dead slugs. Each is a ~1.3KB stub whose entire body is a
+    # "This page moved" paragraph and a `location.replace(...)` to the current
+    # slug. They carry no claim of any kind, so there is nothing for R1-R8 to
+    # compare and listing them would add 18 permanent R4/R3 findings about
+    # pages that are correct. The renames behind them:
+    #
+    #     /cyberclose/{privacy,terms,support}/   -> /policyready/...   (repo cyberclose)
+    #     /denialfighter/{privacy,terms,support}/-> /denialdesk/...    (repo denialfighter)
+    #     /flyfish/{privacy,terms,support}/      -> /hatchwindow/...   (repo flyfish)
+    #     /iolta/{privacy,terms,support}/        -> /ioltalign/...     (repo iolta-recon)
+    #     /lienclock/{privacy,terms,support}/    -> /noticeguard/...   (repo lienclock)
+    #     /quietlog/{privacy,terms,support}/     -> /steadychart/...   (repo symptom-tracker)
+    #
+    # Note the trap in that table: the repo DIRECTORY name and the dead slug
+    # are the same word for five of the six. `~/lienclock` is the live repo
+    # behind the live /noticeguard/ pages, and /lienclock/ is the dead slug.
+    # The canonical page is always the product-named one; the repo keeps the
+    # old name. Do not wire the slug that matches the repo directory.
+    #
+    # NOT ADDED -- 2 orphans. /riderdeck/privacy/ and /riderdeck/support/ are
+    # live (HTTP 200) and have NO owning repo on this machine:
+    # ~/ship-standard/projects/riderdeck/overview.md names `~/riderdeck` and
+    # that directory does not exist, nor does any clone of it, nor a GitHub
+    # remote (its launch tracker records that creating one was refused and
+    # queued for Ryan). So there is no repo source to compare against and
+    # inventing one would be worse than the gap. RiderDeck also has no App
+    # Store Connect record, so these are not a listing URL -- but they are
+    # published legal pages for a product, with no owner, and that is a finding
+    # in its own right rather than something this manifest can fix. Add them
+    # the day `~/riderdeck` lands.
+    #
+    # One page outside the 52 that earlier passes counted:
+    # /flirtgym/delete-account/ is added. It is not named privacy or terms, but
+    # it is the page that tells a user what is deleted, what is kept and for
+    # how long, and it is the 5.1.1(v) account-deletion route a reviewer
+    # follows. That is the same class of falsifiable claim about data, so it is
+    # watched like one.
+    #
+    # On `sources` for support pages: the pattern already set by
+    # steadychart/support and miletruth/support is followed -- where the repo
+    # has no support/FAQ document, the source is the repo's privacy document
+    # plus the app's own screens, because those are the repo's position on what
+    # it tells a user about their data. Nothing here is hard-coded content.
+    #
+    # What switching them on found, measured 2026-10-21 against the live URLs:
+    # the 17 pre-existing entries produced byte-identical findings before and
+    # after (11 failures, the same 11, same wording), so nothing below is a
+    # false positive aimed at a page that was already being watched. Of the 33
+    # added, 17 pass and 16 fail, for 20 new findings. They are not new
+    # breakage; they are the same defect that opened this file, in the pages
+    # nobody was comparing:
+    #
+    #   * The worst two are /miletruth/privacy/ and /miletruth/terms/. The
+    #     repo's own Settings screen says, in these words, "`xattr
+    #     Documents/SQLite` returned ZERO attributes, so the database IS in
+    #     iCloud Backup", and warns the user about it. Both published pages
+    #     mention iCloud zero times. An out-of-band read of /miletruth/privacy/
+    #     earlier the same day found no defect, and was right about the
+    #     question it asked -- the page does name PostHog and Sentry and makes
+    #     no absence claim, so R8 is clean there. R2 is not, and only a page in
+    #     this manifest gets asked.
+    #   * /noticeguard/support/, /denialdesk/terms/ and /rsuvest/support/ draw
+    #     R7 UNDISCLOSED-BACKUP against a measured binary: a SQLite file
+    #     holding user content is in the device backup and the page never
+    #     mentions a backup at all.
+    #   * Nine R3 STALE-DATE findings, plus six R2 MISSING-DISCLOSURE. /flipstage/privacy/ and
+    #     /flipstage/support/ are the sharpest: components/PrivacyScreen.tsx
+    #     was committed with `LAST_UPDATED = 'October 21, 2026'` the same day
+    #     this sweep ran, and both published pages still say September 25.
+    #     That is the in-app screen fixed and the published page left behind,
+    #     which is the exact 2026-10-14 defect, caught the day it happened
+    #     rather than five weeks later.
+    # -----------------------------------------------------------------------
+
+    # --- DenialDesk: the two pages the first pass left behind ---------------
+    {
+        "app": "denialdesk",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/denialdesk/terms/",
+        "local": "denialdesk/terms/index.html",
+        "repo": f"{HOME}/denialfighter",
+        "sources": ["docs/terms.md", "src/app/terms.tsx"],
+    },
+    {
+        "app": "denialdesk",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/denialdesk/support/",
+        "local": "denialdesk/support/index.html",
+        "repo": f"{HOME}/denialfighter",
+        "sources": ["docs/privacy-policy.md", "src/app/privacy.tsx"],
+    },
+    # --- FlipStage ----------------------------------------------------------
+    # No markdown policy in the repo at all: the in-app PrivacyScreen is the
+    # only place the repo states its position, so it is the source for both
+    # pages. Same shape as vocabdrift/privacy.
+    {
+        "app": "flipstage",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/flipstage/privacy/",
+        "local": "flipstage/privacy/index.html",
+        "repo": f"{HOME}/FlipStage",
+        "sources": ["components/PrivacyScreen.tsx"],
+    },
+    {
+        "app": "flipstage",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/flipstage/support/",
+        "local": "flipstage/support/index.html",
+        "repo": f"{HOME}/FlipStage",
+        "sources": ["components/PrivacyScreen.tsx"],
+    },
+    # --- FlirtGym: the two pages under the /flirtgym/ slug ------------------
+    # The legal pages live under /rizzmaxx/ (above); these two live under
+    # /flirtgym/. Both slugs are live and neither is a stub, which is why the
+    # slug cannot be guessed from the app name in either direction.
+    {
+        "app": "flirtgym",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/flirtgym/support/",
+        "local": "flirtgym/support/index.html",
+        "repo": f"{HOME}/RizzMaxx",
+        "sources": ["docs/privacy-policy.md", "src/app/settings.tsx"],
+    },
+    {
+        "app": "flirtgym",
+        "page": "delete-account",
+        "url": "https://bakerventuresstudio.com/flirtgym/delete-account/",
+        "local": "flirtgym/delete-account/index.html",
+        "repo": f"{HOME}/RizzMaxx",
+        "sources": ["src/app/delete-account.tsx", "src/lib/deleteAccount.ts"],
+    },
+    # --- Foldbook -----------------------------------------------------------
+    {
+        "app": "foldbook",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/foldbook/privacy/",
+        "local": "foldbook/privacy/index.html",
+        "repo": f"{HOME}/Foldbook",
+        "sources": ["components/PrivacyScreen.tsx"],
+    },
+    {
+        "app": "foldbook",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/foldbook/support/",
+        "local": "foldbook/support/index.html",
+        "repo": f"{HOME}/Foldbook",
+        "sources": ["components/PrivacyScreen.tsx"],
+    },
+    # --- Hatch Window -------------------------------------------------------
+    {
+        "app": "hatchwindow",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/hatchwindow/support/",
+        "local": "hatchwindow/support/index.html",
+        "repo": f"{HOME}/flyfish",
+        "sources": ["src/app/privacy.tsx", "src/app/settings.tsx"],
+    },
+    # --- HormoneLog ---------------------------------------------------------
+    {
+        "app": "hormonelog",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/hormonelog/terms/",
+        "local": "hormonelog/terms/index.html",
+        "repo": f"{HOME}/hormonelog",
+        "sources": ["apps/web/src/app/terms/page.tsx"],
+    },
+    # --- IOLTAlign ----------------------------------------------------------
+    # Repo directory is `iolta-recon`, the published slug is /ioltalign/, and
+    # the dead slug is /iolta/. Renamed 2026-09-25
+    # (~/ship-standard/projects/_RENAME-IOLTA-TO-IOLTALIGN-2026-09-25.md).
+    {
+        "app": "ioltalign",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/ioltalign/privacy/",
+        "local": "ioltalign/privacy/index.html",
+        "repo": f"{HOME}/iolta-recon",
+        "sources": ["docs/privacy-policy.md", "app/privacy.tsx"],
+    },
+    {
+        "app": "ioltalign",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/ioltalign/terms/",
+        "local": "ioltalign/terms/index.html",
+        "repo": f"{HOME}/iolta-recon",
+        "sources": ["docs/terms.md", "app/terms.tsx"],
+    },
+    {
+        "app": "ioltalign",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/ioltalign/support/",
+        "local": "ioltalign/support/index.html",
+        "repo": f"{HOME}/iolta-recon",
+        "sources": ["docs/privacy-policy.md", "app/settings.tsx"],
+    },
+    # --- MileTruth: the two pages this sweep was opened for ------------------
+    # MileTruth is the only app besides FlirtGym that ships both posthog-react-native
+    # (^4.67.3) and @sentry/react-native (^8.25.0), both in apps/mobile/package.json,
+    # and its privacy and terms pages were unwatched while its support page was
+    # watched. An out-of-band read found no live defect -- the page names both
+    # SDKs and makes no absence claim -- but nothing would have caught it drifting,
+    # and R8's whole purpose is to notice when a page stops naming an SDK the app
+    # still ships.
+    #
+    # `sources` deliberately repeats miletruth/support's. There is no
+    # docs/privacy-policy.md and no docs/terms.md anywhere in ~/miletruth
+    # (apps/web is a README and nothing else), so the published page IS the
+    # policy, exactly as with MoveWitness above. The repo's position on where
+    # data lives is in the app's own Settings screen and in the store-listing
+    # metadata, so those are the source. That the repo has no written policy
+    # for two live legal pages is worth fixing in ~/miletruth; it is not
+    # something this manifest should paper over by pointing at a file that
+    # does not exist.
+    {
+        "app": "miletruth",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/miletruth/privacy/",
+        "local": "miletruth/privacy/index.html",
+        "repo": f"{HOME}/miletruth",
+        "sources": [
+            "apps/mobile/src/app/(tabs)/settings/index.tsx",
+            "apps/mobile/shipcheck.metadata.md",
+        ],
+    },
+    {
+        "app": "miletruth",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/miletruth/terms/",
+        "local": "miletruth/terms/index.html",
+        "repo": f"{HOME}/miletruth",
+        "sources": [
+            "apps/mobile/src/app/(tabs)/settings/index.tsx",
+            "apps/mobile/shipcheck.metadata.md",
+        ],
+    },
+    # --- Nearvo -------------------------------------------------------------
+    # Read this before trusting these three entries. Nearvo's App Store Connect
+    # Privacy Policy and Terms URL fields point at nearvo.net/privacy.html and
+    # nearvo.net/terms.html, NOT at these pages
+    # (~/relationship-app/NEARVO_CLAUDE_CODE_EXECUTION_SPEC.md lines 221-222,
+    # 375-376; shipcheck.metadata.md 191-192), and the repo's own
+    # site/privacy.html declares rel=canonical to nearvo.net. So these three
+    # URLs are a SECOND published copy of a policy whose canonical home is a
+    # different domain.
+    #
+    # They are watched anyway, for the reason this whole file exists: they are
+    # live, they are reachable, and a user who lands on them reads them. Two
+    # copies of one policy on two domains is a drift risk the canonical copy
+    # cannot detect on its own. `sources` is the repo's site/*.html -- the
+    # source of the canonical page -- so a finding here means the
+    # bakerventuresstudio.com copy has fallen behind nearvo.net, which is
+    # precisely the question worth asking.
+    #
+    # The repo is ~/relationship-app (origin BakerVentures/Nearvo.git). There is
+    # no ~/nearvo: the five ~/nearvo-* directories are per-branch clones, and
+    # ~/Desktop/relationship-app is a second clone at the same commit. If this
+    # entry starts reporting a missing repo, that is which directory moved.
+    {
+        "app": "nearvo",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/nearvo/privacy/",
+        "local": "nearvo/privacy/index.html",
+        "repo": f"{HOME}/relationship-app",
+        "sources": ["site/privacy.html"],
+    },
+    {
+        "app": "nearvo",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/nearvo/terms/",
+        "local": "nearvo/terms/index.html",
+        "repo": f"{HOME}/relationship-app",
+        "sources": ["site/terms.html"],
+    },
+    {
+        "app": "nearvo",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/nearvo/support/",
+        "local": "nearvo/support/index.html",
+        "repo": f"{HOME}/relationship-app",
+        "sources": ["site/support.html"],
+    },
+    # --- NoticeGuard --------------------------------------------------------
+    {
+        "app": "noticeguard",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/noticeguard/terms/",
+        "local": "noticeguard/terms/index.html",
+        "repo": f"{HOME}/lienclock",
+        "sources": ["docs/terms.md", "src/app/terms.tsx"],
+    },
+    {
+        "app": "noticeguard",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/noticeguard/support/",
+        "local": "noticeguard/support/index.html",
+        "repo": f"{HOME}/lienclock",
+        "sources": ["docs/privacy-policy.md", "src/app/privacy.tsx"],
+    },
+    # --- PolicyReady --------------------------------------------------------
+    {
+        "app": "policyready",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/policyready/terms/",
+        "local": "policyready/terms/index.html",
+        "repo": f"{HOME}/cyberclose",
+        "sources": ["docs/terms.md", "src/app/terms.tsx"],
+    },
+    {
+        "app": "policyready",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/policyready/support/",
+        "local": "policyready/support/index.html",
+        "repo": f"{HOME}/cyberclose",
+        "sources": ["docs/privacy-policy.md", "src/app/privacy.tsx"],
+    },
+    # --- MoveWitness: the rest of the /rentcheck/ slug ----------------------
+    # Slug is /rentcheck/, repo is ~/movewitness, product is MoveWitness. As
+    # with the privacy entry above there is no docs/privacy-policy.md, so the
+    # Terms and the App Privacy determination carry the repo's position.
+    {
+        "app": "movewitness",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/rentcheck/terms/",
+        "local": "rentcheck/terms/index.html",
+        "repo": f"{HOME}/movewitness",
+        "sources": ["docs/terms.md", "src/app/terms.tsx"],
+    },
+    {
+        "app": "movewitness",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/rentcheck/support/",
+        "local": "rentcheck/support/index.html",
+        "repo": f"{HOME}/movewitness",
+        "sources": ["docs/terms.md", "docs/app-privacy-determination.md"],
+    },
+    # --- Rigsheet -----------------------------------------------------------
+    # Keeps its published copy as a Next.js app under apps/web, like HormoneLog.
+    {
+        "app": "rigsheet",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/rigsheet/privacy/",
+        "local": "rigsheet/privacy/index.html",
+        "repo": f"{HOME}/rigsheet",
+        "sources": ["apps/web/app/privacy/page.tsx"],
+    },
+    {
+        "app": "rigsheet",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/rigsheet/terms/",
+        "local": "rigsheet/terms/index.html",
+        "repo": f"{HOME}/rigsheet",
+        "sources": ["apps/web/app/terms/page.tsx"],
+    },
+    {
+        "app": "rigsheet",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/rigsheet/support/",
+        "local": "rigsheet/support/index.html",
+        "repo": f"{HOME}/rigsheet",
+        "sources": ["apps/web/app/support/page.tsx", "apps/web/app/faq/page.tsx"],
+    },
+    # --- RSUvest ------------------------------------------------------------
+    {
+        "app": "rsuvest",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/rsuvest/terms/",
+        "local": "rsuvest/terms/index.html",
+        "repo": f"{HOME}/rsuvest",
+        "sources": ["docs/terms.md", "src/app/terms.tsx"],
+    },
+    {
+        "app": "rsuvest",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/rsuvest/support/",
+        "local": "rsuvest/support/index.html",
+        "repo": f"{HOME}/rsuvest",
+        "sources": ["docs/privacy-policy.md", "src/app/settings.tsx"],
+    },
+    # --- ShipCheck ----------------------------------------------------------
+    # The only published privacy page in this manifest that belongs to a tool
+    # rather than a store app. It is live, so it is watched.
+    #
+    # KNOWN STANDING FINDING, and listed rather than hidden. This page carries
+    # the most sweeping absence claim in the portfolio -- "no analytics (no
+    # PostHog, Google Analytics, Plausible, or anything else), no error
+    # tracking (no Sentry), no advertising or attribution SDKs, no data
+    # brokers, no session recording" -- and R8 reports UNKNOWN-DEPENDENCIES on
+    # it, because ~/shipcheck has no package.json in any directory R8 reads.
+    # It is a CLI and a GitHub Action (bin/shipcheck, commands/*.md); its only
+    # `dependencies` block is ~/shipcheck/server/package.json, and R8 reads the
+    # repo root plus one level under apps/, packages/ and src/ only.
+    #
+    # Deliberately NOT fixed by widening _PKG_SEARCH_DIRS. R8 was written to
+    # read a React Native app's installed SDKs, and this claim is about a
+    # hosted service, so a widened search would make the rule answer a
+    # question it was not built for and would quietly change what it reads for
+    # the other 49 entries. The honest outcome is the one R8 already gives:
+    # say out loud that the strongest claim on the site cannot be checked.
+    # Clearing it means either giving ~/shipcheck a root `dependencies` block
+    # that reflects what the service installs, or giving R8 a server-side
+    # subject list of its own. Both are Ryan's call, not this file's.
+    {
+        "app": "shipcheck",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/shipcheck/privacy/",
+        "local": "shipcheck/privacy/index.html",
+        "repo": f"{HOME}/shipcheck",
+        "sources": ["docs/privacy-policy.md"],
+    },
+    # --- TentClock ----------------------------------------------------------
+    # No markdown policy; app/privacy.tsx is the repo's only statement.
+    {
+        "app": "tentclock",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/tentclock/privacy/",
+        "local": "tentclock/privacy/index.html",
+        "repo": f"{HOME}/TentClock",
+        "sources": ["app/privacy.tsx"],
+    },
+    {
+        "app": "tentclock",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/tentclock/support/",
+        "local": "tentclock/support/index.html",
+        "repo": f"{HOME}/TentClock",
+        "sources": ["app/privacy.tsx"],
+    },
+    # --- Vocabdrift ---------------------------------------------------------
+    {
+        "app": "vocabdrift",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/vocabdrift/support/",
+        "local": "vocabdrift/support/index.html",
+        "repo": f"{HOME}/lockscreen-learn",
+        "sources": ["src/screens/PrivacyScreen.tsx", "src/screens/SettingsScreen.tsx"],
+    },
 ]
 
 
