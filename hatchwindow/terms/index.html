@@ -66,7 +66,7 @@
   <h2>Where the live numbers come from</h2>
   <p>The app fetches two public feeds directly, over HTTPS, sending only the site number or coordinates needed to answer the request:</p>
   <ul>
-    <li><strong>USGS Water Services</strong> — streamflow and gauge height. As the app states: <em>"Streamflow and gauge height data: USGS Water Services (waterservices.usgs.gov), provisional and subject to revision."</em> Provisional means exactly that: the USGS may revise or withdraw these values, and they may be wrong, stale, or missing.</li>
+    <li><strong>U.S. Geological Survey</strong> — streamflow and gauge height, from the USGS public water data service. The app prints a USGS attribution next to these numbers which names the service the reading came from and states that the data is provisional and subject to revision. Provisional means exactly that: the USGS may revise or withdraw these values, and they may be wrong, stale, or missing. USGS is retiring its older water-services host, so which USGS endpoint a given app version calls may differ; the data, the agency and the provisional caveat do not.</li>
     <li><strong>Open-Meteo</strong> — current weather. <em>"Weather data: Open-Meteo.com (CC BY 4.0)"</em>, used under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a> licence.</li>
   </ul>
   <p>We don't control either service, don't warrant its data, and can't promise it will be available. When a feed is down, stale, or returns nothing, the app says so rather than inventing a number — but an honestly-reported gap is still a gap, and the absence of data is not a statement about the river.</p>

@@ -50,7 +50,7 @@
   <h2>3. Network requests this app makes</h2>
   <p>To show current conditions, the app requests public, non-personal data directly from two free government/public services over HTTPS:</p>
   <ul>
-    <li><strong>USGS Water Services</strong> (waterservices.usgs.gov) &mdash; streamflow and gauge height for a river site number.</li>
+    <li><strong>U.S. Geological Survey</strong> (usgs.gov) &mdash; streamflow and gauge height for a river site number, from the USGS public water data service. USGS is retiring its older water-services host and moving to a replacement, so which USGS endpoint this app calls depends on the app version you are running &mdash; but the recipient, the request, and the single river site number sent are identical either way.</li>
     <li><strong>Open-Meteo</strong> (open-meteo.com) &mdash; current weather for a latitude/longitude.</li>
   </ul>
   <p>These requests send only the river site number or coordinates needed to answer the request &mdash; never your name, device identifier, location history, or any other personal information. We don&rsquo;t control what each service&rsquo;s own infrastructure logs (for example, your IP address, as with any web request); neither service receives anything from us to associate that with an identity.</p>
