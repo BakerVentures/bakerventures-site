@@ -10,3 +10,7 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# Signing keys: App Store Connect .p8 keys must never be committed (hygiene D19, 2026-10-22)
+*.p8
+AuthKey_*
