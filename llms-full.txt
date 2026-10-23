@@ -77,7 +77,7 @@ That is relevant context rather than modesty. It tells you what to expect from s
 | [**shipcheck**](https://shipcheck.bakerventuresstudio.com) | App Store and Play pre-submission checks for React Native and Expo, running inside Claude Code | **Shipping** |
 | [**FlirtGym**](https://flirtgym.app) | Dating conversation practice for iPhone, formerly RizzMaxx | **Live since 12 Aug 2026** |
 | [**FlipStage**](https://bakerventuresstudio.com/flipstage/) | Two-sided presenting from one iPhone: their slide, your notes | **On the App Store** |
-| [**MoveWitness**](https://bakerventuresstudio.com/rentcheck/) | Room-by-room rental photo record and a dated PDF report | **On the App Store** |
+| [**MoveWitness**](https://bakerventuresstudio.com/movewitness/) | Room-by-room rental photo record and a dated PDF report | **On the App Store** |
 | [**Vocabdrift**](https://bakerventuresstudio.com/vocabdrift/) | A word and its definition on the iPhone Lock Screen | **On the App Store** |
 | [**Hatch Window**](https://bakerventuresstudio.com/hatchwindow/) | Streamflow, solunar windows, hatch chart and a catch log | **On the App Store** |
 | [**MileTruth**](https://miletruth.bakerventuresstudio.com) | A gig mileage log and true net pay after vehicle cost | With Apple for review |
@@ -158,7 +158,7 @@ Updated: 2026-10-14
 **Present from one iPhone with two panes on screen: your speaker notes and a timer on your half, the slide turned around on theirs.** Stand the phone upright between you and one other person. Four sample slides are included, and your own photos import as slides. Free, no account, no network calls. iPhone.
 **Not for:** anyone who already has a second screen or casts to a TV — this is for when you do not. There is no PDF or Keynote import: photos are the only way to add your own content. [FlipStage on the App Store](https://apps.apple.com/app/id6816274152) · [free speaking time calculator](/flipstage/speaking-time/).
 
-### [MoveWitness](https://bakerventuresstudio.com/rentcheck/) — on the App Store
+### [MoveWitness](https://bakerventuresstudio.com/movewitness/) — on the App Store
 **Photograph your rental room by room and export a dated move-in or move-out PDF report.** Each photo shows its own capture date where the file carries one, and an import time where it does not. A finished inspection locks, and the lock is enforced in the database rather than the interface, so the report cannot quietly change months later. Free, no account. iPhone.
 **Not for:** landlords managing a large multi-property portfolio — this is a tenant’s tool. It will not tell you what to photograph: you get room names and a blank notes field, not a checklist of what deposits get withheld over. [MoveWitness on the App Store](https://apps.apple.com/app/id6816228166).
 
