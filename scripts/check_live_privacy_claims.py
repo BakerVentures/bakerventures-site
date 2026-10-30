@@ -48,6 +48,12 @@ actually bit, which is a falsifiable negative claim:
                          that is missing. Subject: LIVE_APPS. Until it existed, FlirtGym and
                          FlipStage were simply not looked at and the run still printed a
                          page-by-page PASS for everything that was.
+  R10 CONTRADICTED-ABSENCE
+                         (added 2026-10-21, renumbered from R8 on merge 2026-10-29 to avoid
+                         colliding with the R8 above, added independently the next day) the
+                         page asserts that a CLASS OF SDK is absent while the app's
+                         package.json installs an SDK of that class that the page never
+                         names.
 
 Why R7 had to be added (2026-10-14, third pass)
 -----------------------------------------------
@@ -77,6 +83,44 @@ the case it cannot answer: Vocabdrift's exclusion comes from a LIBRARY DEFAULT, 
 mechanism exists to find. R7 answers it by reading the xattr off a running build instead.
 
 
+Why R10 had to be added (2026-10-21)
+-----------------------------------
+FlirtGym was absent from the manifest above for the whole of its life: a grep for
+`rizzmaxx|flirtgym` in this file returned zero hits until 2026-10-21. Adding the two
+entries was necessary and was not sufficient -- with them in place and nothing else
+changed, both pages came back with nothing but an unrelated R3, because every rule
+R1-R7 polices ONE claim shape: "your data does not leave this device". That is not the
+shape that was false here.
+
+`/rizzmaxx/privacy/` section 2.5 says:
+
+    The App includes the Meta SDK for advertising attribution ... We use no other
+    advertising or analytics SDKs.
+
+True on 2026-08-01 when the page was last updated. False eleven days later, and still
+false seventy days after that:
+
+    2026-08-12  RizzMaxx a82f037 adds react-native-appsflyer -- a second ad SDK
+    2026-08-24  RizzMaxx 2a9dc4a adds posthog-react-native   -- an analytics SDK
+
+Neither commit touched a privacy document, and neither word appears anywhere on the
+live page. This is the same genus as the 2026-10-14 defect -- a falsifiable negative in
+a legal document -- and a different species: it is falsified not by a measurement off a
+running build but by `npm install`. It also has form. Site commit dae30e7, "privacy:
+disclose Meta ad attribution + ATT/IDFA (build 23); fix 'no ad-tracking SDKs' claim",
+already fixed this exact sentence once. The fix did not outlive the next two SDK
+additions, because nothing held it.
+
+R10 derives its subject list from the app's `package.json` instead of listing expected
+sentences, so installing Sentry or Mixpanel extends the requirement with no edit here.
+SDK_REGISTRY is a watchlist, not a whitelist: an entry is inert until the package is
+actually installed. The same reasoning, and much of the same table, is in
+~/RizzMaxx/src/lib/__tests__/privacySdkDisclosure.test.ts, which guards the REPO docs.
+That test states its own limitation plainly -- it cannot reach the published page -- and
+R10 is the other half: it reads the artefact. Both halves are needed, because on
+2026-10-21 the sentence was false on the live page while the repo doc simply omitted the
+subject, so neither side alone sees the whole defect.
+
 Every page a listing links to, not just the privacy one
 -------------------------------------------------------
 Added 2026-10-14, second pass. The first version of this file checked one URL per app -- the
@@ -94,6 +138,13 @@ backup-exclusion xattr off the container settles that; see
 /Users/ryanbaker/backup-claims-measured-2026-10-14.md for the measurements and
 /Users/ryanbaker/VERIFICATION-LESSON.md for why it has to be the artefact. R6 is the one rule here
 that reaches toward the mechanism, and even it reads the repo's intent rather than the binary.
+
+R10 has the mirror-image limit. It reads `package.json`, which is intent to LINK rather than
+the shipped binary, so it fails a page for a dependency that is installed and never
+initialised, and it cannot see an SDK vendored into ios/ without a package entry. It also
+only knows the SDK classes SDK_REGISTRY names, and it says nothing about whether a
+correctly-named SDK's description of what it receives is accurate. The artefact-level
+question is whether the SDK's symbols are in the shipped IPA, and nothing here asks it.
 
 Rule R1 ignores any phrase that appears inside quotation marks in the repo source,
 because a retracted sentence is routinely quoted in the paragraph that retracts it
@@ -123,6 +174,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import html
+import json
 import os
 import re
 import sys
@@ -169,7 +221,7 @@ MANIFEST = [
         "page": "privacy",
         "url": "https://bakerventuresstudio.com/movewitness/privacy/",
         "local": "movewitness/privacy/index.html",
-        "repo": f"{HOME}/movewitness",
+        "repo": f"{HOME}/rental-inspection",
         # No docs/privacy-policy.md exists: the hosted page IS the policy. The
         # repo's corrected position on the backup is in the Terms and in the
         # App Privacy determination, so those are the source of truth here.
@@ -187,7 +239,7 @@ MANIFEST = [
         "page": "privacy (legacy /rentcheck/ path, 1.0.1 compatibility)",
         "url": "https://bakerventuresstudio.com/rentcheck/privacy/",
         "local": "rentcheck/privacy/index.html",
-        "repo": f"{HOME}/movewitness",
+        "repo": f"{HOME}/rental-inspection",
         "sources": ["docs/terms.md", "docs/app-privacy-determination.md"],
     },
     # --- Steadychart -------------------------------------------------------
@@ -326,6 +378,13 @@ MANIFEST = [
     # page rightly makes no "nothing leaves your device" claim; R7 therefore reports
     # "no falsifiable backup claim" and R1-R3 do the work. There is NO MEASURED row: if
     # this page ever grows such a claim, R7 UNMEASURED-CLAIM will say so rather than pass.
+    #
+    # R10 also reaches this entry (2026-10-21, merged 2026-10-29): the same page's section
+    # 2.5 denies "other advertising or analytics SDKs" while the repo installs
+    # react-native-appsflyer and posthog-react-native, neither named on the page. `sources`
+    # below is the one markdown policy the page has -- deliberately not
+    # docs/terms-of-use-DRAFT.md (a draft, superseded) or docs/submission-package/ (a
+    # point-in-time record of what was sent to Apple for a past build).
     {
         "app": "flirtgym",
         "page": "privacy",
@@ -333,6 +392,120 @@ MANIFEST = [
         "local": "rizzmaxx/privacy/index.html",
         "repo": f"{HOME}/RizzMaxx",
         "sources": ["docs/privacy-policy.md"],
+    },
+    {
+        "app": "flirtgym",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/rizzmaxx/terms/",
+        "local": "rizzmaxx/terms/index.html",
+        "repo": f"{HOME}/RizzMaxx",
+        "sources": ["docs/terms-of-use.md"],
+    },
+    # =======================================================================
+    # The unwatched-page sweep (2026-10-21)
+    # =======================================================================
+    # Until today this manifest held 17 entries while the site published 70
+    # privacy/terms/support/delete-account directories, every one of them
+    # HTTP 200. 53 were unowned. R4 NO-SOURCE exists because "an unowned
+    # published page is exactly how this happened", and the rule could not be
+    # applied to a page the manifest had never heard of -- the same blindspot
+    # that hid FlirtGym, one scale up.
+    #
+    # All 53 were enumerated and triaged. 33 are added below. The other 20 are
+    # deliberately NOT added, and which is which is the judgement this block
+    # records, because an empty `sources` or a guessed repo would make this
+    # check noisy, and a noisy check gets switched off.
+    #
+    # NOT ADDED -- 18 dead slugs. Each is a ~1.3KB stub whose entire body is a
+    # "This page moved" paragraph and a `location.replace(...)` to the current
+    # slug. They carry no claim of any kind, so there is nothing for R1-R10 to
+    # compare and listing them would add 18 permanent R4/R3 findings about
+    # pages that are correct. The renames behind them:
+    #
+    #     /cyberclose/{privacy,terms,support}/   -> /policyready/...   (repo cyberclose)
+    #     /denialfighter/{privacy,terms,support}/-> /denialdesk/...    (repo denialfighter)
+    #     /flyfish/{privacy,terms,support}/      -> /hatchwindow/...   (repo flyfish)
+    #     /iolta/{privacy,terms,support}/        -> /ioltalign/...     (repo iolta-recon)
+    #     /lienclock/{privacy,terms,support}/    -> /noticeguard/...   (repo lienclock)
+    #     /quietlog/{privacy,terms,support}/     -> /steadychart/...   (repo symptom-tracker)
+    #
+    # Note the trap in that table: the repo DIRECTORY name and the dead slug
+    # are the same word for five of the six. `~/lienclock` is the live repo
+    # behind the live /noticeguard/ pages, and /lienclock/ is the dead slug.
+    # The canonical page is always the product-named one; the repo keeps the
+    # old name. Do not wire the slug that matches the repo directory.
+    #
+    # NOT ADDED -- 2 orphans. /riderdeck/privacy/ and /riderdeck/support/ are
+    # live (HTTP 200) and have NO owning repo on this machine:
+    # ~/ship-standard/projects/riderdeck/overview.md names `~/riderdeck` and
+    # that directory does not exist, nor does any clone of it, nor a GitHub
+    # remote (its launch tracker records that creating one was refused and
+    # queued for Ryan). So there is no repo source to compare against and
+    # inventing one would be worse than the gap. RiderDeck also has no App
+    # Store Connect record, so these are not a listing URL -- but they are
+    # published legal pages for a product, with no owner, and that is a finding
+    # in its own right rather than something this manifest can fix. Add them
+    # the day `~/riderdeck` lands.
+    #
+    # One page outside the 52 that earlier passes counted:
+    # /flirtgym/delete-account/ is added. It is not named privacy or terms, but
+    # it is the page that tells a user what is deleted, what is kept and for
+    # how long, and it is the 5.1.1(v) account-deletion route a reviewer
+    # follows. That is the same class of falsifiable claim about data, so it is
+    # watched like one.
+    #
+    # On `sources` for support pages: the pattern already set by
+    # steadychart/support and miletruth/support is followed -- where the repo
+    # has no support/FAQ document, the source is the repo's privacy document
+    # plus the app's own screens, because those are the repo's position on what
+    # it tells a user about their data. Nothing here is hard-coded content.
+    #
+    # What switching them on found, measured 2026-10-21 against the live URLs:
+    # the 17 pre-existing entries produced byte-identical findings before and
+    # after (11 failures, the same 11, same wording), so nothing below is a
+    # false positive aimed at a page that was already being watched. Of the 33
+    # added, 17 pass and 16 fail, for 20 new findings. They are not new
+    # breakage; they are the same defect that opened this file, in the pages
+    # nobody was comparing:
+    #
+    #   * The worst two are /miletruth/privacy/ and /miletruth/terms/. The
+    #     repo's own Settings screen says, in these words, "`xattr
+    #     Documents/SQLite` returned ZERO attributes, so the database IS in
+    #     iCloud Backup", and warns the user about it. Both published pages
+    #     mention iCloud zero times. An out-of-band read of /miletruth/privacy/
+    #     earlier the same day found no defect, and was right about the
+    #     question it asked -- the page does name PostHog and Sentry and makes
+    #     no absence claim, so R10 is clean there. R2 is not, and only a page in
+    #     this manifest gets asked.
+    #   * /noticeguard/support/, /denialdesk/terms/ and /rsuvest/support/ draw
+    #     R7 UNDISCLOSED-BACKUP against a measured binary: a SQLite file
+    #     holding user content is in the device backup and the page never
+    #     mentions a backup at all.
+    #   * Nine R3 STALE-DATE findings, plus six R2 MISSING-DISCLOSURE. /flipstage/privacy/ and
+    #     /flipstage/support/ are the sharpest: components/PrivacyScreen.tsx
+    #     was committed with `LAST_UPDATED = 'October 21, 2026'` the same day
+    #     this sweep ran, and both published pages still say September 25.
+    #     That is the in-app screen fixed and the published page left behind,
+    #     which is the exact 2026-10-14 defect, caught the day it happened
+    #     rather than five weeks later.
+    # -----------------------------------------------------------------------
+
+    # --- DenialDesk: the two pages the first pass left behind ---------------
+    {
+        "app": "denialdesk",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/denialdesk/terms/",
+        "local": "denialdesk/terms/index.html",
+        "repo": f"{HOME}/denialfighter",
+        "sources": ["docs/terms.md", "src/app/terms.tsx"],
+    },
+    {
+        "app": "denialdesk",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/denialdesk/support/",
+        "local": "denialdesk/support/index.html",
+        "repo": f"{HOME}/denialfighter",
+        "sources": ["docs/privacy-policy.md", "src/app/privacy.tsx"],
     },
     # --- FlipStage ---------------------------------------------------------
     # Added 2026-10-22. FlipStage 1.0 (live) keeps nothing in Documents, so "nothing you
@@ -344,7 +517,9 @@ MANIFEST = [
     # better. Three published pages carried or sat beside that claim and are listed
     # separately because the 2026-10-14 lesson is that a check cannot fail on a page it
     # cannot see: the home page (where the false sentences actually were), the privacy
-    # policy, and the support page.
+    # policy, and the support page. No markdown policy exists in the repo at all: the
+    # in-app PrivacyScreen is the only place it states its position, so that is the
+    # source for all three (same shape as vocabdrift/privacy).
     {
         "app": "flipstage",
         "page": "home",
@@ -372,6 +547,335 @@ MANIFEST = [
         "local": "flipstage/support/index.html",
         "repo": f"{HOME}/FlipStage",
         "sources": ["components/PrivacyScreen.tsx"],
+    },
+    # --- FlirtGym: the two pages under the /flirtgym/ slug ------------------
+    # The legal pages live under /rizzmaxx/ (above); these two live under
+    # /flirtgym/. Both slugs are live and neither is a stub, which is why the
+    # slug cannot be guessed from the app name in either direction.
+    {
+        "app": "flirtgym",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/flirtgym/support/",
+        "local": "flirtgym/support/index.html",
+        "repo": f"{HOME}/RizzMaxx",
+        "sources": ["docs/privacy-policy.md", "src/app/settings.tsx"],
+    },
+    {
+        "app": "flirtgym",
+        "page": "delete-account",
+        "url": "https://bakerventuresstudio.com/flirtgym/delete-account/",
+        "local": "flirtgym/delete-account/index.html",
+        "repo": f"{HOME}/RizzMaxx",
+        "sources": ["src/app/delete-account.tsx", "src/lib/deleteAccount.ts"],
+    },
+    # --- Foldbook -----------------------------------------------------------
+    {
+        "app": "foldbook",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/foldbook/privacy/",
+        "local": "foldbook/privacy/index.html",
+        "repo": f"{HOME}/Foldbook",
+        "sources": ["components/PrivacyScreen.tsx"],
+    },
+    {
+        "app": "foldbook",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/foldbook/support/",
+        "local": "foldbook/support/index.html",
+        "repo": f"{HOME}/Foldbook",
+        "sources": ["components/PrivacyScreen.tsx"],
+    },
+    # --- Hatch Window -------------------------------------------------------
+    {
+        "app": "hatchwindow",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/hatchwindow/support/",
+        "local": "hatchwindow/support/index.html",
+        "repo": f"{HOME}/flyfish",
+        "sources": ["src/app/privacy.tsx", "src/app/settings.tsx"],
+    },
+    # --- HormoneLog ---------------------------------------------------------
+    {
+        "app": "hormonelog",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/hormonelog/terms/",
+        "local": "hormonelog/terms/index.html",
+        "repo": f"{HOME}/hormonelog",
+        "sources": ["apps/web/src/app/terms/page.tsx"],
+    },
+    # --- IOLTAlign ----------------------------------------------------------
+    # Repo directory is `iolta-recon`, the published slug is /ioltalign/, and
+    # the dead slug is /iolta/. Renamed 2026-09-25
+    # (~/ship-standard/projects/_RENAME-IOLTA-TO-IOLTALIGN-2026-09-25.md).
+    {
+        "app": "ioltalign",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/ioltalign/privacy/",
+        "local": "ioltalign/privacy/index.html",
+        "repo": f"{HOME}/iolta-recon",
+        "sources": ["docs/privacy-policy.md", "app/privacy.tsx"],
+    },
+    {
+        "app": "ioltalign",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/ioltalign/terms/",
+        "local": "ioltalign/terms/index.html",
+        "repo": f"{HOME}/iolta-recon",
+        "sources": ["docs/terms.md", "app/terms.tsx"],
+    },
+    {
+        "app": "ioltalign",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/ioltalign/support/",
+        "local": "ioltalign/support/index.html",
+        "repo": f"{HOME}/iolta-recon",
+        "sources": ["docs/privacy-policy.md", "app/settings.tsx"],
+    },
+    # --- MileTruth: the two pages this sweep was opened for ------------------
+    # MileTruth is the only app besides FlirtGym that ships both posthog-react-native
+    # (^4.67.3) and @sentry/react-native (^8.25.0), both in apps/mobile/package.json,
+    # and its privacy and terms pages were unwatched while its support page was
+    # watched. An out-of-band read found no live defect -- the page names both
+    # SDKs and makes no absence claim -- but nothing would have caught it drifting,
+    # and R10's whole purpose is to notice when a page stops naming an SDK the app
+    # still ships.
+    #
+    # `sources` deliberately repeats miletruth/support's. There is no
+    # docs/privacy-policy.md and no docs/terms.md anywhere in ~/miletruth
+    # (apps/web is a README and nothing else), so the published page IS the
+    # policy, exactly as with MoveWitness above. The repo's position on where
+    # data lives is in the app's own Settings screen and in the store-listing
+    # metadata, so those are the source. That the repo has no written policy
+    # for two live legal pages is worth fixing in ~/miletruth; it is not
+    # something this manifest should paper over by pointing at a file that
+    # does not exist.
+    {
+        "app": "miletruth",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/miletruth/privacy/",
+        "local": "miletruth/privacy/index.html",
+        "repo": f"{HOME}/miletruth",
+        "sources": [
+            "apps/mobile/src/app/(tabs)/settings/index.tsx",
+            "apps/mobile/shipcheck.metadata.md",
+        ],
+    },
+    {
+        "app": "miletruth",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/miletruth/terms/",
+        "local": "miletruth/terms/index.html",
+        "repo": f"{HOME}/miletruth",
+        "sources": [
+            "apps/mobile/src/app/(tabs)/settings/index.tsx",
+            "apps/mobile/shipcheck.metadata.md",
+        ],
+    },
+    # --- Nearvo -------------------------------------------------------------
+    # Read this before trusting these three entries. Nearvo's App Store Connect
+    # Privacy Policy and Terms URL fields point at nearvo.net/privacy.html and
+    # nearvo.net/terms.html, NOT at these pages
+    # (~/relationship-app/NEARVO_CLAUDE_CODE_EXECUTION_SPEC.md lines 221-222,
+    # 375-376; shipcheck.metadata.md 191-192), and the repo's own
+    # site/privacy.html declares rel=canonical to nearvo.net. So these three
+    # URLs are a SECOND published copy of a policy whose canonical home is a
+    # different domain.
+    #
+    # They are watched anyway, for the reason this whole file exists: they are
+    # live, they are reachable, and a user who lands on them reads them. Two
+    # copies of one policy on two domains is a drift risk the canonical copy
+    # cannot detect on its own. `sources` is the repo's site/*.html -- the
+    # source of the canonical page -- so a finding here means the
+    # bakerventuresstudio.com copy has fallen behind nearvo.net, which is
+    # precisely the question worth asking.
+    #
+    # The repo is ~/relationship-app (origin BakerVentures/Nearvo.git). There is
+    # no ~/nearvo: the five ~/nearvo-* directories are per-branch clones, and
+    # ~/Desktop/relationship-app is a second clone at the same commit. If this
+    # entry starts reporting a missing repo, that is which directory moved.
+    {
+        "app": "nearvo",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/nearvo/privacy/",
+        "local": "nearvo/privacy/index.html",
+        "repo": f"{HOME}/relationship-app",
+        "sources": ["site/privacy.html"],
+    },
+    {
+        "app": "nearvo",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/nearvo/terms/",
+        "local": "nearvo/terms/index.html",
+        "repo": f"{HOME}/relationship-app",
+        "sources": ["site/terms.html"],
+    },
+    {
+        "app": "nearvo",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/nearvo/support/",
+        "local": "nearvo/support/index.html",
+        "repo": f"{HOME}/relationship-app",
+        "sources": ["site/support.html"],
+    },
+    # --- NoticeGuard --------------------------------------------------------
+    {
+        "app": "noticeguard",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/noticeguard/terms/",
+        "local": "noticeguard/terms/index.html",
+        "repo": f"{HOME}/lienclock",
+        "sources": ["docs/terms.md", "src/app/terms.tsx"],
+    },
+    {
+        "app": "noticeguard",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/noticeguard/support/",
+        "local": "noticeguard/support/index.html",
+        "repo": f"{HOME}/lienclock",
+        "sources": ["docs/privacy-policy.md", "src/app/privacy.tsx"],
+    },
+    # --- PolicyReady --------------------------------------------------------
+    {
+        "app": "policyready",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/policyready/terms/",
+        "local": "policyready/terms/index.html",
+        "repo": f"{HOME}/cyberclose",
+        "sources": ["docs/terms.md", "src/app/terms.tsx"],
+    },
+    {
+        "app": "policyready",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/policyready/support/",
+        "local": "policyready/support/index.html",
+        "repo": f"{HOME}/cyberclose",
+        "sources": ["docs/privacy-policy.md", "src/app/privacy.tsx"],
+    },
+    # --- MoveWitness: the rest of the /rentcheck/ slug ----------------------
+    # Slug is /rentcheck/, repo is ~/movewitness, product is MoveWitness. As
+    # with the privacy entry above there is no docs/privacy-policy.md, so the
+    # Terms and the App Privacy determination carry the repo's position.
+    {
+        "app": "movewitness",
+        "page": "terms",
+        # Canonical path, not /rentcheck/terms/ -- that is now a pure redirect stub
+        # (no compat-copy need: only /rentcheck/privacy/ and /rentcheck/support/ are
+        # compiled into the live 1.0.1 binary, per the MoveWitness rename commit
+        # 66f657f). Fixed 2026-10-29 on merge: this entry still pointed at the dead
+        # slug, which meant it was never actually checking the real terms page.
+        "url": "https://bakerventuresstudio.com/movewitness/terms/",
+        "local": "movewitness/terms/index.html",
+        "repo": f"{HOME}/rental-inspection",
+        "sources": ["docs/terms.md", "src/app/terms.tsx"],
+    },
+    {
+        "app": "movewitness",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/rentcheck/support/",
+        "local": "rentcheck/support/index.html",
+        "repo": f"{HOME}/rental-inspection",
+        "sources": ["docs/terms.md", "docs/app-privacy-determination.md"],
+    },
+    # --- Rigsheet -----------------------------------------------------------
+    # Keeps its published copy as a Next.js app under apps/web, like HormoneLog.
+    {
+        "app": "rigsheet",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/rigsheet/privacy/",
+        "local": "rigsheet/privacy/index.html",
+        "repo": f"{HOME}/rigsheet",
+        "sources": ["apps/web/app/privacy/page.tsx"],
+    },
+    {
+        "app": "rigsheet",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/rigsheet/terms/",
+        "local": "rigsheet/terms/index.html",
+        "repo": f"{HOME}/rigsheet",
+        "sources": ["apps/web/app/terms/page.tsx"],
+    },
+    {
+        "app": "rigsheet",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/rigsheet/support/",
+        "local": "rigsheet/support/index.html",
+        "repo": f"{HOME}/rigsheet",
+        "sources": ["apps/web/app/support/page.tsx", "apps/web/app/faq/page.tsx"],
+    },
+    # --- RSUvest ------------------------------------------------------------
+    {
+        "app": "rsuvest",
+        "page": "terms",
+        "url": "https://bakerventuresstudio.com/rsuvest/terms/",
+        "local": "rsuvest/terms/index.html",
+        "repo": f"{HOME}/rsuvest",
+        "sources": ["docs/terms.md", "src/app/terms.tsx"],
+    },
+    {
+        "app": "rsuvest",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/rsuvest/support/",
+        "local": "rsuvest/support/index.html",
+        "repo": f"{HOME}/rsuvest",
+        "sources": ["docs/privacy-policy.md", "src/app/settings.tsx"],
+    },
+    # --- ShipCheck ----------------------------------------------------------
+    # The only published privacy page in this manifest that belongs to a tool
+    # rather than a store app. It is live, so it is watched.
+    #
+    # KNOWN STANDING FINDING, and listed rather than hidden. This page carries
+    # the most sweeping absence claim in the portfolio -- "no analytics (no
+    # PostHog, Google Analytics, Plausible, or anything else), no error
+    # tracking (no Sentry), no advertising or attribution SDKs, no data
+    # brokers, no session recording" -- and R10 reports UNKNOWN-DEPENDENCIES on
+    # it, because ~/shipcheck has no package.json in any directory R10 reads.
+    # It is a CLI and a GitHub Action (bin/shipcheck, commands/*.md); its only
+    # `dependencies` block is ~/shipcheck/server/package.json, and R10 reads the
+    # repo root plus one level under apps/, packages/ and src/ only.
+    #
+    # Deliberately NOT fixed by widening _PKG_SEARCH_DIRS. R10 was written to
+    # read a React Native app's installed SDKs, and this claim is about a
+    # hosted service, so a widened search would make the rule answer a
+    # question it was not built for and would quietly change what it reads for
+    # the other 49 entries. The honest outcome is the one R10 already gives:
+    # say out loud that the strongest claim on the site cannot be checked.
+    # Clearing it means either giving ~/shipcheck a root `dependencies` block
+    # that reflects what the service installs, or giving R10 a server-side
+    # subject list of its own. Both are Ryan's call, not this file's.
+    {
+        "app": "shipcheck",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/shipcheck/privacy/",
+        "local": "shipcheck/privacy/index.html",
+        "repo": f"{HOME}/shipcheck",
+        "sources": ["docs/privacy-policy.md"],
+    },
+    # --- TentClock ----------------------------------------------------------
+    # No markdown policy; app/privacy.tsx is the repo's only statement.
+    {
+        "app": "tentclock",
+        "page": "privacy",
+        "url": "https://bakerventuresstudio.com/tentclock/privacy/",
+        "local": "tentclock/privacy/index.html",
+        "repo": f"{HOME}/TentClock",
+        "sources": ["app/privacy.tsx"],
+    },
+    {
+        "app": "tentclock",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/tentclock/support/",
+        "local": "tentclock/support/index.html",
+        "repo": f"{HOME}/TentClock",
+        "sources": ["app/privacy.tsx"],
+    },
+    # --- Vocabdrift ---------------------------------------------------------
+    {
+        "app": "vocabdrift",
+        "page": "support",
+        "url": "https://bakerventuresstudio.com/vocabdrift/support/",
+        "local": "vocabdrift/support/index.html",
+        "repo": f"{HOME}/lockscreen-learn",
+        "sources": ["src/screens/PrivacyScreen.tsx", "src/screens/SettingsScreen.tsx"],
     },
 ]
 
@@ -801,6 +1305,292 @@ def exclusion_mechanism(repo: str) -> tuple[str, str]:
         f"{os.path.relpath(hits[0], repo)} sets the flag but no app.json/app.config "
         "names it, so prebuild will not apply it",
     )
+
+# ---------------------------------------------------------------------------
+# R10: a page that asserts a CLASS OF SDK is absent, checked against what the
+# app actually installs.
+#
+# SDK_REGISTRY maps a package name to the human name a page must use if it is
+# going to name it, and to the claim CLASSES whose denial that package
+# falsifies. It is a watchlist and not a whitelist: a row does nothing at all
+# until the package appears in a `dependencies` block, so rows for packages
+# nobody has installed are the point -- they stop a new data flow from escaping
+# by virtue of nobody having thought of it when this was written.
+#
+# `classes` is what keeps the rule honest in both directions. A page saying
+# "no ADVERTISING SDKs" is not falsified by an analytics-only SDK, and vice
+# versa, so each row declares which denials it contradicts.
+#
+# Each row names the ONE class a reader would put that SDK in, and this is a
+# deliberate under-reach. AppsFlyer and the Meta SDK do report in-app events, so
+# "we use no analytics SDKs" while shipping AppsFlyer is arguably false too --
+# but classing them as both would fire this rule at every page that denies
+# analytics while correctly disclosing an ad SDK, and a rule that argues with a
+# page about taxonomy is a rule somebody switches off. The cost is recorded
+# rather than hidden: a page denying ONLY analytics while shipping ONLY an
+# attribution SDK passes here. In practice a page that denies one of these two
+# classes denies both, which is the FlirtGym sentence exactly.
+#
+# Kept deliberately parallel to REGISTRY in
+# ~/RizzMaxx/src/lib/__tests__/privacySdkDisclosure.test.ts. That one guards the
+# repo markdown; this one guards the published page. Two lists is the honest
+# answer here -- this file checks seven repos and that test checks one, and
+# importing across repos would make each unrunnable without the other.
+# ---------------------------------------------------------------------------
+ADVERTISING = "advertising"
+ANALYTICS = "analytics"
+
+SDK_REGISTRY = [
+    # Installed in RizzMaxx today. These two are the reason this rule exists.
+    {"pkg": "react-native-appsflyer", "name": r"appsflyer",
+     "classes": {ADVERTISING}, "kind": "ad attribution / install measurement"},
+    {"pkg": "posthog-react-native", "name": r"posthog",
+     "classes": {ANALYTICS}, "kind": "product analytics"},
+    # Installed somewhere in the portfolio already.
+    {"pkg": "react-native-fbsdk-next", "name": r"\bmeta\b|facebook",
+     "classes": {ADVERTISING}, "kind": "ad attribution"},
+    # Not installed anywhere today. Listed so that installing one turns a page's
+    # absence claim red instead of landing a silent new data flow.
+    {"pkg": "@sentry/react-native", "name": r"sentry",
+     "classes": {ANALYTICS}, "kind": "crash reporting / performance telemetry"},
+    {"pkg": "@react-native-firebase/analytics", "name": r"firebase",
+     "classes": {ANALYTICS}, "kind": "analytics"},
+    {"pkg": "@react-native-firebase/crashlytics", "name": r"crashlytics|firebase",
+     "classes": {ANALYTICS}, "kind": "crash reporting"},
+    {"pkg": "@amplitude/analytics-react-native", "name": r"amplitude",
+     "classes": {ANALYTICS}, "kind": "analytics"},
+    {"pkg": "mixpanel-react-native", "name": r"mixpanel",
+     "classes": {ANALYTICS}, "kind": "analytics"},
+    {"pkg": "@segment/analytics-react-native", "name": r"segment",
+     "classes": {ANALYTICS}, "kind": "analytics"},
+    {"pkg": "react-native-branch", "name": r"\bbranch\b",
+     "classes": {ADVERTISING}, "kind": "ad attribution / deep-link attribution"},
+    {"pkg": "react-native-adjust", "name": r"\badjust\b",
+     "classes": {ADVERTISING}, "kind": "ad attribution"},
+    {"pkg": "react-native-google-mobile-ads", "name": r"admob|google mobile ads",
+     "classes": {ADVERTISING}, "kind": "ad serving"},
+    {"pkg": "react-native-tiktok-business", "name": r"tiktok",
+     "classes": {ADVERTISING}, "kind": "ad attribution"},
+]
+
+# The denial shapes, each a falsifiable negative about a class of SDK.
+#
+# `hedged` is the whole difference between two sentences that look alike:
+#
+#   "We use no other advertising or analytics SDKs"   -- hedged: it excepts the
+#       SDKs the page has just named, so naming AppsFlyer on the page satisfies it.
+#   "This app contains no analytics SDKs"             -- unhedged: naming one does
+#       not rescue it, because the sentence denies all of them.
+#
+# Every pattern requires the word SDK (or an explicit tracker/tool noun) inside the
+# same sentence, which is not decoration. `/rizzmaxx/terms/` carries "Apple has no
+# other warranty obligation with respect to the App", and a pattern keyed on
+# "no other" alone would turn the Apple-EULA boilerplate on every terms page in this
+# manifest red on day one. A rule that cries wolf gets switched off; see R1's
+# DISCLAIMER_CUES for the same lesson learned the same way.
+ABSENCE_CLAIMS = [
+    r"\bno (?:other )?(?:third.party )?(?:[\w-]+[, ]{1,2}){0,4}"
+    r"(?:advertising|analytics|ad.tracking|tracking)[^.]{0,60}?"
+    r"\b(?:sdks?|trackers?|tracking (?:tools?|frameworks?|libraries))\b",
+    r"(?:does not|do not|don.t|doesn.t) (?:contain|include|use|embed|bundle|ship with)"
+    r"[^.]{0,60}?(?:advertising|analytics|ad.tracking|tracking)[^.]{0,60}?\bsdks?\b",
+]
+
+# Whether a denial EXCEPTS the SDKs the page has just named. Read off the matched
+# sentence, never off which pattern matched it -- the first version of this rule
+# decided hedgedness per pattern, both patterns matched the one FlirtGym sentence,
+# and the stricter of the two won. That turned `react-native-fbsdk-next` into a
+# finding on a page whose very next clause names the Meta SDK and says what it
+# receives: a false positive against the one SDK that page discloses correctly, and
+# the exact shape that gets a check switched off.
+HEDGE_CUES = re.compile(r"\b(?:other|besides|except|apart from|aside from|beyond)\b")
+
+
+def denied_classes(matched: str) -> set[str]:
+    """Which classes a matched sentence denies.
+
+    Read off the matched text rather than fixed per pattern, so one pattern serves
+    "no advertising SDKs", "no analytics SDKs" and "no advertising or analytics
+    SDKs", and each is answered with only the SDKs that bear on what was denied. A
+    page saying "no ADVERTISING SDKs" must not be failed by an analytics-only SDK.
+    """
+    classes: set[str] = set()
+    if re.search(r"advertis|ad.tracking", matched):
+        classes.add(ADVERTISING)
+    if re.search(r"analytic", matched):
+        classes.add(ANALYTICS)
+    if not classes and re.search(r"tracking", matched):
+        # A bare "no tracking SDKs" denies the lot.
+        classes.update({ADVERTISING, ANALYTICS})
+    return classes
+
+
+def absence_claims(live_unquoted: str) -> list[dict]:
+    """The distinct SDK-absence sentences on a page.
+
+    Deduplicated by the span matched, not by pattern: the patterns above overlap on
+    purpose (a narrow one for the hedged wording, a broad one for the rest) and
+    without this the one FlirtGym sentence was reported, and quoted, twice.
+    """
+    spans: dict[tuple[int, int], dict] = {}
+    for pattern in ABSENCE_CLAIMS:
+        for m in re.finditer(pattern, live_unquoted):
+            text = m.group(0)
+            spans.setdefault(
+                (m.start(), m.end()),
+                {
+                    "match": m,
+                    "classes": denied_classes(text),
+                    "hedged": bool(HEDGE_CUES.search(text)),
+                },
+            )
+    claims = [spans[k] for k in sorted(spans)]
+    # Drop a claim fully contained in another: one sentence, one finding.
+    kept: list[dict] = []
+    for claim in claims:
+        m = claim["match"]
+        if any(
+            other["match"].start() <= m.start() and m.end() <= other["match"].end()
+            and other is not claim
+            for other in claims
+        ):
+            continue
+        kept.append(claim)
+    return kept
+
+
+_PKG_SEARCH_DIRS = ("", "apps", "packages", "src")
+
+
+def installed_dependencies(repo: str) -> dict[str, str]:
+    """Every runtime dependency this repo installs, mapped to the file that declares it.
+
+    `dependencies` only. devDependencies do not ship in the binary, so a page cannot
+    be wrong about them. Monorepos are covered by looking one level under apps/ and
+    packages/ as well as at the root, because hormonelog and miletruth keep the app
+    that ships in apps/mobile -- a root-only read would have reported those repos as
+    installing nothing at all, which would have made this rule silently inapplicable
+    exactly where the shipping code lives.
+    """
+    found: dict[str, str] = {}
+    candidates: list[str] = []
+    for mid in _PKG_SEARCH_DIRS:
+        base = os.path.join(repo, mid) if mid else repo
+        if mid:
+            if not os.path.isdir(base):
+                continue
+            for child in sorted(os.listdir(base)):
+                if child in _SKIP_DIRS:
+                    continue
+                candidates.append(os.path.join(base, child, "package.json"))
+        else:
+            candidates.append(os.path.join(base, "package.json"))
+    for path in candidates:
+        if not os.path.isfile(path):
+            continue
+        try:
+            with open(path, encoding="utf-8", errors="replace") as fh:
+                data = json.load(fh)
+        except (OSError, ValueError):
+            continue
+        deps = data.get("dependencies")
+        if not isinstance(deps, dict):
+            continue
+        for name, version in deps.items():
+            found.setdefault(name, f"{os.path.relpath(path, repo)} ({version})")
+    return found
+
+
+def check_absence_claims(entry: dict, live_unquoted: str, live: str, ok) -> list[str]:
+    """R10: a denied class of SDK against the SDKs the app installs.
+
+    R1-R7 all police one sentence shape, "your data does not leave this device".
+    This polices the other falsifiable negative a privacy page reaches for: "we do
+    not use that kind of SDK". It is falsified by `npm install`, not by a backup, so
+    none of the rules above can see it -- demonstrated on 2026-10-21, when adding
+    FlirtGym to the manifest left both of its pages carrying nothing but an unrelated
+    R3 while section 2.5 of the live privacy policy had been false for seventy days.
+
+    The test is not "is the SDK mentioned somewhere". It is:
+
+      * a HEDGED denial ("no OTHER advertising or analytics SDKs") excepts what the
+        page names, so an installed SDK is a finding only when the page never names
+        it. That is what makes the Meta sentence on the same line fine and AppsFlyer
+        and PostHog not.
+      * an UNHEDGED denial ("contains no analytics SDKs") cannot be rescued by
+        naming: the sentence denies the whole class, so any installed member is a
+        finding.
+
+    What it cannot tell you: it reads `dependencies`, which is intent to link, not
+    the binary. A dependency installed and never initialised still fails here, and
+    that is the deliberate direction to err. The artefact-level question is whether
+    the SDK's symbols are in the shipped IPA, and nothing here asks it. It also
+    cannot judge a denial of a class no SDK_REGISTRY row covers, and it says nothing
+    about whether a named SDK's description of what it receives is accurate.
+    """
+    failures: list[str] = []
+    claims = absence_claims(live_unquoted)
+    if not claims:
+        ok("R10 no SDK-absence claim on the page")
+        return failures
+
+    deps = installed_dependencies(entry["repo"])
+    if not deps:
+        # Not a pass. The rule could not run, and a rule that cannot run must say so
+        # rather than print nothing and count nothing -- that silence is exactly how
+        # R3 passed a page ten days behind its source on 2026-10-14.
+        failures.append(
+            "R10 UNKNOWN-DEPENDENCIES: the live page asserts "
+            + "; ".join(f'"...{excerpt(live_unquoted, c["match"])}..."' for c in claims)
+            + f", but no package.json with a `dependencies` block was found under "
+            f"{entry['repo']} (looked at the root and one level under apps/, packages/ "
+            "and src/), so the claim could not be checked against what the app installs."
+        )
+        return failures
+
+    denied = set().union(*(c["classes"] for c in claims))
+    installed = [
+        row for row in SDK_REGISTRY
+        if row["pkg"] in deps and (row["classes"] & denied)
+    ]
+    for row in installed:
+        bearing = [c for c in claims if c["classes"] & row["classes"]]
+        unhedged = [c for c in bearing if not c["hedged"]]
+        quoted = "; ".join(
+            f'"...{excerpt(live_unquoted, c["match"])}..."'
+            for c in (unhedged or bearing)
+        )
+        named = re.search(row["name"], live)
+        if unhedged:
+            failures.append(
+                f"R10 CONTRADICTED-ABSENCE: the live page asserts {quoted} with no "
+                f"exception, but {entry['repo']} installs {row['pkg']} -- {row['kind']} "
+                f"-- per {deps[row['pkg']]}"
+                + (
+                    " (naming it elsewhere on the page does not rescue a denial of the "
+                    "whole class)"
+                    if named
+                    else ""
+                )
+                + ". A denial of the whole class is falsified by one member of it."
+            )
+        elif named:
+            ok(f"R10 {row['pkg']} installed, and the page names it")
+        else:
+            failures.append(
+                f"R10 CONTRADICTED-ABSENCE: the live page asserts {quoted}, but "
+                f"{entry['repo']} installs {row['pkg']} -- {row['kind']} -- per "
+                f"{deps[row['pkg']]}, and the page never names it. That sentence excepts "
+                "only the SDKs the page names, so either name this one and say what it "
+                "receives, or drop the claim."
+            )
+    if not failures:
+        ok(
+            f"R10 {len(claims)} absence claim(s) over {sorted(denied)}; "
+            f"{len(installed)} installed SDK(s) of those classes, all named on the page"
+        )
+    return failures
+
 
 ICLOUD_DISCLOSURE = re.compile(r"icloud", re.I)
 
@@ -1278,6 +2068,9 @@ def check_app(entry: dict, use_local: bool, verbose: bool) -> list[str]:
 
     # --- R7 measured backup behaviour -------------------------------------
     failures.extend(check_measured_backup(entry, live_unquoted, live, ok))
+
+    # --- R10 denied class of SDK vs what the app installs -------------------
+    failures.extend(check_absence_claims(entry, live_unquoted, live, ok))
 
     return failures
 
