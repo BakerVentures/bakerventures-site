@@ -61,7 +61,7 @@
    "name": "What's on each plan?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Starter covers the core: unlimited jobs, customers, quotes and invoices, scheduling with drive-time buffers, deposits, card payments through Stripe, and recurring jobs on weekly, biweekly, every-4-weeks and monthly schedules. Lite adds before/after photos on every job and your public booking page. Solo adds automatic customer texts — confirmations, reminders and \"on my way\" — and automated Google review requests. Pro adds drive-time route optimization, QuickBooks export, custom SMS templates and custom recurrence intervals. Current prices are shown in the app, since the store sets them for your region."
+    "text": "Starter covers the core: unlimited jobs, customers, quotes and invoices, scheduling with drive-time buffers, deposits, and card payments through Stripe. Lite adds before/after photos on every job and your public booking page. Solo adds recurring jobs on weekly, biweekly, every-4-weeks and monthly schedules, and is specified to add automatic customer texts — confirmations, reminders and \"on my way\" — and automated Google review requests, but none of those send yet: no messaging number is provisioned and the email fallback is not configured, so the app skips them. Do not buy Solo for the texts yet. Pro adds drive-time route optimization, QuickBooks export, custom SMS templates and custom recurrence intervals. Current prices are shown in the app, since the store sets them for your region."
    }
   },
   {
@@ -109,7 +109,7 @@
    "name": "What will my customers actually receive by text?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "The seeded templates read: \"Hi {first}, you're booked with {business} on {date} at {time} for {service}. Reply STOP to opt out.\" — plus a 24-hour and a 2-hour reminder, an \"on my way\" with your ETA, a thank-you when the job is complete, and a review request if you've turned those on. Quotes and invoices go out as a link. Every message includes opt-out instructions and STOP is honored immediately, and quiet hours (8pm to 8am by default) hold messages back rather than dropping them."
+    "text": "No texts go out yet — no messaging number is provisioned, so the app skips every send. The seeded templates, for when it is switched on, read: \"Hi {first}, you're booked with {business} on {date} at {time} for {service}. Reply STOP to opt out.\" — plus a 24-hour and a 2-hour reminder, an \"on my way\" with your ETA, a thank-you when the job is complete, and a review request if you've turned those on. Quotes and invoices go out as a link. Every message includes opt-out instructions and STOP is honored immediately, and quiet hours (8pm to 8am by default) hold messages back rather than dropping them."
    }
   },
   {
@@ -117,7 +117,7 @@
    "name": "My texts aren't sending. Why?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Texting needs a provisioned number and carrier registration (10DLC), which can take a few days to clear after setup — texting starts working the moment it does, and the app works fully in the meantime. Until a number is live, confirmations fall back to email. Texting also starts on the Solo plan; Starter and Lite don't include it."
+    "text": "Because no messaging number has been provisioned yet, for anyone. This is not a fault on your account and there is no setting that fixes it: texting needs a provisioned number and carrier registration (10DLC), and that has not been set up, so the app skips every outbound message rather than reporting a send that did not happen. The email fallback is not configured either, so confirmations do not go out that way in the meantime. Everything else in the app works. Texting is also specified to start on the Solo plan; Starter and Lite do not include it."
    }
   },
   {
@@ -125,7 +125,7 @@
    "name": "Automated review requests aren't going out.",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "They need your Google review link, which lives in Settings and is separate from every other setting — without it, nothing sends. You'll find the link in your Google Business Profile."
+    "text": "They cannot go out yet for anyone, because no messaging number has been provisioned, so the app skips the send. Setting your Google review link in Settings is still required for them to work later, and you will find that link in your Google Business Profile — but adding it will not make a request send today."
    }
   },
   {
@@ -199,8 +199,8 @@
 <body>
   <p class="nav"><a href="../">Rigsheet</a> &rsaquo; Support</p>
   <h1>Rigsheet Support</h1>
-  <p class="meta">Published by Baker Ventures LLC &middot; Last updated: September 23, 2026</p>
-  <p>Rigsheet is a job-management app for mobile detailing and cleaning businesses — scheduling with drive-time buffers, quotes, deposits and card payments, before and after photos, customer texts, recurring jobs and invoicing, all from your phone.</p>
+  <p class="meta">Published by Baker Ventures LLC &middot; Last updated: October 29, 2026</p>
+  <p>Rigsheet is a job-management app for mobile detailing and cleaning businesses — scheduling with drive-time buffers, quotes, deposits and card payments, before and after photos, recurring jobs and invoicing, all from your phone. It is in development and not yet released; automated customer texts and review requests are specified but do not send yet.</p>
   <div class="contact">
     <p style="margin-top:0"><strong>Need help? Email us.</strong></p>
     <p style="margin-bottom:0"><a href="mailto:rsb.baker+rigsheet@gmail.com">rsb.baker+rigsheet@gmail.com</a><br>
@@ -213,7 +213,7 @@
     <dt>How do I sign in?</dt>
     <dd>With an email address and a password of at least 8 characters. There is no Google, Apple or Facebook sign-in. Depending on your setup, a new account may need to confirm its email address first — check your inbox if you can&#x27;t get past the sign-up screen. Forgot your password? Use the link on the sign-in screen and we&#x27;ll email you a reset link.</dd>
     <dt>What&#x27;s on each plan?</dt>
-    <dd>Starter covers the core: unlimited jobs, customers, quotes and invoices, scheduling with drive-time buffers, deposits, card payments through Stripe, and recurring jobs on weekly, biweekly, every-4-weeks and monthly schedules. Lite adds before/after photos on every job and your public booking page. Solo adds automatic customer texts — confirmations, reminders and &quot;on my way&quot; — and automated Google review requests. Pro adds drive-time route optimization, QuickBooks export, custom SMS templates and custom recurrence intervals. Current prices are shown in the app, since the store sets them for your region.</dd>
+    <dd>Starter covers the core: unlimited jobs, customers, quotes and invoices, scheduling with drive-time buffers, deposits, and card payments through Stripe. Lite adds before/after photos on every job and your public booking page. Solo adds recurring jobs on weekly, biweekly, every-4-weeks and monthly schedules, and is specified to add automatic customer texts — confirmations, reminders and &quot;on my way&quot; — and automated Google review requests, but none of those send yet: no messaging number is provisioned and the email fallback is not configured, so the app skips them. Do not buy Solo for the texts yet. Pro adds drive-time route optimization, QuickBooks export, custom SMS templates and custom recurrence intervals. Current prices are shown in the app, since the store sets them for your region.</dd>
     <dt>What happens when my trial or subscription ends?</dt>
     <dd>You go read-only and nothing is deleted. The app says it plainly: &quot;Your trial or subscription has ended. Your data is safe — subscribe to start creating and editing again.&quot; You can still open and read everything; you just can&#x27;t create or edit until you subscribe. Cancelling is not the same as expiring — if you cancel, you keep full access until the period you&#x27;ve paid for runs out.</dd>
     <dt>How do I cancel?</dt>
@@ -225,11 +225,11 @@
     <dt>How do I get set up to take card payments?</dt>
     <dd>Stripe is connected during onboarding — it takes about three minutes and you can skip it at the time. If you skipped it and now want to take cards, email us and we&#x27;ll get you connected; there isn&#x27;t a self-serve path back to it in the app yet. Until then you can record cash, Venmo, Zelle or check payments manually and everything else works normally.</dd>
     <dt>What will my customers actually receive by text?</dt>
-    <dd>The seeded templates read: &quot;Hi {first}, you&#x27;re booked with {business} on {date} at {time} for {service}. Reply STOP to opt out.&quot; — plus a 24-hour and a 2-hour reminder, an &quot;on my way&quot; with your ETA, a thank-you when the job is complete, and a review request if you&#x27;ve turned those on. Quotes and invoices go out as a link. Every message includes opt-out instructions and STOP is honored immediately, and quiet hours (8pm to 8am by default) hold messages back rather than dropping them.</dd>
+    <dd>No texts go out yet — no messaging number is provisioned, so the app skips every send. The seeded templates, for when it is switched on, read: &quot;Hi {first}, you&#x27;re booked with {business} on {date} at {time} for {service}. Reply STOP to opt out.&quot; — plus a 24-hour and a 2-hour reminder, an &quot;on my way&quot; with your ETA, a thank-you when the job is complete, and a review request if you&#x27;ve turned those on. Quotes and invoices go out as a link. Every message includes opt-out instructions and STOP is honored immediately, and quiet hours (8pm to 8am by default) hold messages back rather than dropping them.</dd>
     <dt>My texts aren&#x27;t sending. Why?</dt>
-    <dd>Texting needs a provisioned number and carrier registration (10DLC), which can take a few days to clear after setup — texting starts working the moment it does, and the app works fully in the meantime. Until a number is live, confirmations fall back to email. Texting also starts on the Solo plan; Starter and Lite don&#x27;t include it.</dd>
+    <dd>Because no messaging number has been provisioned yet, for anyone. This is not a fault on your account and there is no setting that fixes it: texting needs a provisioned number and carrier registration (10DLC), and that has not been set up, so the app skips every outbound message rather than reporting a send that did not happen. The email fallback is not configured either, so confirmations do not go out that way in the meantime. Everything else in the app works. Texting is also specified to start on the Solo plan; Starter and Lite do not include it.</dd>
     <dt>Automated review requests aren&#x27;t going out.</dt>
-    <dd>They need your Google review link, which lives in Settings and is separate from every other setting — without it, nothing sends. You&#x27;ll find the link in your Google Business Profile.</dd>
+    <dd>They cannot go out yet for anyone, because no messaging number has been provisioned, so the app skips the send. Setting your Google review link in Settings is still required for them to work later, and you will find that link in your Google Business Profile — but adding it will not make a request send today.</dd>
     <dt>Can I export my data?</dt>
     <dd>Yes, on every plan. More → Export my data produces a single JSON file with every customer, vehicle, property, job, quote, invoice, payment, service, add-on, recurring rule, message and template. Two things to know: it contains photo records but not the photo images themselves, and the customer CSV and QuickBooks invoice CSV are on the Pro plan.</dd>
     <dt>How do I delete my account?</dt>
