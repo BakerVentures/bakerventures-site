@@ -40,7 +40,7 @@ actually bit, which is a falsifiable negative claim:
   R7 MEASURED-BACKUP     the page's backup claim disagrees with what was MEASURED on a
                          running build -- or no such measurement exists and the page
                          makes the claim anyway.
-  R8 CONTRADICTED-ABSENCE
+  R10 CONTRADICTED-ABSENCE
                          the page asserts that a CLASS OF SDK is absent while the app's
                          package.json installs an SDK of that class that the page never
                          names.
@@ -73,7 +73,7 @@ the case it cannot answer: Vocabdrift's exclusion comes from a LIBRARY DEFAULT, 
 mechanism exists to find. R7 answers it by reading the xattr off a running build instead.
 
 
-Why R8 had to be added (2026-10-21)
+Why R10 had to be added (2026-10-21)
 -----------------------------------
 FlirtGym was absent from the manifest above for the whole of its life: a grep for
 `rizzmaxx|flirtgym` in this file returned zero hits until 2026-10-21. Adding the two
@@ -101,13 +101,13 @@ disclose Meta ad attribution + ATT/IDFA (build 23); fix 'no ad-tracking SDKs' cl
 already fixed this exact sentence once. The fix did not outlive the next two SDK
 additions, because nothing held it.
 
-R8 derives its subject list from the app's `package.json` instead of listing expected
+R10 derives its subject list from the app's `package.json` instead of listing expected
 sentences, so installing Sentry or Mixpanel extends the requirement with no edit here.
 SDK_REGISTRY is a watchlist, not a whitelist: an entry is inert until the package is
 actually installed. The same reasoning, and much of the same table, is in
 ~/RizzMaxx/src/lib/__tests__/privacySdkDisclosure.test.ts, which guards the REPO docs.
 That test states its own limitation plainly -- it cannot reach the published page -- and
-R8 is the other half: it reads the artefact. Both halves are needed, because on
+R10 is the other half: it reads the artefact. Both halves are needed, because on
 2026-10-21 the sentence was false on the live page while the repo doc simply omitted the
 subject, so neither side alone sees the whole defect.
 
@@ -129,7 +129,7 @@ backup-exclusion xattr off the container settles that; see
 /Users/ryanbaker/VERIFICATION-LESSON.md for why it has to be the artefact. R6 is the one rule here
 that reaches toward the mechanism, and even it reads the repo's intent rather than the binary.
 
-R8 has the mirror-image limit. It reads `package.json`, which is intent to LINK rather than
+R10 has the mirror-image limit. It reads `package.json`, which is intent to LINK rather than
 the shipped binary, so it fails a page for a dependency that is installed and never
 initialised, and it cannot see an SDK vendored into ios/ without a package entry. It also
 only knows the SDK classes SDK_REGISTRY names, and it says nothing about whether a
@@ -396,7 +396,7 @@ MANIFEST = [
     #
     # NOT ADDED -- 18 dead slugs. Each is a ~1.3KB stub whose entire body is a
     # "This page moved" paragraph and a `location.replace(...)` to the current
-    # slug. They carry no claim of any kind, so there is nothing for R1-R8 to
+    # slug. They carry no claim of any kind, so there is nothing for R1-R10 to
     # compare and listing them would add 18 permanent R4/R3 findings about
     # pages that are correct. The renames behind them:
     #
@@ -453,7 +453,7 @@ MANIFEST = [
     #     mention iCloud zero times. An out-of-band read of /miletruth/privacy/
     #     earlier the same day found no defect, and was right about the
     #     question it asked -- the page does name PostHog and Sentry and makes
-    #     no absence claim, so R8 is clean there. R2 is not, and only a page in
+    #     no absence claim, so R10 is clean there. R2 is not, and only a page in
     #     this manifest gets asked.
     #   * /noticeguard/support/, /denialdesk/terms/ and /rsuvest/support/ draw
     #     R7 UNDISCLOSED-BACKUP against a measured binary: a SQLite file
@@ -594,7 +594,7 @@ MANIFEST = [
     # and its privacy and terms pages were unwatched while its support page was
     # watched. An out-of-band read found no live defect -- the page names both
     # SDKs and makes no absence claim -- but nothing would have caught it drifting,
-    # and R8's whole purpose is to notice when a page stops naming an SDK the app
+    # and R10's whole purpose is to notice when a page stops naming an SDK the app
     # still ships.
     #
     # `sources` deliberately repeats miletruth/support's. There is no
@@ -779,20 +779,20 @@ MANIFEST = [
     # the most sweeping absence claim in the portfolio -- "no analytics (no
     # PostHog, Google Analytics, Plausible, or anything else), no error
     # tracking (no Sentry), no advertising or attribution SDKs, no data
-    # brokers, no session recording" -- and R8 reports UNKNOWN-DEPENDENCIES on
-    # it, because ~/shipcheck has no package.json in any directory R8 reads.
+    # brokers, no session recording" -- and R10 reports UNKNOWN-DEPENDENCIES on
+    # it, because ~/shipcheck has no package.json in any directory R10 reads.
     # It is a CLI and a GitHub Action (bin/shipcheck, commands/*.md); its only
-    # `dependencies` block is ~/shipcheck/server/package.json, and R8 reads the
+    # `dependencies` block is ~/shipcheck/server/package.json, and R10 reads the
     # repo root plus one level under apps/, packages/ and src/ only.
     #
-    # Deliberately NOT fixed by widening _PKG_SEARCH_DIRS. R8 was written to
+    # Deliberately NOT fixed by widening _PKG_SEARCH_DIRS. R10 was written to
     # read a React Native app's installed SDKs, and this claim is about a
     # hosted service, so a widened search would make the rule answer a
     # question it was not built for and would quietly change what it reads for
-    # the other 49 entries. The honest outcome is the one R8 already gives:
+    # the other 49 entries. The honest outcome is the one R10 already gives:
     # say out loud that the strongest claim on the site cannot be checked.
     # Clearing it means either giving ~/shipcheck a root `dependencies` block
-    # that reflects what the service installs, or giving R8 a server-side
+    # that reflects what the service installs, or giving R10 a server-side
     # subject list of its own. Both are Ryan's call, not this file's.
     {
         "app": "shipcheck",
@@ -1186,7 +1186,7 @@ def exclusion_mechanism(repo: str) -> tuple[str, str]:
     )
 
 # ---------------------------------------------------------------------------
-# R8: a page that asserts a CLASS OF SDK is absent, checked against what the
+# R10: a page that asserts a CLASS OF SDK is absent, checked against what the
 # app actually installs.
 #
 # SDK_REGISTRY maps a package name to the human name a page must use if it is
@@ -1381,7 +1381,7 @@ def installed_dependencies(repo: str) -> dict[str, str]:
 
 
 def check_absence_claims(entry: dict, live_unquoted: str, live: str, ok) -> list[str]:
-    """R8: a denied class of SDK against the SDKs the app installs.
+    """R10: a denied class of SDK against the SDKs the app installs.
 
     R1-R7 all police one sentence shape, "your data does not leave this device".
     This polices the other falsifiable negative a privacy page reaches for: "we do
@@ -1410,7 +1410,7 @@ def check_absence_claims(entry: dict, live_unquoted: str, live: str, ok) -> list
     failures: list[str] = []
     claims = absence_claims(live_unquoted)
     if not claims:
-        ok("R8 no SDK-absence claim on the page")
+        ok("R10 no SDK-absence claim on the page")
         return failures
 
     deps = installed_dependencies(entry["repo"])
@@ -1419,7 +1419,7 @@ def check_absence_claims(entry: dict, live_unquoted: str, live: str, ok) -> list
         # rather than print nothing and count nothing -- that silence is exactly how
         # R3 passed a page ten days behind its source on 2026-10-14.
         failures.append(
-            "R8 UNKNOWN-DEPENDENCIES: the live page asserts "
+            "R10 UNKNOWN-DEPENDENCIES: the live page asserts "
             + "; ".join(f'"...{excerpt(live_unquoted, c["match"])}..."' for c in claims)
             + f", but no package.json with a `dependencies` block was found under "
             f"{entry['repo']} (looked at the root and one level under apps/, packages/ "
@@ -1442,7 +1442,7 @@ def check_absence_claims(entry: dict, live_unquoted: str, live: str, ok) -> list
         named = re.search(row["name"], live)
         if unhedged:
             failures.append(
-                f"R8 CONTRADICTED-ABSENCE: the live page asserts {quoted} with no "
+                f"R10 CONTRADICTED-ABSENCE: the live page asserts {quoted} with no "
                 f"exception, but {entry['repo']} installs {row['pkg']} -- {row['kind']} "
                 f"-- per {deps[row['pkg']]}"
                 + (
@@ -1454,10 +1454,10 @@ def check_absence_claims(entry: dict, live_unquoted: str, live: str, ok) -> list
                 + ". A denial of the whole class is falsified by one member of it."
             )
         elif named:
-            ok(f"R8 {row['pkg']} installed, and the page names it")
+            ok(f"R10 {row['pkg']} installed, and the page names it")
         else:
             failures.append(
-                f"R8 CONTRADICTED-ABSENCE: the live page asserts {quoted}, but "
+                f"R10 CONTRADICTED-ABSENCE: the live page asserts {quoted}, but "
                 f"{entry['repo']} installs {row['pkg']} -- {row['kind']} -- per "
                 f"{deps[row['pkg']]}, and the page never names it. That sentence excepts "
                 "only the SDKs the page names, so either name this one and say what it "
@@ -1465,7 +1465,7 @@ def check_absence_claims(entry: dict, live_unquoted: str, live: str, ok) -> list
             )
     if not failures:
         ok(
-            f"R8 {len(claims)} absence claim(s) over {sorted(denied)}; "
+            f"R10 {len(claims)} absence claim(s) over {sorted(denied)}; "
             f"{len(installed)} installed SDK(s) of those classes, all named on the page"
         )
     return failures
@@ -1908,7 +1908,7 @@ def check_app(entry: dict, use_local: bool, verbose: bool) -> list[str]:
     # --- R7 measured backup behaviour -------------------------------------
     failures.extend(check_measured_backup(entry, live_unquoted, live, ok))
 
-    # --- R8 denied class of SDK vs what the app installs -------------------
+    # --- R10 denied class of SDK vs what the app installs -------------------
     failures.extend(check_absence_claims(entry, live_unquoted, live, ok))
 
     return failures
