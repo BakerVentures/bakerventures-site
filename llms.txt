@@ -95,6 +95,7 @@ a score on every message. It does not claim to produce dates, matches or relatio
 - [https://bakerventuresstudio.com/flirtgym/hinge-prompts/](https://bakerventuresstudio.com/flirtgym/hinge-prompts/): Hinge prompts that get you messaged
 - [https://bakerventuresstudio.com/flirtgym/how-to-ask-a-girl-out-over-text/](https://bakerventuresstudio.com/flirtgym/how-to-ask-a-girl-out-over-text/): Asking someone out over text
 - [https://bakerventuresstudio.com/flirtgym/glossary/](https://bakerventuresstudio.com/flirtgym/glossary/): Definitions: rizz, rizzmaxxing, opener, dry texting, situationship, looksmaxxing
+- [https://bakerventuresstudio.com/flirtgym/tools/](https://bakerventuresstudio.com/flirtgym/tools/): Index of the nine free browser tools
 - [https://bakerventuresstudio.com/flirtgym/research/](https://bakerventuresstudio.com/flirtgym/research/): Research index: studies and open datasets
 - [https://bakerventuresstudio.com/flirtgym/research/opener-score-study/](https://bakerventuresstudio.com/flirtgym/research/opener-score-study/): Original research: 40 openers scored through FlirtGym's rubric
 
@@ -103,6 +104,11 @@ a score on every message. It does not claim to produce dates, matches or relatio
 No signup, no account, no upload. Each one scores locally in the browser; nothing the visitor types is sent anywhere.
 
 - [https://bakerventuresstudio.com/flirtgym/opener-score/](https://bakerventuresstudio.com/flirtgym/opener-score/): Scores a dating app opener out of ten, names the category it falls into, and shows how that category scored in the Opener Score Study
+- [https://bakerventuresstudio.com/flirtgym/tools/](https://bakerventuresstudio.com/flirtgym/tools/): Index of all nine free browser tools, grouped by where a conversation actually stops: profile, first message, in person
+- [https://bakerventuresstudio.com/flirtgym/is-this-message-creepy/](https://bakerventuresstudio.com/flirtgym/is-this-message-creepy/): Reads one message before it is sent and reports the patterns readers describe as pushy: pressure about the silence, appearance and nothing else, moving somewhere private early, pet names with no closeness, volume and stacked questions. Names the exact words and the fix
+- [https://bakerventuresstudio.com/flirtgym/bio-check/](https://bakerventuresstudio.com/flirtgym/bio-check/): Scores dating profile bio text on four axes - specific, answerable, fresh, shape - and names every stock phrase with a replacement
+- [https://bakerventuresstudio.com/flirtgym/first-date-questions/](https://bakerventuresstudio.com/flirtgym/first-date-questions/): Builds a first date question ladder from ten topics, three rungs each, from the easy opener to the one that gets a story, tuned to how far into the date you are
+- [https://bakerventuresstudio.com/flirtgym/small-talk-practice/](https://bakerventuresstudio.com/flirtgym/small-talk-practice/): Forty-eight timed small talk drills across six skills, answered out loud alone. No microphone, no recording, no storage
 - [https://bakerventuresstudio.com/flirtgym/prompt-check/](https://bakerventuresstudio.com/flirtgym/prompt-check/): Tests whether three Hinge prompt answers are answerable, and whether they repeat each other
 - [https://bakerventuresstudio.com/flirtgym/conversation-check/](https://bakerventuresstudio.com/flirtgym/conversation-check/): Measures reciprocity in a thread: who sends more, who asks, who restarts it
 - [https://bakerventuresstudio.com/flirtgym/flirting-style/](https://bakerventuresstudio.com/flirtgym/flirting-style/): Nine questions placing how someone texts on two axes - how much they lead, how specific they are - into four styles, each with a real cost as well as a strength

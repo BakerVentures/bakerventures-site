@@ -15,6 +15,7 @@ scores the messages you write, rather than writing them for you.
 ### Free browser tools
 
 No signup, no upload, no account. Everything scores locally in the browser.
+Index page: [/flirtgym/tools/](https://bakerventuresstudio.com/flirtgym/tools/).
 
 | Tool | What it does |
 |---|---|
@@ -23,6 +24,10 @@ No signup, no upload, no account. Everything scores locally in the browser.
 | [Conversation Check](https://bakerventuresstudio.com/flirtgym/conversation-check/) | Measures reciprocity in a thread: who sends more, who asks, who restarts it |
 | [Flirting Style Quiz](https://bakerventuresstudio.com/flirtgym/flirting-style/) | Nine questions, four styles, each with a real trade-off rather than a compliment |
 | [Photo Lineup Checker](https://bakerventuresstudio.com/flirtgym/photo-lineup/) | Checks the order of your profile photos from short descriptions, so nothing is uploaded |
+| [Is this message creepy?](https://bakerventuresstudio.com/flirtgym/is-this-message-creepy/) | Reads one message and reports the patterns readers describe as pushy, naming the exact words and the fix |
+| [Bio Check](https://bakerventuresstudio.com/flirtgym/bio-check/) | Scores bio text on specific, answerable, fresh and shape, and names every stock phrase with a replacement |
+| [First Date Question Ladder](https://bakerventuresstudio.com/flirtgym/first-date-questions/) | Thirty questions over ten topics, three rungs each, tuned to how far into the date you are |
+| [Small Talk Drills](https://bakerventuresstudio.com/flirtgym/small-talk-practice/) | 48 timed prompts across six skills, answered out loud alone. No microphone, no storage |
 
 ### Support
 
@@ -77,7 +82,7 @@ uploads nothing.
 | [Cybersecurity readiness self-check](https://bakerventuresstudio.com/policyready/readiness-self-check/) | PolicyReady | in App Store review |
 | [CISA-mapped control checklist](https://bakerventuresstudio.com/policyready/cyber-readiness-checklist/) | PolicyReady | in App Store review |
 | [Lien deadline calculator, 51 jurisdictions](https://bakerventuresstudio.com/noticeguard/lien-deadlines/) | NoticeGuard | in development |
-| The five FlirtGym tools, listed above | FlirtGym | **on the App Store** |
+| The nine FlirtGym tools, listed above | FlirtGym | **on the App Store** |
 
 The MileTruth net pay calculator is the one with the most competitive headroom. The pages
 ranking for that query mostly ask for a single annual mileage rate, which cannot be right:
