@@ -50,7 +50,7 @@ refunds, restoring a purchase, deleting your account, and the address a human re
 [Flirting over text](https://bakerventuresstudio.com/flirtgym/how-to-flirt-over-text/) ·
 [Texting a girl](https://bakerventuresstudio.com/flirtgym/how-to-text-a-girl/) ·
 [Asking her out over text](https://bakerventuresstudio.com/flirtgym/how-to-ask-a-girl-out-over-text/) ·
-[Hinge prompts](https://bakerventuresstudio.com/flirtgym/hinge-prompts/) ·
+[Hinge prompts](https://bakerventuresstudio.com/flirtgym/dating-app-prompts/) ·
 [Getting more matches](https://bakerventuresstudio.com/flirtgym/how-to-get-more-matches/) ·
 [Profile feedback](https://bakerventuresstudio.com/flirtgym/rate-my-dating-profile/) ·
 [Practice with AI](https://bakerventuresstudio.com/flirtgym/practice-dating-conversations/) ·

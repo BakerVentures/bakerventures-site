@@ -59,14 +59,16 @@
 </head>
 <body>
   <h1>Privacy Policy for FlirtGym</h1>
-  <p class="meta"><strong>Effective date:</strong> July 17, 2026<br><strong>Last updated:</strong> August 1, 2026</p>
+  <p class="meta"><strong>Effective date:</strong> July 17, 2026<br><strong>Last updated:</strong> November 1, 2026</p>
+  <p class="meta">November 1, 2026 update: this policy now names all three attribution and analytics SDKs in the App and says exactly what each receives (Section 2.5a), and corrects Sections 1, 2.2, 4 and 6, which previously described the onboarding-quiz and practice-session analytics events as staying on your device. This is a correction to the <em>description</em> of what the App has done since August 2026; the App's behaviour has not changed.</p>
   <p>This Privacy Policy explains how FlirtGym ("FlirtGym," "we," "us," or "our") handles information when you use the FlirtGym mobile application (the "App"). By using the App, you agree to the practices described here.</p>
   <p>The App is operated by Baker Ventures LLC.</p>
   <hr>
   <h2>1. The short version</h2>
   <ul>
   <li>FlirtGym does <strong>not</strong> require an account. We do not ask for your name as an identifier, email, or phone number to use the App.</li>
-  <li>Most of your data — your progress, stats, streaks, quiz history, and settings — is stored <strong>only on your device</strong> and is never sent to us.</li>
+  <li>Most of your data — your progress, stats, streaks, quiz history, and settings — is stored <strong>only on your device</strong>. We never receive the stored values themselves.</li>
+  <li>The App does send <strong>usage analytics and ad-attribution events</strong> to three third-party services (Meta, AppsFlyer and PostHog): which screens and features you use, your subscription plan and price, and the fixed-choice answers from the onboarding quiz. Never your name, photos, screenshots or message text. Section 2.5a lists all three and exactly what each receives.</li>
   <li>When you use AI features (practice conversations, profile and photo analysis — <strong>including photos of yourself</strong> in Rate My Look — and the other coaching tools), the text, screenshots, and photos you submit are sent to our server and then to our AI provider (Anthropic) <strong>solely to generate a response</strong>. We do not use this content to build a profile of you or sell it.</li>
   <li>Payments are handled by <strong>Apple</strong>. We never receive your credit card or full payment details.</li>
 </ul>
@@ -84,11 +86,12 @@
   <p><strong>Important — photos of yourself (Rate My Look and related features):</strong> Some features ask you to provide photos of <strong>your own face and body</strong>. When you do, those images are sent to our backend server and on to Anthropic to generate your feedback, the same way as any other content you submit. We do not use them to identify you, to build a profile of you, or for any purpose other than returning your result, and they are not retained by us in a database (see Sections 4 and 6). Providing these photos is entirely optional — the feature only runs when you choose to add a photo.</p>
   <p>This content is processed to produce your result and is not used to identify you. Please <strong>avoid submitting sensitive personal information</strong> (your own or others') that you do not want processed by an AI service. You are responsible for the content you choose to submit, including screenshots that may contain another person's information.</p>
   <h3>2.2 Information stored only on your device</h3>
-  <p>The following is saved locally on your device (using the operating system's standard local storage) and is <strong>not transmitted to our servers</strong>:</p>
+  <p>The following is saved locally on your device (using the operating system's standard local storage). The stored values are <strong>not transmitted to our backend server</strong>. Where an item is <em>also</em> reported to our analytics or attribution providers as an event property, it says so and Section 2.5a has the detail:</p>
   <ul>
-  <li>A display name and onboarding answers you optionally enter during setup.</li>
+  <li>A display name you optionally enter during setup. This stays on your device and is never sent anywhere.</li>
+  <li>Your onboarding quiz answers. These stay on your device, <strong>and the fixed-choice answers are also sent as analytics event properties</strong> to Meta, AppsFlyer and PostHog (see Section 2.5a).</li>
   <li>Your goals, and optional age range and U.S. state preferences.</li>
-  <li>Your progress and gameplay data: streaks, session counts, Rizz Scores, XP, levels, session history, study/quiz history, and daily missions.</li>
+  <li>Your progress and gameplay data: streaks, session counts, Rizz Scores, XP, levels, session history, study/quiz history, and daily missions. These values stay on your device. When you finish a practice session the App does report <strong>which scenario it was and how many messages were exchanged</strong> as an analytics event — never the conversation itself.</li>
   <li>App settings: selected theme, "brutal mode," notification preferences, and a locally generated referral code.</li>
   <li>Subscription status flags used to unlock paid features on your device.</li>
   <li>A local, on-device activity log used for debugging, capped to the most recent entries.</li>
@@ -102,7 +105,16 @@
   <li><strong>Camera</strong> and <strong>Photo Library</strong> — requested so you can take or select photos and screenshots for the App's photo-based features, including <strong>Rate My Look</strong> (photos of yourself), <strong>Photo Ranker</strong>, <strong>Looks Coaching</strong>, <strong>Rate My Profile</strong>, the <strong>Profile Analyzer</strong>, and the screenshot-based Wingman tools. The App accesses your camera or photo library only when you actively take or choose a photo for one of these features; it does not scan your library in the background.</li>
 </ul>
   <h3>2.5 What we do <strong>not</strong> collect</h3>
-  <p>We do not collect or request: account credentials, email address, phone number, contacts, precise GPS location, health data, or browsing history. The App includes the <strong>Meta SDK for advertising attribution</strong>; with your App Tracking Transparency permission it may access your device advertising identifier (IDFA) to measure ad performance (see Section 4). We use no other advertising or analytics SDKs.</p>
+  <p>We do not collect or request: account credentials, email address, phone number, contacts, precise GPS location, health data, motion or fitness data, or browsing history. The App shows no advertising of any kind and contains no ad-display or ad-mediation code.</p>
+  <h3>2.5a Attribution and analytics SDKs</h3>
+  <p>The App includes three third-party SDKs that receive data about how the App is used. We list them, and what each one receives, in full:</p>
+  <ul>
+  <li><strong>Meta (Facebook) SDK</strong> — advertising attribution, so we can tell which of our own ads brought someone to the App. It starts when the App launches with advertiser-ID collection and advertiser tracking switched <strong>off</strong>, and from that point it reports app events (such as install, onboarding and paywall steps, trial start, and purchase) to Meta <strong>without</strong> your advertising identifier. Your device advertising identifier (IDFA) is accessed only if you allow tracking at the App Tracking Transparency prompt.</li>
+  <li><strong>AppsFlyer</strong> — install and advertising attribution. It is configured at launch but deliberately <strong>not started</strong> until after you have answered the App Tracking Transparency prompt (whether you allow or deny it). It then receives install and in-app events, including onboarding and paywall steps, trial start, and subscription amount and currency. It receives your advertising identifier only if you allow tracking. The App also participates in Apple's <strong>SKAdNetwork</strong>, Apple's privacy-preserving ad-attribution system.</li>
+  <li><strong>PostHog</strong> — our own product analytics, so we can see which screens and features people use and where they drop off. It is deliberately identifier-free: no advertising identifier, no automatic screen or touch capture, no session recording, no IP-based location lookup, and no user profile. Events are tied only to a random identifier generated on your device for this App alone. It is not used for advertising and needs no tracking permission.</li>
+</ul>
+  <p><strong>What these events contain.</strong> Event properties are short, fixed labels: the screen or feature used, which practice scenario and how many messages were exchanged in it, the subscription plan, price, currency and App Store country, and <strong>the fixed-choice answers you give in the onboarding quiz</strong> (for example your main goal and where you struggle most). They do <strong>not</strong> contain your name, your date of birth, your email, your photos, your screenshots, or the text of your messages, practice conversations, or bios.</p>
+  <p>The App declares to Apple that it carries out tracking, and it presents the App Tracking Transparency prompt for the reasons above. The three SDKs listed here measure <em>our</em> advertising elsewhere; they do not place advertising inside the App.</p>
   <h3>2.6 Automatic technical processing (IP address)</h3>
   <p>When your device contacts our backend to use an AI feature, our server and hosting provider transiently process your device's <strong>IP address</strong> to route the request and to enforce rate limits that protect the service against abuse and excessive use. We do not use IP addresses to identify you or build a profile of you, and we do not retain them for that purpose.</p>
   <hr>
@@ -121,11 +133,14 @@
   <ul>
   <li><strong>Anthropic (AI provider).</strong> Content you submit for AI features (messages, screenshots, bios) is sent to Anthropic's API to generate a response. Anthropic processes this data to return a result. Per Anthropic's commercial API terms, API inputs and outputs are not used to train its models. See Anthropic's privacy practices at <a href="https://www.anthropic.com/legal/privacy">https://www.anthropic.com/legal/privacy</a>.</li>
   <li><strong>Apple.</strong> Handles in-app purchases and subscription billing.</li>
-  <li><strong>RevenueCat.</strong> Manages and verifies subscription entitlements, and forwards subscription events (such as trial start and purchase) to Meta's Conversions API for advertising-attribution measurement.</li>
-  <li><strong>Meta Platforms (Facebook).</strong> We use the Meta SDK to measure the effectiveness of our advertising. With your permission (via the App Tracking Transparency prompt), it may collect your device advertising identifier (IDFA) and report app events (such as install and subscription) to Meta for ad attribution. If you deny tracking, we rely only on server-side, non-IDFA measurement. See Meta's data policy at <a href="https://www.facebook.com/policy.php">https://www.facebook.com/policy.php</a>.</li>
+  <li><strong>RevenueCat.</strong> Manages and verifies subscription entitlements, and forwards subscription events (such as trial start and purchase) to <strong>Meta's Conversions API and to AppsFlyer</strong> for advertising-attribution measurement. To let it match those events, the App passes RevenueCat the anonymous identifiers Meta and AppsFlyer generate on your device, and your advertising identifier where you have allowed tracking.</li>
+  <li><strong>Meta Platforms (Facebook).</strong> We use the Meta SDK to measure the effectiveness of our advertising. It reports app events (such as install, onboarding and paywall steps, trial start and purchase) to Meta for ad attribution. With your permission (via the App Tracking Transparency prompt) it may also collect your device advertising identifier (IDFA); if you deny tracking, those events are reported without it and we rely on non-IDFA measurement. See Meta's data policy at <a href="https://www.facebook.com/policy.php">https://www.facebook.com/policy.php</a>.</li>
+  <li><strong>AppsFlyer.</strong> Measures which ad brought you to the App. Receives install and in-app event data — onboarding and paywall steps, trial start, and subscription amount and currency — and is started only after the App Tracking Transparency prompt is answered. It receives your advertising identifier only if you allow tracking. See <a href="https://www.appsflyer.com/legal/services-privacy-policy/">https://www.appsflyer.com/legal/services-privacy-policy/</a>.</li>
+  <li><strong>PostHog.</strong> Our product-analytics provider. Receives identifier-free events about screen and feature usage, practice sessions, and the purchase funnel, tied only to a random identifier generated on your device for this App alone. No advertising identifier, no session recording, no IP-based location. Not used for advertising. See <a href="https://posthog.com/privacy">https://posthog.com/privacy</a>.</li>
   <li><strong>Our hosting provider.</strong> Our backend runs on a third-party cloud host that processes requests in transit. Our backend acts as a stateless relay: it forwards your request to the AI provider and returns the response, and is <strong>not designed to store</strong> the content of your conversations, screenshots, or bios in a database.</li>
   <li><strong>Legal reasons.</strong> We may disclose information if required by law or to protect rights, safety, or property.</li>
 </ul>
+  <p>Each third party named above — including our analytics tools, advertising-attribution providers and the third-party SDKs in the App — is engaged under terms that require them to protect user data to the same or an equal standard as this policy describes, and to use the data only for the purposes set out here. We do not sell personal information to any of them, and we do not authorise any of them to use data from the App to build an advertising profile of you. We have no parent, subsidiary or other related entity with access to user data.</p>
   <hr>
   <h2>5. AI processing — important disclosures</h2>
   <p>The App uses generative AI. AI output can be inaccurate, incomplete, or unsuitable, and is provided for entertainment and self-improvement practice only — it is not professional, psychological, legal, or relationship advice. Do not rely on it as such. When you upload a screenshot of another person's profile, you are responsible for ensuring you have any rights necessary to do so.</p>
@@ -134,6 +149,7 @@
   <ul>
   <li><strong>On-device data</strong> is retained until you delete it within the App (for example, by resetting progress) or uninstall the App.</li>
   <li><strong>AI request content</strong> is transmitted to generate your result and is not retained by us in a database. Our AI and hosting providers may retain data transiently for processing, abuse-prevention, and as required by their own policies and applicable law.</li>
+  <li><strong>Analytics and attribution events</strong> (Section 2.5a) are retained by Meta, AppsFlyer and PostHog under their own retention policies, which we do not control. We do not combine them with the content you submit for AI processing, and we do not use them to build an advertising profile of you.</li>
 </ul>
   <hr>
   <h2>7. Security</h2>
