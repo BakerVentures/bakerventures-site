@@ -34,11 +34,11 @@
   <p>MileTruth is a gig-driver mileage and net-pay app built by <strong>Baker Ventures LLC</strong> (&ldquo;we,&rdquo; &ldquo;us&rdquo;). This policy explains what the MileTruth app collects, why, how it&rsquo;s stored, and how you can export or delete it. MileTruth is in development and has not yet been released; this policy governs the app as designed and will stay in force once it ships.</p>
   <hr>
   <h2>1. The short version</h2>
-  <p>We don&rsquo;t sell your data, to anyone, ever. MileTruth is local-first: your trips, earnings, and vehicle data live on your device by default. Location data is used only to detect trips automatically and is never sold or shared with advertisers. We run no ad SDKs.</p>
+  <p>We don&rsquo;t sell your data, to anyone, ever. MileTruth is local-first: your trips, earnings, and vehicle data live on your device by default. Location is used only to suggest whether a trip was business or personal, by comparing it with a home location you set, and is never sold or shared with advertisers. We run no ad SDKs.</p>
   <hr>
   <h2>2. What we collect, how, and what it is used for</h2>
   <h3>Location data</h3>
-  <p>With your permission, MileTruth uses your device&rsquo;s location &mdash; including background (&ldquo;Always&rdquo;) location &mdash; to detect when you start and stop driving, so your mileage log fills in automatically. This includes GPS coordinates and, on supported devices, motion-activity signals (for example, &ldquo;in vehicle&rdquo; vs. &ldquo;walking&rdquo;) used to decide when to start and stop tracking efficiently. Location is processed to build trip records (route, distance, start/end points) stored primarily on your device. We do not sell location data, and we do not include coordinates or addresses in analytics events sent to our service providers.</p>
+  <p>With your permission, MileTruth uses your device&rsquo;s location <strong>only while the app is open</strong>. It asks for foreground location only: it does not request background or &ldquo;Always&rdquo; location, and <strong>this version does not detect trips automatically</strong> &mdash; every trip is entered by hand or imported from an earnings CSV. Location is used to compare where a trip started and ended against a home location you set, so the app can suggest whether that trip was business or personal. You can ignore or change any suggestion. We do not sell location data, and we do not include coordinates or addresses in analytics events sent to our service providers.</p>
   <h3>Trip and earnings data</h3>
   <p>Trip records (distance, timestamps, classification as business or personal, platform, purpose, notes) and earnings you enter or import (gross pay, tips, bonuses, fees, per platform) are stored on your device and, if you enable cloud backup, in our backend so you can restore them on a new device.</p>
   <h3>Vehicle and cost data</h3>
@@ -67,7 +67,7 @@
     <li><strong>Export.</strong> You can export your full mileage log and reports (PDF/CSV) from inside the app at any time.</li>
     <li><strong>Delete.</strong> You can delete individual trips, or delete your account and all associated data, from Settings inside the app. Deleting your account removes your cloud-backed data; data that was never backed up existed only on your device and is removed when you delete the app.</li>
     <li><strong>Retention.</strong> Cloud-backed data is retained for as long as your account exists and is deleted when you delete the account. Raw GPS points are retained only for the limited re-processing window described in Section 3 and are then discarded.</li>
-    <li><strong>Location permission &mdash; withdrawing consent.</strong> You can grant, downgrade (Always &rarr; While Using), or revoke location permission at any time in your device&rsquo;s system settings. Revoking it disables automatic trip detection; manual trip entry still works.</li>
+    <li><strong>Location permission &mdash; withdrawing consent.</strong> You can grant or revoke location permission at any time in your device&rsquo;s system settings. MileTruth only ever asks for While Using permission. Revoking it stops the business-or-personal suggestion; entering and editing trips is unaffected.</li>
     <li><strong>Contact us.</strong> Email <a href="mailto:rsb.baker+miletruth@gmail.com">rsb.baker+miletruth@gmail.com</a> for any privacy request, including data export or deletion requests we can help with directly.</li>
   </ul>
   <hr>

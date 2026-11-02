@@ -178,7 +178,7 @@ button.ghost{background:none;color:var(--fg2);border:1px solid var(--bd);font-we
 <h2>Why there are two mileage boxes</h2>
 <p>2026 is a split year. The IRS set the business standard mileage rate at 72.5 cents a mile for January 1 through June 30, then raised it to 76 cents for July 1 through December 31. A mile is worth 3.5 cents more in August than it was in May.</p>
 <p>That means one rate for the whole year is wrong in both directions: it understates the second half and overstates the first. Any log that covers both halves needs the miles split at June 30 and each half priced on its own. That is what the second table does, and it is why this calculator asks for two mileage figures rather than one.</p>
-<p class="src">Source: Internal Revenue Service, <a href="https://www.irs.gov/tax-professionals/standard-mileage-rates" rel="nofollow">Standard mileage rates</a>, read 2026-10-13. First-half rate per IR-2025-128 and Notice 2026-10; second-half rate per IR-2026-29. Charitable mileage stayed at 14 cents both halves; medical and military-moving went from 20.5 to 23.5 cents.</p>
+<p class="src">Source: Internal Revenue Service, <a href="https://www.irs.gov/tax-professionals/standard-mileage-rates" rel="nofollow">Standard mileage rates</a>, read 2026-10-13. First-half rate per IR-2025-128; second-half rate per IR-2026-29. Charitable mileage stayed at 14 cents both halves; medical and military-moving went from 20.5 to 23.5 cents.</p>
 
 <h2>Where the vehicle cost figures come from</h2>
 <p>The starting numbers for each vehicle class are the five-year averages published in AAA's annual <em>Your Driving Costs</em> study, 2025 edition, at its 15,000 miles a year baseline. Depreciation is then rescaled to the annual mileage you enter, because per-mile depreciation falls as you drive more: the same dollar loss spreads over more miles. Fuel is recomputed from the price and MPG you give rather than AAA's national average.</p>
@@ -201,7 +201,7 @@ button.ghost{background:none;color:var(--fg2);border:1px solid var(--bd);font-we
 
 <h2>The app this came from</h2>
 <p>These figures are the same arithmetic MileTruth runs, ported to run in a browser. The app's job is the part a calculator cannot do: keeping the log. It records each trip with its own date, classifies business against personal, and prices every mile at the rate in force that day, so the June 30 split happens by itself instead of being something you have to remember at tax time.</p>
-<p><strong>MileTruth 1.0 is in App Store review as of 13 October 2026</strong> and is set to publish itself the moment Apple approves it, so its <a href="https://apps.apple.com/us/app/id6816230325">App Store listing</a> may not open for a day or two yet. It is free: no subscription, no in-app purchase, no trial. iPhone only for now, so there is no Play listing. The calculators on this site are free and stay free either way.</p>
+<p><strong>MileTruth 1.0 is not on the App Store.</strong> It was submitted and has not been approved, and no release date is published, so its <a href="https://apps.apple.com/us/app/id6816230325">App Store listing</a> does not open yet. It is free: no subscription, no in-app purchase, no trial. iPhone only for now, so there is no Play listing. The calculators on this site are free and stay free either way.</p>
 <p><a href="/miletruth/">What MileTruth is</a> &middot; <a href="/miletruth/tools/">All the free calculators</a> &middot; <a href="/miletruth/irs-mileage-rate-2026/">The 2026 split-year rate, explained</a></p>
 
 <footer><p><strong>MileTruth</strong> is built by Baker Ventures LLC, 355 E 1200 N, Logan, UT 84341. Page published 2026-10-13.<br><a href="/miletruth/support/">Support</a> &middot; <a href="/miletruth/privacy/">Privacy Policy</a> &middot; <a href="/miletruth/terms/">Terms of Use</a> &middot; <a href="mailto:rsb.baker+miletruth@gmail.com">rsb.baker+miletruth@gmail.com</a></p><p>A record-keeping and arithmetic tool, not a tax advisor. &copy; 2026 Baker Ventures LLC</p></footer>
@@ -230,7 +230,7 @@ var CLASSES = [
 ];
 
 /* The 2026 split-year IRS business standard mileage rates, in cents per mile.
-   Jan 1 - Jun 30: 72.5 (IR-2025-128 / Notice 2026-10). Jul 1 - Dec 31: 76 (IR-2026-29).
+   Jan 1 - Jun 30: 72.5 (IR-2025-128). Jul 1 - Dec 31: 76 (IR-2026-29).
    https://www.irs.gov/tax-professionals/standard-mileage-rates - read 2026-10-13.
    Kept as two periods rather than one rate for the same reason the app does it:
    one rate for the whole year is wrong on both sides of June 30. */
