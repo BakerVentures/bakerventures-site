@@ -87,7 +87,8 @@
   <p>Not every gauge reports every measurement. If a gauge has no discharge sensor you will see that rather than a guess.</p>
 
   <h2>Sources</h2>
-  <p class="cite">Streamflow, gauge height and water temperature: U.S. Geological Survey, National Water Information System Instantaneous Values service, <code>https://waterservices.usgs.gov/nwis/iv/</code> (parameters 00060, 00065, 00010), requested from your browser at the moment you press the button. Streamflow and gauge height data: USGS Water Services, provisional and subject to revision. This site does not store or proxy the data. The ten starter waters and their gauge numbers are from the Hatch Window app's source file <code>src/data/spots.ts</code> (commit <code>3ea20fe</code>). The 12-hour trend rule and the 4-hour stale rule mirror <code>src/lib/usgs.ts</code> in the same repository.</p>
+  <p class="cite">Streamflow, gauge height and water temperature: U.S. Geological Survey, Water Data for the Nation OGC API, <code>https://api.waterdata.usgs.gov/ogcapi/v1/</code> collection <code>continuous</code> (parameters 00060, 00065, 00010), requested from your browser at the moment you press the button. Streamflow and gauge height data: USGS Water Data for the Nation, provisional and subject to revision. This site does not store or proxy the data. The ten starter waters and their gauge numbers are from the Hatch Window app's source file <code>src/data/spots.ts</code>. The 12-hour trend rule and the 4-hour stale rule mirror <code>src/lib/usgs.ts</code> in the same repository (commit <code>6d75687</code>).</p>
+  <p class="cite">This page moved off the older <code>waterservices.usgs.gov/nwis/iv/</code> service on 1 November 2026. USGS is decommissioning that service on 22 February 2027 and starts injecting deliberate delay into it on 16 November 2026, so it is being retired here ahead of the first slowdown rather than after it.</p>
 
   <div class="warn"><strong>Not a safety tool.</strong> A gauge reading is not a wading safety call. Conditions at your spot can differ from the gauge, which may be miles away. Check local regulations and closures, and carry a valid license.</div>
   <div class="note">Want the hatch side? See the <a href="/hatchwindow/hatch-chart/">hatch chart by month</a> and the <a href="/hatchwindow/rivers/provo-river-ut/">river pages</a>. <a href="/hatchwindow/">Hatch Window</a> is a free fly-fishing companion app from Baker Ventures LLC that shows streamflow from USGS and weather from Open-Meteo for your saved waters. Timing and availability are on the app page.</div>
@@ -99,20 +100,30 @@
     var f = document.getElementById('f'), out = document.getElementById('out'), go = document.getElementById('go');
     var spot = document.getElementById('spot'), site = document.getElementById('site');
     function el(tag, text, cls) { var e = document.createElement(tag); if (text != null) e.textContent = text; if (cls) e.className = cls; return e; }
+    // USGS Water Data for the Nation returns a GeoJSON FeatureCollection with
+    // ONE Feature per observation, not the old nested timeSeries object. Shape
+    // notes, all measured against the live API on 2026-11-01:
+    //   - properties.value is a STRING ("97.6"), and is null for a gap.
+    //   - the old -999999 noDataValue sentinel is gone; gaps are null or the
+    //     row is simply absent, so absence has to be handled, not a magic number.
+    //   - properties.time is UTC ("+00:00"); the old service sent site-local offsets.
+    //   - a wrong site number returns HTTP 200 with features: [], not an error.
+    //   - the site NAME is not carried here at all; it lives on the separate
+    //     monitoring-locations collection, fetched best-effort below.
     function series(json, code) {
-      var ts = (json && json.value && json.value.timeSeries) || [];
-      for (var i = 0; i < ts.length; i++) {
-        var codes = (ts[i].variable && ts[i].variable.variableCode) || [];
-        if (codes.some(function (c) { return c.value === code; })) {
-          var nd = ts[i].variable.noDataValue;
-          var raw = (ts[i].values && ts[i].values[0] && ts[i].values[0].value) || [];
-          var pts = raw.map(function (p) { return { t: new Date(p.dateTime), v: Number(p.value) }; })
-            .filter(function (p) { return isFinite(p.v) && !isNaN(p.t.valueOf()) && p.v !== nd; })
-            .sort(function (a, b) { return a.t - b.t; });
-          return { name: ts[i].sourceInfo && ts[i].sourceInfo.siteName, pts: pts };
-        }
+      var fs = (json && json.features) || [];
+      var pts = [];
+      for (var i = 0; i < fs.length; i++) {
+        var pr = fs[i] && fs[i].properties;
+        if (!pr || pr.parameter_code !== code) continue;
+        if (pr.value === null || pr.value === undefined || pr.value === '') continue;
+        var v = Number(pr.value), t = new Date(pr.time);
+        if (!isFinite(v) || isNaN(t.valueOf())) continue;
+        pts.push({ t: t, v: v });
       }
-      return null;
+      if (!pts.length) return null;
+      pts.sort(function (a, b) { return a.t - b.t; });
+      return { pts: pts };
     }
     function trend(pts) {
       if (pts.length < 2) return 'unknown';
@@ -131,10 +142,9 @@
       var h = Math.floor(m / 60); return h + ' h ' + (m % 60) + ' min ago';
     }
     function row(tb, k, v, stale) { var tr = el('tr'); tr.appendChild(el('th', k)); var td = el('td', v, stale ? 'stale' : ''); tr.appendChild(td); tb.appendChild(tr); }
-    function render(no, json) {
+    function render(no, json, name, truncated) {
       out.textContent = '';
       var q = series(json, '00060'), g = series(json, '00065'), w = series(json, '00010');
-      var name = (q && q.name) || (g && g.name) || (w && w.name);
       if (!q && !g && !w) {
         out.appendChild(el('p', 'USGS returned no current readings for site ' + no + '. The number may be wrong, or the gauge may be inactive or not report discharge, gauge height or temperature.', 'warn'));
         return;
@@ -152,7 +162,9 @@
       if (q && q.pts.length) {
         var vals = q.pts.map(function (p) { return p.v; });
         row(tb, 'Trend, about 12 h', trend(q.pts));
-        row(tb, 'Last 3 days, low to high', Math.min.apply(null, vals).toLocaleString() + ' to ' + Math.max.apply(null, vals).toLocaleString() + ' cfs');
+        row(tb, truncated ? 'Recent low to high' : 'Last 3 days, low to high',
+            Math.min.apply(null, vals).toLocaleString() + ' to ' + Math.max.apply(null, vals).toLocaleString() + ' cfs'
+            + (truncated ? ' (partial window: this gauge reports more readings than one request returns)' : ''));
       }
       if (g && g.pts.length) {
         var G = g.pts[g.pts.length - 1];
@@ -164,7 +176,7 @@
       }
       out.appendChild(tb);
       var a = el('p'); var l = el('a', 'Open this gauge on the official USGS page'); l.href = 'https://waterdata.usgs.gov/monitoring-location/' + no + '/'; l.rel = 'noopener'; a.appendChild(l); out.appendChild(a);
-      out.appendChild(el('p', 'Streamflow and gauge height data: USGS Water Services (waterservices.usgs.gov), provisional and subject to revision.', 'cite'));
+      out.appendChild(el('p', 'Streamflow and gauge height data: USGS Water Data for the Nation (api.waterdata.usgs.gov), provisional and subject to revision.', 'cite'));
     }
     spot.addEventListener('change', function () { if (spot.value) site.value = ''; });
     f.addEventListener('submit', function (e) {
@@ -173,9 +185,43 @@
       if (!/^\d{8,15}$/.test(no)) { out.textContent = ''; out.appendChild(el('p', 'A USGS site number is 8 to 15 digits, for example 10163000.', 'warn')); return; }
       go.disabled = true; out.textContent = ''; out.appendChild(el('p', 'Asking USGS...'));
       var ctl = new AbortController(), timer = setTimeout(function () { ctl.abort(); }, 12000);
-      fetch('https://waterservices.usgs.gov/nwis/iv/?format=json&sites=' + encodeURIComponent(no) + '&parameterCd=00060,00065,00010&siteStatus=all&period=P3D', { signal: ctl.signal })
-        .then(function (r) { if (!r.ok) throw new Error('USGS returned HTTP ' + r.status); return r.json(); })
-        .then(function (j) { render(no, j); })
+      // The new API namespaces site ids by agency and rejects a bare number by
+      // returning an empty FeatureCollection, so the USGS- prefix is mandatory.
+      var id = 'USGS-' + encodeURIComponent(no);
+      // An explicit RFC 3339 interval is required: a bare duration like P3D is
+      // HTTP 400 "Unknown string format" on this API, unlike the old period=P3D.
+      var now = new Date(), from = new Date(now.valueOf() - 3 * 24 * 3600 * 1000);
+      function rfc(d) { return d.toISOString().replace(/\.\d{3}Z$/, 'Z'); }
+      // sortby=-time puts the newest rows first, so if LIMIT ever truncates a
+      // very high-cadence gauge it is the OLDEST readings that are lost, never
+      // the current one. skipGeometry drops the per-row point geometry nothing
+      // here reads (measured 2026-11-01: 308 KB -> 215 KB for a 3-day window).
+      var LIMIT = 5000;
+      var dataUrl = 'https://api.waterdata.usgs.gov/ogcapi/v1/collections/continuous/items'
+        + '?monitoring_location_id=' + id
+        + '&parameter_code=00060,00065,00010'
+        + '&datetime=' + encodeURIComponent(rfc(from) + '/' + rfc(now))
+        + '&sortby=-time&limit=' + LIMIT
+        + '&properties=time,value,parameter_code&skipGeometry=true&f=json';
+      // The site name is on a different collection. Best-effort only: the
+      // readings are the point of the page, so a failure here must not cost
+      // the user their data, it just falls back to "USGS site <number>".
+      var nameUrl = 'https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/items'
+        + '?id=' + id + '&f=json';
+      var dataP = fetch(dataUrl, { signal: ctl.signal })
+        .then(function (r) { if (!r.ok) throw new Error('USGS returned HTTP ' + r.status); return r.json(); });
+      var nameP = fetch(nameUrl, { signal: ctl.signal })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) {
+          var f = j && j.features && j.features[0];
+          return (f && f.properties && f.properties.monitoring_location_name) || null;
+        })
+        .catch(function () { return null; });
+      Promise.all([dataP, nameP])
+        .then(function (res) {
+          var j = res[0];
+          render(no, j, res[1], (j && j.numberReturned) >= LIMIT);
+        })
         .catch(function (err) { out.textContent = ''; out.appendChild(el('p', 'Could not get data from USGS (' + (err && err.message ? err.message : 'network error') + '). Try again, or use the official USGS page.', 'warn')); })
         .then(function () { clearTimeout(timer); go.disabled = false; });
     });
