@@ -73,7 +73,7 @@
      "@type": "HowToStep",
      "position": 3,
      "name": "Tap Delete Account",
-     "text": "Tap Delete Account and confirm. This is a deletion, not a deactivation."
+     "text": "Tap Delete Account and confirm. This clears app-managed local data and requests deletion of the RevenueCat subscriber record. Check the result shown in the app; provider records and caches have separate retention limits."
     },
     {
      "@type": "HowToStep",
@@ -126,26 +126,24 @@ footer a,a{color:var(--gold)}nav a{color:var(--fg2)}
 <li>Go to <strong>Settings</strong></li>
 <li>Tap <strong>Delete Account</strong> and confirm</li>
 </ol>
-<p>It is a real deletion, not a deactivation. It removes your account, signs you out of Apple and RevenueCat, and cannot be undone.</p>
+<p>Delete Account clears app-managed local data, removes the locally stored Apple identity, returns RevenueCat to an anonymous identity, and requests deletion of your RevenueCat subscriber record through our server. Check the result shown in the app: a network or service failure can leave server deletion unfinished. The app can retry transient failures on a later launch. Cleared local data cannot be restored through this action.</p>
 
 <h2>If you no longer have the app installed</h2>
-<p>Email <a href="mailto:support@bakerventuresstudio.com?subject=Delete%20my%20account">support@bakerventuresstudio.com</a> with the subject <strong>Delete my account</strong>, from the email address on the account. If you signed up with Apple and used Hide My Email, send it from that private relay address, since that is the only identifier we hold.</p>
+<p>Email <a href="mailto:support@bakerventuresstudio.com?subject=Delete%20my%20account">support@bakerventuresstudio.com</a> with the subject <strong>Delete my account</strong>, from the email address on the account. If you signed in with Apple and used Hide My Email, include that private relay address if available. RevenueCat also uses an anonymous or Apple-derived subscriber identifier; we may need information to locate and verify the relevant record. Never send your Apple password or a verification code.</p>
 <p>Requests are actioned within <strong>30 days</strong> and usually within a few working days. You will get a reply confirming the deletion. We do not ask you for a reason and we will not try to talk you out of it.</p>
 
 <h2>What is deleted</h2>
 <ul>
-<li>Your account and its identifier</li>
-<li>Practice conversations and every message you wrote</li>
-<li>Scores, coaching feedback, and session history</li>
-<li>Profile and photo analyses, and any images you submitted for them</li>
-<li>Lesson progress, challenges, streaks and stored preferences</li>
-<li>The local copy on your device, when you delete from inside the app</li>
+<li>App-managed local records on this device, including saved conversations, scores, coaching feedback, session history, saved analyses and Looks-history thumbnails, lesson progress, challenges, streaks and preferences</li>
+<li>Your locally stored Apple sign-in identity; this does not delete your Apple Account</li>
+<li>Your RevenueCat subscriber record when the server request succeeds, plus the server's entitlement cache and free-use counter for that identifier</li>
 </ul>
 
 <h2>What is kept, and why</h2>
 <ul>
 <li><strong>Purchase records</strong> are held by Apple, not by us. We cannot delete them and neither can you; they are financial records Apple is required to keep. Deleting your account does not refund anything.</li>
-<li><strong>Anonymous, aggregated counts</strong> that cannot be traced back to a person, for example how many sessions ran in a week.</li>
+<li><strong>Analytics and attribution records</strong> held by Meta, AppsFlyer and PostHog are not automatically erased by Delete Account. These can include events linked to SDK identifiers, not just aggregated counts. SDK-managed device storage is separate from the app-managed local records cleared by this action.</li>
+<li><strong>Server caches and logs:</strong> Looks Coaching results and image-derived hashes can remain in a bounded memory cache until eviction or server restart. Abuse and cost counters can also remain in memory; content reports and technical errors can remain in hosting logs. AI, hosting and other providers apply their own retention policies. Contact support for a deletion request covering provider-held data; see the privacy policy for details.</li>
 <li>Anything we are legally required to retain, for as long as the law requires and no longer.</li>
 </ul>
 
