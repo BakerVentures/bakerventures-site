@@ -3,76 +3,118 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FlirtGym Support: Cancel, Refund, Restore, Delete</title>
-<meta name="description" content="Support for FlirtGym: how to cancel, get a refund, restore a purchase, delete your account, and reach a human who answers.">
+<title>FlirtGym support &mdash; billing, the tracking prompt, and what the app can see</title>
+<meta name="description" content="FlirtGym support: cancelling and refunds (both Apple's job, not ours), restoring a purchase, deleting your account, why the app asks permission to track, what it can and cannot read, and the free browser tools that need no app at all.">
 <link rel="canonical" href="https://bakerventuresstudio.com/flirtgym/support/">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="FlirtGym">
-<meta property="og:title" content="FlirtGym Support">
-<meta property="og:description" content="Support for FlirtGym: how to cancel, get a refund, restore a purchase, delete your account, and reach a human who answers.">
-<meta property="og:url" content="https://bakerventuresstudio.com/flirtgym/support/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FlirtGym Support">
-<meta name="twitter:description" content="Support for FlirtGym: how to cancel, get a refund, restore a purchase, delete your account, and reach a human who answers.">
-<script type="application/ld+json">
+<style>
+/* FlirtGym support. The app's own identity: near-black, one gold, heavy display type.
+   Deliberately the loudest page in the studio, because it is the only consumer
+   subscription product here and its support page is mostly about money. */
+:root{--gold:#C69B3C;--gb:#FFD700;--bg:#0C0C0D;--card:#151517;--card2:#1B1B1E;
+  --bd:#2A2A2A;--fg:#FFF;--fg2:#AAA;--ok:#6BBF8A;--no:#E07A6B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px 72px}
+nav{padding:20px 0;border-bottom:1px solid var(--bd);font-size:14px;
+  display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+nav .b{font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.04em;margin-right:auto}
+nav a{color:var(--fg2);text-decoration:none}nav a:hover{color:var(--gold)}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.1;letter-spacing:-.03em;margin:34px 0 14px;font-weight:800}
+.lede{font-size:19px;color:#DDD;margin:0 0 20px;max-width:44ch}
+.upd{color:#666;font-size:13px;margin:0 0 28px}
+h2{font-size:22px;letter-spacing:-.02em;margin:48px 0 6px;font-weight:800}
+h2 .eyebrow{display:block;color:var(--gold);font-size:11px;font-weight:800;
+  letter-spacing:.18em;text-transform:uppercase;margin-bottom:9px}
+p{color:#DDD}
+a{color:var(--gold)}
+.ans{background:var(--card);border:1px solid var(--bd);border-left:3px solid var(--gold);
+  border-radius:12px;padding:18px 20px;margin:20px 0}
+.ans p{margin:0;color:#EEE}
+.ans p+p{margin-top:9px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px}
+th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--bd);vertical-align:top}
+th{color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:800}
+td.who{color:var(--fg2);white-space:nowrap}
+ul,ol{padding-left:20px;color:#DDD}li{margin:7px 0}
+/* Q&A as gold-ruled cards rather than a definition list people have seen before */
+dl.faq{margin:10px 0 0}
+dl.faq dt{font-weight:800;font-size:17px;color:#FFF;margin:26px 0 0;padding:0 0 0 16px;
+  border-left:2px solid var(--gold);letter-spacing:-.01em}
+dl.faq dd{margin:9px 0 0;padding:0 0 0 16px;border-left:1px solid var(--bd);color:#D4D4D4}
+.warn{border:1px solid #4A3A14;background:#17130A;border-radius:12px;padding:16px 18px;margin:22px 0}
+.warn p{margin:0;color:#E8D9B4;font-size:15px}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0}
+.tools a{display:block;background:var(--card2);border:1px solid var(--bd);border-radius:10px;
+  padding:14px 16px;text-decoration:none;color:var(--fg)}
+.tools a:hover{border-color:var(--gold)}
+.tools a strong{display:block;color:var(--gold);font-size:15px;margin-bottom:3px}
+.tools a span{color:var(--fg2);font-size:13px;line-height:1.5}
+footer{margin-top:60px;padding:28px 0 56px;border-top:1px solid var(--bd);color:#777;font-size:14px}
+footer a{color:#999}
+footer p{margin:8px 0}
+@media (max-width:560px){
+  .wrap{padding:0 16px 64px}
+  table{font-size:14px;display:block;overflow-x:auto}
+  th,td{padding:10px 8px}
+  td.who{white-space:normal}
+  dl.faq dt{font-size:16px}
+  .tools{grid-template-columns:1fr}
+}
+</style>
+<script type="application/ld+json" id="schema">
 {
  "@context": "https://schema.org",
  "@graph": [
   {
-   "@type": "WebPage",
-   "@id": "https://bakerventuresstudio.com/flirtgym/support/",
-   "url": "https://bakerventuresstudio.com/flirtgym/support/",
-   "name": "FlirtGym Support",
-   "description": "Support for FlirtGym: cancelling, refunds, restoring a purchase, deleting your account and how to reach a human.",
-   "datePublished": "2026-09-04",
-   "dateModified": "2026-09-04",
-   "inLanguage": "en",
-   "isPartOf": {
-    "@id": "https://bakerventuresstudio.com/#website"
-   },
-   "about": {
-    "@id": "https://bakerventuresstudio.com/flirtgym/#app"
-   },
+   "@type": "SoftwareApplication",
+   "@id": "https://bakerventuresstudio.com/flirtgym/#app",
+   "name": "FlirtGym",
+   "alternateName": "FlirtGym: Rizz & Dating Help",
+   "description": "An iPhone app for practising dating conversations before you have them. It runs practice chats with AI characters and scores the messages you write, rather than writing them for you, and reviews profiles, bios, photos and message drafts you submit. Subscription only, with no free tier.",
+   "applicationCategory": "LifestyleApplication",
+   "operatingSystem": "iOS 16.4 or later",
+   "url": "https://bakerventuresstudio.com/flirtgym/",
+   "downloadUrl": "https://apps.apple.com/us/app/flirtgym-rizz-dating-help/id6784050951",
+   "featureList": [
+    "Practice conversations with AI characters, with ratings, hints and end-of-session feedback",
+    "Profile, bio, photo and message-draft review",
+    "Ask the Coach",
+    "Streaks, scores, levels and daily missions held on the device",
+    "No account required"
+   ],
    "publisher": {
     "@id": "https://bakerventuresstudio.com/#org"
-   }
+   },
+   "privacyPolicy": "https://bakerventuresstudio.com/rizzmaxx/privacy/"
   },
   {
    "@type": "Organization",
    "@id": "https://bakerventuresstudio.com/#org",
    "name": "Baker Ventures LLC",
    "url": "https://bakerventuresstudio.com/",
-   "email": "support@bakerventuresstudio.com",
-   "description": "An app studio in Logan, Utah, designing and building mobile apps.",
-   "sameAs": [
-    "https://github.com/BakerVentures",
-    "https://apps.apple.com/us/developer/baker-ventures-llc/id6784050953"
-   ],
-   "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Logan",
-    "addressRegion": "UT",
-    "addressCountry": "US"
-   },
-   "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer support",
-    "email": "support@bakerventuresstudio.com",
-    "availableLanguage": "English",
-    "areaServed": "Worldwide"
-   }
+   "email": "support@bakerventuresstudio.com"
   },
   {
    "@type": "FAQPage",
    "@id": "https://bakerventuresstudio.com/flirtgym/support/#faq",
+   "name": "FlirtGym support",
+   "inLanguage": "en",
+   "about": {
+    "@id": "https://bakerventuresstudio.com/flirtgym/#app"
+   },
+   "publisher": {
+    "@id": "https://bakerventuresstudio.com/#org"
+   },
    "mainEntity": [
     {
      "@type": "Question",
      "name": "How do I cancel FlirtGym Pro?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Apple handles the billing, so cancelling happens in Apple's settings, not in the app. On your iPhone: Settings, tap your name at the top, Subscriptions, FlirtGym, Cancel Subscription. Cancel at least 24 hours before the renewal date to stop the next charge. If you are inside a free trial, cancelling before it ends means you are not charged, and you keep access until the trial period runs out. FlirtGym cannot cancel a subscription for you and cannot see your payment details."
+      "text": "Apple handles the billing, so cancelling happens in Apple’s settings, not in the app. On your iPhone: Settings, tap your name at the top, Subscriptions, FlirtGym, Cancel Subscription. Cancel at least 24 hours before the renewal date to stop the next charge. If you are inside a free trial, cancelling before it ends means you are not charged, and you keep access until the trial period runs out. FlirtGym cannot cancel a subscription for you and cannot see your payment details."
      }
     },
     {
@@ -80,7 +122,7 @@
      "name": "I paid but the app still shows me the paywall.",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Open the paywall and tap Restore Purchases. That asks Apple for your purchase history and re-applies it. If it still does not unlock, check that you are signed in to the same Apple Account that made the purchase, since a family member's account or a second Apple ID is the usual cause. If Restore fails on the right account, email support@bakerventuresstudio.com with the date of purchase and we will sort it out."
+      "text": "Open the paywall and tap Restore Purchases. That asks Apple for your purchase history and re-applies it. If it still does not unlock, check that you are signed in to the same Apple Account that made the purchase, since a family member’s account or a second Apple ID is the usual cause. If Restore fails on the right account, email support@bakerventuresstudio.com with the date of purchase and we will sort it out."
      }
     },
     {
@@ -93,10 +135,18 @@
     },
     {
      "@type": "Question",
+     "name": "Is there a free trial?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Where offered. Apple decides whether a free trial is shown to you, based on your eligibility, and the subscription screen displays one only if you qualify. If you do not see a trial there, the price shown is what you pay. There is no free tier: practice, scoring and coaching are all part of Pro."
+     }
+    },
+    {
+     "@type": "Question",
      "name": "How do I delete my account and my data?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "In the app: Settings, Delete Account. It is a real deletion, not a deactivation. It removes your account and signs you out of Apple and RevenueCat. Deleting your account does not cancel an active subscription, because Apple owns that relationship, so cancel first using the steps above or you will keep being billed for an account that no longer exists."
+      "text": "In the app: Settings, Account, Delete Account. It is a real deletion, not a deactivation. It removes your account and the associated subscriber record, and signs you out of Apple and RevenueCat. Deleting your account does not cancel an active subscription, because Apple owns that relationship, so cancel first using the steps above or you will keep being billed for an account that no longer exists."
      }
     },
     {
@@ -109,10 +159,26 @@
     },
     {
      "@type": "Question",
-     "name": "Is there a free trial?",
+     "name": "Where does my practice text actually go?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Where offered. Apple decides whether a free trial is shown to you, based on your eligibility, and the subscription screen displays one only if you qualify. If you do not see a trial there, the price shown is what you pay. There is no free tier: practice, scoring and coaching are all part of Pro."
+      "text": "To our server and on to Anthropic, which makes the model, purely to generate the response or the score you asked for. Under Anthropic’s commercial API terms those inputs and outputs are not used to train its models. Our backend is a relay and is not designed to store the content of your conversations, screenshots or bios in a database."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does FlirtGym ask permission to track me?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Because it honestly carries out tracking as Apple defines it, and declares so. The app includes three third-party kits — Meta and AppsFlyer, which measure whether our own advertising elsewhere worked, and PostHog, our own product analytics. If you deny the prompt, none of them receive your advertising identifier and the app works exactly the same. What they receive in either case is short fixed labels: which screen or feature you used, which practice scenario and how many messages were exchanged, your plan, price and store country, and your fixed-choice onboarding answers. Never your photos, your screenshots or the text of anything you wrote."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Are my progress and scores stored on your servers?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Your streaks, scores, levels, session history, settings and any display name you entered are held on your device, so deleting the app removes them. There is no account required to use FlirtGym at all."
      }
     },
     {
@@ -130,96 +196,120 @@
       "@type": "Answer",
       "text": "Email support@bakerventuresstudio.com. Tell us what you did, what you expected and what happened, and include your iOS version if you can find it. A screenshot helps more than a description. We read every one of these."
      }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I suggest a scenario or a character?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, and those are the most useful messages we get. Describe the situation you cannot get through in real life — that is the thing worth building a practice scenario around."
+     }
     }
    ]
   }
  ]
 }
 </script>
-<style>:root{--gold:#C69B3C;--gb:#FFD700;--bg:#0C0C0D;--card:#151517;--bd:#2A2A2A;--fg:#FFF;--fg2:#AAA}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-.wrap{max-width:800px;margin:0 auto;padding:0 22px}
-nav{padding:20px 0;border-bottom:1px solid var(--bd);font-size:14px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
-nav .b{font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.04em;margin-right:auto}
-nav a{color:var(--fg2);text-decoration:none}nav a:hover{color:var(--gold)}
-h1{font-size:clamp(28px,5vw,42px);line-height:1.14;letter-spacing:-.03em;margin:34px 0 14px;font-weight:800}
-.lede{font-size:19px;color:#DDD;margin:0 0 22px}
-.upd{color:#666;font-size:13px;margin:0 0 26px}
-h2{font-size:23px;letter-spacing:-.02em;margin:44px 0 12px;font-weight:800}
-h3{font-size:17px;margin:24px 0 6px;font-weight:700}
-p{color:#DDD}
-.ans{background:var(--card);border:1px solid var(--bd);border-left:3px solid var(--gold);border-radius:12px;padding:18px 20px;margin:18px 0}
-.ans p{margin:0;color:#EEE}
-.cta{display:inline-block;background:linear-gradient(180deg,var(--gb),var(--gold));color:#1A1206;font-weight:800;padding:14px 28px;border-radius:13px;text-decoration:none;margin:6px 0}
-.meta{color:#777;font-size:14px;margin-top:12px}
-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
-th,td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--bd);vertical-align:top}
-th{color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
-ul,ol{padding-left:20px;color:#DDD}li{margin:7px 0}
-footer{margin-top:56px;padding:28px 0 56px;border-top:1px solid var(--bd);color:#777;font-size:14px}
-footer a,a{color:var(--gold)}nav a{color:var(--fg2)}
-.note{color:#999;font-size:14px;font-style:italic}</style>
 </head>
 <body>
 <div class="wrap">
-<nav><span class="b">FlirtGym</span><a href="/flirtgym/">Overview</a><a href="/flirtgym/free-trial/">Trial and cancelling</a> &middot; <a href="/flirtgym/pricing/">Pricing</a><a href="/flirtgym/best-ai-dating-coach-apps/">App comparison</a><a href="https://apps.apple.com/us/app/flirtgym-rizz-dating-help/id6784050951">Download</a></nav>
+
+<nav><span class="b">FlirtGym</span><a href="/flirtgym/">Overview</a><a href="/flirtgym/free-trial/">Trial and cancelling</a><a href="/flirtgym/pricing/">Pricing</a><a href="/flirtgym/tools/">Free tools</a><a href="https://apps.apple.com/us/app/flirtgym-rizz-dating-help/id6784050951">Download</a></nav>
+
 <h1>FlirtGym support</h1>
-<p class="lede">A real person reads this inbox. Most of what people write in about is on this page, so start here and email if it is not.</p>
-<p class="upd">Last updated 2026-09-04</p>
-<main>
+<p class="lede">A real person reads this inbox. Almost every message is about money, and almost every answer is &ldquo;Apple, not us&rdquo; &mdash; so that part is first, with the exact tap path.</p>
+<p class="upd">Last updated 3 November 2026</p>
 
-<div class="ans"><p><strong>Email <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a>.</strong> One person answers it, usually within a day or two. Billing, cancellations and refunds are handled by Apple rather than by us, and the steps for each are below.</p></div>
+<div class="ans">
+  <p><strong>Email <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a>.</strong> One person answers it, usually within a day or two. Billing, cancellations and refunds are handled by Apple rather than by us, and the steps for each are below.</p>
+</div>
 
-<h2>Billing, cancelling and refunds</h2>
+<h2><span class="eyebrow">Money</span>Billing, cancelling and refunds</h2>
 <p>FlirtGym subscriptions are sold by Apple. That means Apple takes the payment, Apple issues the refunds, and we never see your card. It also means the cancel button is in iOS Settings, not in the app.</p>
 <table>
-<thead><tr><th>What you want</th><th>Where it happens</th></tr></thead>
-<tbody>
-<tr><td>Cancel a subscription</td><td>Settings &rarr; your name &rarr; Subscriptions &rarr; FlirtGym &rarr; Cancel</td></tr>
-<tr><td>Request a refund</td><td><a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a></td></tr>
-<tr><td>See what you are being charged</td><td>Settings &rarr; your name &rarr; Subscriptions</td></tr>
-<tr><td>Restore a purchase you already made</td><td>In the app, on the paywall: Restore Purchases</td></tr>
-<tr><td>Delete your account and data</td><td>In the app: Settings &rarr; Delete Account, or <a href="/flirtgym/delete-account/">delete-account</a></td></tr>
-</tbody>
+  <thead><tr><th>What you want</th><th>Where it happens</th><th>Whose job</th></tr></thead>
+  <tbody>
+    <tr><td>Cancel a subscription</td><td>Settings &rarr; your name &rarr; Subscriptions &rarr; FlirtGym &rarr; Cancel</td><td class="who">Apple</td></tr>
+    <tr><td>Request a refund</td><td><a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a></td><td class="who">Apple</td></tr>
+    <tr><td>See what you are being charged</td><td>Settings &rarr; your name &rarr; Subscriptions</td><td class="who">Apple</td></tr>
+    <tr><td>Restore a purchase you already made</td><td>In the app, on the paywall: Restore Purchases</td><td class="who">Apple + us</td></tr>
+    <tr><td>Delete your account and data</td><td>In the app: Settings &rarr; Account &rarr; Delete Account, or <a href="/flirtgym/delete-account/">the deletion page</a></td><td class="who">Us</td></tr>
+  </tbody>
 </table>
-<p class="note">Deleting your account does not cancel your subscription. Cancel first, then delete, or Apple will keep billing an account that no longer exists.</p>
+<div class="warn">
+  <p><strong>Order matters.</strong> Deleting your account does not cancel your subscription. Cancel first, then delete &mdash; otherwise Apple keeps billing an account that no longer exists.</p>
+</div>
 
-<h2>Common questions</h2>
-<h3>How do I cancel FlirtGym Pro?</h3>
-<p>Apple handles the billing, so cancelling happens in Apple's settings, not in the app. On your iPhone: Settings, tap your name at the top, Subscriptions, FlirtGym, Cancel Subscription. Cancel at least 24 hours before the renewal date to stop the next charge. If you are inside a free trial, cancelling before it ends means you are not charged, and you keep access until the trial period runs out. FlirtGym cannot cancel a subscription for you and cannot see your payment details.</p>
-<h3>I paid but the app still shows me the paywall.</h3>
-<p>Open the paywall and tap Restore Purchases. That asks Apple for your purchase history and re-applies it. If it still does not unlock, check that you are signed in to the same Apple Account that made the purchase, since a family member's account or a second Apple ID is the usual cause. If Restore fails on the right account, email support@bakerventuresstudio.com with the date of purchase and we will sort it out.</p>
-<h3>How do I get a refund?</h3>
-<p>Refunds are issued by Apple, not by us, because Apple is the merchant of record. Go to reportaproblem.apple.com, sign in with your Apple Account, find FlirtGym and choose Request a Refund. We cannot approve or deny a refund and we do not see the outcome. If Apple declines and you think that is wrong, email us and we will tell you honestly whether we think you have a case.</p>
-<h3>How do I delete my account and my data?</h3>
-<p>In the app: Settings, Delete Account. It is a real deletion, not a deactivation. It removes your account and signs you out of Apple and RevenueCat. Deleting your account does not cancel an active subscription, because Apple owns that relationship, so cancel first using the steps above or you will keep being billed for an account that no longer exists.</p>
-<h3>Does FlirtGym read my real conversations?</h3>
-<p>Only what you paste or screenshot into it, and only to produce the reply or the score you asked for. It has no access to your Messages, your dating apps or your camera roll beyond the image you choose. The full detail is in the privacy policy.</p>
-<h3>Is there a free trial?</h3>
-<p>Where offered. Apple decides whether a free trial is shown to you, based on your eligibility, and the subscription screen displays one only if you qualify. If you do not see a trial there, the price shown is what you pay. There is no free tier: practice, scoring and coaching are all part of Pro.</p>
-<h3>Is FlirtGym on Android or iPad?</h3>
-<p>No. iPhone only, iOS 16.4 or later. There is no Android version and no iPad version, and we would rather say that plainly than leave you waiting for one. The browser tools below work on any device, including Android.</p>
-<h3>Something is broken, or a score looks wrong.</h3>
-<p>Email support@bakerventuresstudio.com. Tell us what you did, what you expected and what happened, and include your iOS version if you can find it. A screenshot helps more than a description. We read every one of these.</p>
+<h2><span class="eyebrow">The usual five</span>Questions that arrive every week</h2>
+<dl class="faq">
+  <dt>How do I cancel FlirtGym Pro?</dt>
+  <dd>Apple handles the billing, so cancelling happens in Apple&rsquo;s settings, not in the app. On your iPhone: Settings, tap your name at the top, Subscriptions, FlirtGym, Cancel Subscription. Cancel at least 24 hours before the renewal date to stop the next charge. If you are inside a free trial, cancelling before it ends means you are not charged, and you keep access until the trial period runs out. FlirtGym cannot cancel a subscription for you and cannot see your payment details.</dd>
 
-<h2>Free tools, no app needed</h2>
+  <dt>I paid but the app still shows me the paywall.</dt>
+  <dd>Open the paywall and tap Restore Purchases. That asks Apple for your purchase history and re-applies it. If it still does not unlock, check that you are signed in to the same Apple Account that made the purchase, since a family member&rsquo;s account or a second Apple ID is the usual cause. If Restore fails on the right account, email support@bakerventuresstudio.com with the date of purchase and we will sort it out.</dd>
+
+  <dt>How do I get a refund?</dt>
+  <dd>Refunds are issued by Apple, not by us, because Apple is the merchant of record. Go to reportaproblem.apple.com, sign in with your Apple Account, find FlirtGym and choose Request a Refund. We cannot approve or deny a refund and we do not see the outcome. If Apple declines and you think that is wrong, email us and we will tell you honestly whether we think you have a case.</dd>
+
+  <dt>Is there a free trial?</dt>
+  <dd>Where offered. Apple decides whether a free trial is shown to you, based on your eligibility, and the subscription screen displays one only if you qualify. If you do not see a trial there, the price shown is what you pay. There is no free tier: practice, scoring and coaching are all part of Pro.</dd>
+
+  <dt>How do I delete my account and my data?</dt>
+  <dd>In the app: Settings, Account, Delete Account. It is a real deletion, not a deactivation. It removes your account and the associated subscriber record, and signs you out of Apple and RevenueCat. Deleting your account does not cancel an active subscription, because Apple owns that relationship, so cancel first using the steps above or you will keep being billed for an account that no longer exists.</dd>
+</dl>
+
+<h2><span class="eyebrow">Privacy</span>What the app can and cannot see</h2>
+<dl class="faq">
+  <dt>Does FlirtGym read my real conversations?</dt>
+  <dd>Only what you paste or screenshot into it, and only to produce the reply or the score you asked for. It has no access to your Messages, your dating apps or your camera roll beyond the image you choose. The full detail is in the privacy policy.</dd>
+
+  <dt>Where does my practice text actually go?</dt>
+  <dd>To our server and on to Anthropic, which makes the model, purely to generate the response or the score you asked for. Under Anthropic&rsquo;s commercial API terms those inputs and outputs are not used to train its models. Our backend is a relay and is not designed to store the content of your conversations, screenshots or bios in a database.</dd>
+
+  <dt>Why does FlirtGym ask permission to track me?</dt>
+  <dd>Because it honestly carries out tracking as Apple defines it, and declares so. The app includes three third-party kits &mdash; Meta and AppsFlyer, which measure whether our own advertising elsewhere worked, and PostHog, our own product analytics. If you deny the prompt, none of them receive your advertising identifier and the app works exactly the same. What they receive in either case is short fixed labels: which screen or feature you used, which practice scenario and how many messages were exchanged, your plan, price and store country, and your fixed-choice onboarding answers. Never your photos, your screenshots or the text of anything you wrote.</dd>
+
+  <dt>Are my progress and scores stored on your servers?</dt>
+  <dd>No. Your streaks, scores, levels, session history, settings and any display name you entered are held on your device, so deleting the app removes them. There is no account required to use FlirtGym at all.</dd>
+</dl>
+
+<h2><span class="eyebrow">Platforms</span>What runs where</h2>
+<dl class="faq">
+  <dt>Is FlirtGym on Android or iPad?</dt>
+  <dd>No. iPhone only, iOS 16.4 or later. There is no Android version and no iPad version, and we would rather say that plainly than leave you waiting for one. The browser tools below work on any device, including Android.</dd>
+
+  <dt>Something is broken, or a score looks wrong.</dt>
+  <dd>Email support@bakerventuresstudio.com. Tell us what you did, what you expected and what happened, and include your iOS version if you can find it. A screenshot helps more than a description. We read every one of these.</dd>
+
+  <dt>Can I suggest a scenario or a character?</dt>
+  <dd>Yes, and those are the most useful messages we get. Describe the situation you cannot get through in real life &mdash; that is the thing worth building a practice scenario around.</dd>
+</dl>
+
+<h2><span class="eyebrow">No app needed</span>Free tools that run in your browser</h2>
 <p>These run entirely in your browser on any device, including Android and desktop. Nothing is uploaded and no account is required.</p>
-<ul>
-<li><a href="/flirtgym/opener-score/">Opener Score</a> &mdash; rate a dating app opener out of ten</li>
-<li><a href="/flirtgym/prompt-check/">Hinge Prompt Checker</a> &mdash; are your three answers answerable?</li>
-<li><a href="/flirtgym/conversation-check/">Conversation Check</a> &mdash; is the chat one-sided?</li>
-<li><a href="/flirtgym/flirting-style/">Flirting Style Quiz</a> &mdash; nine questions, four styles</li>
-<li><a href="/flirtgym/photo-lineup/">Photo Lineup Checker</a> &mdash; the order your photos are in</li>
-</ul>
+<div class="tools">
+  <a href="/flirtgym/opener-score/"><strong>Opener Score</strong><span>Rates a dating app opener out of ten</span></a>
+  <a href="/flirtgym/prompt-check/"><strong>Hinge Prompt Checker</strong><span>Are your three answers actually answerable?</span></a>
+  <a href="/flirtgym/conversation-check/"><strong>Conversation Check</strong><span>Is the thread one-sided?</span></a>
+  <a href="/flirtgym/flirting-style/"><strong>Flirting Style Quiz</strong><span>Nine questions, four styles, real trade-offs</span></a>
+  <a href="/flirtgym/photo-lineup/"><strong>Photo Lineup Checker</strong><span>The order your photos are in</span></a>
+  <a href="/flirtgym/is-this-message-creepy/"><strong>Is this message creepy?</strong><span>Names the exact words and the fix</span></a>
+</div>
+<p><a href="/flirtgym/tools/">All nine tools &rarr;</a></p>
 
-<h2>The legal pages</h2>
+<h2><span class="eyebrow">Legal</span>The documents</h2>
 <p><a href="https://bakerventuresstudio.com/rizzmaxx/privacy/">Privacy Policy</a> &middot; <a href="https://bakerventuresstudio.com/rizzmaxx/terms/">Terms of Use</a></p>
+<p class="upd">Both live under the app&rsquo;s original project name, <code>/rizzmaxx/</code>, because that is the address registered with the App Store. The content is FlirtGym&rsquo;s.</p>
 
-<h2>Who builds this</h2>
+<h2><span class="eyebrow">Who</span>Who builds this</h2>
 <p>FlirtGym is made by Baker Ventures LLC, an app studio in Logan, Utah. It is a small operation, which is why the support address is one inbox and not a ticket system.</p>
 
-</main>
-<footer><p><strong>FlirtGym</strong> is built by Baker Ventures LLC, Logan, Utah. Last updated 2026-09-04.<br><a href="https://bakerventuresstudio.com/rizzmaxx/terms/">Terms of Use</a> &middot; <a href="https://bakerventuresstudio.com/rizzmaxx/privacy/">Privacy Policy</a> &middot; <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a></p><p>&copy; 2026 Baker Ventures LLC</p></footer>
+<footer>
+  <p><strong>FlirtGym</strong> is built by Baker Ventures LLC, Logan, Utah. Last updated 3 November 2026.</p>
+  <p><a href="https://bakerventuresstudio.com/rizzmaxx/terms/">Terms of Use</a> &middot; <a href="https://bakerventuresstudio.com/rizzmaxx/privacy/">Privacy Policy</a> &middot; <a href="/flirtgym/delete-account/">Delete your account</a> &middot; <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a> &middot; <a href="/">Baker Ventures</a></p>
+  <p>&copy; 2026 Baker Ventures LLC</p>
+</footer>
+
 </div>
 </body>
 </html>

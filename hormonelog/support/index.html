@@ -1,260 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HormoneLog Support — Baker Ventures LLC</title>
-  <meta name="description" content="Support for HormoneLog: what you can log, what the Symptom Burden Index is, moving your data to a new phone, Apple Health, exporting, deleting, billing, and how to reach a human.">
-  <link rel="canonical" href="https://bakerventuresstudio.com/hormonelog/support/">
-  <meta name="robots" content="index,follow">
-  <style>
-    :root { color-scheme: light; }
-    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
-           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-           color: #1a1a1a; background: #fff; }
-    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
-    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
-    h3 { font-size: 16px; margin: 24px 0 8px; }
-    p { margin: 12px 0; }
-    ul { margin: 12px 0; padding-left: 22px; }
-    li { margin: 6px 0; }
-    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
-    a { color: #8C5B94; }
-    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
-    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
-    strong { font-weight: 700; }
-    .note { background: #fafafa; border-left: 3px solid #8C5B94; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
-    .contact { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
-    .contact a { font-weight: 700; }
-    .faq { margin: 0; }
-    .faq dt { font-weight: 700; margin: 22px 0 4px; }
-    .faq dd { margin: 0 0 4px; }
-    .nav { font-size: 14px; margin: 0 0 20px; }
-    .nav a { color: #666; }
-    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
-    footer a { color: #888; }
-    .hero { margin: 8px 0 32px; }
-    .hero h1 { font-size: 32px; }
-    .hero p.sub { font-size: 18px; color: #444; margin: 12px 0 0; }
-    .benefit { margin: 18px 0; }
-    .benefit b { display: block; }
-    ol.how { padding-left: 22px; }
-    ol.how li { margin: 10px 0; }
-  </style>
-  <script type="application/ld+json">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HormoneLog support &mdash; read the bit about losing your phone first</title>
+<meta name="description" content="Support for HormoneLog: why there is no account and no recovery, how to move your log to a new phone, what the Symptom Burden Index is and is not, what Apple Health is read for, and exactly what is sent when you generate a clinician report.">
+<link rel="canonical" href="https://bakerventuresstudio.com/hormonelog/support/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<style>
+/* HormoneLog support. Set like a clinical notebook: a ruled left margin, sections that
+   read as entries, and one red-ruled panel at the top because exactly one fact here can
+   cost someone a year of records. Plum is the app's own accent. */
+:root{
+  --ink:#1D1A22; --ink2:#5F5868; --plum:#6E3C7A; --plum2:#53294E;
+  --paper:#FDFCFD; --wash:#F6F1F7; --rule:#E0D7E3;
+  --alert:#8C2230; --alertbg:#FCF3F3; --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:17px/1.7 "Charter","Iowan Old Style",Georgia,"Times New Roman",serif}
+.chart{max-width:43rem;margin:0 auto;padding:0 18px 92px}
+a{color:var(--plum)}
+.tab{font:11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink2);padding:22px 0 0;margin:0}
+.tab a{color:var(--ink2);text-decoration:none}
+h1{font-size:2rem;line-height:1.14;margin:16px 0 10px;font-weight:600;letter-spacing:-.015em;
+  color:var(--plum2)}
+.standfirst{font-size:1.08rem;color:#3A3540;margin:0 0 10px}
+.revised{font:11px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink2);margin:0 0 4px;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+/* the one thing to read before relying on the app */
+.critical{border:1px solid #E8CFD2;border-left:5px solid var(--alert);background:var(--alertbg);
+  padding:18px 20px;margin:26px 0}
+.critical h2{font:11px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--alert);margin:0 0 9px;padding:0;border:0}
+.critical p{margin:0;font-size:1rem}
+.critical p+p{margin-top:9px}
+.disclaimer{background:var(--wash);padding:16px 20px;margin:24px 0;border-radius:2px}
+.disclaimer p{margin:0;font-size:.96rem;color:#3C3642}
+h2{font-size:1.2rem;font-weight:600;color:var(--plum2);margin:46px 0 8px;
+  padding-bottom:6px;border-bottom:1px solid var(--rule);letter-spacing:-.01em}
+h3{font-size:1rem;font-weight:700;margin:24px 0 3px}
+p{margin:12px 0}
+ul{margin:12px 0;padding-left:1.2em}
+li{margin:6px 0}
+.ask{border:1px solid var(--rule);border-top:3px solid var(--plum);padding:16px 18px;margin:26px 0}
+.ask p{margin:0}
+.ask p+p{margin-top:8px;font-size:.96rem}
+.ask .addr{font:600 1rem/1.5 var(--mono);word-break:break-all}
+/* questions set as notebook entries against a ruled margin */
+dl.entries{margin:6px 0 0;border-left:1px solid var(--rule);padding-left:18px}
+dl.entries dt{font-weight:700;margin:24px 0 2px;position:relative}
+dl.entries dt::before{content:"";position:absolute;left:-22px;top:.62em;
+  width:7px;height:7px;border-radius:50%;background:var(--plum)}
+dl.entries dd{margin:0;color:#2C2730}
+table.cats{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem}
+table.cats caption{text-align:left;font:11px/1.4 var(--mono);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--plum);padding:0 0 8px}
+table.cats th,table.cats td{text-align:left;padding:9px 12px 9px 0;
+  border-bottom:1px solid var(--rule);vertical-align:top}
+table.cats tbody th{font-weight:700;white-space:nowrap;width:11rem}
+.plans{border:1px solid var(--rule);padding:4px 18px 14px;margin:22px 0;background:#FBF9FB}
+.plans h3{font:11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--plum);margin:16px 0 6px}
+.plans ul{margin:6px 0 0;font-size:.96rem}
+footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:18px;
+  font:12px/1.75 var(--mono);color:var(--ink2)}
+footer a{color:var(--ink2)}
+footer p{margin:6px 0}
+@media (max-width:480px){
+  h1{font-size:1.62rem}
+  table.cats tbody th{white-space:normal;width:auto}
+}
+</style>
+<script type="application/ld+json" id="schema">
 {
  "@context": "https://schema.org",
- "@type": "FAQPage",
- "@id": "https://bakerventuresstudio.com/hormonelog/support/#faq",
- "name": "HormoneLog Support",
- "mainEntity": [
+ "@graph": [
   {
-   "@type": "Question",
-   "name": "Do I need an account to use HormoneLog?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No. There is no sign-up and no sign-in, and the app works fully offline. Because there is no account, there is also nothing to recover — see the question about losing your phone below."
+   "@type": "SoftwareApplication",
+   "@id": "https://bakerventuresstudio.com/hormonelog/#app",
+   "name": "HormoneLog",
+   "description": "A perimenopause and menopause record-keeping app: 36 symptoms across seven categories on a 0-3 severity scale, cycle and HRT regimen tracking with dose reminders and adherence, patterns over time, and a clinician summary export. Local-first, with no account required.",
+   "applicationCategory": "HealthApplication",
+   "operatingSystem": "iOS, Android",
+   "url": "https://bakerventuresstudio.com/hormonelog/",
+   "featureList": [
+    "36 symptoms across seven categories, severity 0 to 3 per day",
+    "Mood, energy, sleep quality and stress on 1 to 5 sliders",
+    "Period and flow logging, hidden if your stage is post-menopausal",
+    "HRT regimen with dose reminders and adherence tracking",
+    "60-day heatmap and top symptoms",
+    "Apple Health read-only overlay for sleep, HRV, resting heart rate and body temperature",
+    "JSON and CSV export on every plan",
+    "Clinician PDF report, symptom-versus-adherence chart and before-and-after comparison on the paid plan"
+   ],
+   "publisher": {
+    "@id": "https://bakerventuresstudio.com/#org"
    }
   },
   {
-   "@type": "Question",
-   "name": "Where is my data stored?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "In a database on your own device. The free text most likely to be sensitive — your daily notes and the dose text you type — is additionally encrypted at rest with a key generated on your phone and held in its secure hardware store (the iOS Keychain or Android Keystore). That key is never transmitted anywhere, including to us."
-   }
+   "@type": "Organization",
+   "@id": "https://bakerventuresstudio.com/#org",
+   "name": "Baker Ventures LLC",
+   "url": "https://bakerventuresstudio.com/",
+   "email": "support@bakerventuresstudio.com"
   },
   {
-   "@type": "Question",
-   "name": "If I lose my phone, can you recover my log?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No, and it is important that you know this before you rely on the app. On iPhone the database is deliberately kept out of your device backups and the encryption key never leaves the handset, so if the phone is lost, wiped or replaced there is no copy anywhere and no key escrow — nobody, including us, can get it back. Export your data from Settings whenever it would hurt to lose it."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How do I move my data to a new phone?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "On the old device, Settings → Export as JSON, then open that file and copy all of its text. On the new device, Settings → Restore from backup and paste it in. It is a paste, not a file picker, and it replaces everything currently on the new device — which cannot be undone."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Is there cloud backup or sync?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Not yet. The toggle in Settings saves your preference only; as the app says when you turn it on, cloud sync ships in a future update and your data stays local-only until then."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "What can I actually log?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "36 symptoms grouped into seven categories, each on a 0–3 severity scale; mood, energy, sleep quality and stress on 1–5 sliders; whether you drank or exercised; your period and its flow; a free-text note for the day; and an HRT regimen with its doses, reminders and adherence. If you have set your stage to post-menopausal, the period section is hidden."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "What is the Symptom Burden Index?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "It is HormoneLog's own summary of what you logged, on a 0–100 scale where lower is better, with bands labelled Minimal, Mild, Moderate and High. It is an average of your 0–3 ratings rescaled — not a total — so tracking more symptoms doesn't make your score look worse, and only days you actually logged count towards it. It is a summary of your own entries, not a clinical measurement and not a diagnosis."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Will it tell me what to take, or change my dose?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No, never. The app's own line is \"Tracking tool, not medical advice. Discuss changes with your prescriber.\" It records the dose you type in and reminds you to take it; it does not calculate, suggest or adjust anything."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Will a notification show my symptoms or medication on my lock screen?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No. The reminder text is fixed and deliberately says nothing specific — \"Evening check-in / A minute to log how today went\" and \"Dose reminder / Tap to log today's dose\". No notification ever names a symptom or a medication."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "What does it do with Apple Health?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "On iPhone, and only if you grant permission, it reads four things — sleep analysis, heart rate variability, resting heart rate and body temperature — so it can show them alongside your symptom log. It never writes anything back to Apple Health, and that data never leaves your device. You can refuse or revoke the permission in iOS Settings at any time and the rest of the app works normally. Android has no equivalent integration, so those options are hidden there."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "What is actually sent when I generate a doctor's report?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Only the summary that is already on the screen: the index and its category breakdown, how often each symptom appeared, and a short text summary of your regimen. That goes over an encrypted connection to a rendering service that lays it out as a PDF and keeps nothing afterwards. Your raw daily entries, your mood, energy and sleep ratings, and your free-text notes are never sent."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Can I get my data out?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Yes, on any plan. Settings offers a full export as JSON and a CSV of your symptom log, both handed to your phone's share sheet so you choose where they go."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "What do I get without paying?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Daily logging of all 36 symptoms, your HRT regimen with dose reminders and adherence tracking, the 60-day heatmap, your top symptoms, the Apple Health sleep overlay on iPhone, and export and delete. Paying adds three things: the doctor-ready PDF report, the symptom-versus-adherence chart, and the before-and-after comparison since starting your regimen."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How do I delete everything?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Settings → Delete everything. It permanently removes all your local data — logs, regimen and reports — immediately, and it cannot be undone."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How do I restore a purchase?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Settings → Subscription → Restore purchases, or the Restore purchases link on the plan screen, signed into the same Apple ID or Google account you bought with."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How do I cancel, or ask a billing question?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Settings → Manage subscription opens your App Store or Google Play subscription settings, which is where billing is handled — we don't process payments. Cancelling stops the next renewal and you keep access until the period you've paid for ends."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How do I get a refund?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Refunds are handled by Apple or Google under their own policies, not by us. Use reportaproblem.apple.com on iOS, or play.google.com/store/account on Android. If the store gives you trouble, tell us and we'll help where we can."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Something's broken. How do I report it?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Email us with your device and OS version, what you were doing, what you expected versus what happened, and a screenshot. Please blur or crop anything you'd rather not share — we don't need your health details to fix a bug."
-   }
+   "@type": "FAQPage",
+   "@id": "https://bakerventuresstudio.com/hormonelog/support/#faq",
+   "name": "HormoneLog support",
+   "inLanguage": "en",
+   "about": {
+    "@id": "https://bakerventuresstudio.com/hormonelog/#app"
+   },
+   "publisher": {
+    "@id": "https://bakerventuresstudio.com/#org"
+   },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I need an account to use HormoneLog?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. There is no sign-up and no sign-in, and the app works fully offline. Because there is no account, there is also nothing to recover — see the question about losing your phone below."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Where is my data stored?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "In a database on your own device. The free text most likely to be sensitive — your daily notes and the dose text you type — is additionally encrypted at rest with a key generated on your phone and held in its secure hardware store (the iOS Keychain or Android Keystore). That key is never transmitted anywhere, including to us."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "If I lose my phone, can you recover my log?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, and it is important that you know this before you rely on the app. On iPhone the database is deliberately kept out of your device backups and the encryption key never leaves the handset, so if the phone is lost, wiped or replaced there is no copy anywhere and no key escrow — nobody, including us, can get it back. Export your data from Settings whenever it would hurt to lose it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I move my data to a new phone?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On the old device, Settings → Export as JSON, then open that file and copy all of its text. On the new device, Settings → Restore from backup and paste it in. It is a paste, not a file picker, and it replaces everything currently on the new device — which cannot be undone."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is there cloud backup or sync?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not yet. The toggle in Settings saves your preference only; as the app says when you turn it on, cloud sync ships in a future update and your data stays local-only until then."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I get my data out?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, on any plan. Settings offers a full export as JSON and a CSV of your symptom log, both handed to your phone’s share sheet so you choose where they go."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I delete everything?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Settings → Delete everything. It permanently removes all your local data — logs, regimen and reports — immediately, and it cannot be undone."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What can I actually log?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "36 symptoms grouped into seven categories, each on a 0–3 severity scale; mood, energy, sleep quality and stress on 1–5 sliders; whether you drank or exercised; your period and its flow; a free-text note for the day; and an HRT regimen with its doses, reminders and adherence. If you have set your stage to post-menopausal, the period section is hidden."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I have to log all 36 every day?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, and the index is built so that you are not penalised for tracking more. Only days you actually logged count, and the score is an average rescaled rather than a total, so adding a symptom to your list does not push your number up by itself."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is the Symptom Burden Index?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It is HormoneLog’s own summary of what you logged, on a 0–100 scale where lower is better, with bands labelled Minimal, Mild, Moderate and High. It is an average of your 0–3 ratings rescaled — not a total — so tracking more symptoms doesn’t make your score look worse, and only days you actually logged count towards it. It is a summary of your own entries, not a clinical measurement and not a diagnosis."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is it a validated clinical score?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It is self-authored, built on HormoneLog’s own symptom taxonomy, and it is never described as validated or clinically proven, because it is neither. It summarises your own logs so a pattern is easier to see and easier to show someone. Read on its own, out of context, it can be incomplete or misleading."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will it tell me what to take, or change my dose?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, never. The app’s own line is “Tracking tool, not medical advice. Discuss changes with your prescriber.” It records the dose you type in and reminds you to take it; it does not calculate, suggest or adjust anything."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will a notification show my symptoms or medication on my lock screen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The reminder text is fixed and deliberately says nothing specific — “Evening check-in / A minute to log how today went” and “Dose reminder / Tap to log today’s dose”. No notification ever names a symptom or a medication."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does adherence actually measure?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Doses you marked as taken against doses that were scheduled. A dose logged late still counts as taken, because the point is whether you took it rather than whether you tapped on time."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does it do with Apple Health?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On iPhone, and only if you grant permission, it reads four things — sleep analysis, heart rate variability, resting heart rate and body temperature — so it can show them alongside your symptom log. It never writes anything back to Apple Health, and that data never leaves your device. You can refuse or revoke the permission in iOS Settings at any time and the rest of the app works normally. Android has no equivalent integration, so those options are hidden there."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is actually sent when I generate a doctor’s report?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Only the summary that is already on the screen: the index and its category breakdown, how often each symptom appeared, and a short text summary of your regimen. That goes over an encrypted connection to a rendering service that lays it out as a PDF and keeps nothing afterwards. Your raw daily entries, your mood, energy and sleep ratings, and your free-text notes are never sent."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What do I get without paying?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Daily logging of all 36 symptoms, your HRT regimen with dose reminders and adherence tracking, the 60-day heatmap, your top symptoms, the Apple Health sleep overlay on iPhone, and export and delete. Paying adds three things: the doctor-ready PDF report, the symptom-versus-adherence chart, and the before-and-after comparison since starting your regimen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I restore a purchase?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Settings → Subscription → Restore purchases, or the Restore purchases link on the plan screen, signed into the same Apple ID or Google account you bought with."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I cancel, or ask a billing question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Settings → Manage subscription opens your App Store or Google Play subscription settings, which is where billing is handled — we don’t process payments. Cancelling stops the next renewal and you keep access until the period you’ve paid for ends."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I get a refund?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Refunds are handled by Apple or Google under their own policies, not by us. Use reportaproblem.apple.com on iOS, or play.google.com/store/account on Android. If the store gives you trouble, tell us and we’ll help where we can."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Something’s broken. How do I report it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Email us with your device and OS version, what you were doing, what you expected versus what happened, and a screenshot. Please blur or crop anything you’d rather not share — we don’t need your health details to fix a bug."
+     }
+    }
+   ]
   }
  ]
 }
 </script>
 </head>
 <body>
-  <p class="nav"><a href="../">HormoneLog</a> &rsaquo; Support</p>
-  <h1>HormoneLog Support</h1>
-  <p class="meta">Published by Baker Ventures LLC &middot; Last updated: September 23, 2026</p>
-  <p>HormoneLog is a perimenopause and menopause tracker: you log your symptoms, your cycle and your HRT regimen, review the patterns in your own data, and generate a clean summary to take to your prescriber.</p>
-  <div class="contact">
-    <p style="margin-top:0"><strong>Need help? Email us.</strong></p>
-    <p style="margin-bottom:0"><a href="mailto:rsb.baker+hormonelog@gmail.com">rsb.baker+hormonelog@gmail.com</a><br>
-    We read every message and reply personally. For a bug, include your device and OS version, what you
-    were doing, what you expected versus what happened, and a screenshot &mdash; that usually points us
-    straight at it.</p>
-  </div>
-  <div class="note"><strong>Please note.</strong> HormoneLog is a tracking tool, not medical advice and not a medical device. It does not diagnose or treat anything, makes no claim about relieving symptoms, and never calculates or suggests a dose &mdash; discuss any change with your prescriber. The Symptom Burden Index is HormoneLog's own summary of what you logged, not a clinical measurement, and it can be incomplete or misleading on its own. If you are having a medical emergency, contact your local emergency number rather than this app.</div>
-  <h2>Frequently asked questions</h2>
-  <dl class="faq">
-    <dt>Do I need an account to use HormoneLog?</dt>
-    <dd>No. There is no sign-up and no sign-in, and the app works fully offline. Because there is no account, there is also nothing to recover — see the question about losing your phone below.</dd>
-    <dt>Where is my data stored?</dt>
-    <dd>In a database on your own device. The free text most likely to be sensitive — your daily notes and the dose text you type — is additionally encrypted at rest with a key generated on your phone and held in its secure hardware store (the iOS Keychain or Android Keystore). That key is never transmitted anywhere, including to us.</dd>
-    <dt>If I lose my phone, can you recover my log?</dt>
-    <dd>No, and it is important that you know this before you rely on the app. On iPhone the database is deliberately kept out of your device backups and the encryption key never leaves the handset, so if the phone is lost, wiped or replaced there is no copy anywhere and no key escrow — nobody, including us, can get it back. Export your data from Settings whenever it would hurt to lose it.</dd>
-    <dt>How do I move my data to a new phone?</dt>
-    <dd>On the old device, Settings → Export as JSON, then open that file and copy all of its text. On the new device, Settings → Restore from backup and paste it in. It is a paste, not a file picker, and it replaces everything currently on the new device — which cannot be undone.</dd>
-    <dt>Is there cloud backup or sync?</dt>
-    <dd>Not yet. The toggle in Settings saves your preference only; as the app says when you turn it on, cloud sync ships in a future update and your data stays local-only until then.</dd>
-    <dt>What can I actually log?</dt>
-    <dd>36 symptoms grouped into seven categories, each on a 0–3 severity scale; mood, energy, sleep quality and stress on 1–5 sliders; whether you drank or exercised; your period and its flow; a free-text note for the day; and an HRT regimen with its doses, reminders and adherence. If you have set your stage to post-menopausal, the period section is hidden.</dd>
-    <dt>What is the Symptom Burden Index?</dt>
-    <dd>It is HormoneLog&#x27;s own summary of what you logged, on a 0–100 scale where lower is better, with bands labelled Minimal, Mild, Moderate and High. It is an average of your 0–3 ratings rescaled — not a total — so tracking more symptoms doesn&#x27;t make your score look worse, and only days you actually logged count towards it. It is a summary of your own entries, not a clinical measurement and not a diagnosis.</dd>
-    <dt>Will it tell me what to take, or change my dose?</dt>
-    <dd>No, never. The app&#x27;s own line is &quot;Tracking tool, not medical advice. Discuss changes with your prescriber.&quot; It records the dose you type in and reminds you to take it; it does not calculate, suggest or adjust anything.</dd>
-    <dt>Will a notification show my symptoms or medication on my lock screen?</dt>
-    <dd>No. The reminder text is fixed and deliberately says nothing specific — &quot;Evening check-in / A minute to log how today went&quot; and &quot;Dose reminder / Tap to log today&#x27;s dose&quot;. No notification ever names a symptom or a medication.</dd>
-    <dt>What does it do with Apple Health?</dt>
-    <dd>On iPhone, and only if you grant permission, it reads four things — sleep analysis, heart rate variability, resting heart rate and body temperature — so it can show them alongside your symptom log. It never writes anything back to Apple Health, and that data never leaves your device. You can refuse or revoke the permission in iOS Settings at any time and the rest of the app works normally. Android has no equivalent integration, so those options are hidden there.</dd>
-    <dt>What is actually sent when I generate a doctor&#x27;s report?</dt>
-    <dd>Only the summary that is already on the screen: the index and its category breakdown, how often each symptom appeared, and a short text summary of your regimen. That goes over an encrypted connection to a rendering service that lays it out as a PDF and keeps nothing afterwards. Your raw daily entries, your mood, energy and sleep ratings, and your free-text notes are never sent.</dd>
-    <dt>Can I get my data out?</dt>
-    <dd>Yes, on any plan. Settings offers a full export as JSON and a CSV of your symptom log, both handed to your phone&#x27;s share sheet so you choose where they go.</dd>
-    <dt>What do I get without paying?</dt>
-    <dd>Daily logging of all 36 symptoms, your HRT regimen with dose reminders and adherence tracking, the 60-day heatmap, your top symptoms, the Apple Health sleep overlay on iPhone, and export and delete. Paying adds three things: the doctor-ready PDF report, the symptom-versus-adherence chart, and the before-and-after comparison since starting your regimen.</dd>
-    <dt>How do I delete everything?</dt>
-    <dd>Settings → Delete everything. It permanently removes all your local data — logs, regimen and reports — immediately, and it cannot be undone.</dd>
-    <dt>How do I restore a purchase?</dt>
-    <dd>Settings → Subscription → Restore purchases, or the Restore purchases link on the plan screen, signed into the same Apple ID or Google account you bought with.</dd>
-    <dt>How do I cancel, or ask a billing question?</dt>
-    <dd>Settings → Manage subscription opens your App Store or Google Play subscription settings, which is where billing is handled — we don&#x27;t process payments. Cancelling stops the next renewal and you keep access until the period you&#x27;ve paid for ends.</dd>
-    <dt>How do I get a refund?</dt>
-    <dd>Refunds are handled by Apple or Google under their own policies, not by us. Use reportaproblem.apple.com on iOS, or play.google.com/store/account on Android. If the store gives you trouble, tell us and we&#x27;ll help where we can.</dd>
-    <dt>Something&#x27;s broken. How do I report it?</dt>
-    <dd>Email us with your device and OS version, what you were doing, what you expected versus what happened, and a screenshot. Please blur or crop anything you&#x27;d rather not share — we don&#x27;t need your health details to fix a bug.</dd>
-  </dl>
-  <h2>Still stuck?</h2>
-  <p>Email <a href="mailto:rsb.baker+hormonelog@gmail.com">rsb.baker+hormonelog@gmail.com</a>. It reaches a person, not a ticket queue, and we answer every message.</p>
-  <h2>Legal</h2>
+<div class="chart">
+
+<p class="tab"><a href="/hormonelog/">HormoneLog</a> &nbsp;&middot;&nbsp; Support</p>
+
+<h1>HormoneLog support</h1>
+<p class="standfirst">You log your symptoms, your cycle and your HRT regimen, you look at the patterns in your own data, and you take a clean summary to your prescriber. Everything stays on your phone, which is the app&rsquo;s best feature and also the thing you need to understand before you rely on it.</p>
+<p class="revised">Revised 3 November 2026</p>
+
+<section class="critical">
+  <h2>Read this before you rely on the app</h2>
+  <p><strong>If you lose your phone, your log is gone.</strong> There is no account, so there is nothing to sign back into. On iPhone the database is deliberately kept out of your device backups, and the encryption key never leaves the handset, so there is no copy anywhere and no key escrow &mdash; nobody, including us, can get it back.</p>
+  <p>That is a deliberate trade for privacy, not an oversight. The consequence is that <strong>exporting is not optional housekeeping, it is the backup.</strong> Settings &rarr; Export, whenever it would hurt to lose what you have logged.</p>
+</section>
+
+<div class="disclaimer">
+  <p>HormoneLog is a tracking tool, not medical advice and not a medical device. It does not diagnose or treat anything, makes no claim about relieving symptoms, and never calculates or suggests a dose &mdash; discuss any change with your prescriber. The Symptom Burden Index is HormoneLog&rsquo;s own summary of what you logged, not a clinical measurement, and it can be incomplete or misleading on its own. If you are having a medical emergency, contact your local emergency number rather than this app.</p>
+</div>
+
+<div class="ask">
+  <p class="addr"><a href="mailto:rsb.baker+hormonelog@gmail.com">rsb.baker+hormonelog@gmail.com</a></p>
+  <p>One person reads this and replies. For a bug, send your device and OS version, what you were
+  doing, what you expected versus what happened, and a screenshot &mdash; and please crop or blur
+  anything you would rather not share. Your health details are never needed to fix a bug.</p>
+</div>
+
+<h2>No account, and what follows from it</h2>
+<dl class="entries">
+  <dt>Do I need an account to use HormoneLog?</dt>
+  <dd>No. There is no sign-up and no sign-in, and the app works fully offline. Because there is no account, there is also nothing to recover &mdash; see the question about losing your phone below.</dd>
+  <dt>Where is my data stored?</dt>
+  <dd>In a database on your own device. The free text most likely to be sensitive &mdash; your daily notes and the dose text you type &mdash; is additionally encrypted at rest with a key generated on your phone and held in its secure hardware store (the iOS Keychain or Android Keystore). That key is never transmitted anywhere, including to us.</dd>
+  <dt>If I lose my phone, can you recover my log?</dt>
+  <dd>No, and it is important that you know this before you rely on the app. On iPhone the database is deliberately kept out of your device backups and the encryption key never leaves the handset, so if the phone is lost, wiped or replaced there is no copy anywhere and no key escrow &mdash; nobody, including us, can get it back. Export your data from Settings whenever it would hurt to lose it.</dd>
+  <dt>How do I move my data to a new phone?</dt>
+  <dd>On the old device, Settings &rarr; Export as JSON, then open that file and copy all of its text. On the new device, Settings &rarr; Restore from backup and paste it in. It is a paste, not a file picker, and it replaces everything currently on the new device &mdash; which cannot be undone.</dd>
+  <dt>Is there cloud backup or sync?</dt>
+  <dd>Not yet. The toggle in Settings saves your preference only; as the app says when you turn it on, cloud sync ships in a future update and your data stays local-only until then.</dd>
+  <dt>Can I get my data out?</dt>
+  <dd>Yes, on any plan. Settings offers a full export as JSON and a CSV of your symptom log, both handed to your phone&rsquo;s share sheet so you choose where they go.</dd>
+  <dt>How do I delete everything?</dt>
+  <dd>Settings &rarr; Delete everything. It permanently removes all your local data &mdash; logs, regimen and reports &mdash; immediately, and it cannot be undone.</dd>
+</dl>
+
+<h2>What you can actually log</h2>
+<p>Thirty-six symptoms, each rated 0 to 3 for the day, grouped into seven categories:</p>
+<table class="cats">
+  <caption>The seven categories the 36 symptoms sit in</caption>
+  <tbody>
+    <tr><th scope="row">Vasomotor</th><td>Hot flashes, night sweats and the rest of the flushing group.</td></tr>
+    <tr><th scope="row">Psychological</th><td>Mood swings, irritability, anxiety, low mood, panic, loss of confidence.</td></tr>
+    <tr><th scope="row">Sleep</th><td>Insomnia and early waking.</td></tr>
+    <tr><th scope="row">Cognitive</th><td>Brain fog and memory, difficulty concentrating.</td></tr>
+    <tr><th scope="row">Urogenital</th><td>The vaginal, sexual and urinary symptoms.</td></tr>
+    <tr><th scope="row">Somatic</th><td>Aches, headaches, palpitations, dizziness and the other bodily symptoms.</td></tr>
+    <tr><th scope="row">Other</th><td>The ones that fit nowhere tidily &mdash; tinnitus, burning mouth, electric-shock sensations, brittle nails and so on.</td></tr>
+  </tbody>
+</table>
+<dl class="entries">
+  <dt>What can I actually log?</dt>
+  <dd>36 symptoms grouped into seven categories, each on a 0&ndash;3 severity scale; mood, energy, sleep quality and stress on 1&ndash;5 sliders; whether you drank or exercised; your period and its flow; a free-text note for the day; and an HRT regimen with its doses, reminders and adherence. If you have set your stage to post-menopausal, the period section is hidden.</dd>
+  <dt>Do I have to log all 36 every day?</dt>
+  <dd>No, and the index is built so that you are not penalised for tracking more. Only days you actually logged count, and the score is an average rescaled rather than a total, so adding a symptom to your list does not push your number up by itself.</dd>
+</dl>
+
+<h2>The Symptom Burden Index</h2>
+<dl class="entries">
+  <dt>What is the Symptom Burden Index?</dt>
+  <dd>It is HormoneLog&rsquo;s own summary of what you logged, on a 0&ndash;100 scale where lower is better, with bands labelled Minimal, Mild, Moderate and High. It is an average of your 0&ndash;3 ratings rescaled &mdash; not a total &mdash; so tracking more symptoms doesn&rsquo;t make your score look worse, and only days you actually logged count towards it. It is a summary of your own entries, not a clinical measurement and not a diagnosis.</dd>
+  <dt>Is it a validated clinical score?</dt>
+  <dd>No. It is self-authored, built on HormoneLog&rsquo;s own symptom taxonomy, and it is never described as validated or clinically proven, because it is neither. It summarises your own logs so a pattern is easier to see and easier to show someone. Read on its own, out of context, it can be incomplete or misleading.</dd>
+</dl>
+
+<h2>HRT, doses and reminders</h2>
+<dl class="entries">
+  <dt>Will it tell me what to take, or change my dose?</dt>
+  <dd>No, never. The app&rsquo;s own line is &ldquo;Tracking tool, not medical advice. Discuss changes with your prescriber.&rdquo; It records the dose you type in and reminds you to take it; it does not calculate, suggest or adjust anything.</dd>
+  <dt>Will a notification show my symptoms or medication on my lock screen?</dt>
+  <dd>No. The reminder text is fixed and deliberately says nothing specific &mdash; &ldquo;Evening check-in / A minute to log how today went&rdquo; and &ldquo;Dose reminder / Tap to log today&rsquo;s dose&rdquo;. No notification ever names a symptom or a medication.</dd>
+  <dt>What does adherence actually measure?</dt>
+  <dd>Doses you marked as taken against doses that were scheduled. A dose logged late still counts as taken, because the point is whether you took it rather than whether you tapped on time.</dd>
+</dl>
+
+<h2>Apple Health</h2>
+<dl class="entries">
+  <dt>What does it do with Apple Health?</dt>
+  <dd>On iPhone, and only if you grant permission, it reads four things &mdash; sleep analysis, heart rate variability, resting heart rate and body temperature &mdash; so it can show them alongside your symptom log. It never writes anything back to Apple Health, and that data never leaves your device. You can refuse or revoke the permission in iOS Settings at any time and the rest of the app works normally. Android has no equivalent integration, so those options are hidden there.</dd>
+</dl>
+
+<h2>The report you take to your prescriber</h2>
+<dl class="entries">
+  <dt>What is actually sent when I generate a doctor&rsquo;s report?</dt>
+  <dd>Only the summary that is already on the screen: the index and its category breakdown, how often each symptom appeared, and a short text summary of your regimen. That goes over an encrypted connection to a rendering service that lays it out as a PDF and keeps nothing afterwards. Your raw daily entries, your mood, energy and sleep ratings, and your free-text notes are never sent.</dd>
+</dl>
+
+<h2>What costs money</h2>
+<div class="plans">
+  <h3>Free, on every install</h3>
   <ul>
-    <li><a href="../privacy/">Privacy Policy</a></li>
-    <li><a href="../terms/">Terms of Use</a></li>
+    <li>Daily logging of all 36 symptoms; the HRT regimen with dose reminders and adherence tracking.</li>
+    <li>The 60-day heatmap and your top symptoms.</li>
+    <li>The Apple Health sleep overlay on iPhone.</li>
+    <li>Export, and delete everything.</li>
   </ul>
-  <footer>&copy; Baker Ventures LLC &middot; <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a> &middot; <a href="../">HormoneLog</a> &middot; <a href="../privacy/">Privacy Policy</a> &middot; <a href="../terms/">Terms of Use</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+  <h3>What paying adds &mdash; three things</h3>
+  <ul>
+    <li>The doctor-ready PDF report.</li>
+    <li>The symptom-versus-adherence chart.</li>
+    <li>The before-and-after comparison since starting your regimen.</li>
+  </ul>
+</div>
+<dl class="entries">
+  <dt>What do I get without paying?</dt>
+  <dd>Daily logging of all 36 symptoms, your HRT regimen with dose reminders and adherence tracking, the 60-day heatmap, your top symptoms, the Apple Health sleep overlay on iPhone, and export and delete. Paying adds three things: the doctor-ready PDF report, the symptom-versus-adherence chart, and the before-and-after comparison since starting your regimen.</dd>
+  <dt>How do I restore a purchase?</dt>
+  <dd>Settings &rarr; Subscription &rarr; Restore purchases, or the Restore purchases link on the plan screen, signed into the same Apple ID or Google account you bought with.</dd>
+  <dt>How do I cancel, or ask a billing question?</dt>
+  <dd>Settings &rarr; Manage subscription opens your App Store or Google Play subscription settings, which is where billing is handled &mdash; we don&rsquo;t process payments. Cancelling stops the next renewal and you keep access until the period you&rsquo;ve paid for ends.</dd>
+  <dt>How do I get a refund?</dt>
+  <dd>Refunds are handled by Apple or Google under their own policies, not by us. Use reportaproblem.apple.com on iOS, or play.google.com/store/account on Android. If the store gives you trouble, tell us and we&rsquo;ll help where we can.</dd>
+</dl>
+
+<h2>Reporting a problem</h2>
+<dl class="entries">
+  <dt>Something&rsquo;s broken. How do I report it?</dt>
+  <dd>Email us with your device and OS version, what you were doing, what you expected versus what happened, and a screenshot. Please blur or crop anything you&rsquo;d rather not share &mdash; we don&rsquo;t need your health details to fix a bug.</dd>
+</dl>
+
+<footer>
+  <p>HormoneLog &middot; Baker Ventures LLC, Logan, Utah, USA</p>
+  <p><a href="../">HormoneLog</a> &middot; <a href="../privacy/">Privacy policy</a> &middot; <a href="../terms/">Terms of use</a> &middot; <a href="/">Baker Ventures</a></p>
+  <p>Support: <a href="mailto:rsb.baker+hormonelog@gmail.com">rsb.baker+hormonelog@gmail.com</a></p>
+  <p>Not medical advice. Not a medical device. Discuss any treatment change with your prescriber.</p>
+</footer>
+
+</div>
 </body>
 </html>
