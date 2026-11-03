@@ -122,8 +122,8 @@ No signup, no account, no upload. Each one scores locally in the browser; nothin
 This host serves MileTruth's product page at /miletruth/ and its free browser
 calculators at /miletruth/tools/. MileTruth is a mileage log and net-pay tracker
 for gig and delivery drivers. You enter each trip by hand; there is no background
-trip detection in this version. **It is not on sale yet: version 1.0 is with Apple for review and
-goes on sale by itself when Apple approves it, which Apple does not announce in advance. Version 1.0
+trip detection in this version. **It is not on sale: version 1.0 was submitted and has not been
+approved, and no release date is published. Version 1.0
 is free, with no subscription and nothing to buy inside it.** The calculators are free, standalone
 and work whether or not the app ships.
 
@@ -164,8 +164,8 @@ of the user's own iCloud backup if they have backups switched on.
 ## The PolicyReady section of this host
 
 This host serves PolicyReady's product page at /policyready/ and two free browser
-tools. **PolicyReady is not released: it is in App Store review as of 2026-10-13**,
-so it cannot be installed yet. Both tools work now and do not need it.
+tools. **PolicyReady is not released: version 1.0 was submitted and has not been approved, and no
+release date is published**, so it cannot be installed. Both tools work now and do not need it.
 
 PolicyReady assesses the security controls cyber insurers ask about, ranks the gaps
 and exports a readiness report. The tools below are generated from the app's own
