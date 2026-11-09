@@ -95,7 +95,7 @@ footer a{color:var(--muted)}
 .skip{position:absolute;left:1rem;top:-4rem;z-index:10;background:var(--accent);color:var(--accent-fg);padding:.6rem 1rem;border-radius:.6rem;font-weight:600;text-decoration:none}
 .skip:focus{top:.75rem}
 main:focus{outline:none}
-.more{margin:1.2rem 0 0;text-align:center;font-size:.95rem}
+.more{margin:.9rem 0 0;font-size:.95rem}
 nav.nav a{display:inline-block;min-height:2.75rem;line-height:2.75rem}
 .qgroup{margin-top:1.2rem}
 .qgroup .essence{margin-bottom:.6rem}
@@ -105,4 +105,4 @@ ol.qs li::before{content:counter(q);position:absolute;left:.9rem;top:.85rem;widt
 .jump ul{list-style:none;margin:1rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
 .jump a{display:inline-flex;align-items:center;min-height:2.75rem;padding:.2rem .9rem;border-radius:2rem;background:var(--row);box-shadow:var(--rowshadow);color:var(--fg);text-decoration:none;font-weight:600;font-size:.92rem}
 .jump a:hover{background:var(--rowsel)}
-@media (min-width:46rem){.qgroup .band{aspect-ratio:4/1}}
+@media (min-width:46rem){.qgroup .band{aspect-ratio:2.4/1}}
