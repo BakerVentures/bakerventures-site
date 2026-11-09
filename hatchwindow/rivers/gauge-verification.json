@@ -1,0 +1,36 @@
+{
+  "checked": "2026-11-08",
+  "method": "Live USGS NWIS site metadata (RDB); IDs and station names matched before page generation",
+  "appStore": {
+    "url": "https://apps.apple.com/app/id6816322811",
+    "http": 200,
+    "title": "Hatch Window App - App Store"
+  },
+  "gauges": [
+    {
+      "site": "09355500",
+      "name": "SAN JUAN RIVER NEAR ARCHULETA, NM",
+      "source": "https://waterservices.usgs.gov/nwis/site/?format=rdb&sites=09355500"
+    },
+    {
+      "site": "09361500",
+      "name": "ANIMAS RIVER AT DURANGO, CO",
+      "source": "https://waterservices.usgs.gov/nwis/site/?format=rdb&sites=09361500"
+    },
+    {
+      "site": "09128000",
+      "name": "GUNNISON RIVER BELOW GUNNISON TUNNEL, CO",
+      "source": "https://waterservices.usgs.gov/nwis/site/?format=rdb&sites=09128000"
+    },
+    {
+      "site": "09085000",
+      "name": "ROARING FORK RIVER AT GLENWOOD SPRINGS, CO.",
+      "source": "https://waterservices.usgs.gov/nwis/site/?format=rdb&sites=09085000"
+    },
+    {
+      "site": "13011000",
+      "name": "SNAKE RIVER NEAR MORAN, WY",
+      "source": "https://waterservices.usgs.gov/nwis/site/?format=rdb&sites=13011000"
+    }
+  ]
+}
