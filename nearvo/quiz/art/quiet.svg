@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="A quiet night: a crescent moon over hills, a small house with one lit window and a still lake">
+<title>A quiet night: a crescent moon over hills, a small house with one lit window and a still lake</title>
+<defs><filter id="ps" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#2E2138" flood-opacity="0.24"/></filter><filter id="ps2" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#2E2138" flood-opacity="0.28"/></filter><style>svg{--sky:#C9BCD8;--sky2:#B3A3C8;--h1:#8E9B8E;--h2:#6F7F76;--h3:#4F6058;--pl:#6B3F64;--pl2:#3D2D48;--ap:#F0A35E;--ap2:#E58B40;--cr:#FFFBF5;--lit:#FFE2A8;--gr:#8F82A6}@media (prefers-color-scheme:dark){svg{--sky:#241A2E;--sky2:#2E2138;--h1:#3B4A44;--h2:#2F3C38;--h3:#243029;--pl:#9A6593;--pl2:#5A3A5C;--ap:#F0A35E;--ap2:#D98A45;--cr:#EDE2D4;--lit:#FFD58A;--gr:#4B3F60}}
+.sky{fill:var(--sky)}.sky2{fill:var(--sky2)}.h1{fill:var(--h1)}.h2{fill:var(--h2)}.h3{fill:var(--h3)}.pl{fill:var(--pl)}.pl2{fill:var(--pl2)}.ap{fill:var(--ap)}.ap2{fill:var(--ap2)}.cr{fill:var(--cr)}.lit{fill:var(--lit)}.gr{fill:var(--gr)}
+.s{filter:url(#ps)}.s2{filter:url(#ps2)}.ln{fill:none;stroke:var(--pl2);stroke-width:3;stroke-linecap:round;stroke-opacity:.55}.lnc{fill:none;stroke:var(--cr);stroke-width:3;stroke-linecap:round;stroke-opacity:.9}</style></defs>
+<rect class="sky" width="800" height="450"/>
+<path class="sky2" d="M0 250C200 220 400 240 800 215V450H0Z"/>
+<g class="s"><path class="cr" d="M610 60a64 64 0 1 0 64 82a50 50 0 1 1-64-82z"/></g>
+<path class="cr" d="M130 71L132.88 77.12L139 80L132.88 82.88L130 89L127.12 82.88L121 80L127.12 77.12Z"/><path class="ap" d="M260 134L261.92 138.08L266 140L261.92 141.92L260 146L258.08 141.92L254 140L258.08 138.08Z"/><path class="cr" d="M380 53L382.24 57.76L387 60L382.24 62.24L380 67L377.76 62.24L373 60L377.76 57.76Z"/><path class="cr" d="M480 125L481.6 128.4L485 130L481.6 131.6L480 135L478.4 131.6L475 130L478.4 128.4Z"/><path class="ap" d="M720 214L721.92 218.08L726 220L721.92 221.92L720 226L718.08 221.92L714 220L718.08 218.08Z"/><path class="cr" d="M70 185L71.6 188.4L75 190L71.6 191.6L70 195L68.4 191.6L65 190L68.4 188.4Z"/>
+<path class="h1 s" d="M0 300C140 260 280 270 400 290S660 262 800 285V450H0Z"/>
+<path class="h2 s" d="M0 340C160 312 320 322 470 336S680 316 800 332V450H0Z"/>
+<g class="s">
+<rect class="pl" x="330" y="258" width="100" height="70" rx="4"/>
+<path class="pl2" d="M316 262L380 223L444 262Z"/>
+<rect class="lit" x="360" y="277.6" width="40" height="26.6" rx="4"/>
+</g>
+<path class="gr s" d="M0 372C200 360 360 380 520 372S700 364 800 374V450H0Z"/>
+<path class="cr" opacity=".5" d="M560 392h110M590 410h60M580 428h80" stroke="var(--cr)" stroke-width="6" stroke-linecap="round" fill="none"/>
+<path class="h3 s" d="M0 410C180 392 320 420 480 414S720 398 800 408V450H0Z"/>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Two paper houses across a lane, a folded note passing between their lit windows">
+<title>Two paper houses across a lane, a folded note passing between their lit windows</title>
+<defs><filter id="ps" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#2E2138" flood-opacity="0.24"/></filter><filter id="ps2" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#2E2138" flood-opacity="0.28"/></filter><style>svg{--sky:#F5DDC2;--sky2:#EFC9A2;--h1:#A9B684;--h2:#8A9B66;--h3:#6C7A4E;--pl:#6B3F64;--pl2:#4A2D4B;--ap:#F0A35E;--ap2:#E58B40;--cr:#FFFBF5;--lit:#FFE2A8;--gr:#CDBFA8}@media (prefers-color-scheme:dark){svg{--sky:#3D2D48;--sky2:#4A3556;--h1:#55653F;--h2:#465534;--h3:#38452A;--pl:#9A6593;--pl2:#6F4570;--ap:#F0A35E;--ap2:#D98A45;--cr:#EDE2D4;--lit:#FFD58A;--gr:#6F5878}}
+.sky{fill:var(--sky)}.sky2{fill:var(--sky2)}.h1{fill:var(--h1)}.h2{fill:var(--h2)}.h3{fill:var(--h3)}.pl{fill:var(--pl)}.pl2{fill:var(--pl2)}.ap{fill:var(--ap)}.ap2{fill:var(--ap2)}.cr{fill:var(--cr)}.lit{fill:var(--lit)}.gr{fill:var(--gr)}
+.s{filter:url(#ps)}.s2{filter:url(#ps2)}.ln{fill:none;stroke:var(--pl2);stroke-width:3;stroke-linecap:round;stroke-opacity:.55}.lnc{fill:none;stroke:var(--cr);stroke-width:3;stroke-linecap:round;stroke-opacity:.9}</style></defs>
+<rect class="sky" width="800" height="450"/>
+<circle class="ap" cx="610" cy="150" r="78"/><circle class="ap2" cx="610" cy="150" r="78" opacity=".0"/>
+<path class="sky2" d="M0 250C180 210 330 230 470 215S700 180 800 205V450H0Z"/>
+
+<path class="h1 s" d="M0 300C120 250 240 270 360 290S640 240 800 280V450H0Z"/>
+<path class="h2 s" d="M0 350C140 310 300 320 440 345S700 310 800 340V450H0Z"/>
+<path class="h3 s" d="M0 392C160 362 320 372 480 392S720 367 800 387V450H0Z"/>
+<path class="gr s2" d="M330 450C350 410 380 390 420 372C450 358 500 346 540 340L552 352C510 362 470 372 450 392C430 412 440 432 470 450Z" opacity=".9"/>
+<g class="s">
+<rect class="pl" x="90" y="220" width="170" height="120" rx="4"/>
+<path class="pl2" d="M76 224L175 160L274 224Z"/>
+<rect class="lit" x="141" y="253.6" width="68" height="45.6" rx="4"/>
+</g>
+<g class="s">
+<rect class="pl2" x="540" y="240" width="170" height="120" rx="4"/>
+<path class="pl" d="M526 244L625 180L724 244Z"/>
+<rect class="lit" x="591" y="273.6" width="68" height="45.6" rx="4"/>
+</g>
+<path class="lnc" stroke-dasharray="2 10" d="M262 232C330 120 450 110 546 232"/>
+<g class="s" transform="rotate(-14 404 150)"><path class="cr" d="M370 128h68v44h-68z"/><path class="ap2" d="M370 128l34 24 34-24z"/></g>
+<path class="ap" d="M205 111L207.88 117.12L214 120L207.88 122.88L205 129L202.12 122.88L196 120L202.12 117.12Z"/><path class="cr" d="M700 83L702.24 87.76L707 90L702.24 92.24L700 97L697.76 92.24L693 90L697.76 87.76Z"/><path class="cr" d="M86 84L87.92 88.08L92 90L87.92 91.92L86 96L84.08 91.92L80 90L84.08 88.08Z"/>
+</svg>

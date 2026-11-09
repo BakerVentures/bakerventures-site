@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="A paper footbridge over a stream with two lit lanterns, side by side">
+<title>A paper footbridge over a stream with two lit lanterns, side by side</title>
+<defs><filter id="ps" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#2E2138" flood-opacity="0.24"/></filter><filter id="ps2" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#2E2138" flood-opacity="0.28"/></filter><style>svg{--sky:#DDE3C8;--sky2:#CBD5AE;--h1:#A7B586;--h2:#879865;--h3:#6C7A4E;--pl:#6B3F64;--pl2:#4A2D4B;--ap:#F0A35E;--ap2:#E58B40;--cr:#FFFBF5;--lit:#FFE2A8;--gr:#8AA0A8}@media (prefers-color-scheme:dark){svg{--sky:#34402F;--sky2:#3F4D38;--h1:#55653F;--h2:#465534;--h3:#38452A;--pl:#9A6593;--pl2:#6F4570;--ap:#F0A35E;--ap2:#D98A45;--cr:#EDE2D4;--lit:#FFD58A;--gr:#4F6670}}
+.sky{fill:var(--sky)}.sky2{fill:var(--sky2)}.h1{fill:var(--h1)}.h2{fill:var(--h2)}.h3{fill:var(--h3)}.pl{fill:var(--pl)}.pl2{fill:var(--pl2)}.ap{fill:var(--ap)}.ap2{fill:var(--ap2)}.cr{fill:var(--cr)}.lit{fill:var(--lit)}.gr{fill:var(--gr)}
+.s{filter:url(#ps)}.s2{filter:url(#ps2)}.ln{fill:none;stroke:var(--pl2);stroke-width:3;stroke-linecap:round;stroke-opacity:.55}.lnc{fill:none;stroke:var(--cr);stroke-width:3;stroke-linecap:round;stroke-opacity:.9}</style></defs>
+<rect class="sky" width="800" height="450"/>
+<circle class="ap" cx="150" cy="104" r="52"/>
+
+<path class="h1 s" d="M0 300C120 250 240 270 360 290S640 240 800 280V450H0Z"/>
+<path class="h2 s" d="M0 335C140 295 300 305 440 330S700 295 800 325V450H0Z"/>
+<path class="h3 s" d="M0 372C160 342 320 352 480 372S720 347 800 367V450H0Z"/>
+<path class="gr" d="M0 360C200 340 300 372 400 366S650 340 800 362V450H0Z"/>
+<path d="M0 392C160 376 260 404 400 398S640 376 800 392" class="lnc" stroke-opacity=".5"/>
+<path d="M0 420C200 408 300 430 420 424S660 410 800 422" class="lnc" stroke-opacity=".4"/>
+<g class="s"><path class="pl" d="M120 360C220 260 580 260 680 360v22H120z"/><path class="pl2" d="M120 360C220 260 580 260 680 360l0 14C580 280 220 280 120 374z"/></g>
+<path class="ln" d="M140 330C240 240 560 240 660 330" style="stroke:var(--cr);stroke-opacity:.8"/>
+<g class="s2"><rect class="pl2" x="226" y="206" width="12" height="100"/><rect class="ap" x="206" y="170" width="52" height="46" rx="12"/><circle class="lit" cx="232" cy="193" r="13"/></g>
+<g class="s2"><rect class="pl2" x="562" y="206" width="12" height="100"/><rect class="ap" x="542" y="170" width="52" height="46" rx="12"/><circle class="lit" cx="568" cy="193" r="13"/></g>
+<path class="lnc" stroke-opacity=".7" stroke-width="2" d="M232 170v-18M568 170v-18"/>
+<path class="cr" d="M400 82L402.56 87.44L408 90L402.56 92.56L400 98L397.44 92.56L392 90L397.44 87.44Z"/><path class="ap" d="M700 74L701.92 78.08L706 80L701.92 81.92L700 86L698.08 81.92L694 80L698.08 78.08Z"/>
+</svg>
