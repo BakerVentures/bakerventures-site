@@ -34,24 +34,27 @@ function renderCta(){
  var off=cta.querySelector('[data-cta-off]'),onBox=cta.querySelector('[data-cta-on]');
  if(on&&/^https:\/\/apps\.apple\.com\//.test(url)){off.hidden=true;onBox.hidden=false;onBox.querySelector('a').setAttribute('href',url)}else{off.hidden=false;onBox.hidden=true}
 }
-function start(){
+var LOCK='<svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false"><rect x="3" y="7" width="10" height="7" rx="2" fill="currentColor"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+function start(refocus){
  answers=[];idx=0;if(location.hash)history.replaceState(null,'',location.pathname+location.search);setMeta(defaultTitle,defaultDesc);clear(stage);
  if(intro)intro.hidden=false;
- var c=el('div',{'class':'pad enter'},[
-  el('h2',{text:'Twelve quick questions. About two minutes.','data-focus':''}),
-  el('p',{text:'Pick the answer that sounds most like you. There are no right answers, and your answers never leave this page.'}),
+ var trust=el('p',{'class':'trust'});trust.innerHTML=LOCK;trust.appendChild(el('span',{text:'Private by design. No account, no cookies, nothing leaves this page.'}));
+ var c=el('div',{'class':'pad begin enter'},[
   el('div',{'class':'row'},[el('button',{'class':'btn big',type:'button',id:'go',text:'Start the quiz'})]),
-  el('ul',{'class':'chips'},[el('li',{text:'No account'}),el('li',{text:'Nothing stored'}),el('li',{text:'Five styles'})])]);
+  el('p',{'class':'once',text:'12 questions, about two minutes.'}),trust]);
  stage.appendChild(c);$('go').addEventListener('click',function(){ask(0)});cta.hidden=false;
+ if(refocus){var h=document.querySelector('#intro h1');if(h){h.setAttribute('tabindex','-1');h.setAttribute('data-focus','');h.focus({preventScroll:true});window.scrollTo(0,0)}}
 }
 function ask(i){
  idx=i;clear(stage);cta.hidden=true;if(intro)intro.hidden=true;
  var q=Q[i],n=Q.length;
- var form=el('form',{'class':'pad enter',novalidate:''});
- form.appendChild(el('div',{'class':'meta'},[el('span',{text:'Question '+(i+1)+' of '+n}),el('span',{text:Math.round((i+1)/n*100)+'%','aria-hidden':'true'})]));
+ var form=el('form',{'class':'enter',novalidate:''});
+ var gp=Math.floor(i/3),band=img('band-'+['evening','bench','lane','morning'][gp],'band','');band.style.objectPosition=Math.round(i/(n-1)*100)+'% 50%';band.setAttribute('width','1200');band.setAttribute('height','270');form.appendChild(band);
+ var pad=el('div',{'class':'pad'});form.appendChild(pad);
+ pad.appendChild(el('div',{'class':'meta'},[el('span',{text:'Question '+(i+1)+' of '+n}),el('span',{text:Math.round((i+1)/n*100)+'%','aria-hidden':'true'})]));
  var fill=el('i');fill.style.width=(i/n*100)+'%';
  var bar=el('div',{'class':'bar',role:'progressbar','aria-label':'Quiz progress','aria-valuemin':'1','aria-valuemax':String(n),'aria-valuenow':String(i+1),'aria-valuetext':'Question '+(i+1)+' of '+n},[fill]);
- form.appendChild(bar);
+ pad.appendChild(bar);
  requestAnimationFrame(function(){requestAnimationFrame(function(){fill.style.width=((i+1)/n*100)+'%'})});
  var fs=el('fieldset');var lg=el('legend',{text:q[0],'data-focus':''});fs.appendChild(lg);
  q[1].forEach(function(o,k){
@@ -61,14 +64,14 @@ function ask(i){
   var w=el('div',{'class':'opt'},[inp,el('label',{'for':id,text:o[0]})]);
   inp.addEventListener('change',function(){answers[i]=o[1];next.disabled=false});
   fs.appendChild(w)});
- form.appendChild(fs);
- var row=el('div',{'class':'row'});
- var back=el('button',{'class':'btn alt',type:'button',text:i===0?'Cancel':'Back'});
+ pad.appendChild(fs);
+ var row=el('div',{'class':'qrow'});
+ var back=el('button',{'class':'linkbtn',type:'button',text:i===0?'Cancel':'Back'});
  var next=el('button',{'class':'btn',type:'submit',text:i===n-1?'See my result':'Next'});
  next.disabled=!answers[i];
- back.addEventListener('click',function(){i===0?start():ask(i-1)});
+ back.addEventListener('click',function(){i===0?start(true):ask(i-1)});
  form.addEventListener('submit',function(e){e.preventDefault();if(!answers[i])return;i===n-1?finish():ask(i+1)});
- row.appendChild(back);row.appendChild(next);form.appendChild(row);stage.appendChild(form);focusHeading();
+ row.appendChild(next);row.appendChild(back);pad.appendChild(row);stage.appendChild(form);focusHeading();
 }
 function score(){
  var t={};ORDER.forEach(function(k){t[k]=0});answers.forEach(function(a){if(a)t[a]++});
@@ -111,7 +114,7 @@ function result(r){
  var myUrl=BASE+'result/'+r.id+'/';
  shareBtn.addEventListener('click',function(){share(myUrl,s.name,'I got '+s.name+' on the Nearvo connection style quiz.',st,'Link copied.')});
  withBtn.addEventListener('click',function(){share(BASE,'Connection style quiz for two','Take this short quiz too, then we can compare what we got.',st,'Quiz link copied. Send it to your partner, then compare results.')});
- again.addEventListener('click',start);
+ again.addEventListener('click',function(){start(true)});
  pad.appendChild(el('div',{'class':'actions'},[shareBtn,withBtn,again]));pad.appendChild(st);
  pad.appendChild(el('p',{'class':'fun',text:'Most people are a blend, and styles can shift with seasons of life. Comparing results with your partner is the point: talk about where you match and where you differ.'}));
  stage.appendChild(box);
