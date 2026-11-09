@@ -84,3 +84,4 @@ footer a{color:var(--muted)}
 @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media (min-width:46rem){.styles li:last-child:nth-child(odd){grid-column:1/-1}.styles li:last-child:nth-child(odd) a{flex-direction:row;align-items:center}.styles li:last-child:nth-child(odd) img{width:16rem;height:auto}.styles li:last-child:nth-child(odd) span{padding:.5rem 1rem}}
+@media (max-width:23rem){.quote{padding:1rem .9rem 1.1rem 1rem}.quote::before{font-size:3rem;right:.6rem}.quote p{padding-right:0;padding-top:1.4rem}.pad{padding:1rem 1rem 1.25rem}}
