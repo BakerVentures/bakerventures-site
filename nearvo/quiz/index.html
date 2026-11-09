@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="Nearvo connection style quiz: find how you and your partner feel closest">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bakerventuresstudio.com/nearvo/quiz/og.png">
-<link rel="preload" href="fonts/Literata_600SemiBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="fonts/Literata_600SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="quiz.css">
 <script type="application/ld+json">
 {
@@ -48,8 +48,10 @@
 </script>
 </head>
 <body>
-<main class="wrap">
-<p class="nav"><a href="/nearvo/">&larr; Nearvo</a><span class="mark" aria-hidden="true">Nearvo</span></p>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header><nav class="nav" aria-label="Back to Nearvo"><a href="/nearvo/">&larr; Nearvo</a><span class="mark" aria-hidden="true">Nearvo</span></nav></header>
+<main id="main" tabindex="-1">
 <div class="sheet">
 <div id="intro">
 <img class="scene hero" src="art/hero.svg" alt="Two paper houses on either side of a lane, with a folded note passing between their lit windows" width="800" height="450" fetchpriority="high">
@@ -59,7 +61,7 @@
 <p class="fun" style="margin-top:0"><strong>For fun and reflection.</strong> This is not therapy, counseling or a diagnosis, and it is not a substitute for a professional.</p>
 </div>
 </div>
-<div id="stage" aria-live="polite">
+<div id="stage">
 <div class="pad">
 <h2>The five connection styles</h2>
 <p>The quiz needs JavaScript. Without it, here are the five styles it can show you:</p>
@@ -74,7 +76,7 @@
 </div>
 </div>
 <!-- CTA switch: data-cta="off" keeps the coming-soon line. To turn the App Store button on, set data-cta="on" and data-store-url to the live App Store URL on THIS element only (quiz.js validates it). Keep off until Nearvo is live. -->
-<section class="cta" data-cta="off" data-store-url="" aria-label="Nearvo app">
+<section class="cta" data-cta="off" data-store-url="" aria-label="About the Nearvo app">
 <div data-cta-off>
 <p><strong>Nearvo is coming soon to iPhone.</strong></p>
 <p>Nearvo is a couples app built around one shared question a day. <a href="/nearvo/">Read how it works</a>.</p>
@@ -84,8 +86,10 @@
 <p><a class="btn" href="/nearvo/">Get Nearvo for iPhone</a></p>
 </div>
 </section>
-<footer>&copy; Baker Ventures LLC &middot; <a href="/nearvo/privacy/">Privacy Policy</a> &middot; <a href="/nearvo/terms/">Terms of Use</a> &middot; <a href="/nearvo/support/">Support</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+<p class="more"><a href="/nearvo/questions/">Browse 25 questions to ask your partner</a></p>
 </main>
+<footer>&copy; Baker Ventures LLC &middot; <a href="/nearvo/privacy/">Privacy Policy</a> &middot; <a href="/nearvo/terms/">Terms of Use</a> &middot; <a href="/nearvo/support/">Support</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+</div>
 <script src="styles.js"></script>
 <script src="quiz.js"></script>
 </body>

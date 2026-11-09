@@ -116,6 +116,7 @@ function result(r){
  withBtn.addEventListener('click',function(){share(BASE,'Connection style quiz for two','Take this short quiz too, then we can compare what we got.',st,'Quiz link copied. Send it to your partner, then compare results.')});
  again.addEventListener('click',function(){start(true)});
  pad.appendChild(el('div',{'class':'actions'},[shareBtn,withBtn,again]));pad.appendChild(st);
+ var more=el('p',{'class':'fun'});more.appendChild(document.createTextNode('More to talk about: '));more.appendChild(el('a',{href:'/nearvo/questions/',text:'25 questions to ask your partner'}));more.appendChild(document.createTextNode('.'));pad.appendChild(more);
  pad.appendChild(el('p',{'class':'fun',text:'Most people are a blend, and styles can shift with seasons of life. Comparing results with your partner is the point: talk about where you match and where you differ.'}));
  stage.appendChild(box);
  var all=el('div',{'class':'enter'});

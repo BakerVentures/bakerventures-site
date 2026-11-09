@@ -1,6 +1,6 @@
-@font-face{font-family:Literata;src:url(fonts/Literata_600SemiBold.ttf) format('truetype');font-weight:600;font-display:swap}
-@font-face{font-family:'Hanken Grotesk';src:url(fonts/HankenGrotesk_400Regular.ttf) format('truetype');font-weight:400;font-display:swap}
-@font-face{font-family:'Hanken Grotesk';src:url(fonts/HankenGrotesk_600SemiBold.ttf) format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:Literata;src:url(fonts/Literata_600SemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Hanken Grotesk';src:url(fonts/HankenGrotesk_400Regular.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Hanken Grotesk';src:url(fonts/HankenGrotesk_600SemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
 :root{--bg:#F6EFE6;--fg:#2E2138;--muted:#5F4B61;--card:#FFFBF5;--line:#DCD0C5;--accent:#6B3F64;--accent-fg:#FFFBF5;--accent-d:#55304F;--soft:#F3E4D3;--apricot:#F0A35E;--moss:#526039;--focus:#1B5FD1;--row:#F8EEE1;--rowsel:#F1DCC3;--rowshadow:0 1px 1px rgba(46,33,56,.07),0 6px 14px -8px rgba(46,33,56,.3);--rowselshadow:0 1px 1px rgba(46,33,56,.1),0 10px 20px -10px rgba(46,33,56,.42);--shadow:0 1px 0 rgba(46,33,56,.05),0 10px 28px -12px rgba(46,33,56,.28);--serif:Literata,Georgia,'Times New Roman',serif;--sans:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color-scheme:light dark}
 @media (prefers-color-scheme:dark){:root{--bg:#2E2138;--fg:#F6EFE6;--muted:#CCBCCD;--card:#3D2D48;--line:#6F5878;--accent:#F0A35E;--accent-fg:#2E2138;--accent-d:#F7B97E;--soft:#4A3756;--apricot:#F0A35E;--moss:#B7C692;--focus:#8AB4FF;--row:#4B3858;--rowsel:#5E4670;--rowshadow:0 1px 1px rgba(0,0,0,.25),0 6px 14px -8px rgba(0,0,0,.6);--rowselshadow:0 1px 1px rgba(0,0,0,.3),0 10px 20px -10px rgba(0,0,0,.7);--shadow:0 1px 0 rgba(0,0,0,.2),0 12px 30px -12px rgba(0,0,0,.55)}}
 *{box-sizing:border-box}
@@ -92,3 +92,17 @@ footer a{color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media (min-width:46rem){.styles li:last-child:nth-child(odd){grid-column:1/-1}.styles li:last-child:nth-child(odd) a{flex-direction:row;align-items:center}.styles li:last-child:nth-child(odd) img{width:16rem;height:auto}.styles li:last-child:nth-child(odd) span{padding:.5rem 1rem}}
 @media (max-width:23rem){.quote{padding:1rem .9rem 1.1rem 1rem}.quote::before{font-size:3rem;right:.6rem}.quote p{padding-right:0;padding-top:1.4rem}.pad{padding:1rem 1rem 1.25rem}}
+.skip{position:absolute;left:1rem;top:-4rem;z-index:10;background:var(--accent);color:var(--accent-fg);padding:.6rem 1rem;border-radius:.6rem;font-weight:600;text-decoration:none}
+.skip:focus{top:.75rem}
+main:focus{outline:none}
+.more{margin:1.2rem 0 0;text-align:center;font-size:.95rem}
+nav.nav a{display:inline-block;min-height:2.75rem;line-height:2.75rem}
+.qgroup{margin-top:1.2rem}
+.qgroup .essence{margin-bottom:.6rem}
+ol.qs{list-style:none;margin:.6rem 0 0;padding:0;counter-reset:q}
+ol.qs li{counter-increment:q;position:relative;margin:.6rem 0;padding:.9rem 1rem .9rem 3.2rem;background:var(--row);border-radius:1rem;box-shadow:var(--rowshadow);font-family:var(--serif);font-size:1.08rem;line-height:1.45}
+ol.qs li::before{content:counter(q);position:absolute;left:.9rem;top:.85rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--accent);color:var(--accent-fg);font:600 .9rem/1.7rem var(--sans);text-align:center}
+.jump ul{list-style:none;margin:1rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.jump a{display:inline-flex;align-items:center;min-height:2.75rem;padding:.2rem .9rem;border-radius:2rem;background:var(--row);box-shadow:var(--rowshadow);color:var(--fg);text-decoration:none;font-weight:600;font-size:.92rem}
+.jump a:hover{background:var(--rowsel)}
+@media (min-width:46rem){.qgroup .band{aspect-ratio:4/1}}
