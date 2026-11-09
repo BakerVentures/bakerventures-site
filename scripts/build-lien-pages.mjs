@@ -267,7 +267,7 @@ ${rows}
 ${rs.rules.map((r) => ruleCard(rs, r)).join('\n')}
 ${rollover}
 ${lims}
-<h2>Keep track of the dates</h2>
+<h2>Keep track of the dates</h2><p><strong>NoticeGuard for iOS: Coming soon.</strong> Use the free <a href="/noticeguard/lien-deadlines/">state deadline directory and calculator</a> now. <a href="/noticeguard/">See what NoticeGuard is being built to do</a>.</p>
 ${appLink}
 <h2>Other states</h2>
 <ul class="states">${others}</ul>
@@ -329,7 +329,7 @@ ${warnBox(verified)}
 <tbody>
 ${rows}
 </tbody></table></div>
-<h2>Keep track of the dates</h2>
+<h2>Keep track of the dates</h2><p><strong>NoticeGuard for iOS: Coming soon.</strong> Use the free <a href="/noticeguard/lien-deadlines/">state deadline directory and calculator</a> now. <a href="/noticeguard/">See what NoticeGuard is being built to do</a>.</p>
 ${appLink}
 <script type="module">
 import { evaluate, sortForDisplay, anchorsForRole, flagsForRole, isIsoDate, ordinal } from './engine.js';
