@@ -1,34 +1,7 @@
 (function(){
 'use strict';
 var BASE='https://bakerventuresstudio.com/nearvo/quiz/';
-var STYLES={
-'steady-noticer':{name:'The Steady Noticer',tag:'You feel closest when someone has paid attention.',
- desc:'You tend to feel loved through the small, specific things: a remembered detail, a text that shows they were thinking of you, an unspoken “I can tell you’re tired.” You probably notice a lot about your partner too, often more than you say out loud.',
- worth:'Worth knowing: if you wait to be noticed, your partner may not realise what you are hoping for. Saying it once, kindly, can help.',
- tries:['Each day this week, tell your partner one small thing you noticed about them. Keep it specific.','Pick one detail from a past conversation and bring it back with something that nods to it.','Take turns finishing the sentence “A small thing you do that I love is…”.'],
- ask:'What is something small I did recently that you noticed and liked?'},
-'open-talker':{name:'The Open Talker',tag:'You feel closest when things are said out loud.',
- desc:'Words are how you connect. Saying how the day went, hearing “I appreciate you”, and talking things through to the end all leave you feeling near to your partner. Silence can feel like distance, even when nothing is wrong.',
- worth:'Worth knowing: a partner who connects in other ways may need a little time before they find their words. Pauses are not always distance.',
- tries:['Set aside ten phone-free minutes after dinner and take turns telling each other about your day without interrupting.','Write your partner a short note, a few honest sentences, and leave it where they will find it.','Say one thing you appreciate about them every evening, out loud.'],
- ask:'Is there something you have wanted to tell me lately but have not found the moment for?'},
-'side-by-side-doer':{name:'The Side-by-Side Doer',tag:'You feel closest when you are doing something together.',
- desc:'For you, closeness shows up in action: cooking together, tackling a project, a walk, or a partner who quietly takes something off your plate. Being useful to each other, or simply busy side by side, feels like love.',
- worth:'Worth knowing: help is not the only way your partner may be trying to show care. Look for what sits behind the gesture.',
- tries:['Choose one small project this week, like a recipe, a shelf or a playlist, and do it together from start to finish.','Take over one of your partner’s least favourite chores this week without being asked.','Plan one outing and split the planning: one picks where, the other picks what to bring.'],
- ask:'What is one thing I could take off your plate this week that would make a real difference?'},
-'quiet-recharger':{name:'The Quiet Recharger',tag:'You feel closest when there is calm and room to breathe.',
- desc:'You value ease: unhurried time, comfortable silence, and a partner who understands that needing space is not rejection. You often come back warmer after some quiet, and you feel safe when you are not pushed.',
- worth:'Worth knowing: your partner may read your space as distance. A short “I need an hour, then I would love to be with you” goes a long way.',
- tries:['Agree on a simple phrase for “I need a little space, and I will come find you in an hour”, then use it once this week.','Spend twenty minutes in the same room, each doing your own quiet thing, with no screens between you.','Plan a slow, unscheduled morning together with nothing on the list.'],
- ask:'What kind of quiet time helps you feel close to me rather than far from me?'},
-'warm-sparker':{name:'The Warm Sparker',tag:'You feel closest through warmth, play and touch.',
- desc:'Affection is your language: hugs, hand-holding, laughing at something silly, a playful nudge in the kitchen. Lightness and physical closeness help you feel connected and help you reset after a rough patch.',
- worth:'Worth knowing: not everyone feels safe to be playful when they are stressed. Match your partner’s mood, then lift it gently.',
- tries:['Start or end each day this week with a proper ten-second hug.','Invent one tiny silly ritual together, like a handshake, a nickname or a kitchen dance.','Hold hands on a walk, and swap who sets the pace.'],
- ask:'What kind of touch or playfulness feels best to you when we are both relaxed?'}
-};
-var ORDER=['steady-noticer','open-talker','side-by-side-doer','quiet-recharger','warm-sparker'];
+var STYLES=window.NV_STYLES,ORDER=window.NV_ORDER;
 var S='steady-noticer',T='open-talker',D='side-by-side-doer',R='quiet-recharger',P='warm-sparker';
 var Q=[
 ['After a hard day, what helps you feel close again?',[['Talking through the day, start to finish',T],['A little quiet time alone first, then company',R],['Doing something simple together, like dinner or a walk',D],['Them noticing I am off without me having to say so',S]]],
@@ -45,15 +18,16 @@ var Q=[
 ['What does feeling understood look like to you?',[['They can say back what I told them',T],['They show up and help in a practical way',D],['They know my moods without a word',S],['They touch my arm, laugh with me and lighten things',P]]]
 ];
 var $=function(id){return document.getElementById(id)};
-var stage=$('stage'),cta=document.querySelector('[data-cta]');
+var stage=$('stage'),cta=document.querySelector('[data-cta]'),intro=$('intro');
 var answers=[],idx=0;
 var defaultTitle=document.title;
 var metaDesc=document.querySelector('meta[name="description"]');
 var defaultDesc=metaDesc?metaDesc.getAttribute('content'):'';
 function el(tag,attrs,kids){var e=document.createElement(tag);if(attrs)for(var k in attrs){if(k==='text')e.textContent=attrs[k];else e.setAttribute(k,attrs[k])}(kids||[]).forEach(function(c){e.appendChild(c)});return e}
 function clear(n){while(n.firstChild)n.removeChild(n.firstChild)}
+function img(name,cls,alt){return el('img',{'class':cls,src:'art/'+name+'.svg',alt:alt||'',width:'800',height:'450'})}
 function setMeta(title,desc){document.title=title;if(metaDesc)metaDesc.setAttribute('content',desc);var a=document.querySelector('meta[property="og:title"]'),b=document.querySelector('meta[property="og:description"]');if(a)a.setAttribute('content',title);if(b)b.setAttribute('content',desc)}
-function focusHeading(){var h=stage.querySelector('[data-focus]');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:false})}}
+function focusHeading(){var h=stage.querySelector('[data-focus]');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true});window.scrollTo(0,0)}}
 function renderCta(){
  // CTA flip: set data-cta="on" and data-store-url on the <section data-cta> element in index.html. Nothing else.
  var on=cta.getAttribute('data-cta')==='on',url=cta.getAttribute('data-store-url')||'';
@@ -61,19 +35,24 @@ function renderCta(){
  if(on&&/^https:\/\/apps\.apple\.com\//.test(url)){off.hidden=true;onBox.hidden=false;onBox.querySelector('a').setAttribute('href',url)}else{off.hidden=false;onBox.hidden=true}
 }
 function start(){
- answers=[];idx=0;location.hash='';setMeta(defaultTitle,defaultDesc);clear(stage);
- var c=el('div',{'class':'card'},[
+ answers=[];idx=0;if(location.hash)history.replaceState(null,'',location.pathname+location.search);setMeta(defaultTitle,defaultDesc);clear(stage);
+ if(intro)intro.hidden=false;
+ var c=el('div',{'class':'pad enter'},[
   el('h2',{text:'Twelve quick questions. About two minutes.','data-focus':''}),
   el('p',{text:'Pick the answer that sounds most like you. There are no right answers, and your answers never leave this page.'}),
-  el('div',{'class':'row'},[el('button',{'class':'btn',type:'button',id:'go',text:'Start the quiz'})])]);
+  el('div',{'class':'row'},[el('button',{'class':'btn big',type:'button',id:'go',text:'Start the quiz'})]),
+  el('ul',{'class':'chips'},[el('li',{text:'No account'}),el('li',{text:'Nothing stored'}),el('li',{text:'Five styles'})])]);
  stage.appendChild(c);$('go').addEventListener('click',function(){ask(0)});cta.hidden=false;
 }
 function ask(i){
- idx=i;clear(stage);cta.hidden=true;
+ idx=i;clear(stage);cta.hidden=true;if(intro)intro.hidden=true;
  var q=Q[i],n=Q.length;
- var form=el('form',{'class':'card',novalidate:''});
- form.appendChild(el('p',{'class':'count',text:'Question '+(i+1)+' of '+n}));
- var pr=el('progress',{'class':'prog',max:String(n),value:String(i+1),'aria-label':'Quiz progress'});form.appendChild(pr);
+ var form=el('form',{'class':'pad enter',novalidate:''});
+ form.appendChild(el('div',{'class':'meta'},[el('span',{text:'Question '+(i+1)+' of '+n}),el('span',{text:Math.round((i+1)/n*100)+'%','aria-hidden':'true'})]));
+ var fill=el('i');fill.style.width=(i/n*100)+'%';
+ var bar=el('div',{'class':'bar',role:'progressbar','aria-label':'Quiz progress','aria-valuemin':'1','aria-valuemax':String(n),'aria-valuenow':String(i+1),'aria-valuetext':'Question '+(i+1)+' of '+n},[fill]);
+ form.appendChild(bar);
+ requestAnimationFrame(function(){requestAnimationFrame(function(){fill.style.width=((i+1)/n*100)+'%'})});
  var fs=el('fieldset');var lg=el('legend',{text:q[0],'data-focus':''});fs.appendChild(lg);
  q[1].forEach(function(o,k){
   var id='q'+i+'o'+k;
@@ -93,8 +72,7 @@ function ask(i){
 }
 function score(){
  var t={};ORDER.forEach(function(k){t[k]=0});answers.forEach(function(a){if(a)t[a]++});
- var ranked=ORDER.slice().sort(function(a,b){return t[b]-t[a]||ORDER.indexOf(a)-ORDER.indexOf(b)});
- return ranked;
+ return ORDER.slice().sort(function(a,b){return t[b]-t[a]||ORDER.indexOf(a)-ORDER.indexOf(b)});
 }
 function finish(){var r=score();location.hash='result='+r[0]+(t2(r)?'&also='+r[1]:'')}
 function t2(r){return r.length>1&&answers.filter(function(a){return a===r[1]}).length>=3}
@@ -111,37 +89,41 @@ function share(url,title,text,statusEl,okMsg){
  if(navigator.share){navigator.share({title:title,text:text,url:url}).catch(function(){})}else copy(url,statusEl,okMsg);
 }
 function result(r){
- var s=STYLES[r.id];clear(stage);cta.hidden=false;
- setMeta(s.name+' – Couples Connection Style Quiz | Nearvo',s.tag+' '+s.desc.split('. ')[0]+'. Take the free couples connection style quiz.');
- var box=el('div');
- box.appendChild(el('p',{'class':'tag',text:'Your connection style'}));
- box.appendChild(el('h2',{text:s.name,'data-focus':''}));
- box.appendChild(el('p',{'class':'lede',text:s.tag}));
- box.appendChild(el('p',{text:s.desc}));
- box.appendChild(el('p',{text:s.worth}));
- if(r.also){var o=STYLES[r.also];var p=el('p');p.appendChild(document.createTextNode('Also strong for you: '));p.appendChild(el('a',{href:'#result='+r.also,text:o.name}));p.appendChild(document.createTextNode('.'));box.appendChild(p)}
- box.appendChild(el('h3',{text:'Three things to try this week, together'}));
- var ol=el('ol',{'class':'try'});s.tries.forEach(function(t){ol.appendChild(el('li',{text:t}))});box.appendChild(ol);
- box.appendChild(el('h3',{text:'A question to ask your partner tonight'}));
- box.appendChild(el('p',{'class':'tonight',text:s.ask}));
+ var s=STYLES[r.id];clear(stage);cta.hidden=false;if(intro)intro.hidden=true;
+ setMeta(s.name+' | Couples Connection Style Quiz | Nearvo',s.tag+' '+s.desc.split('. ')[0]+'. Take the free couples connection style quiz.');
+ var box=el('div',{'class':'enter'});
+ box.appendChild(img(s.art,'scene','Paper illustration for '+s.name));
+ var pad=el('div',{'class':'pad'});box.appendChild(pad);
+ pad.appendChild(el('p',{'class':'kicker',text:'Your connection style'}));
+ pad.appendChild(el('h2',{'class':'nameplate',text:s.name,'data-focus':''}));
+ pad.appendChild(el('p',{'class':'essence',text:s.tag}));
+ pad.appendChild(el('p',{text:s.desc}));
+ pad.appendChild(el('div',{'class':'note'},[el('p',{text:s.worth})]));
+ if(r.also){var o=STYLES[r.also];var p=el('p',{'class':'also'});p.appendChild(document.createTextNode('Also strong for you: '));p.appendChild(el('a',{href:'#result='+r.also,text:o.name}));p.appendChild(document.createTextNode('.'));pad.appendChild(p)}
+ pad.appendChild(el('h3',{text:'Three things to try this week, together'}));
+ var ol=el('ol',{'class':'try'});s.tries.forEach(function(t){ol.appendChild(el('li',{text:t}))});pad.appendChild(ol);
+ pad.appendChild(el('h3',{text:'A question to ask your partner tonight'}));
+ pad.appendChild(el('blockquote',{'class':'quote'},[el('p',{text:s.ask})]));
  var st=el('p',{'class':'status',role:'status','aria-live':'polite'});
- var shareBtn=el('button',{'class':'btn',type:'button',text:'Share my result'});
+ var shareBtn=el('button',{'class':'btn big',type:'button',text:'Share my result'});
  var withBtn=el('button',{'class':'btn alt',type:'button',text:'Take it with your partner'});
- var again=el('button',{'class':'btn alt',type:'button',text:'Retake the quiz'});
- var myUrl=BASE+'#result='+r.id;
+ var again=el('button',{'class':'linkbtn',type:'button',text:'Retake the quiz'});
+ var myUrl=BASE+'result/'+r.id+'/';
  shareBtn.addEventListener('click',function(){share(myUrl,s.name,'I got '+s.name+' on the Nearvo connection style quiz.',st,'Link copied.')});
  withBtn.addEventListener('click',function(){share(BASE,'Connection style quiz for two','Take this short quiz too, then we can compare what we got.',st,'Quiz link copied. Send it to your partner, then compare results.')});
  again.addEventListener('click',start);
- box.appendChild(el('div',{'class':'row'},[shareBtn,withBtn,again]));box.appendChild(st);
- box.appendChild(el('h3',{text:'All five connection styles'}));
+ pad.appendChild(el('div',{'class':'actions'},[shareBtn,withBtn,again]));pad.appendChild(st);
+ pad.appendChild(el('p',{'class':'fun',text:'Most people are a blend, and styles can shift with seasons of life. Comparing results with your partner is the point: talk about where you match and where you differ.'}));
+ stage.appendChild(box);
+ var all=el('div',{'class':'enter'});
+ all.appendChild(el('h3',{text:'All five connection styles'}));
  var ul=el('ul',{'class':'styles'});
- ORDER.forEach(function(k){var li=el('li');li.appendChild(el('a',{href:'#result='+k,text:STYLES[k].name}));li.appendChild(document.createTextNode(' – '+STYLES[k].tag));ul.appendChild(li)});
- box.appendChild(ul);
- box.appendChild(el('p',{'class':'fun',text:'Most people are a blend, and styles can shift with seasons of life. Comparing results with your partner is the point: talk about where you match and where you differ.'}));
- stage.appendChild(box);focusHeading();
+ ORDER.forEach(function(k){var li=el('li');var a=el('a',{href:'#result='+k},[img(STYLES[k].art,'','' ),el('span',{},[el('b',{text:STYLES[k].name}),document.createTextNode(STYLES[k].tag)])]);a.firstChild.setAttribute('loading','lazy');li.appendChild(a);ul.appendChild(li)});
+ all.appendChild(ul);stage.appendChild(all);
+ focusHeading();
 }
 function route(){var r=parseHash();if(r)result(r);else start()}
 renderCta();
-window.addEventListener('hashchange',function(){var r=parseHash();if(r)result(r);else start()});
+window.addEventListener('hashchange',route);
 route();
 })();

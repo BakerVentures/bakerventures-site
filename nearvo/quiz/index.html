@@ -19,6 +19,7 @@
 <meta property="og:image:alt" content="Nearvo connection style quiz: find how you and your partner feel closest">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bakerventuresstudio.com/nearvo/quiz/og.png">
+<link rel="preload" href="fonts/Literata_600SemiBold.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="quiz.css">
 <script type="application/ld+json">
 {
@@ -48,21 +49,28 @@
 </head>
 <body>
 <main class="wrap">
-<p class="nav"><a href="/nearvo/">&larr; Nearvo</a></p>
+<p class="nav"><a href="/nearvo/">&larr; Nearvo</a><span class="mark" aria-hidden="true">Nearvo</span></p>
+<div class="sheet">
+<div id="intro">
+<img class="scene" src="art/hero.svg" alt="Two paper houses on either side of a lane, with a folded note passing between their lit windows" width="800" height="450" fetchpriority="high">
+<div class="pad" style="padding-bottom:0">
 <h1>Couples connection style quiz</h1>
 <p class="lede">How do you and your partner each feel closest? Twelve quick questions, five styles, and a few ideas to try together.</p>
-<p class="fun"><strong>For fun and reflection.</strong> This is not therapy, counseling or a diagnosis, and it is not a substitute for a professional. It runs in your browser: no account, no email, no cookies, nothing stored or sent.</p>
+<p class="fun" style="margin-top:0"><strong>For fun and reflection.</strong> This is not therapy, counseling or a diagnosis, and it is not a substitute for a professional. It runs in your browser: no account, no email, no cookies, nothing stored or sent.</p>
+</div>
+</div>
 <div id="stage" aria-live="polite">
-<div class="card">
+<div class="pad">
 <h2>Twelve quick questions. About two minutes.</h2>
 <p>This quiz needs JavaScript. Without it, here are the five styles it can show you:</p>
 <ul>
-<li>The Steady Noticer: closest through attention to small details.</li>
-<li>The Open Talker: closest through words said out loud.</li>
-<li>The Side-by-Side Doer: closest through doing things together.</li>
-<li>The Quiet Recharger: closest through calm and room to breathe.</li>
-<li>The Warm Sparker: closest through warmth, play and touch.</li>
+<li><a href="result/steady-noticer/">The Steady Noticer</a>: closest through attention to small details.</li>
+<li><a href="result/open-talker/">The Open Talker</a>: closest through words said out loud.</li>
+<li><a href="result/side-by-side-doer/">The Side-by-Side Doer</a>: closest through doing things together.</li>
+<li><a href="result/quiet-recharger/">The Quiet Recharger</a>: closest through calm and room to breathe.</li>
+<li><a href="result/warm-sparker/">The Warm Sparker</a>: closest through warmth, play and touch.</li>
 </ul>
+</div>
 </div>
 </div>
 <!-- CTA switch: data-cta="off" keeps the coming-soon line. To turn the App Store button on, set data-cta="on" and data-store-url to the live App Store URL on THIS element only (quiz.js validates it). Keep off until Nearvo is live. -->
@@ -78,6 +86,7 @@
 </section>
 <footer>&copy; Baker Ventures LLC &middot; <a href="/nearvo/privacy/">Privacy Policy</a> &middot; <a href="/nearvo/terms/">Terms of Use</a> &middot; <a href="/nearvo/support/">Support</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
 </main>
+<script src="styles.js"></script>
 <script src="quiz.js"></script>
 </body>
 </html>
