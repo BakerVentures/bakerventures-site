@@ -96,7 +96,7 @@
      "name": "How do I delete my account and my data?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "In the app: Settings, Delete Account. It is a real deletion, not a deactivation. It removes your account and signs you out of Apple and RevenueCat. Deleting your account does not cancel an active subscription, because Apple owns that relationship, so cancel first using the steps above or you will keep being billed for an account that no longer exists."
+      "text": "In the app: Settings, Delete Account. It clears app-managed local data and your local Apple sign-in identity, and requests deletion of the RevenueCat subscriber record. Check the result shown in the app: server deletion can fail. This does not automatically erase analytics and attribution records, SDK-managed storage, provider logs or server caches. See the delete-account page for those limits. Deleting your account does not cancel an active subscription, because Apple owns that relationship, so cancel first using the steps above or you will keep being billed for an account that no longer exists."
      }
     },
     {
@@ -104,7 +104,7 @@
      "name": "Does FlirtGym read my real conversations?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Only what you paste or screenshot into it, and only to produce the reply or the score you asked for. It has no access to your Messages, your dating apps or your camera roll beyond the image you choose. The full detail is in the privacy policy."
+      "text": "For AI tools, the text, photos and screenshots you submit go through our server to Anthropic to produce your result. The app also sends usage and attribution events to Meta, AppsFlyer and PostHog, uses RevenueCat for subscriptions, and shares Apple sign-in information with RevenueCat if you sign in. It has no access to your Messages or dating-app accounts, and accesses photos you choose for its features. The privacy policy explains identifiers, permissions, caches and retention."
      }
     },
     {
@@ -192,9 +192,9 @@ footer a,a{color:var(--gold)}nav a{color:var(--fg2)}
 <h3>How do I get a refund?</h3>
 <p>Refunds are issued by Apple, not by us, because Apple is the merchant of record. Go to reportaproblem.apple.com, sign in with your Apple Account, find FlirtGym and choose Request a Refund. We cannot approve or deny a refund and we do not see the outcome. If Apple declines and you think that is wrong, email us and we will tell you honestly whether we think you have a case.</p>
 <h3>How do I delete my account and my data?</h3>
-<p>In the app: Settings, Delete Account. It is a real deletion, not a deactivation. It removes your account and signs you out of Apple and RevenueCat. Deleting your account does not cancel an active subscription, because Apple owns that relationship, so cancel first using the steps above or you will keep being billed for an account that no longer exists.</p>
+<p>In the app: Settings, Delete Account. It clears app-managed local data and your local Apple sign-in identity, and requests deletion of the RevenueCat subscriber record. Check the result shown in the app: server deletion can fail. This does not automatically erase analytics and attribution records, SDK-managed storage, provider logs or server caches. See the delete-account page for those limits. Deleting your account does not cancel an active subscription, because Apple owns that relationship, so cancel first using the steps above or you will keep being billed for an account that no longer exists.</p>
 <h3>Does FlirtGym read my real conversations?</h3>
-<p>Only what you paste or screenshot into it, and only to produce the reply or the score you asked for. It has no access to your Messages, your dating apps or your camera roll beyond the image you choose. The full detail is in the privacy policy.</p>
+<p>For AI tools, the text, photos and screenshots you submit go through our server to Anthropic to produce your result. The app also sends usage and attribution events to Meta, AppsFlyer and PostHog, uses RevenueCat for subscriptions, and shares Apple sign-in information with RevenueCat if you sign in. It has no access to your Messages or dating-app accounts, and accesses photos you choose for its features. The privacy policy explains identifiers, permissions, caches and retention.</p>
 <h3>Is there a free trial?</h3>
 <p>Where offered. Apple decides whether a free trial is shown to you, based on your eligibility, and the subscription screen displays one only if you qualify. If you do not see a trial there, the price shown is what you pay. There is no free tier: practice, scoring and coaching are all part of Pro.</p>
 <h3>Is FlirtGym on Android or iPad?</h3>
