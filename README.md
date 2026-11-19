@@ -20,7 +20,7 @@ Index page: [/flirtgym/tools/](https://bakerventuresstudio.com/flirtgym/tools/).
 | Tool | What it does |
 |---|---|
 | [Opener Score](https://bakerventuresstudio.com/flirtgym/opener-score/) | Rates a dating app opener out of ten on tone, specificity, momentum and intrigue |
-| [Hinge Prompt Checker](https://bakerventuresstudio.com/flirtgym/prompt-check/) | Tests whether your three prompt answers are actually answerable, and whether they repeat each other |
+| [Prompt Checker](https://bakerventuresstudio.com/flirtgym/prompt-check/) | Tests whether your three prompt answers are actually answerable, and whether they repeat each other |
 | [Conversation Check](https://bakerventuresstudio.com/flirtgym/conversation-check/) | Measures reciprocity in a thread: who sends more, who asks, who restarts it |
 | [Flirting Style Quiz](https://bakerventuresstudio.com/flirtgym/flirting-style/) | Nine questions, four styles, each with a real trade-off rather than a compliment |
 | [Photo Lineup Checker](https://bakerventuresstudio.com/flirtgym/photo-lineup/) | Checks the order of your profile photos from short descriptions, so nothing is uploaded |
@@ -50,7 +50,7 @@ refunds, restoring a purchase, deleting your account, and the address a human re
 [Flirting over text](https://bakerventuresstudio.com/flirtgym/how-to-flirt-over-text/) ·
 [Texting a girl](https://bakerventuresstudio.com/flirtgym/how-to-text-a-girl/) ·
 [Asking her out over text](https://bakerventuresstudio.com/flirtgym/how-to-ask-a-girl-out-over-text/) ·
-[Hinge prompts](https://bakerventuresstudio.com/flirtgym/dating-app-prompts/) ·
+[dating app prompts](https://bakerventuresstudio.com/flirtgym/dating-app-prompts/) ·
 [Getting more matches](https://bakerventuresstudio.com/flirtgym/how-to-get-more-matches/) ·
 [Profile feedback](https://bakerventuresstudio.com/flirtgym/rate-my-dating-profile/) ·
 [Practice with AI](https://bakerventuresstudio.com/flirtgym/practice-dating-conversations/) ·

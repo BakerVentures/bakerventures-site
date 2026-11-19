@@ -40,7 +40,7 @@ DROPPED = {
     "tentclock": ["", "support", "privacy"],
     "foldbook": ["", "support", "privacy"],
     "steadychart": ["", "support", "privacy", "terms"],
-    "flipstage": ["", "support", "privacy"],
+    "flipstage": ["", "support", "privacy", "terms"],
 }
 
 MARKER = "dropped from the lineup 2026-11-03"
