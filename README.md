@@ -75,14 +75,20 @@ uploads nothing.
 
 | Tool | App | Status of that app |
 |---|---|---|
-| [Gig driver net pay calculator](https://bakerventuresstudio.com/miletruth/net-pay-calculator/) | MileTruth | in development |
-| [2026 IRS mileage rate, explained](https://bakerventuresstudio.com/miletruth/irs-mileage-rate-2026/) | MileTruth | in development |
-| [Mileage deduction calculator](https://bakerventuresstudio.com/miletruth/mileage-deduction-calculator/) | MileTruth | in development |
-| [Speaking time calculator](https://bakerventuresstudio.com/flipstage/speaking-time/) | FlipStage | **on the App Store** |
-| [Cybersecurity readiness self-check](https://bakerventuresstudio.com/policyready/readiness-self-check/) | PolicyReady | in App Store review |
-| [CISA-mapped control checklist](https://bakerventuresstudio.com/policyready/cyber-readiness-checklist/) | PolicyReady | in App Store review |
-| [Lien deadline calculator, 51 jurisdictions](https://bakerventuresstudio.com/noticeguard/lien-deadlines/) | NoticeGuard | in development |
+| [Gig driver net pay calculator](https://bakerventuresstudio.com/miletruth/net-pay-calculator/) | MileTruth | **dropped** &mdash; the tool stays indexed, the app pages do not |
+| [2026 IRS mileage rate, explained](https://bakerventuresstudio.com/miletruth/irs-mileage-rate-2026/) | MileTruth | **dropped** &mdash; tool indexed, app pages not |
+| [Mileage deduction calculator](https://bakerventuresstudio.com/miletruth/mileage-deduction-calculator/) | MileTruth | **dropped** &mdash; tool indexed, app pages not |
+| [Speaking time calculator](https://bakerventuresstudio.com/flipstage/speaking-time/) | FlipStage | **dropped**, but still on the App Store &mdash; see below |
+| [Cybersecurity readiness self-check](https://bakerventuresstudio.com/policyready/readiness-self-check/) | PolicyReady | on hold |
+| [CISA-mapped control checklist](https://bakerventuresstudio.com/policyready/cyber-readiness-checklist/) | PolicyReady | on hold |
+| [Lien deadline calculator, 51 jurisdictions](https://bakerventuresstudio.com/noticeguard/lien-deadlines/) | NoticeGuard | on hold |
 | The nine FlirtGym tools, listed above | FlirtGym | **on the App Store** |
+
+MileTruth was dropped on 2026-11-03 and its app pages are now `noindex` (see
+*Dropped apps* below), but these three calculators are deliberately still indexed: they are
+substantive, one-of-a-kind pages and they were never part of the duplicate-page problem. They
+do still reference an app that is not being taken forward, which is a content decision for a
+human rather than something to rewrite quietly.
 
 The MileTruth net pay calculator is the one with the most competitive headroom. The pages
 ranking for that query mostly ask for a single annual mileage rate, which cannot be right:
@@ -125,13 +131,111 @@ The fix is committed on `origin/fix/404-hormonelog-shipcheck` in `baker-ventures
 The apex serves a real 404 (verified before and after adding `404.html`), and every other
 app's pages are paths on the apex rather than their own hostname.
 
-**The apex legal pages for four apps differ from the page registered with Apple.** The apex copies of
-`/miletruth/`, `/rigsheet/`, `/hormonelog/` and `/nearvo/` privacy, terms and support pages
-are live, indexable and *not* byte-identical to the URL in App Store Connect (which is the
-subdomain, `nearvo.net`, or `bakerventures.github.io/hormonelog-legal/` depending on the
-app). They are deliberately left out of `sitemap.xml` rather than promoted, because
-publishing a second, divergent policy for one app is worse than leaving it unlisted. Needs
-a decision on which copy is canonical.
+**The apex legal pages for three apps differ from a copy published elsewhere.** The apex
+copies of `/rigsheet/`, `/hormonelog/` and `/nearvo/` privacy, terms and support pages are
+live and *not* byte-identical to the copy on that app's own subdomain (`nearvo.net`, or
+`bakerventures.github.io/hormonelog-legal/`, depending on the app). None of these three is on
+the App Store yet, so no live store record depends on either copy. They remain out of
+`sitemap.xml`, because publishing a second, divergent policy for one app is worse than leaving
+it unlisted — but as of 2026-11-03 each apex page carries a **self-canonical**, which it did
+not before, so a crawler that reaches one is told the apex copy is the authoritative one.
+Still needs a human decision: either redirect the subdomain copies at the apex, or take them
+down. Neither can be done from this repo. (`/miletruth/` was the fourth app in this list; it
+is now dropped and de-indexed.)
+
+## Per-app support and privacy pages
+
+Rebuilt 2026-11-03, in response to the Apple developer account's guideline 4.3 warning. The
+finding that mattered: eleven apps' support pages were the same page with the slug swapped.
+Every one of them ran the same stylesheet with one accent hex changed, the same masthead,
+the same `Frequently asked questions` heading over the same `<dl class="faq">`, the same
+"Need help? Email us" box and the same footer. The FAQ *answers* were already app-specific
+and carefully written; the **container** was one template wearing eleven name tags, and a
+reviewer skimming eleven tabs sees the container.
+
+So the containers are gone. Each kept app now has its own page design, not a shared one with
+a different colour:
+
+| App | Typeface | What the design is | The thing the page is built around |
+|---|---|---|---|
+| **Vocabdrift** | Georgia + mono IPA | A dictionary column; answers numbered like senses | Where each thing it remembers actually lives |
+| **Hatch Window** | Helvetica, field-guide | Warning panel, quick-reference block, ruled tables | The real coverage of the 24-entry hatch chart |
+| **MoveWitness** | ui-sans + mono labels | A record, slate with one amber for limits | The three photo-time labels, as a legend |
+| **Rigsheet** | Helvetica, job sheet | Boxed header, hard grid, amber = not working yet | A status board of what does and does not send |
+| **HormoneLog** | Charter, clinical notebook | Ruled margin, entries, one red panel | "If you lose your phone, your log is gone" |
+| **Nearvo** | Iowan Old Style, centred | Cream and rose, quieter and warmer | A two-column table of what a partner can see |
+| **FlirtGym** | Inter on near-black + gold | The app's own identity, kept and deepened | Which parts are Apple's job and which are ours |
+
+Each app's support, privacy and terms pages share that app's shell and nothing with any other
+app. Fourteen distinct stylesheets across seven apps; no two apps share a typeface, a palette,
+a masthead, a footer or a section order.
+
+**The legal text was not rewritten.** Privacy policies and terms carry claims that were
+corrected against the app binaries over several passes (see `scripts/check_live_privacy_claims.py`
+for why that matters). Those documents were re-shelled, not re-authored: the substantive text is
+carried over byte for byte and the surrounding page is new. Support pages, which are not legal
+documents, were rewritten in each app's own voice, and every factual claim in them was checked
+against that app's repo.
+
+**One factual correction went in with the redesign.** The MoveWitness support page said of the
+integrity digest: *"Generate the report again from the same walkthrough and the digest matches;
+if the underlying record changed, it doesn't."* That is false. `generatedAt` is inside the hashed
+canonical string (`src/lib/report-html.ts:181` in `BakerVentures/movewitness`), so regenerating an
+untouched inspection produces a **different** digest. The app's own terms screen had this right
+and the published page did not. It now says the digest fingerprints one generated file and is not
+a check anyone can re-run.
+
+### Structured data
+
+Support pages carry a `FAQPage` plus a `SoftwareApplication` describing the app; privacy and
+terms pages carry `SoftwareApplication` plus a `WebPage`. Rules kept to:
+
+- No `aggregateRating` and no `review` anywhere. There are no ratings to report.
+- `offers` only on the three apps that are genuinely free (Hatch Window, MoveWitness,
+  Vocabdrift). FlirtGym's price is Apple's to set per region, so it carries none, and the
+  unreleased apps carry neither `offers` nor a `downloadUrl`.
+- `downloadUrl` only for apps actually on the App Store.
+- Every `FAQPage` answer is generated from the visible answer on the same page by
+  `scripts/fill-faq-jsonld.py`, which reads the page with the gate's own parser, so
+  `scripts/check_faq_jsonld.py` cannot find drift between them. Edit the visible answer, then
+  re-run the filler; never hand-edit the structured block.
+
+That check was **already failing on `main`** before this work, on
+`/flipstage/speaking-time/` — two answers had been edited on the page and not in the
+structured block, and two more questions existed only for crawlers. Its structured block is
+now rebuilt from the visible copy, and the whole-repo check passes: 535 Q&A pairs, 72 pages,
+zero drift.
+
+### Dropped apps
+
+MileTruth, TentClock, Foldbook, Steadychart and FlipStage were dropped from the lineup on
+2026-11-03. `scripts/noindex-dropped-apps.py` sets `noindex,follow` on each one's landing,
+support, privacy and terms pages and removes them from `sitemap.xml` (14 URLs). Nothing is
+deleted and every URL still resolves, because **FlipStage is live on the App Store** (app id
+6816274152) with `/flipstage/support/` and `/flipstage/privacy/` registered in App Store
+Connect. `noindex` does not break a URL; deleting the file would.
+
+Their standalone browser tools stay indexed — the mileage and net-pay calculators, the 2026
+split-rate explainer, the speaking-time planner. Those are one-of-a-kind pages, they are not
+what the 4.3 finding was about, and de-indexing them would throw away the domain's only real
+organic search assets for no benefit. They do still link to dropped apps; that is a content
+decision for a human.
+
+### `/rentcheck/`: a duplicate that cannot be removed yet
+
+MoveWitness's live App Store Connect record names `/rentcheck/support/` and
+`/rentcheck/privacy/` in its Support URL and Privacy Policy URL fields, so those URLs have to
+keep serving the real documents rather than a redirect stub. Until 2026-11-03 they served a
+*divergent* copy — same app, two different texts, one slug apart, which is the exact shape of
+the 4.3 finding.
+
+They are now generated from the `/movewitness/` pages by
+`scripts/sync-rentcheck-from-movewitness.py`, carry `noindex` and a canonical pointing at
+`/movewitness/`, and are absent from the sitemap. `--check` fails if they fall out of step.
+
+To remove the duplicate for good: change those two fields in App Store Connect to the
+`/movewitness/` paths, then replace the files with the same redirect stub the six other
+renamed apps use. Not before.
 
 ## Layout
 
@@ -139,8 +243,17 @@ a decision on which copy is canonical.
 - `/flirtgym/`: FlirtGym product pages, tools, guides and research
 - `/rizzmaxx/privacy/`, `/rizzmaxx/terms/`: app legal pages (canonical home)
 - `robots.txt`, `sitemap.xml`, `llms.txt`, `CNAME`
-- `/noticeguard/`, `/ioltalign/`, `/policyready/`, `/hatchwindow/`, `/denialdesk/`,
-  `/steadychart/`, `/vocabdrift/`: per-app landing + `privacy/`, `support/`, `terms/`
+- `/nearvo/`, `/hormonelog/`, `/rigsheet/`, `/hatchwindow/`, `/movewitness/`,
+  `/vocabdrift/`: the kept apps. Landing + `privacy/`, `support/`, `terms/`, each with its own
+  page design rather than a shared template &mdash; see *Per-app support and privacy pages*.
+- `/noticeguard/`, `/ioltalign/`, `/policyready/`, `/denialdesk/`: on hold. Still on the
+  shared template; they were not rebuilt, because rebuilding a page for an app nobody is
+  shipping is work spent on the wrong thing. If any of them comes off hold, it needs the same
+  treatment before it is submitted.
+- `/miletruth/`, `/tentclock/`, `/foldbook/`, `/steadychart/`, `/flipstage/`: dropped.
+  Identity pages are `noindex` and out of the sitemap; the files and their history stay.
+- `/rentcheck/`: a managed, generated, `noindex` mirror of `/movewitness/`, because a live
+  App Store record points at it.
 - `/riderdeck/`: landing + `privacy/` + `support/` for RiderDeck, a stage plot and tech rider
   builder. Added 2026-10-14, **before** the app is on the App Store: the landing page says so in
   as many words, because a page implying you can download something you cannot is the kind of

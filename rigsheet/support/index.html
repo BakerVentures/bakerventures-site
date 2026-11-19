@@ -1,259 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rigsheet Support — Baker Ventures LLC</title>
-  <meta name="description" content="Support for Rigsheet: signing in, what&#x27;s on each plan, Stripe payouts, customer texting, exporting your data, deleting your account, billing, and how to reach a human.">
-  <link rel="canonical" href="https://bakerventuresstudio.com/rigsheet/support/">
-  <meta name="robots" content="index,follow">
-  <style>
-    :root { color-scheme: light; }
-    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
-           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-           color: #1a1a1a; background: #fff; }
-    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
-    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
-    h3 { font-size: 16px; margin: 24px 0 8px; }
-    p { margin: 12px 0; }
-    ul { margin: 12px 0; padding-left: 22px; }
-    li { margin: 6px 0; }
-    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
-    a { color: #2F7FB5; }
-    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
-    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
-    strong { font-weight: 700; }
-    .note { background: #fafafa; border-left: 3px solid #2F7FB5; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
-    .contact { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
-    .contact a { font-weight: 700; }
-    .faq { margin: 0; }
-    .faq dt { font-weight: 700; margin: 22px 0 4px; }
-    .faq dd { margin: 0 0 4px; }
-    .nav { font-size: 14px; margin: 0 0 20px; }
-    .nav a { color: #666; }
-    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
-    footer a { color: #888; }
-    .hero { margin: 8px 0 32px; }
-    .hero h1 { font-size: 32px; }
-    .hero p.sub { font-size: 18px; color: #444; margin: 12px 0 0; }
-    .benefit { margin: 18px 0; }
-    .benefit b { display: block; }
-    ol.how { padding-left: 22px; }
-    ol.how li { margin: 10px 0; }
-  </style>
-  <script type="application/ld+json">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rigsheet support &mdash; what works, what doesn&rsquo;t send yet, and what&rsquo;s on each plan</title>
+<meta name="description" content="Support for Rigsheet, job management for a one-van detailing or cleaning business: a plain status board of what works today, why no customer texts go out yet, what is on each of the four plans, and how to export or delete your data.">
+<link rel="canonical" href="https://bakerventuresstudio.com/rigsheet/support/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<style>
+/* Rigsheet support. Built like the job sheet an operator actually keeps: a status board
+   at the top, a plan matrix, then the questions. Tight, high-contrast, no decoration.
+   Amber is reserved for one meaning only -- specified but not working yet. */
+:root{
+  --ink:#131A21; --ink2:#5B6671; --blue:#1A4E78; --blue2:#123A5B;
+  --paper:#FFFFFF; --grid:#DCE2E8; --band:#EEF2F6;
+  --go:#1C6B47; --hold:#9A5A05; --holdbg:#FFF8EC;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:16px/1.62 "Helvetica Neue",Helvetica,Arial,system-ui,sans-serif}
+.sheet{max-width:48rem;margin:0 auto;padding:0 16px 88px}
+a{color:var(--blue)}
+/* job-sheet header block */
+.jobhead{border:2px solid var(--ink);margin:22px 0 0}
+.jobhead .bar{background:var(--ink);color:#fff;padding:7px 14px;
+  font:11px/1.4 "Helvetica Neue",Arial,sans-serif;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;display:flex;flex-wrap:wrap;gap:6px 16px}
+.jobhead .bar a{color:#fff;text-decoration:none}
+.jobhead .bar .r{margin-left:auto;font-weight:400;opacity:.75}
+.jobhead .body{padding:16px 14px 18px}
+h1{font-size:1.9rem;line-height:1.12;letter-spacing:-.02em;margin:0 0 8px;font-weight:800}
+.sub{margin:0;font-size:1.04rem;color:#2A333C}
+h2{font-size:1.1rem;font-weight:800;letter-spacing:.01em;text-transform:uppercase;
+  margin:44px 0 10px;padding:0 0 6px;border-bottom:2px solid var(--ink)}
+h3{font-size:.98rem;font-weight:700;margin:22px 0 3px}
+p{margin:10px 0}
+ul{margin:10px 0;padding-left:1.15em}
+li{margin:6px 0}
+.indev{border:2px solid var(--hold);background:var(--holdbg);padding:14px 16px;margin:22px 0}
+.indev p{margin:0;font-size:.97rem}
+.indev strong{color:var(--hold)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem}
+caption{text-align:left;font:11px/1.4 "Helvetica Neue",Arial,sans-serif;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);padding:0 0 8px}
+th,td{text-align:left;padding:8px 10px;border:1px solid var(--grid);vertical-align:top}
+thead th{background:var(--band);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
+tbody th{font-weight:700;background:#F7F9FB}
+td.go{color:var(--go);font-weight:700;white-space:nowrap}
+td.hold{color:var(--hold);font-weight:700;background:var(--holdbg)}
+td.no{color:var(--ink2)}
+.contact{border:1px solid var(--grid);border-top:4px solid var(--blue);padding:14px 16px;margin:26px 0;background:#F7F9FB}
+.contact p{margin:0}
+.contact p+p{margin-top:8px;font-size:.95rem}
+.contact .addr{font-weight:700;font-size:1.02rem}
+dl.qa{margin:4px 0 0}
+dl.qa dt{font-weight:700;margin:22px 0 2px;color:var(--blue2)}
+dl.qa dd{margin:0}
+footer{border-top:2px solid var(--ink);margin-top:54px;padding-top:16px;font-size:.84rem;color:var(--ink2)}
+footer a{color:var(--ink2)}
+footer p{margin:5px 0}
+@media (max-width:560px){
+  h1{font-size:1.6rem}
+  table{font-size:.82rem}
+  th,td{padding:7px 8px}
+}
+</style>
+<script type="application/ld+json" id="schema">
 {
  "@context": "https://schema.org",
- "@type": "FAQPage",
- "@id": "https://bakerventuresstudio.com/rigsheet/support/#faq",
- "name": "Rigsheet Support",
- "mainEntity": [
+ "@graph": [
   {
-   "@type": "Question",
-   "name": "How do I sign in?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "With an email address and a password of at least 8 characters. There is no Google, Apple or Facebook sign-in. Depending on your setup, a new account may need to confirm its email address first — check your inbox if you can't get past the sign-up screen. Forgot your password? Use the link on the sign-in screen and we'll email you a reset link."
+   "@type": "SoftwareApplication",
+   "@id": "https://bakerventuresstudio.com/rigsheet/#app",
+   "name": "Rigsheet",
+   "description": "Job management for a one-to-three-person mobile detailing or cleaning business: scheduling with drive-time buffers, quotes with vehicle and home-size pricing, Stripe deposits and card payments, before and after photos, recurring jobs and invoicing. In development and not yet released.",
+   "applicationCategory": "BusinessApplication",
+   "operatingSystem": "iOS, Android",
+   "url": "https://bakerventuresstudio.com/rigsheet/",
+   "featureList": [
+    "Scheduling with drive-time buffers and conflict highlighting",
+    "Quotes with package tiers and vehicle or home-size pricing",
+    "Stripe deposits and card payments, outside in-app purchase",
+    "Before and after photos tied to the job",
+    "Recurring jobs on weekly, biweekly, every-four-weeks and monthly schedules",
+    "Invoicing and manual payment recording",
+    "Full JSON export of every record on every plan"
+   ],
+   "publisher": {
+    "@id": "https://bakerventuresstudio.com/#org"
    }
   },
   {
-   "@type": "Question",
-   "name": "What's on each plan?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Starter covers the core: unlimited jobs, customers, quotes and invoices, scheduling with drive-time buffers, deposits, and card payments through Stripe. Lite adds before/after photos on every job and your public booking page. Solo adds recurring jobs on weekly, biweekly, every-4-weeks and monthly schedules, and is specified to add automatic customer texts — confirmations, reminders and \"on my way\" — and automated Google review requests, but none of those send yet: no messaging number is provisioned and the email fallback is not configured, so the app skips them. Do not buy Solo for the texts yet. Pro adds drive-time route optimization, QuickBooks export, custom SMS templates and custom recurrence intervals. Current prices are shown in the app, since the store sets them for your region."
-   }
+   "@type": "Organization",
+   "@id": "https://bakerventuresstudio.com/#org",
+   "name": "Baker Ventures LLC",
+   "url": "https://bakerventuresstudio.com/",
+   "email": "support@bakerventuresstudio.com"
   },
   {
-   "@type": "Question",
-   "name": "What happens when my trial or subscription ends?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "You go read-only and nothing is deleted. The app says it plainly: \"Your trial or subscription has ended. Your data is safe — subscribe to start creating and editing again.\" You can still open and read everything; you just can't create or edit until you subscribe. Cancelling is not the same as expiring — if you cancel, you keep full access until the period you've paid for runs out."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How do I cancel?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Through the store, not through us — Rigsheet cannot cancel a subscription for you. Go to More → Subscription → Manage, which opens your App Store or Google Play subscription settings."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How do I restore a purchase?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "More → Subscription → Restore purchases, or the same link on the plan screen. You must be signed into the same App Store or Play account you originally bought with — that's the cause of almost every failed restore."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Does my customers' money go through the app store?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No. Only the Rigsheet subscription itself is billed by Apple or Google. Deposits and invoice payments from your customers are real-world services, so they go through Stripe directly to your account and never through in-app purchase."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How do I get set up to take card payments?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Stripe is connected during onboarding — it takes about three minutes and you can skip it at the time. If you skipped it and now want to take cards, email us and we'll get you connected; there isn't a self-serve path back to it in the app yet. Until then you can record cash, Venmo, Zelle or check payments manually and everything else works normally."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "What will my customers actually receive by text?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No texts go out yet — no messaging number is provisioned, so the app skips every send. The seeded templates, for when it is switched on, read: \"Hi {first}, you're booked with {business} on {date} at {time} for {service}. Reply STOP to opt out.\" — plus a 24-hour and a 2-hour reminder, an \"on my way\" with your ETA, a thank-you when the job is complete, and a review request if you've turned those on. Quotes and invoices go out as a link. Every message includes opt-out instructions and STOP is honored immediately, and quiet hours (8pm to 8am by default) hold messages back rather than dropping them."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "My texts aren't sending. Why?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Because no messaging number has been provisioned yet, for anyone. This is not a fault on your account and there is no setting that fixes it: texting needs a provisioned number and carrier registration (10DLC), and that has not been set up, so the app skips every outbound message rather than reporting a send that did not happen. The email fallback is not configured either, so confirmations do not go out that way in the meantime. Everything else in the app works. Texting is also specified to start on the Solo plan; Starter and Lite do not include it."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Automated review requests aren't going out.",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "They cannot go out yet for anyone, because no messaging number has been provisioned, so the app skips the send. Setting your Google review link in Settings is still required for them to work later, and you will find that link in your Google Business Profile — but adding it will not make a request send today."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Can I export my data?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Yes, on every plan. More → Export my data produces a single JSON file with every customer, vehicle, property, job, quote, invoice, payment, service, add-on, recurring rule, message and template. Two things to know: it contains photo records but not the photo images themselves, and the customer CSV and QuickBooks invoice CSV are on the Pro plan."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How do I delete my account?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "More → \"Delete my account & data\". It permanently deletes your business, customers, jobs and photos, and it cannot be undone. If you'd rather not do it in the app, email us from your account's email address and we'll do exactly the same thing and confirm when it's done."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Does my public page take bookings yet?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Not yet. It shows your business, your services and their size-adjusted prices, and asks the visitor to call or text you. Full online booking — pick a date, confirm size, pay a deposit — is coming in a later release."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Can I drag jobs around the calendar?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Not yet. The calendar is a week list rather than a drag-and-drop grid, and it highlights drive-time conflicts so you can spot a schedule that won't work. Reschedule from the job itself."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "I archived a customer by mistake.",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Archiving hides them from search but keeps all their job history and invoices. You can't un-archive from inside the app yet — email us and we'll sort it out."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Is there a limit on photos?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Yes, a fair-use cap: 20,000 photos per business, or 60,000 on Pro. If you genuinely need more than that, get in touch."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Is there a web version or an iPad app?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No to both. Rigsheet is an iPhone and Android app, in portrait. The website hosts your public page and the quote and invoice links your customers open — there's no operator sign-in on the web."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Something's broken. How do I report it?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Email us with your device and OS version, what you were doing, what you expected versus what happened, and a screenshot. If a change didn't sync, say so — the app queues work offline and retries."
-   }
+   "@type": "FAQPage",
+   "@id": "https://bakerventuresstudio.com/rigsheet/support/#faq",
+   "name": "Rigsheet support",
+   "inLanguage": "en",
+   "about": {
+    "@id": "https://bakerventuresstudio.com/rigsheet/#app"
+   },
+   "publisher": {
+    "@id": "https://bakerventuresstudio.com/#org"
+   },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What’s on each plan?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Starter covers the core: unlimited jobs, customers, quotes and invoices, scheduling with drive-time buffers, deposits, and card payments through Stripe. Lite adds before/after photos on every job and your public booking page. Solo adds recurring jobs on weekly, biweekly, every-4-weeks and monthly schedules, and is specified to add automatic customer texts — confirmations, reminders and “on my way” — and automated Google review requests, but none of those send yet: no messaging number is provisioned and the email fallback is not configured, so the app skips them. Do not buy Solo for the texts yet. Pro adds drive-time route optimization, QuickBooks export, custom SMS templates and custom recurrence intervals. Current prices are shown in the app, since the store sets them for your region."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I sign in?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "With an email address and a password of at least 8 characters. There is no Google, Apple or Facebook sign-in. Depending on your setup, a new account may need to confirm its email address first — check your inbox if you can’t get past the sign-up screen. Forgot your password? Use the link on the sign-in screen and we’ll email you a reset link."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens when my trial or subscription ends?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You go read-only and nothing is deleted. The app says it plainly: “Your trial or subscription has ended. Your data is safe — subscribe to start creating and editing again.” You can still open and read everything; you just can’t create or edit until you subscribe. Cancelling is not the same as expiring — if you cancel, you keep full access until the period you’ve paid for runs out."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I cancel?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Through the store, not through us — Rigsheet cannot cancel a subscription for you. Go to More → Subscription → Manage, which opens your App Store or Google Play subscription settings."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I restore a purchase?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "More → Subscription → Restore purchases, or the same link on the plan screen. You must be signed into the same App Store or Play account you originally bought with — that’s the cause of almost every failed restore."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does my customers’ money go through the app store?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Only the Rigsheet subscription itself is billed by Apple or Google. Deposits and invoice payments from your customers are real-world services, so they go through Stripe directly to your account and never through in-app purchase."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I get set up to take card payments?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Stripe is connected during onboarding — it takes about three minutes and you can skip it at the time. If you skipped it and now want to take cards, email us and we’ll get you connected; there isn’t a self-serve path back to it in the app yet. Until then you can record cash, Venmo, Zelle or check payments manually and everything else works normally."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "My texts aren’t sending. Why?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Because no messaging number has been provisioned yet, for anyone. This is not a fault on your account and there is no setting that fixes it: texting needs a provisioned number and carrier registration (10DLC), and that has not been set up, so the app skips every outbound message rather than reporting a send that did not happen. The email fallback is not configured either, so confirmations do not go out that way in the meantime. Everything else in the app works. Texting is also specified to start on the Solo plan; Starter and Lite do not include it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What will my customers actually receive by text?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No texts go out yet — no messaging number is provisioned, so the app skips every send. The seeded templates, for when it is switched on, read: “Hi {first}, you’re booked with {business} on {date} at {time} for {service}. Reply STOP to opt out.” — plus a 24-hour and a 2-hour reminder, an “on my way” with your ETA, a thank-you when the job is complete, and a review request if you’ve turned those on. Quotes and invoices go out as a link. Every message includes opt-out instructions and STOP is honored immediately, and quiet hours (8pm to 8am by default) hold messages back rather than dropping them."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Automated review requests aren’t going out.",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "They cannot go out yet for anyone, because no messaging number has been provisioned, so the app skips the send. Setting your Google review link in Settings is still required for them to work later, and you will find that link in your Google Business Profile — but adding it will not make a request send today."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I export my data?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, on every plan. More → Export my data produces a single JSON file with every customer, vehicle, property, job, quote, invoice, payment, service, add-on, recurring rule, message and template. Two things to know: it contains photo records but not the photo images themselves, and the customer CSV and QuickBooks invoice CSV are on the Pro plan."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I delete my account?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "More → “Delete my account & data”. It permanently deletes your business, customers, jobs and photos, and it cannot be undone. If you’d rather not do it in the app, email us from your account’s email address and we’ll do exactly the same thing and confirm when it’s done."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is there a limit on photos?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, a fair-use cap: 20,000 photos per business, or 60,000 on Pro. If you genuinely need more than that, get in touch."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does my public page take bookings yet?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not yet. It shows your business, your services and their size-adjusted prices, and asks the visitor to call or text you. Full online booking — pick a date, confirm size, pay a deposit — is coming in a later release."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I drag jobs around the calendar?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not yet. The calendar is a week list rather than a drag-and-drop grid, and it highlights drive-time conflicts so you can spot a schedule that won’t work. Reschedule from the job itself."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "I archived a customer by mistake.",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Archiving hides them from search but keeps all their job history and invoices. You can’t un-archive from inside the app yet — email us and we’ll sort it out."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is there a web version or an iPad app?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No to both. Rigsheet is an iPhone and Android app, in portrait. The website hosts your public page and the quote and invoice links your customers open — there’s no operator sign-in on the web."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Something’s broken. How do I report it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Email us with your device and OS version, what you were doing, what you expected versus what happened, and a screenshot. If a change didn’t sync, say so — the app queues work offline and retries."
+     }
+    }
+   ]
   }
  ]
 }
 </script>
 </head>
 <body>
-  <p class="nav"><a href="../">Rigsheet</a> &rsaquo; Support</p>
-  <h1>Rigsheet Support</h1>
-  <p class="meta">Published by Baker Ventures LLC &middot; Last updated: October 29, 2026</p>
-  <p>Rigsheet is a job-management app for mobile detailing and cleaning businesses — scheduling with drive-time buffers, quotes, deposits and card payments, before and after photos, recurring jobs and invoicing, all from your phone. It is in development and not yet released; automated customer texts and review requests are specified but do not send yet.</p>
-  <div class="contact">
-    <p style="margin-top:0"><strong>Need help? Email us.</strong></p>
-    <p style="margin-bottom:0"><a href="mailto:rsb.baker+rigsheet@gmail.com">rsb.baker+rigsheet@gmail.com</a><br>
-    We read every message and reply personally. For a bug, include your device and OS version, what you
-    were doing, what you expected versus what happened, and a screenshot &mdash; that usually points us
-    straight at it.</p>
+<div class="sheet">
+
+<div class="jobhead">
+  <div class="bar"><a href="/rigsheet/">Rigsheet</a> <span>Support</span> <span class="r">Revised 3 Nov 2026</span></div>
+  <div class="body">
+    <h1>Support</h1>
+    <p class="sub">Job management for a one-van detailing or cleaning business. This page tells you what works today, what is built but not switched on, and which plan each thing sits on &mdash; in that order, because that is the order the questions arrive in.</p>
   </div>
-  <h2>Frequently asked questions</h2>
-  <dl class="faq">
-    <dt>How do I sign in?</dt>
-    <dd>With an email address and a password of at least 8 characters. There is no Google, Apple or Facebook sign-in. Depending on your setup, a new account may need to confirm its email address first — check your inbox if you can&#x27;t get past the sign-up screen. Forgot your password? Use the link on the sign-in screen and we&#x27;ll email you a reset link.</dd>
-    <dt>What&#x27;s on each plan?</dt>
-    <dd>Starter covers the core: unlimited jobs, customers, quotes and invoices, scheduling with drive-time buffers, deposits, and card payments through Stripe. Lite adds before/after photos on every job and your public booking page. Solo adds recurring jobs on weekly, biweekly, every-4-weeks and monthly schedules, and is specified to add automatic customer texts — confirmations, reminders and &quot;on my way&quot; — and automated Google review requests, but none of those send yet: no messaging number is provisioned and the email fallback is not configured, so the app skips them. Do not buy Solo for the texts yet. Pro adds drive-time route optimization, QuickBooks export, custom SMS templates and custom recurrence intervals. Current prices are shown in the app, since the store sets them for your region.</dd>
-    <dt>What happens when my trial or subscription ends?</dt>
-    <dd>You go read-only and nothing is deleted. The app says it plainly: &quot;Your trial or subscription has ended. Your data is safe — subscribe to start creating and editing again.&quot; You can still open and read everything; you just can&#x27;t create or edit until you subscribe. Cancelling is not the same as expiring — if you cancel, you keep full access until the period you&#x27;ve paid for runs out.</dd>
-    <dt>How do I cancel?</dt>
-    <dd>Through the store, not through us — Rigsheet cannot cancel a subscription for you. Go to More → Subscription → Manage, which opens your App Store or Google Play subscription settings.</dd>
-    <dt>How do I restore a purchase?</dt>
-    <dd>More → Subscription → Restore purchases, or the same link on the plan screen. You must be signed into the same App Store or Play account you originally bought with — that&#x27;s the cause of almost every failed restore.</dd>
-    <dt>Does my customers&#x27; money go through the app store?</dt>
-    <dd>No. Only the Rigsheet subscription itself is billed by Apple or Google. Deposits and invoice payments from your customers are real-world services, so they go through Stripe directly to your account and never through in-app purchase.</dd>
-    <dt>How do I get set up to take card payments?</dt>
-    <dd>Stripe is connected during onboarding — it takes about three minutes and you can skip it at the time. If you skipped it and now want to take cards, email us and we&#x27;ll get you connected; there isn&#x27;t a self-serve path back to it in the app yet. Until then you can record cash, Venmo, Zelle or check payments manually and everything else works normally.</dd>
-    <dt>What will my customers actually receive by text?</dt>
-    <dd>No texts go out yet — no messaging number is provisioned, so the app skips every send. The seeded templates, for when it is switched on, read: &quot;Hi {first}, you&#x27;re booked with {business} on {date} at {time} for {service}. Reply STOP to opt out.&quot; — plus a 24-hour and a 2-hour reminder, an &quot;on my way&quot; with your ETA, a thank-you when the job is complete, and a review request if you&#x27;ve turned those on. Quotes and invoices go out as a link. Every message includes opt-out instructions and STOP is honored immediately, and quiet hours (8pm to 8am by default) hold messages back rather than dropping them.</dd>
-    <dt>My texts aren&#x27;t sending. Why?</dt>
-    <dd>Because no messaging number has been provisioned yet, for anyone. This is not a fault on your account and there is no setting that fixes it: texting needs a provisioned number and carrier registration (10DLC), and that has not been set up, so the app skips every outbound message rather than reporting a send that did not happen. The email fallback is not configured either, so confirmations do not go out that way in the meantime. Everything else in the app works. Texting is also specified to start on the Solo plan; Starter and Lite do not include it.</dd>
-    <dt>Automated review requests aren&#x27;t going out.</dt>
-    <dd>They cannot go out yet for anyone, because no messaging number has been provisioned, so the app skips the send. Setting your Google review link in Settings is still required for them to work later, and you will find that link in your Google Business Profile — but adding it will not make a request send today.</dd>
-    <dt>Can I export my data?</dt>
-    <dd>Yes, on every plan. More → Export my data produces a single JSON file with every customer, vehicle, property, job, quote, invoice, payment, service, add-on, recurring rule, message and template. Two things to know: it contains photo records but not the photo images themselves, and the customer CSV and QuickBooks invoice CSV are on the Pro plan.</dd>
-    <dt>How do I delete my account?</dt>
-    <dd>More → &quot;Delete my account &amp; data&quot;. It permanently deletes your business, customers, jobs and photos, and it cannot be undone. If you&#x27;d rather not do it in the app, email us from your account&#x27;s email address and we&#x27;ll do exactly the same thing and confirm when it&#x27;s done.</dd>
-    <dt>Does my public page take bookings yet?</dt>
-    <dd>Not yet. It shows your business, your services and their size-adjusted prices, and asks the visitor to call or text you. Full online booking — pick a date, confirm size, pay a deposit — is coming in a later release.</dd>
-    <dt>Can I drag jobs around the calendar?</dt>
-    <dd>Not yet. The calendar is a week list rather than a drag-and-drop grid, and it highlights drive-time conflicts so you can spot a schedule that won&#x27;t work. Reschedule from the job itself.</dd>
-    <dt>I archived a customer by mistake.</dt>
-    <dd>Archiving hides them from search but keeps all their job history and invoices. You can&#x27;t un-archive from inside the app yet — email us and we&#x27;ll sort it out.</dd>
-    <dt>Is there a limit on photos?</dt>
-    <dd>Yes, a fair-use cap: 20,000 photos per business, or 60,000 on Pro. If you genuinely need more than that, get in touch.</dd>
-    <dt>Is there a web version or an iPad app?</dt>
-    <dd>No to both. Rigsheet is an iPhone and Android app, in portrait. The website hosts your public page and the quote and invoice links your customers open — there&#x27;s no operator sign-in on the web.</dd>
-    <dt>Something&#x27;s broken. How do I report it?</dt>
-    <dd>Email us with your device and OS version, what you were doing, what you expected versus what happened, and a screenshot. If a change didn&#x27;t sync, say so — the app queues work offline and retries.</dd>
-  </dl>
-  <h2>Still stuck?</h2>
-  <p>Email <a href="mailto:rsb.baker+rigsheet@gmail.com">rsb.baker+rigsheet@gmail.com</a>. It reaches a person, not a ticket queue, and we answer every message.</p>
-  <h2>Legal</h2>
-  <ul>
-    <li><a href="../privacy/">Privacy Policy</a></li>
-    <li><a href="../terms/">Terms of Use</a></li>
-  </ul>
-  <footer>&copy; Baker Ventures LLC &middot; <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a> &middot; <a href="../">Rigsheet</a> &middot; <a href="../privacy/">Privacy Policy</a> &middot; <a href="../terms/">Terms of Use</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+</div>
+
+<div class="indev">
+  <p><strong>In development, not yet released.</strong> Rigsheet is not on the App Store or Google Play yet. Automated customer texts and review requests are specified and built, but they do not send &mdash; see the status board below before you plan a workflow around them.</p>
+</div>
+
+<h2>Status board</h2>
+<table>
+  <caption>What is actually working, as of 3 November 2026</caption>
+  <thead>
+    <tr><th scope="col">Feature</th><th scope="col">State</th><th scope="col">Detail</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Jobs, customers, quotes, invoices</th><td class="go">Working</td><td>Unlimited on every plan.</td></tr>
+    <tr><th scope="row">Scheduling with drive-time buffers</th><td class="go">Working</td><td>A week list that highlights drive-time conflicts. Not a drag-and-drop grid.</td></tr>
+    <tr><th scope="row">Deposits and card payments</th><td class="go">Working</td><td>Through Stripe, straight to your account.</td></tr>
+    <tr><th scope="row">Before / after photos</th><td class="go">Working</td><td>Lite and above.</td></tr>
+    <tr><th scope="row">Recurring jobs</th><td class="go">Working</td><td>Solo and above.</td></tr>
+    <tr><th scope="row">Customer texts: confirmations, reminders, &ldquo;on my way&rdquo;</th><td class="hold">Not sending</td><td>No messaging number is provisioned, so the app skips every send rather than reporting one that did not happen.</td></tr>
+    <tr><th scope="row">Automated Google review requests</th><td class="hold">Not sending</td><td>Same reason. Setting your review link is still needed for later.</td></tr>
+    <tr><th scope="row">Email fallback for confirmations</th><td class="hold">Not configured</td><td>So confirmations do not go out that way in the meantime either.</td></tr>
+    <tr><th scope="row">Online booking on your public page</th><td class="hold">Later release</td><td>The page shows your services and size-adjusted prices and asks the visitor to call or text.</td></tr>
+    <tr><th scope="row">Web or iPad operator app</th><td class="no">Not planned</td><td>Phone only, portrait. The website hosts your public page and the quote and invoice links.</td></tr>
+  </tbody>
+</table>
+
+<div class="contact">
+  <p class="addr">Email <a href="mailto:rsb.baker+rigsheet@gmail.com">rsb.baker+rigsheet@gmail.com</a></p>
+  <p>One person reads it and replies. For a bug: device and OS version, what you were doing, what you
+  expected versus what happened, and a screenshot. If a change didn&rsquo;t sync, say so &mdash; the app
+  queues work offline and retries.</p>
+</div>
+
+<h2>The four plans</h2>
+<table>
+  <caption>What each plan adds. Prices are shown in the app, because the store sets them for your region.</caption>
+  <thead>
+    <tr><th scope="col">Plan</th><th scope="col">What it adds</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Starter</th><td>The core: unlimited jobs, customers, quotes and invoices; scheduling with drive-time buffers; deposits; card payments through Stripe.</td></tr>
+    <tr><th scope="row">Lite</th><td>Before/after photos on every job, and your public booking page.</td></tr>
+    <tr><th scope="row">Solo</th><td>Recurring jobs (weekly, biweekly, every four weeks, monthly). This is also the plan the customer texts and review requests are specified to start on &mdash; and those do not send yet, for anyone.</td></tr>
+    <tr><th scope="row">Pro</th><td>Drive-time route optimization, QuickBooks export, custom SMS templates, custom recurrence intervals, the customer CSV, and a higher photo cap.</td></tr>
+  </tbody>
+</table>
+<dl class="qa">
+  <dt>What&rsquo;s on each plan?</dt>
+  <dd>Starter covers the core: unlimited jobs, customers, quotes and invoices, scheduling with drive-time buffers, deposits, and card payments through Stripe. Lite adds before/after photos on every job and your public booking page. Solo adds recurring jobs on weekly, biweekly, every-4-weeks and monthly schedules, and is specified to add automatic customer texts &mdash; confirmations, reminders and &ldquo;on my way&rdquo; &mdash; and automated Google review requests, but none of those send yet: no messaging number is provisioned and the email fallback is not configured, so the app skips them. Do not buy Solo for the texts yet. Pro adds drive-time route optimization, QuickBooks export, custom SMS templates and custom recurrence intervals. Current prices are shown in the app, since the store sets them for your region.</dd>
+</dl>
+
+<h2>Signing in</h2>
+<dl class="qa">
+  <dt>How do I sign in?</dt>
+  <dd>With an email address and a password of at least 8 characters. There is no Google, Apple or Facebook sign-in. Depending on your setup, a new account may need to confirm its email address first &mdash; check your inbox if you can&rsquo;t get past the sign-up screen. Forgot your password? Use the link on the sign-in screen and we&rsquo;ll email you a reset link.</dd>
+</dl>
+
+<h2>Billing, and what happens when it lapses</h2>
+<dl class="qa">
+  <dt>What happens when my trial or subscription ends?</dt>
+  <dd>You go read-only and nothing is deleted. The app says it plainly: &ldquo;Your trial or subscription has ended. Your data is safe &mdash; subscribe to start creating and editing again.&rdquo; You can still open and read everything; you just can&rsquo;t create or edit until you subscribe. Cancelling is not the same as expiring &mdash; if you cancel, you keep full access until the period you&rsquo;ve paid for runs out.</dd>
+  <dt>How do I cancel?</dt>
+  <dd>Through the store, not through us &mdash; Rigsheet cannot cancel a subscription for you. Go to More &rarr; Subscription &rarr; Manage, which opens your App Store or Google Play subscription settings.</dd>
+  <dt>How do I restore a purchase?</dt>
+  <dd>More &rarr; Subscription &rarr; Restore purchases, or the same link on the plan screen. You must be signed into the same App Store or Play account you originally bought with &mdash; that&rsquo;s the cause of almost every failed restore.</dd>
+</dl>
+
+<h2>Taking your customers&rsquo; money</h2>
+<dl class="qa">
+  <dt>Does my customers&rsquo; money go through the app store?</dt>
+  <dd>No. Only the Rigsheet subscription itself is billed by Apple or Google. Deposits and invoice payments from your customers are real-world services, so they go through Stripe directly to your account and never through in-app purchase.</dd>
+  <dt>How do I get set up to take card payments?</dt>
+  <dd>Stripe is connected during onboarding &mdash; it takes about three minutes and you can skip it at the time. If you skipped it and now want to take cards, email us and we&rsquo;ll get you connected; there isn&rsquo;t a self-serve path back to it in the app yet. Until then you can record cash, Venmo, Zelle or check payments manually and everything else works normally.</dd>
+</dl>
+
+<h2>Messaging: why nothing sends yet</h2>
+<dl class="qa">
+  <dt>My texts aren&rsquo;t sending. Why?</dt>
+  <dd>Because no messaging number has been provisioned yet, for anyone. This is not a fault on your account and there is no setting that fixes it: texting needs a provisioned number and carrier registration (10DLC), and that has not been set up, so the app skips every outbound message rather than reporting a send that did not happen. The email fallback is not configured either, so confirmations do not go out that way in the meantime. Everything else in the app works. Texting is also specified to start on the Solo plan; Starter and Lite do not include it.</dd>
+  <dt>What will my customers actually receive by text?</dt>
+  <dd>No texts go out yet &mdash; no messaging number is provisioned, so the app skips every send. The seeded templates, for when it is switched on, read: &ldquo;Hi {first}, you&rsquo;re booked with {business} on {date} at {time} for {service}. Reply STOP to opt out.&rdquo; &mdash; plus a 24-hour and a 2-hour reminder, an &ldquo;on my way&rdquo; with your ETA, a thank-you when the job is complete, and a review request if you&rsquo;ve turned those on. Quotes and invoices go out as a link. Every message includes opt-out instructions and STOP is honored immediately, and quiet hours (8pm to 8am by default) hold messages back rather than dropping them.</dd>
+  <dt>Automated review requests aren&rsquo;t going out.</dt>
+  <dd>They cannot go out yet for anyone, because no messaging number has been provisioned, so the app skips the send. Setting your Google review link in Settings is still required for them to work later, and you will find that link in your Google Business Profile &mdash; but adding it will not make a request send today.</dd>
+</dl>
+
+<h2>Your data, and getting it out</h2>
+<dl class="qa">
+  <dt>Can I export my data?</dt>
+  <dd>Yes, on every plan. More &rarr; Export my data produces a single JSON file with every customer, vehicle, property, job, quote, invoice, payment, service, add-on, recurring rule, message and template. Two things to know: it contains photo records but not the photo images themselves, and the customer CSV and QuickBooks invoice CSV are on the Pro plan.</dd>
+  <dt>How do I delete my account?</dt>
+  <dd>More &rarr; &ldquo;Delete my account &amp; data&rdquo;. It permanently deletes your business, customers, jobs and photos, and it cannot be undone. If you&rsquo;d rather not do it in the app, email us from your account&rsquo;s email address and we&rsquo;ll do exactly the same thing and confirm when it&rsquo;s done.</dd>
+  <dt>Is there a limit on photos?</dt>
+  <dd>Yes, a fair-use cap: 20,000 photos per business, or 60,000 on Pro. If you genuinely need more than that, get in touch.</dd>
+</dl>
+<p>What each service provider receives, and why, is set out in the <a href="../privacy/">privacy policy</a> &mdash; including the part that matters most here, which is that your customers&rsquo; details are yours to control and ours to process on your behalf.</p>
+
+<h2>Limits worth knowing before you commit</h2>
+<dl class="qa">
+  <dt>Does my public page take bookings yet?</dt>
+  <dd>Not yet. It shows your business, your services and their size-adjusted prices, and asks the visitor to call or text you. Full online booking &mdash; pick a date, confirm size, pay a deposit &mdash; is coming in a later release.</dd>
+  <dt>Can I drag jobs around the calendar?</dt>
+  <dd>Not yet. The calendar is a week list rather than a drag-and-drop grid, and it highlights drive-time conflicts so you can spot a schedule that won&rsquo;t work. Reschedule from the job itself.</dd>
+  <dt>I archived a customer by mistake.</dt>
+  <dd>Archiving hides them from search but keeps all their job history and invoices. You can&rsquo;t un-archive from inside the app yet &mdash; email us and we&rsquo;ll sort it out.</dd>
+  <dt>Is there a web version or an iPad app?</dt>
+  <dd>No to both. Rigsheet is an iPhone and Android app, in portrait. The website hosts your public page and the quote and invoice links your customers open &mdash; there&rsquo;s no operator sign-in on the web.</dd>
+  <dt>Something&rsquo;s broken. How do I report it?</dt>
+  <dd>Email us with your device and OS version, what you were doing, what you expected versus what happened, and a screenshot. If a change didn&rsquo;t sync, say so &mdash; the app queues work offline and retries.</dd>
+</dl>
+
+<footer>
+  <p>Rigsheet &mdash; Baker Ventures LLC, Logan, Utah, USA. In development; not yet on sale.</p>
+  <p><a href="../">Rigsheet</a> &middot; <a href="../privacy/">Privacy policy</a> &middot; <a href="../terms/">Terms of use</a> &middot; <a href="../tools/">Free calculators</a> &middot; <a href="/">Baker Ventures</a></p>
+  <p>Support: <a href="mailto:rsb.baker+rigsheet@gmail.com">rsb.baker+rigsheet@gmail.com</a></p>
+</footer>
+
+</div>
 </body>
 </html>

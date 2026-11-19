@@ -1,195 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hatch Window Support &mdash; Baker Ventures LLC</title>
-  <meta name="description" content="Support for Hatch Window: how to get help, what the app costs (nothing), report a bug, and contact a human who answers.">
-  <link rel="canonical" href="https://bakerventuresstudio.com/hatchwindow/support/">
-  <meta name="robots" content="index,follow">
-  <style>
-    :root { color-scheme: light; }
-    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
-           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-           color: #1a1a1a; background: #fff; }
-    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
-    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
-    h3 { font-size: 16px; margin: 24px 0 8px; }
-    p { margin: 12px 0; }
-    ul { margin: 12px 0; padding-left: 22px; }
-    li { margin: 6px 0; }
-    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
-    a { color: #1F6F5C; }
-    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
-    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
-    strong { font-weight: 700; }
-    .note { background: #fafafa; border-left: 3px solid #1F6F5C; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
-    .contact { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
-    .contact a { font-weight: 700; }
-    .faq { margin: 0; }
-    .faq dt { font-weight: 700; margin: 22px 0 4px; }
-    .faq dd { margin: 0 0 4px; }
-    .nav { font-size: 14px; margin: 0 0 20px; }
-    .nav a { color: #666; }
-    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
-    footer a { color: #888; }
-  </style>
-  <script type="application/ld+json">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hatch Window support &mdash; gauges, solunar windows, hatches and your log</title>
+<meta name="description" content="Support for Hatch Window: where the streamflow numbers come from, why a spot can read no data, how the solunar windows are calculated, what the 24-entry hatch chart actually covers, and where your catch log is kept.">
+<link rel="canonical" href="https://bakerventuresstudio.com/hatchwindow/support/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<style>
+/* Hatch Window support. Laid out like a field guide: a warning panel you read before
+   you leave, a quick-reference block, then the long entries. Condensed sans for
+   headings, generous leading for reading one-handed on a riverbank. */
+:root{
+  --ink:#16201C; --ink2:#4E5F58; --green:#15564A; --green2:#1F6F5C;
+  --paper:#F6F7F3; --panel:#EAEFE9; --rule:#CBD6CE; --warn:#8A5A12; --warnbg:#FBF4E6;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:17px/1.68 "Helvetica Neue",Helvetica,Arial,system-ui,sans-serif}
+.sheet{max-width:46rem;margin:0 auto;padding:0 18px 90px}
+a{color:var(--green)}
+header.masthead{border-bottom:4px solid var(--green);padding:26px 0 16px;margin-bottom:0}
+header.masthead .kicker{font:11px/1 "Helvetica Neue",Arial,sans-serif;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--green2);margin:0 0 12px}
+header.masthead .kicker a{color:var(--green2);text-decoration:none}
+h1{font-size:2.05rem;line-height:1.1;margin:0 0 10px;font-weight:800;letter-spacing:-.02em}
+.standfirst{font-size:1.1rem;color:#28352F;margin:0 0 12px;max-width:34rem}
+.revised{font:12px/1 "Helvetica Neue",Arial,sans-serif;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink2);margin:0 0 4px}
+.beforeyougo{background:var(--warnbg);border:1px solid #E6D4AE;border-top:4px solid var(--warn);
+  padding:18px 20px;margin:26px 0}
+.beforeyougo h2{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--warn);margin:0 0 8px;border:0;padding:0}
+.beforeyougo p{margin:0;font-size:.98rem;line-height:1.6}
+h2{font-size:1.3rem;font-weight:800;letter-spacing:-.015em;margin:46px 0 10px;
+  padding-bottom:7px;border-bottom:2px solid var(--rule)}
+h3{font-size:1.02rem;font-weight:700;margin:26px 0 4px}
+p{margin:11px 0}
+.quick{background:var(--panel);border-radius:3px;padding:6px 20px 14px;margin:24px 0}
+.quick h2{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);
+  border:0;padding:14px 0 0;margin:0 0 6px}
+.quick dl{margin:0;display:grid;grid-template-columns:1fr;gap:0}
+.quick dt{font-weight:700;font-size:.95rem;margin:12px 0 1px}
+.quick dd{margin:0;font-size:.95rem;color:#2B3832}
+.ask{border:2px solid var(--green);padding:16px 18px;margin:28px 0}
+.ask p{margin:0}
+.ask p+p{margin-top:8px}
+.ask .addr{font-size:1.02rem;font-weight:700}
+dl.qa{margin:6px 0 0}
+dl.qa dt{font-weight:700;margin:24px 0 3px;color:var(--green)}
+dl.qa dd{margin:0}
+table.coverage{width:100%;border-collapse:collapse;margin:16px 0;font-size:.9rem}
+table.coverage caption{text-align:left;font:11px/1.4 "Helvetica Neue",Arial,sans-serif;
+  font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green2);padding:0 0 8px}
+table.coverage th,table.coverage td{text-align:left;padding:9px 10px;border:1px solid var(--rule);vertical-align:top}
+table.coverage thead th{background:var(--panel);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+table.coverage tbody th{width:9.5rem;font-weight:700;background:#F1F4EF}
+.free{border-left:5px solid var(--green2);padding:4px 0 4px 16px;margin:24px 0}
+.free p{margin:6px 0}
+footer{border-top:2px solid var(--rule);margin-top:56px;padding-top:18px;
+  font-size:.86rem;color:var(--ink2)}
+footer a{color:var(--ink2)}
+footer p{margin:6px 0}
+@media (max-width:480px){
+  h1{font-size:1.7rem}
+  table.coverage{font-size:.82rem}
+  table.coverage tbody th{width:auto}
+}
+</style>
+<script type="application/ld+json" id="schema">
 {
  "@context": "https://schema.org",
- "@type": "FAQPage",
- "@id": "https://bakerventuresstudio.com/hatchwindow/support/#faq",
- "name": "Hatch Window Support",
- "mainEntity": [
+ "@graph": [
   {
-   "@type": "Question",
-   "name": "Where do the water conditions come from?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "The USGS public water data service — real, public streamflow and gauge-height data. It's attributed in the app. We never show a made-up number."
+   "@type": "SoftwareApplication",
+   "@id": "https://bakerventuresstudio.com/hatchwindow/#app",
+   "name": "Hatch Window",
+   "description": "A fly-fishing planning app: live streamflow and gauge height per spot, current weather, sunrise and sunset, solunar major and minor windows, a 7-day outlook, a curated hatch chart and an on-device catch log.",
+   "applicationCategory": "LifestyleApplication",
+   "applicationSubCategory": "Fishing",
+   "operatingSystem": "iOS",
+   "url": "https://bakerventuresstudio.com/hatchwindow/",
+   "downloadUrl": "https://apps.apple.com/us/app/id6816322811",
+   "featureList": [
+    "Live streamflow and gauge height from USGS Water Services",
+    "Current weather from Open-Meteo",
+    "Sunrise, sunset and solunar major and minor windows computed on device",
+    "7-day outlook ranked by each day's best solunar window",
+    "Multi-spot dashboard",
+    "Curated hatch chart matching insects to fly patterns by month, water type and region",
+    "On-device catch and outing log with a shareable outing report"
+   ],
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free. Every feature ships unlocked: no subscription, no in-app purchase, no advertising."
+   },
+   "publisher": {
+    "@id": "https://bakerventuresstudio.com/#org"
    }
   },
   {
-   "@type": "Question",
-   "name": "Why does a spot say “no current data”?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "That gauge isn't reporting right now, or the network's down. Rather than guess, Hatch Window tells you the reading is unavailable."
-   }
+   "@type": "Organization",
+   "@id": "https://bakerventuresstudio.com/#org",
+   "name": "Baker Ventures LLC",
+   "url": "https://bakerventuresstudio.com/",
+   "email": "support@bakerventuresstudio.com"
   },
   {
-   "@type": "Question",
-   "name": "There's no data for my river or spot.",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "That usually means there's no nearby public streamflow gauge for that water — Hatch Window leans on gauges that exist, so ungauged creeks come up thin. The solunar feeding windows still work anywhere, since they're calculated from date and location. Send us the spot and we'll see whether there's a usable nearby gauge we can wire in."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How are the “best times” calculated?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "On your device, from sunrise/sunset, twilight, and solunar major/minor feeding periods for the spot's location — standard astronomy math, no server."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Are the fly recommendations reliable?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "They come from a curated database of 24 hatches matched to real, commonly-tied patterns, filtered by month, water type and region. It covers four regions — Mountain West, Northeast (Catskills/Appalachians), Midwest (Driftless/Great Lakes) and South (Southern Appalachians/Southeast tailwaters) — and three water types: tailwater, freestone and spring creek. There are no saltwater or steelhead charts. Timing shifts with the year, elevation and water temperature, so treat the list as a starting point, not a promise."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Do I need a fishing license?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Almost certainly, and regulations vary by water. Hatch Window doesn't track your license or local rules — confirm them with your state agency before you fish, and put safety first on the water."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Can I add my own spots?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Yes. Add any spot; if you know its USGS gauge number, Hatch Window will pull live conditions for it."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Does the app work without signal on the river?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Your saved spots, catch log, feeding windows and hatch list work offline. Live streamflow and weather need a connection, so grab a look before you lose signal and you'll have the latest reading with you."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Where is my catch log stored?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "On your device, in a local database. Hatch Window has no account and no server of ours, so your catches, notes and spot names never come to us. One thing does leave your phone: when you open a spot, its coordinates or its USGS gauge number go to USGS and Open-Meteo to fetch that spot's conditions. Nothing else goes with them. Your log is in your phone's iCloud backup if that is on, and deleting the app deletes the copy on the device. There is no full export of the log yet — you can share one outing at a time as text — so treat the phone and your backup as the only copies you have."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Do I need to pay for anything?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No. Hatch Window is free and every feature ships unlocked — there's no subscription, no in-app purchase, no paywall, and no ads. Nothing in this version of the app can charge you."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Can I share what worked?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Yes — generate a text summary of an outing (spot, date, conditions, flies that worked) to share."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Something's broken, or a reading looks wrong. How do I report it?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Email us with: (1) device and OS version, (2) what you were doing (viewing conditions, logging a catch…), (3) the location if it's data-related, (4) expected vs. actual, and (5) a screenshot. If a specific reading looked off, tell us the location and we'll check our data source."
-   }
+   "@type": "FAQPage",
+   "@id": "https://bakerventuresstudio.com/hatchwindow/support/#faq",
+   "name": "Hatch Window support",
+   "inLanguage": "en",
+   "about": {
+    "@id": "https://bakerventuresstudio.com/hatchwindow/#app"
+   },
+   "publisher": {
+    "@id": "https://bakerventuresstudio.com/#org"
+   },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Flow and gauge height",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "USGS Water Services, live, per spot. Attributed in the app."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Weather",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Open-Meteo, live, from the spot’s coordinates."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Sun and solunar windows",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Computed on your device from date and location. No server, works offline."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Hatch chart",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "24 curated entries across four regions and three water types. Freshwater trout only."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Your log",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On the device, in a local database. No account, no server of ours."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Cost",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Free, everything unlocked. Nothing in the app can charge you."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Where do the water conditions come from?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The USGS public water data service — real, public streamflow and gauge-height data. It’s attributed in the app. We never show a made-up number."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does a spot say “no current data”?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "That gauge isn’t reporting right now, or the network’s down. Rather than guess, Hatch Window tells you the reading is unavailable."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "There’s no data for my river or spot.",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "That usually means there’s no nearby public streamflow gauge for that water — Hatch Window leans on gauges that exist, so ungauged creeks come up thin. The solunar feeding windows still work anywhere, since they’re calculated from date and location. Send us the spot and we’ll see whether there’s a usable nearby gauge we can wire in."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How current is a reading, and can it change afterwards?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "USGS data is provisional and subject to revision, which is the agency’s own characterisation of it rather than a hedge of ours. A reading can be corrected later, so treat a number from any gauge as the best current estimate rather than a measurement of record."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I add my own spots?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Add any spot; if you know its USGS gauge number, Hatch Window will pull live conditions for it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How are the “best times” calculated?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On your device, from sunrise/sunset, twilight, and solunar major/minor feeding periods for the spot’s location — standard astronomy math, no server."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is solunar theory actually proven?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, and the app says so in as many words. Solunar timing is a traditional angling heuristic, not a scientifically validated model. It is in the app because a lot of anglers plan by it and because it costs nothing to compute; it is not presented as a prediction of whether fish will eat."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does the 7-day outlook rank?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Each of the next seven days by its best solunar window for that spot, so you can pick a day rather than only checking today. It ranks the window, not the fishing — weather and flow still decide the day."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does the dashboard put one spot above another?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The multi-spot dashboard orders your saved spots by a documented “fishing well right now” heuristic that favours fresh, steady flow. It is a sort order built from the readings the app already has; no per-river score is invented to produce it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Are the fly recommendations reliable?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "They come from a curated database of 24 hatches matched to real, commonly-tied patterns, filtered by month, water type and region. It covers four regions — Mountain West, Northeast (Catskills/Appalachians), Midwest (Driftless/Great Lakes) and South (Southern Appalachians/Southeast tailwaters) — and three water types: tailwater, freestone and spring creek. There are no saltwater or steelhead charts. Timing shifts with the year, elevation and water temperature, so treat the list as a starting point, not a promise."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why are all the starter spots out West?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Because that is where the curated spot list was built first. The Northeast, Midwest and South hatch charts are complete and in the app now; the starter waters that ship with it are Mountain West. Adding your own spot anywhere gets you the right regional chart alongside it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does the app work without signal on the river?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Your saved spots, catch log, feeding windows and hatch list work offline. Live streamflow and weather need a connection, so grab a look before you lose signal and you’ll have the latest reading with you."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Where is my catch log stored?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On your device, in a local database. Hatch Window has no account and no server of ours, so your catches, notes and spot names never come to us. One thing does leave your phone: when you open a spot, its coordinates or its USGS gauge number go to USGS and Open-Meteo to fetch that spot’s conditions. Nothing else goes with them. Your log is in your phone’s iCloud backup if that is on, and deleting the app deletes the copy on the device. There is no full export of the log yet — you can share one outing at a time as text — so treat the phone and your backup as the only copies you have."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I share what worked?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes — generate a text summary of an outing (spot, date, conditions, flies that worked) to share."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does the app remember what worked at a spot?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Entries you log feed a “what worked here before” view on that spot, which is the main reason to keep the log at all rather than just reading conditions."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need a fishing license?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Almost certainly, and regulations vary by water. Hatch Window doesn’t track your license or local rules — confirm them with your state agency before you fish, and put safety first on the water."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need to pay for anything?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Hatch Window is free and every feature ships unlocked — there’s no subscription, no in-app purchase, no paywall, and no ads. Nothing in this version of the app can charge you."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Something’s broken, or a reading looks wrong. How do I report it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Email us with: (1) device and OS version, (2) what you were doing (viewing conditions, logging a catch…), (3) the location if it’s data-related, (4) expected vs. actual, and (5) a screenshot. If a specific reading looked off, tell us the location and we’ll check our data source."
+     }
+    }
+   ]
   }
  ]
 }
 </script>
 </head>
 <body>
-  <p class="nav"><a href="../">Hatch Window</a> &rsaquo; Support</p>
-  <h1>Hatch Window Support</h1>
-  <p class="meta">Published by Baker Ventures LLC &middot; Last updated: September 25, 2026</p>
-  <p>Hatch Window pulls the conditions that matter — solunar feeding windows, water and weather, and seasonal hatches — into one screen, and keeps a log of what worked.</p>
-  <div class="contact">
-    <p style="margin-top:0"><strong>Need help? Email us.</strong></p>
-    <p style="margin-bottom:0"><a href="mailto:rsb.baker+hatchwindow@gmail.com">rsb.baker+hatchwindow@gmail.com</a><br>
-    We read every message and reply personally. For a bug, include your device and OS version, what you
-    were doing, what you expected versus what happened, and a screenshot &mdash; that usually points us
-    straight at it.</p>
-  </div>
-  <div class="note"><strong>Please note.</strong> Conditions and feeding windows are estimates built from public data plus solunar math and a curated hatch list. They are a starting point, not a promise — rivers and fish don&#x27;t read the forecast. Always check current local flow and weather yourself, follow your state&#x27;s fishing regulations and access rules, and put safety first on the water. Hatch Window doesn&#x27;t track your license or local rules; confirm them with your state agency before you fish.</div>
-  <h2>Frequently asked questions</h2>
-  <dl class="faq">
-    <dt>Where do the water conditions come from?</dt>
-    <dd>The USGS public water data service — real, public streamflow and gauge-height data. It&#x27;s attributed in the app. We never show a made-up number.</dd>
-    <dt>Why does a spot say “no current data”?</dt>
-    <dd>That gauge isn&#x27;t reporting right now, or the network&#x27;s down. Rather than guess, Hatch Window tells you the reading is unavailable.</dd>
-    <dt>There&#x27;s no data for my river or spot.</dt>
-    <dd>That usually means there&#x27;s no nearby public streamflow gauge for that water — Hatch Window leans on gauges that exist, so ungauged creeks come up thin. The solunar feeding windows still work anywhere, since they&#x27;re calculated from date and location. Send us the spot and we&#x27;ll see whether there&#x27;s a usable nearby gauge we can wire in.</dd>
-    <dt>How are the “best times” calculated?</dt>
-    <dd>On your device, from sunrise/sunset, twilight, and solunar major/minor feeding periods for the spot&#x27;s location — standard astronomy math, no server.</dd>
-    <dt>Are the fly recommendations reliable?</dt>
-    <dd>They come from a curated database of 24 hatches matched to real, commonly-tied patterns, filtered by month, water type and region. It covers four regions — Mountain West, Northeast (Catskills/Appalachians), Midwest (Driftless/Great Lakes) and South (Southern Appalachians/Southeast tailwaters) — and three water types: tailwater, freestone and spring creek. There are no saltwater or steelhead charts. Timing shifts with the year, elevation and water temperature, so treat the list as a starting point, not a promise.</dd>
-    <dt>Do I need a fishing license?</dt>
-    <dd>Almost certainly, and regulations vary by water. Hatch Window doesn&#x27;t track your license or local rules — confirm them with your state agency before you fish, and put safety first on the water.</dd>
-    <dt>Can I add my own spots?</dt>
-    <dd>Yes. Add any spot; if you know its USGS gauge number, Hatch Window will pull live conditions for it.</dd>
-    <dt>Does the app work without signal on the river?</dt>
-    <dd>Your saved spots, catch log, feeding windows and hatch list work offline. Live streamflow and weather need a connection, so grab a look before you lose signal and you&#x27;ll have the latest reading with you.</dd>
-    <dt>Where is my catch log stored?</dt>
-    <dd>On your device, in a local database. Hatch Window has no account and no server of ours, so your catches, notes and spot names never come to us. One thing does leave your phone: when you open a spot, its coordinates or its USGS gauge number go to USGS and Open-Meteo to fetch that spot&#x27;s conditions. Nothing else goes with them. Your log is in your phone&#x27;s iCloud backup if that is on, and deleting the app deletes the copy on the device. There is no full export of the log yet — you can share one outing at a time as text — so treat the phone and your backup as the only copies you have.</dd>
-    <dt>Do I need to pay for anything?</dt>
-    <dd>No. Hatch Window is free and every feature ships unlocked — there&#x27;s no subscription, no in-app purchase, no paywall, and no ads. Nothing in this version of the app can charge you.</dd>
-    <dt>Can I share what worked?</dt>
-    <dd>Yes — generate a text summary of an outing (spot, date, conditions, flies that worked) to share.</dd>
-    <dt>Something&#x27;s broken, or a reading looks wrong. How do I report it?</dt>
-    <dd>Email us with: (1) device and OS version, (2) what you were doing (viewing conditions, logging a catch…), (3) the location if it&#x27;s data-related, (4) expected vs. actual, and (5) a screenshot. If a specific reading looked off, tell us the location and we&#x27;ll check our data source.</dd>
+<div class="sheet">
+
+<header class="masthead">
+  <p class="kicker"><a href="/hatchwindow/">Hatch Window</a> &rsaquo; Support</p>
+  <h1>Support</h1>
+  <p class="standfirst">Where the numbers come from, what they are worth, and what the app will not pretend to know.</p>
+  <p class="revised">Revised 3 November 2026</p>
+</header>
+
+<section class="beforeyougo">
+  <h2>Before you go</h2>
+  <p>Conditions and feeding windows are estimates built from public data plus solunar math and a curated hatch list. They are a starting point, not a promise &mdash; rivers and fish don&rsquo;t read the forecast. Always check current local flow and weather yourself, follow your state&rsquo;s fishing regulations and access rules, and put safety first on the water. Hatch Window doesn&rsquo;t track your license or local rules; confirm them with your state agency before you fish.</p>
+</section>
+
+<section class="quick">
+  <h2>Quick reference</h2>
+  <dl>
+    <dt>Flow and gauge height</dt>
+    <dd>USGS Water Services, live, per spot. Attributed in the app.</dd>
+    <dt>Weather</dt>
+    <dd>Open-Meteo, live, from the spot&rsquo;s coordinates.</dd>
+    <dt>Sun and solunar windows</dt>
+    <dd>Computed on your device from date and location. No server, works offline.</dd>
+    <dt>Hatch chart</dt>
+    <dd>24 curated entries across four regions and three water types. Freshwater trout only.</dd>
+    <dt>Your log</dt>
+    <dd>On the device, in a local database. No account, no server of ours.</dd>
+    <dt>Cost</dt>
+    <dd>Free, everything unlocked. Nothing in the app can charge you.</dd>
   </dl>
-  <h2>Cost</h2>
-  <p>Hatch Window is free. Every feature ships unlocked — there&#x27;s no subscription, no in-app
-  purchase, no paywall, and no ads, so there&#x27;s nothing to buy, cancel, or refund.</p>
-  <h2>Contact</h2>
-  <ul>
-    <li><strong>Email:</strong> <a href="mailto:rsb.baker+hatchwindow@gmail.com">rsb.baker+hatchwindow@gmail.com</a></li>
-    <li><strong>Publisher:</strong> Baker Ventures LLC, Logan, Utah, USA</li>
-    <li><a href="../privacy/">Privacy Policy</a> &middot; <a href="../terms/">Terms of Use</a> &middot; <a href="../">Hatch Window home</a></li>
-  </ul>
-  <footer>&copy; Baker Ventures LLC &middot; <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+</section>
+
+<div class="ask">
+  <p class="addr">Email <a href="mailto:rsb.baker+hatchwindow@gmail.com">rsb.baker+hatchwindow@gmail.com</a></p>
+  <p>One person reads it and answers. If a reading looked wrong, send the spot and roughly when you
+  looked &mdash; that is usually enough to tell a gauge outage from a bug. For anything else: device
+  and OS version, what you were doing, what you expected instead, and a screenshot.</p>
+</div>
+
+<h2>The water numbers</h2>
+<dl class="qa">
+  <dt>Where do the water conditions come from?</dt>
+  <dd>The USGS public water data service &mdash; real, public streamflow and gauge-height data. It&rsquo;s attributed in the app. We never show a made-up number.</dd>
+  <dt>Why does a spot say &ldquo;no current data&rdquo;?</dt>
+  <dd>That gauge isn&rsquo;t reporting right now, or the network&rsquo;s down. Rather than guess, Hatch Window tells you the reading is unavailable.</dd>
+  <dt>There&rsquo;s no data for my river or spot.</dt>
+  <dd>That usually means there&rsquo;s no nearby public streamflow gauge for that water &mdash; Hatch Window leans on gauges that exist, so ungauged creeks come up thin. The solunar feeding windows still work anywhere, since they&rsquo;re calculated from date and location. Send us the spot and we&rsquo;ll see whether there&rsquo;s a usable nearby gauge we can wire in.</dd>
+  <dt>How current is a reading, and can it change afterwards?</dt>
+  <dd>USGS data is provisional and subject to revision, which is the agency&rsquo;s own characterisation of it rather than a hedge of ours. A reading can be corrected later, so treat a number from any gauge as the best current estimate rather than a measurement of record.</dd>
+  <dt>Can I add my own spots?</dt>
+  <dd>Yes. Add any spot; if you know its USGS gauge number, Hatch Window will pull live conditions for it.</dd>
+</dl>
+
+<h2>Timing: sun, solunar, and the week ahead</h2>
+<dl class="qa">
+  <dt>How are the &ldquo;best times&rdquo; calculated?</dt>
+  <dd>On your device, from sunrise/sunset, twilight, and solunar major/minor feeding periods for the spot&rsquo;s location &mdash; standard astronomy math, no server.</dd>
+  <dt>Is solunar theory actually proven?</dt>
+  <dd>No, and the app says so in as many words. Solunar timing is a traditional angling heuristic, not a scientifically validated model. It is in the app because a lot of anglers plan by it and because it costs nothing to compute; it is not presented as a prediction of whether fish will eat.</dd>
+  <dt>What does the 7-day outlook rank?</dt>
+  <dd>Each of the next seven days by its best solunar window for that spot, so you can pick a day rather than only checking today. It ranks the window, not the fishing &mdash; weather and flow still decide the day.</dd>
+  <dt>Why does the dashboard put one spot above another?</dt>
+  <dd>The multi-spot dashboard orders your saved spots by a documented &ldquo;fishing well right now&rdquo; heuristic that favours fresh, steady flow. It is a sort order built from the readings the app already has; no per-river score is invented to produce it.</dd>
+</dl>
+
+<h2>Flies, and what the hatch chart covers</h2>
+<dl class="qa">
+  <dt>Are the fly recommendations reliable?</dt>
+  <dd>They come from a curated database of 24 hatches matched to real, commonly-tied patterns, filtered by month, water type and region. It covers four regions &mdash; Mountain West, Northeast (Catskills/Appalachians), Midwest (Driftless/Great Lakes) and South (Southern Appalachians/Southeast tailwaters) &mdash; and three water types: tailwater, freestone and spring creek. There are no saltwater or steelhead charts. Timing shifts with the year, elevation and water temperature, so treat the list as a starting point, not a promise.</dd>
+</dl>
+
+<table class="coverage">
+  <caption>What the 24 hatch entries actually reach</caption>
+  <thead>
+    <tr><th scope="col">Region</th><th scope="col">Water types</th><th scope="col">Covered</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Mountain West</th><td>tailwater, freestone, spring creek</td><td>Midges, BWO, Skwala, Caddis, Salmonfly, PMD, Green Drake (Western), Trico, Terrestrials, Streamers, Yellow Sally, Mahogany Dun, Scuds &amp; Sowbugs</td></tr>
+    <tr><th scope="row">Northeast</th><td>freestone, spring creek</td><td>Midges, BWO, Caddis, Trico, Terrestrials, Streamers, Hendrickson, Sulphur, March Brown, Isonychia, Grannom, Green Drake (Eastern/Coffin Fly), Scuds &amp; Sowbugs, Quill Gordon, Blue Quill, Yellow Sally, Light Cahill, White Fly, Mahogany Dun</td></tr>
+    <tr><th scope="row">Midwest</th><td>freestone, spring creek</td><td>Midges, BWO, Caddis, Trico, Terrestrials, Streamers, Sulphur, Grannom, Hex, Scuds &amp; Sowbugs, Light Cahill, White Fly</td></tr>
+    <tr><th scope="row">South</th><td>freestone, tailwater, spring creek</td><td>Midges, BWO, Caddis, Trico, Terrestrials, Streamers, Sulphur, Grannom, Isonychia, Scuds &amp; Sowbugs, Quill Gordon, Blue Quill, Yellow Sally, Light Cahill</td></tr>
+  </tbody>
+</table>
+
+<dl class="qa">
+  <dt>Why are all the starter spots out West?</dt>
+  <dd>Because that is where the curated spot list was built first. The Northeast, Midwest and South hatch charts are complete and in the app now; the starter waters that ship with it are Mountain West. Adding your own spot anywhere gets you the right regional chart alongside it.</dd>
+</dl>
+
+<h2>Your spots, your log, and going offline</h2>
+<dl class="qa">
+  <dt>Does the app work without signal on the river?</dt>
+  <dd>Your saved spots, catch log, feeding windows and hatch list work offline. Live streamflow and weather need a connection, so grab a look before you lose signal and you&rsquo;ll have the latest reading with you.</dd>
+  <dt>Where is my catch log stored?</dt>
+  <dd>On your device, in a local database. Hatch Window has no account and no server of ours, so your catches, notes and spot names never come to us. One thing does leave your phone: when you open a spot, its coordinates or its USGS gauge number go to USGS and Open-Meteo to fetch that spot&rsquo;s conditions. Nothing else goes with them. Your log is in your phone&rsquo;s iCloud backup if that is on, and deleting the app deletes the copy on the device. There is no full export of the log yet &mdash; you can share one outing at a time as text &mdash; so treat the phone and your backup as the only copies you have.</dd>
+  <dt>Can I share what worked?</dt>
+  <dd>Yes &mdash; generate a text summary of an outing (spot, date, conditions, flies that worked) to share.</dd>
+  <dt>Does the app remember what worked at a spot?</dt>
+  <dd>Yes. Entries you log feed a &ldquo;what worked here before&rdquo; view on that spot, which is the main reason to keep the log at all rather than just reading conditions.</dd>
+</dl>
+
+<h2>Licences, regulations and what this app is not</h2>
+<dl class="qa">
+  <dt>Do I need a fishing license?</dt>
+  <dd>Almost certainly, and regulations vary by water. Hatch Window doesn&rsquo;t track your license or local rules &mdash; confirm them with your state agency before you fish, and put safety first on the water.</dd>
+</dl>
+
+<h2>Cost</h2>
+<div class="free">
+  <p><strong>Free, and unlocked.</strong> There is no subscription, no in-app purchase, no paywall and
+  no advertising, so there is nothing to buy, cancel or refund.</p>
+  <p>If that ever changes, this page will describe the real cancellation, refund and restore steps
+  before the change ships.</p>
+</div>
+<dl class="qa">
+  <dt>Do I need to pay for anything?</dt>
+  <dd>No. Hatch Window is free and every feature ships unlocked &mdash; there&rsquo;s no subscription, no in-app purchase, no paywall, and no ads. Nothing in this version of the app can charge you.</dd>
+</dl>
+
+<h2>Reporting a problem</h2>
+<dl class="qa">
+  <dt>Something&rsquo;s broken, or a reading looks wrong. How do I report it?</dt>
+  <dd>Email us with: (1) device and OS version, (2) what you were doing (viewing conditions, logging a catch&hellip;), (3) the location if it&rsquo;s data-related, (4) expected vs. actual, and (5) a screenshot. If a specific reading looked off, tell us the location and we&rsquo;ll check our data source.</dd>
+</dl>
+
+<footer>
+  <p><strong>Hatch Window</strong> &mdash; published by Baker Ventures LLC, Logan, Utah, USA.</p>
+  <p><a href="../">Hatch Window</a> &middot; <a href="../privacy/">Privacy policy</a> &middot; <a href="../terms/">Terms of use</a> &middot; <a href="../hatch-chart/">Hatch chart</a> &middot; <a href="/">Baker Ventures</a></p>
+  <p>Water data courtesy of the U.S. Geological Survey. Weather from Open-Meteo. Both are provisional and subject to revision.</p>
+</footer>
+
+</div>
 </body>
 </html>

@@ -77,8 +77,15 @@
    "url": "https://bakerventuresstudio.com/flipstage/speaking-time/",
    "description": "Counts the words in a script and converts them to spoken minutes at a speaking rate you measure yourself, then splits the time across a number of slides. Runs entirely in the browser.",
    "isAccessibleForFree": true,
-   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-   "publisher": { "@type": "Organization", "name": "Baker Ventures LLC" }
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Baker Ventures LLC"
+   }
   },
   {
    "@type": "FAQPage",
@@ -89,7 +96,7 @@
      "name": "How long does it take to read 1000 words out loud?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "It depends entirely on your own speaking rate, which is why this page asks you to measure it rather than assuming one. At 100 words a minute 1000 words takes 10 minutes; at 160 it takes 6 minutes and 15 seconds. That is a four minute spread on the same script, which is the difference between finishing and being cut off."
+      "text": "At 100 words a minute, 10 minutes. At 130, 7 minutes and 42 seconds. At 160, 6 minutes and 15 seconds. The spread across ordinary speaking rates is about four minutes on the same script, which is why the rate is an input here and not a constant."
      }
     },
     {
@@ -97,23 +104,31 @@
      "name": "How do I measure my own speaking rate?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Read a passage of known length out loud at the pace you would actually present at, and time it. Words divided by minutes is your rate. The timer on this page does the arithmetic: it counts the words in the passage, times your reading, and writes the result into the calculator."
+      "text": "Read a passage of known length out loud at your real presenting pace and time it. Words divided by minutes is your rate. The timer above counts the passage, times your reading and writes the answer into the box."
      }
     },
     {
      "@type": "Question",
-     "name": "Does this calculator upload my script?",
+     "name": "Does this upload my script?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. The page makes no network requests after it loads. There is no account, no analytics and nothing is stored. Closing the tab discards everything you typed."
+      "text": "No. The page makes no network requests after it loads, there is no account and nothing is stored. Closing the tab discards it."
      }
     },
     {
      "@type": "Question",
-     "name": "Why is my talk always longer in the room than at my desk?",
+     "name": "Why is my talk longer in the room than at my desk?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Because the script is only part of what you say. Questions, pauses, a laugh, finding your place again and the sentence you add on the spot all take real time and none of them are in the word count. The overhead field on this page exists so you can add that time deliberately instead of discovering it at the twenty minute mark."
+      "text": "Because the script is only part of what you say. The overhead field is there so you can add that time on purpose rather than finding it at the twenty minute mark."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is the per-slide split a plan I should follow?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It is an even division, nothing cleverer. Slides are never equal, and a split that says 1:36 each is a sanity check on whether you have too many slides for the time, not an instruction."
      }
     }
    ]
@@ -121,14 +136,29 @@
   {
    "@type": "BreadcrumbList",
    "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Baker Ventures", "item": "https://bakerventuresstudio.com/" },
-    { "@type": "ListItem", "position": 2, "name": "FlipStage", "item": "https://bakerventuresstudio.com/flipstage/" },
-    { "@type": "ListItem", "position": 3, "name": "Speaking time calculator", "item": "https://bakerventuresstudio.com/flipstage/speaking-time/" }
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Baker Ventures",
+     "item": "https://bakerventuresstudio.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "FlipStage",
+     "item": "https://bakerventuresstudio.com/flipstage/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Speaking time calculator",
+     "item": "https://bakerventuresstudio.com/flipstage/speaking-time/"
+    }
    ]
   }
  ]
 }
-  </script>
+</script>
 </head>
 <body>
   <p class="nav"><a href="/">Baker Ventures</a> &rsaquo; <a href="/flipstage/">FlipStage</a> &rsaquo; Speaking time</p>

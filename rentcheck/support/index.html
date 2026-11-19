@@ -1,232 +1,432 @@
-<!--
-  COMPATIBILITY COPY -- DO NOT DELETE, DO NOT LET IT DRIFT.
-
-  MoveWitness 1.0.1 is live in the App Store with
-  https://bakerventuresstudio.com/rentcheck/support/ compiled into the binary
-  (movewitness repo, src/app/index.tsx). Every user on 1.0.1 reaches THIS file when they
-  tap the in-app legal link, and they keep reaching it until they update. Deleting this
-  path breaks a live app's required privacy link (App Review 5.1.1(i)).
-
-  The canonical page is /movewitness/support/. This file is a full copy rather than a
-  redirect because GitHub Pages cannot issue a real 301 (.nojekyll is set, so
-  jekyll-redirect-from is unavailable) and a meta-refresh is invisible to a plain
-  `curl` or a non-JS privacy crawler -- the exact failure mode that put
-  movewitness.pages.dev in this field in the first place.
-
-  WHEN YOU EDIT /movewitness/support/index.html, EDIT THIS FILE TOO.
-  scripts/check_live_privacy_claims.py checks both paths.
-
-  Why the path moved (2026-10-22): `rentcheck` was this repo's internal working name for
-  MoveWitness, but RENTCHECK is a live US registered word mark -- Reg. No. 6037775,
-  serial 87982814, RentCheck Holdings, Inc., registered 2020-04-21, International Class 9,
-  for a downloadable mobile app for tenants and landlords to record and share the
-  move-in/move-out condition of a rental property. That is MoveWitness's exact category.
--->
 <!DOCTYPE html>
+<!--
+  Why this page exists, and why it is a copy.
+
+  MoveWitness shipped under the project name "rentcheck", and the App Store Connect record
+  for app id 6816228166 still names /rentcheck/support/ and /rentcheck/privacy/ in its
+  Support URL and Privacy Policy URL fields. Those URLs therefore have to keep serving a
+  real support page and a real policy, not a redirect stub -- a reviewer clicking the field
+  must land on the document, not on a note about where it moved.
+
+  So this file is generated from the canonical page under /movewitness/ and carries the
+  same text. It is noindex with a canonical pointing at /movewitness/, so only one copy is
+  indexable and search engines are told which one counts.
+
+  To collapse this duplicate: change the two URL fields in App Store Connect to the
+  /movewitness/ paths, then replace these files with the same redirect stub the other
+  renamed apps use (see /lienclock/, /iolta/, /cyberclose/, /flyfish/, /denialfighter/,
+  /quietlog/). Until that field is changed, deleting or stubbing this page breaks a live
+  App Store listing.
+
+  Regenerate with: python3 scripts/sync-rentcheck-from-movewitness.py
+-->
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MoveWitness Support &mdash; Baker Ventures LLC</title>
-  <meta name="description" content="Support for MoveWitness: how to get help, report a bug, and contact a human who answers. MoveWitness is free — no subscription, no in-app purchase, no paywall.">
-  <link rel="canonical" href="https://bakerventuresstudio.com/movewitness/support/">
-  <meta name="robots" content="noindex,follow">
-  <style>
-    :root { color-scheme: light; }
-    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
-           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-           color: #1a1a1a; background: #fff; }
-    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
-    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
-    h3 { font-size: 16px; margin: 24px 0 8px; }
-    p { margin: 12px 0; }
-    ul { margin: 12px 0; padding-left: 22px; }
-    li { margin: 6px 0; }
-    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
-    a { color: #2C6FA8; }
-    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
-    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
-    strong { font-weight: 700; }
-    .note { background: #fafafa; border-left: 3px solid #2C6FA8; padding: 12px 16px; margin: 20px 0; font-size: 15px; }
-    .contact { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px; margin: 20px 0; }
-    .contact a { font-weight: 700; }
-    .faq { margin: 0; }
-    .faq dt { font-weight: 700; margin: 22px 0 4px; }
-    .faq dd { margin: 0 0 4px; }
-    .nav { font-size: 14px; margin: 0 0 20px; }
-    .nav a { color: #666; }
-    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
-    footer a { color: #888; }
-  </style>
-  <script type="application/ld+json">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoveWitness support &mdash; what the report establishes, and what it does not</title>
+<meta name="description" content="Support for MoveWitness: the three photo-time labels and what each one means, what completing an inspection locks, what the SHA-256 digest on a PDF is and is not, and where your photos are stored.">
+<link rel="canonical" href="https://bakerventuresstudio.com/movewitness/support/">
+<meta name="robots" content="noindex,follow">
+<style>
+/* MoveWitness support. The app's whole value is the honesty of a timestamp, so the page
+   is built like the record it produces: a legend first, then a claims/limits column pair,
+   then the walkthrough. Slate ink, one amber accent used only for limits. */
+:root{
+  --ink:#1C2430; --ink2:#5A6778; --slate:#334155; --slate2:#1F2D3D;
+  --paper:#FFFFFF; --wash:#F3F5F8; --rule:#D7DDE5;
+  --amber:#9A5B0C; --amberbg:#FDF6EC; --yes:#1F6B45;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:16.5px/1.66 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.doc{max-width:47rem;margin:0 auto;padding:0 18px 92px}
+a{color:var(--slate)}
+.filehead{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;
+  border-bottom:1px solid var(--rule);padding:20px 0 12px;
+  font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink2)}
+.filehead a{color:var(--ink2);text-decoration:none}
+.filehead .sp{margin-left:auto}
+h1{font-size:2.1rem;line-height:1.1;letter-spacing:-.025em;margin:26px 0 10px;font-weight:700}
+.sub{font-size:1.1rem;color:#36414F;margin:0 0 18px;max-width:36rem}
+h2{font-size:1.22rem;font-weight:700;letter-spacing:-.015em;margin:46px 0 8px}
+h2::before{content:"";display:block;width:34px;height:3px;background:var(--slate);margin-bottom:12px}
+h3{font-size:1rem;font-weight:700;margin:24px 0 3px}
+p{margin:11px 0}
+ul{margin:11px 0;padding-left:1.15em}
+li{margin:6px 0}
+.notlaw{background:var(--amberbg);border:1px solid #EBD9BC;border-radius:6px;padding:16px 18px;margin:22px 0}
+.notlaw p{margin:0;font-size:.97rem}
+.notlaw strong{color:var(--amber)}
+/* the legend: the three words a report can print under a photo */
+table.legend{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:.93rem}
+table.legend caption{text-align:left;font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);padding:0 0 9px}
+table.legend th,table.legend td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.legend thead th{background:var(--wash);font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+table.legend tbody th{font:600 .95rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  white-space:nowrap;color:var(--slate2)}
+/* does / does not */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);
+  border-radius:6px;overflow:hidden;margin:20px 0}
+.pair > div{padding:16px 18px}
+.pair > div + div{border-left:1px solid var(--rule);background:var(--amberbg)}
+.pair h3{margin:0 0 8px;font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--yes)}
+.pair > div + div h3{color:var(--amber)}
+.pair ul{margin:0;padding-left:1.1em;font-size:.95rem}
+.inbox{border:1px solid var(--rule);border-left:4px solid var(--slate);border-radius:0 6px 6px 0;
+  padding:16px 18px;margin:26px 0;background:var(--wash)}
+.inbox p{margin:0}
+.inbox p+p{margin-top:8px;font-size:.96rem}
+.inbox .addr{font:600 1.02rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;word-break:break-all}
+dl.qa{margin:4px 0 0}
+dl.qa dt{font-weight:700;margin:23px 0 2px}
+dl.qa dd{margin:0;color:#242E3A}
+footer{border-top:1px solid var(--rule);margin-top:58px;padding-top:18px;
+  font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink2)}
+footer a{color:var(--ink2)}
+footer p{margin:6px 0}
+@media (max-width:560px){
+  h1{font-size:1.72rem}
+  .pair{grid-template-columns:1fr}
+  .pair > div + div{border-left:0;border-top:1px solid var(--rule)}
+  table.legend tbody th{white-space:normal}
+}
+</style>
+<script type="application/ld+json" id="schema">
 {
  "@context": "https://schema.org",
- "@type": "FAQPage",
- "@id": "https://bakerventuresstudio.com/movewitness/support/#faq",
- "name": "MoveWitness Support",
- "mainEntity": [
+ "@graph": [
   {
-   "@type": "Question",
-   "name": "Who is MoveWitness for?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Both tenants and landlords documenting a rental's condition at move-in and move-out to prevent or resolve security-deposit disputes."
+   "@type": "SoftwareApplication",
+   "@id": "https://bakerventuresstudio.com/movewitness/#app",
+   "name": "MoveWitness",
+   "alternateName": "MoveWitness: Rental Inspection",
+   "description": "A room-by-room move-in and move-out condition record for a rental: photos and notes per room, an inspection that locks when completed, and a dated PDF or CSV report including a side-by-side move-in versus move-out comparison.",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "iOS",
+   "url": "https://bakerventuresstudio.com/movewitness/",
+   "downloadUrl": "https://apps.apple.com/us/app/id6816228166",
+   "featureList": [
+    "Room-by-room photos and condition notes",
+    "Photo times labelled Captured, Imported or Recorded, never inferred",
+    "Completing an inspection locks it against further edits through the app",
+    "PDF and CSV export, plus a side-by-side move-in versus move-out comparison report",
+    "SHA-256 content digest printed on PDF reports",
+    "Cited security-deposit statute summaries for eleven states",
+    "No account, no server, no network calls"
+   ],
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free. No subscription, no in-app purchase, no advertising."
+   },
+   "publisher": {
+    "@id": "https://bakerventuresstudio.com/#org"
    }
   },
   {
-   "@type": "Question",
-   "name": "Is this legal advice, or will it win my dispute?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No, and it can't promise that. It produces an organized record of your walkthrough. Whether that record wins is up to your landlord, mediator, or court, and your local law. For anything you're relying on in a dispute, check with a qualified attorney or your local housing authority."
-   }
+   "@type": "Organization",
+   "@id": "https://bakerventuresstudio.com/#org",
+   "name": "Baker Ventures LLC",
+   "url": "https://bakerventuresstudio.com/",
+   "email": "support@bakerventuresstudio.com"
   },
   {
-   "@type": "Question",
-   "name": "Does MoveWitness prove when my photos were taken?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No. MoveWitness does not prove when a photo was taken, and nothing in the app should be read as a certified date. What the report does show, for every photo, is which kind of time it carries: \"Captured\" where the photo file has its own capture date, \"Imported\" where it has none and the time is when you added it, and \"Recorded\" for photos added before the app told the two apart. A legend in the report defines all three, so a reader cannot mistake one for the other. It also keeps each room's photos and notes together, locks the inspection when you finish, and produces a PDF report you can share. How any particular landlord or court weighs that record is a legal question for an attorney or your housing authority."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How does the side-by-side comparison work?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Label rooms at move-in; at move-out, shoot the same rooms and MoveWitness pairs them in the report so a reviewer sees before and after together."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Where are my photos and notes stored?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "On your device. MoveWitness has no account and no studio server, so your photos, notes, and reports live only on your phone — we never see them and nothing is uploaded to us. They're included if your phone backs up to iCloud or Google, and they're gone if you delete the app, so export or save any PDF you want to keep."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "What if I lose my phone?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Because storage is local, export your report as soon as an inspection is done. Deleting the app deletes the photos."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Do both the tenant and landlord need the app?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No. One person documents; the exported PDF can be shared with anyone."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How do I share the report with my landlord?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Once your walkthrough is done, use Export to generate the PDF, then the share sheet lets you email it, message it, or save it to Files or Drive — it's a normal PDF you fully control. We'd suggest saving a copy somewhere off the phone too, so you always have the dated original."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Can I add signatures?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Not yet. MoveWitness doesn't have a signature feature or a cover page. Every exported report carries a SHA-256 content digest instead — a fingerprint of the room facts, the photo bytes and your captions that went into it, computed before the PDF is drawn. Generate the report again from the same walkthrough and the digest matches; if the underlying record changed, it doesn't. It is not a signature, it does not prove when the file was created, and it is not a check on the PDF file itself, so editing the PDF afterwards will not change the digest printed inside it."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "How many rooms or properties can I add?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "As many as you need. MoveWitness is free right now, with no room or property limit."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Is there anything to buy, cancel, or refund?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "No. MoveWitness is free — no subscription, no in-app purchase, no paywall, and no advertising — so there is nothing to restore, cancel, or get a refund on. If that ever changes, this page will describe real cancellation, refund, and restore steps first."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Something's broken. How do I report it?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Email us and include: (1) device and OS version, (2) what you were doing (adding a room, taking a photo, exporting the PDF…), (3) what you expected vs. what happened, and (4) a screenshot. That usually points us right at it."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Can I request a feature?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Please do. Tell us what you'd want and why — real move-day feedback is exactly what we want. We can't promise timing, but every request gets read and logged."
-   }
+   "@type": "FAQPage",
+   "@id": "https://bakerventuresstudio.com/movewitness/support/#faq",
+   "name": "MoveWitness support",
+   "inLanguage": "en",
+   "about": {
+    "@id": "https://bakerventuresstudio.com/movewitness/#app"
+   },
+   "publisher": {
+    "@id": "https://bakerventuresstudio.com/#org"
+   },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Who is MoveWitness for?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Both tenants and landlords documenting a rental’s condition at move-in and move-out to prevent or resolve security-deposit disputes."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is this legal advice, or will it win my dispute?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, and it can’t promise that. It produces an organized record of your walkthrough. Whether that record wins is up to your landlord, mediator, or court, and your local law. For anything you’re relying on in a dispute, check with a qualified attorney or your local housing authority."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does MoveWitness prove when my photos were taken?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. MoveWitness does not prove when a photo was taken, and nothing in the app should be read as a certified date. What the report does show, for every photo, is which kind of time it carries: “Captured” where the photo file has its own capture date, “Imported” where it has none and the time is when you added it, and “Recorded” for photos added before the app told the two apart. A legend in the report defines all three, so a reader cannot mistake one for the other. It also keeps each room’s photos and notes together, locks the inspection when you finish, and produces a PDF report you can share. How any particular landlord or court weighs that record is a legal question for an attorney or your housing authority."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does it tell me my state’s deposit deadline?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "For eleven states it shows a cited summary of the security-deposit statute on the property screen — Utah, California, Texas, Florida, New York, Illinois, Pennsylvania, Ohio, Georgia, North Carolina and Washington. Each entry carries its citation, the official source URL and the date it was last checked. It is a summary for orientation, not advice, and for the other states the app says nothing rather than generalising."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How does the side-by-side comparison work?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Label rooms at move-in; at move-out, shoot the same rooms and MoveWitness pairs them in the report so a reviewer sees before and after together."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What exactly happens when I complete an inspection?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It locks. Every write the app issues carries its own “not yet completed” condition, evaluated atomically, so a stale screen cannot slip an edit past it and no room, note or photo can be added, changed or removed afterwards through the app. The honest limit: that lock binds the app, not the database file itself, so the app’s own wording is “through the app” rather than a claim that the file is immutable."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How many rooms or properties can I add?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "As many as you need. MoveWitness is free right now, with no room or property limit."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do both the tenant and landlord need the app?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. One person documents; the exported PDF can be shared with anyone."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I share the report with my landlord?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Once your walkthrough is done, use Export to generate the PDF, then the share sheet lets you email it, message it, or save it to Files or Drive — it’s a normal PDF you fully control. We’d suggest saving a copy somewhere off the phone too, so you always have the dated original."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I add signatures?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not yet. MoveWitness doesn’t have a signature feature or a cover page. Every exported PDF report carries a SHA-256 content digest instead — a fingerprint of the room facts, the photo bytes and your captions that went into it, computed before the PDF is drawn. It is not a signature, it does not prove when the file was created, and it is not a check on the PDF file itself, so editing the PDF afterwards will not change the digest printed inside it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "I regenerated the same report and got a different digest. Is that a bug?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The time the file was generated is part of what the digest covers, so regenerating an untouched inspection gives a different digest. That means it fingerprints one generated file rather than being a check you can re-run later to test an inspection — which is exactly what the app’s own terms screen says, and worth knowing before you describe it to anyone else."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do the CSV exports carry a digest too?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Neither CSV carries a report-level digest. Each has a per-photo SHA-256 column, which is a different thing: it fingerprints individual photo files, not the report."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Where are my photos and notes stored?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On your device. MoveWitness has no account and no studio server, so your photos, notes, and reports live only on your phone — we never see them and nothing is uploaded to us. They’re included if your phone backs up to iCloud or Google, and they’re gone if you delete the app, so export or save any PDF you want to keep."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if I lose my phone?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Because storage is local, export your report as soon as an inspection is done. Deleting the app deletes the photos."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is there anything to buy, cancel, or refund?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. MoveWitness is free — no subscription, no in-app purchase, no paywall, and no advertising — so there is nothing to restore, cancel, or get a refund on. If that ever changes, this page will describe real cancellation, refund, and restore steps first."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Something’s broken. How do I report it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Email us and include: (1) device and OS version, (2) what you were doing (adding a room, taking a photo, exporting the PDF…), (3) what you expected vs. what happened, and (4) a screenshot. That usually points us right at it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I request a feature?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Please do. Tell us what you’d want and why — real move-day feedback is exactly what we want. We can’t promise timing, but every request gets read and logged."
+     }
+    }
+   ]
   }
  ]
 }
 </script>
 </head>
 <body>
-<p style="margin:0 0 24px;padding:12px 14px;background:#fff8e1;border:1px solid #e6d9a8;border-radius:6px;font-size:14px;line-height:1.55;">This page has moved to <a href="https://bakerventuresstudio.com/movewitness/support/">bakerventuresstudio.com/movewitness/support/</a>. It is kept here so the link inside MoveWitness 1.0.1 keeps working. The text below is the current MoveWitness support page and is identical to the page at the new address.</p>
+<div class="doc">
 
-  <p class="nav"><a href="../">MoveWitness</a> &rsaquo; Support</p>
-  <h1>MoveWitness Support</h1>
-  <p class="meta">Published by Baker Ventures LLC &middot; Last updated: October 13, 2026</p>
-  <p>MoveWitness turns a rental move-in or move-out walkthrough into room-by-room photos and notes, kept together, and a single PDF report you can share if the deposit is ever disputed.</p>
-  <div class="contact">
-    <p style="margin-top:0"><strong>Need help? Email us.</strong></p>
-    <p style="margin-bottom:0"><a href="mailto:rsb.baker+movewitness@gmail.com">rsb.baker+movewitness@gmail.com</a><br>
-    We read every message and reply personally. For a bug, include your device and OS version, what you
-    were doing, what you expected versus what happened, and a screenshot &mdash; that usually points us
-    straight at it.</p>
+<p class="filehead"><a href="/movewitness/">MoveWitness</a> <span>Support</span> <span class="sp">Revised 2026-11-03</span></p>
+
+<h1>What the record says, and what it doesn&rsquo;t</h1>
+<p class="sub">MoveWitness turns a walkthrough into room-by-room photos and notes and a dated PDF you can hand to a landlord, a tenant or a mediator. Most support questions are really one question: how much does that report prove? This page answers that first.</p>
+
+<div class="notlaw">
+  <p><strong>Not legal advice.</strong> MoveWitness is a documentation tool, not a law firm, and nothing on this page or in the app is legal advice. Landlord-tenant and deposit rules vary a lot by state and city. For a contested deposit or a court filing, consult a qualified attorney or your local housing authority. The app&rsquo;s job is to make sure you have a clear, dated record to bring them.</p>
+</div>
+
+<h2>The three words a report can print under a photo</h2>
+<p>This is the part of the app that is easiest to get quietly wrong, so it is worth reading before anything else. A photo file either carries its own capture date or it does not &mdash; a screenshot, an edited copy, or anything a share sheet or messaging app re-encoded usually does not. MoveWitness never guesses the difference. It prints one of exactly three words, and the report carries this legend itself so the caveat travels with the file.</p>
+
+<table class="legend">
+  <caption>Photo-time labels, as printed in the report</caption>
+  <thead>
+    <tr><th scope="col">Label</th><th scope="col">What it means</th><th scope="col">What it does not mean</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Captured</th>
+      <td>The photo file itself carried a capture date, and that is the date shown.</td>
+      <td>Not a certified or verified date &mdash; it is the date the file claims.</td>
+    </tr>
+    <tr>
+      <th scope="row">Imported</th>
+      <td>The file carried no capture date, so the time shown is when you added it to the app.</td>
+      <td>Never presented as the day the photo was taken.</td>
+    </tr>
+    <tr>
+      <th scope="row">Recorded</th>
+      <td>The row was written before the app distinguished the two, so it is one or the other and the app says it does not know which.</td>
+      <td>Not a fallback guess &mdash; it is an explicit &ldquo;capture or import time, not recorded which&rdquo;.</td>
+    </tr>
+  </tbody>
+</table>
+<p>No capture date is ever inferred, defaulted or filled in. All three wordings come from one place in the code, and every surface that shows a time &mdash; both PDFs, both CSVs, the room screen and its accessibility label &mdash; goes through it.</p>
+
+<h2>What a MoveWitness report establishes</h2>
+<div class="pair">
+  <div>
+    <h3>It does</h3>
+    <ul>
+      <li>Keep each room&rsquo;s photos, captions and condition notes together, in one record.</li>
+      <li>State, per photo, which kind of time it carries.</li>
+      <li>Lock the inspection when you complete it, so the report cannot quietly reflect later edits made through the app.</li>
+      <li>Name the suggested rooms that have no matching entry, on single-inspection exports, instead of implying completeness.</li>
+      <li>Print a SHA-256 content digest on the PDF, so an altered underlying record produces a different hash.</li>
+    </ul>
   </div>
-  <div class="note"><strong>Please note.</strong> MoveWitness is a documentation tool, not a law firm, and nothing on this page or in the app is legal advice. Landlord-tenant and deposit rules vary a lot by state and city. For a contested deposit or a court filing, consult a qualified attorney or your local housing authority. The app&#x27;s job is to make sure you have a clear, dated record to bring them.</div>
-  <h2>Frequently asked questions</h2>
-  <dl class="faq">
-    <dt>Who is MoveWitness for?</dt>
-    <dd>Both tenants and landlords documenting a rental&#x27;s condition at move-in and move-out to prevent or resolve security-deposit disputes.</dd>
-    <dt>Is this legal advice, or will it win my dispute?</dt>
-    <dd>No, and it can&#x27;t promise that. It produces an organized record of your walkthrough. Whether that record wins is up to your landlord, mediator, or court, and your local law. For anything you&#x27;re relying on in a dispute, check with a qualified attorney or your local housing authority.</dd>
-    <dt>Does MoveWitness prove when my photos were taken?</dt>
-    <dd>No. MoveWitness does not prove when a photo was taken, and nothing in the app should be read as a certified date. What the report does show, for every photo, is which kind of time it carries: &ldquo;Captured&rdquo; where the photo file has its own capture date, &ldquo;Imported&rdquo; where it has none and the time is when you added it, and &ldquo;Recorded&rdquo; for photos added before the app told the two apart. A legend in the report defines all three, so a reader cannot mistake one for the other. It also keeps each room&#x27;s photos and notes together, locks the inspection when you finish, and produces a PDF report you can share. How any particular landlord or court weighs that record is a legal question for an attorney or your housing authority.</dd>
-    <dt>How does the side-by-side comparison work?</dt>
-    <dd>Label rooms at move-in; at move-out, shoot the same rooms and MoveWitness pairs them in the report so a reviewer sees before and after together.</dd>
-    <dt>Where are my photos and notes stored?</dt>
-    <dd>On your device. MoveWitness has no account and no studio server, so your photos, notes, and reports live only on your phone — we never see them and nothing is uploaded to us. They&#x27;re included if your phone backs up to iCloud or Google, and they&#x27;re gone if you delete the app, so export or save any PDF you want to keep.</dd>
-    <dt>What if I lose my phone?</dt>
-    <dd>Because storage is local, export your report as soon as an inspection is done. Deleting the app deletes the photos.</dd>
-    <dt>Do both the tenant and landlord need the app?</dt>
-    <dd>No. One person documents; the exported PDF can be shared with anyone.</dd>
-    <dt>How do I share the report with my landlord?</dt>
-    <dd>Once your walkthrough is done, use Export to generate the PDF, then the share sheet lets you email it, message it, or save it to Files or Drive — it&#x27;s a normal PDF you fully control. We&#x27;d suggest saving a copy somewhere off the phone too, so you always have the dated original.</dd>
-    <dt>Can I add signatures?</dt>
-    <dd>Not yet. MoveWitness doesn&#x27;t have a signature feature or a cover page. Every exported report carries a SHA-256 content digest instead &mdash; a fingerprint of the room facts, the photo bytes and your captions that went into it, computed before the PDF is drawn. Generate the report again from the same walkthrough and the digest matches; if the underlying record changed, it doesn&#x27;t. It is not a signature, it does not prove when the file was created, and it is not a check on the PDF file itself, so editing the PDF afterwards will not change the digest printed inside it.</dd>
-    <dt>How many rooms or properties can I add?</dt>
-    <dd>As many as you need. MoveWitness is free right now, with no room or property limit.</dd>
-    <dt>Is there anything to buy, cancel, or refund?</dt>
-    <dd>No. MoveWitness is free — no subscription, no in-app purchase, no paywall, and no advertising — so there is nothing to restore, cancel, or get a refund on. If that ever changes, this page will describe real cancellation, refund, and restore steps first.</dd>
-    <dt>Something&#x27;s broken. How do I report it?</dt>
-    <dd>Email us and include: (1) device and OS version, (2) what you were doing (adding a room, taking a photo, exporting the PDF…), (3) what you expected vs. what happened, and (4) a screenshot. That usually points us right at it.</dd>
-    <dt>Can I request a feature?</dt>
-    <dd>Please do. Tell us what you&#x27;d want and why — real move-day feedback is exactly what we want. We can&#x27;t promise timing, but every request gets read and logged.</dd>
-  </dl>
-  <h2>Cost</h2>
-  <p>MoveWitness is free. There is no subscription, no in-app purchase, no paywall, and no
-  advertising. If that ever changes, this page will describe real cancellation, refund, and
-  restore steps.</p>
-  <h2>Contact</h2>
-  <ul>
-    <li><strong>Email:</strong> <a href="mailto:rsb.baker+movewitness@gmail.com">rsb.baker+movewitness@gmail.com</a></li>
-    <li><strong>Publisher:</strong> Baker Ventures LLC, Logan, Utah, USA</li>
-    <li><a href="../privacy/">Privacy Policy</a> &middot; <a href="../terms/">Terms of Use</a> &middot; <a href="../">MoveWitness home</a></li>
-  </ul>
-  <footer>&copy; Baker Ventures LLC &middot; <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a> &middot; <a href="/">Baker Ventures Studio</a></footer>
+  <div>
+    <h3>It does not</h3>
+    <ul>
+      <li>Prove <em>when</em> a photo was taken, or when the report was created.</li>
+      <li>Carry a signature. The digest is a content digest and is labelled as one.</li>
+      <li>Decide a deposit dispute, or recover money.</li>
+      <li>Give legal advice, or tell you what your landlord may withhold.</li>
+      <li>Put a digest on the CSV exports &mdash; neither CSV carries one.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="inbox">
+  <p class="addr"><a href="mailto:rsb.baker+movewitness@gmail.com">rsb.baker+movewitness@gmail.com</a></p>
+  <p>One person reads this inbox and answers every message. For a bug: device and OS version, what
+  you were doing, what you expected versus what happened, and a screenshot with anything private
+  cropped out.</p>
+</div>
+
+<h2>Who it is for, and what it is not</h2>
+<dl class="qa">
+  <dt>Who is MoveWitness for?</dt>
+  <dd>Both tenants and landlords documenting a rental&rsquo;s condition at move-in and move-out to prevent or resolve security-deposit disputes.</dd>
+  <dt>Is this legal advice, or will it win my dispute?</dt>
+  <dd>No, and it can&rsquo;t promise that. It produces an organized record of your walkthrough. Whether that record wins is up to your landlord, mediator, or court, and your local law. For anything you&rsquo;re relying on in a dispute, check with a qualified attorney or your local housing authority.</dd>
+  <dt>Does MoveWitness prove when my photos were taken?</dt>
+  <dd>No. MoveWitness does not prove when a photo was taken, and nothing in the app should be read as a certified date. What the report does show, for every photo, is which kind of time it carries: &ldquo;Captured&rdquo; where the photo file has its own capture date, &ldquo;Imported&rdquo; where it has none and the time is when you added it, and &ldquo;Recorded&rdquo; for photos added before the app told the two apart. A legend in the report defines all three, so a reader cannot mistake one for the other. It also keeps each room&rsquo;s photos and notes together, locks the inspection when you finish, and produces a PDF report you can share. How any particular landlord or court weighs that record is a legal question for an attorney or your housing authority.</dd>
+  <dt>Does it tell me my state&rsquo;s deposit deadline?</dt>
+  <dd>For eleven states it shows a cited summary of the security-deposit statute on the property screen &mdash; Utah, California, Texas, Florida, New York, Illinois, Pennsylvania, Ohio, Georgia, North Carolina and Washington. Each entry carries its citation, the official source URL and the date it was last checked. It is a summary for orientation, not advice, and for the other states the app says nothing rather than generalising.</dd>
+</dl>
+
+<h2>The walkthrough and the lock</h2>
+<dl class="qa">
+  <dt>How does the side-by-side comparison work?</dt>
+  <dd>Label rooms at move-in; at move-out, shoot the same rooms and MoveWitness pairs them in the report so a reviewer sees before and after together.</dd>
+  <dt>What exactly happens when I complete an inspection?</dt>
+  <dd>It locks. Every write the app issues carries its own &ldquo;not yet completed&rdquo; condition, evaluated atomically, so a stale screen cannot slip an edit past it and no room, note or photo can be added, changed or removed afterwards through the app. The honest limit: that lock binds the app, not the database file itself, so the app&rsquo;s own wording is &ldquo;through the app&rdquo; rather than a claim that the file is immutable.</dd>
+  <dt>How many rooms or properties can I add?</dt>
+  <dd>As many as you need. MoveWitness is free right now, with no room or property limit.</dd>
+  <dt>Do both the tenant and landlord need the app?</dt>
+  <dd>No. One person documents; the exported PDF can be shared with anyone.</dd>
+</dl>
+
+<h2>Exports, and the digest</h2>
+<dl class="qa">
+  <dt>How do I share the report with my landlord?</dt>
+  <dd>Once your walkthrough is done, use Export to generate the PDF, then the share sheet lets you email it, message it, or save it to Files or Drive &mdash; it&rsquo;s a normal PDF you fully control. We&rsquo;d suggest saving a copy somewhere off the phone too, so you always have the dated original.</dd>
+  <dt>Can I add signatures?</dt>
+  <dd>Not yet. MoveWitness doesn&rsquo;t have a signature feature or a cover page. Every exported PDF report carries a SHA-256 content digest instead &mdash; a fingerprint of the room facts, the photo bytes and your captions that went into it, computed before the PDF is drawn. It is not a signature, it does not prove when the file was created, and it is not a check on the PDF file itself, so editing the PDF afterwards will not change the digest printed inside it.</dd>
+  <dt>I regenerated the same report and got a different digest. Is that a bug?</dt>
+  <dd>No. The time the file was generated is part of what the digest covers, so regenerating an untouched inspection gives a different digest. That means it fingerprints one generated file rather than being a check you can re-run later to test an inspection &mdash; which is exactly what the app&rsquo;s own terms screen says, and worth knowing before you describe it to anyone else.</dd>
+  <dt>Do the CSV exports carry a digest too?</dt>
+  <dd>No. Neither CSV carries a report-level digest. Each has a per-photo SHA-256 column, which is a different thing: it fingerprints individual photo files, not the report.</dd>
+</dl>
+
+<h2>Where everything is stored</h2>
+<dl class="qa">
+  <dt>Where are my photos and notes stored?</dt>
+  <dd>On your device. MoveWitness has no account and no studio server, so your photos, notes, and reports live only on your phone &mdash; we never see them and nothing is uploaded to us. They&rsquo;re included if your phone backs up to iCloud or Google, and they&rsquo;re gone if you delete the app, so export or save any PDF you want to keep.</dd>
+  <dt>What if I lose my phone?</dt>
+  <dd>Because storage is local, export your report as soon as an inspection is done. Deleting the app deletes the photos.</dd>
+</dl>
+<p>The <a href="/movewitness/privacy/">privacy policy</a> sets out the backup question in full, including why the records were deliberately left in your own iCloud backup rather than held back from it.</p>
+
+<h2>Cost</h2>
+<dl class="qa">
+  <dt>Is there anything to buy, cancel, or refund?</dt>
+  <dd>No. MoveWitness is free &mdash; no subscription, no in-app purchase, no paywall, and no advertising &mdash; so there is nothing to restore, cancel, or get a refund on. If that ever changes, this page will describe real cancellation, refund, and restore steps first.</dd>
+</dl>
+
+<h2>Bugs and requests</h2>
+<dl class="qa">
+  <dt>Something&rsquo;s broken. How do I report it?</dt>
+  <dd>Email us and include: (1) device and OS version, (2) what you were doing (adding a room, taking a photo, exporting the PDF&hellip;), (3) what you expected vs. what happened, and (4) a screenshot. That usually points us right at it.</dd>
+  <dt>Can I request a feature?</dt>
+  <dd>Please do. Tell us what you&rsquo;d want and why &mdash; real move-day feedback is exactly what we want. We can&rsquo;t promise timing, but every request gets read and logged.</dd>
+</dl>
+
+<footer>
+  <p>MoveWitness &middot; published by Baker Ventures LLC, Logan, Utah, USA</p>
+  <p><a href="/movewitness/">App</a> &middot; <a href="/movewitness/privacy/">Privacy policy</a> &middot; <a href="/movewitness/terms/">Terms of use</a> &middot; <a href="/movewitness/move-in-checklist/">Move-in checklist</a> &middot; <a href="/movewitness/security-deposit-deadline/">Deposit deadlines</a> &middot; <a href="/">Baker Ventures</a></p>
+  <p>Support: <a href="mailto:rsb.baker+movewitness@gmail.com">rsb.baker+movewitness@gmail.com</a> &middot; Studio: <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a></p>
+</footer>
+
+</div>
 </body>
 </html>

@@ -1,81 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy &mdash; Hatch Window</title>
-  <meta name="description" content="Hatch Window's privacy policy: a fly-fishing conditions and catch-log app from Baker Ventures LLC. No account and nothing sent to us; your catch log and spots are in your own iCloud backup.">
-  <link rel="canonical" href="https://bakerventuresstudio.com/hatchwindow/privacy/">
-  <meta name="robots" content="index,follow">
-  <style>
-    :root { color-scheme: light; }
-    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
-           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-           color: #1a1a1a; background: #fff; }
-    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
-    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
-    h3 { font-size: 16px; margin: 24px 0 8px; }
-    p { margin: 12px 0; }
-    ul { margin: 12px 0; padding-left: 22px; }
-    li { margin: 6px 0; }
-    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
-    a { color: #1F6F5C; }
-    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
-    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
-    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
-    th { font-weight: 700; }
-    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
-    strong { font-weight: 700; }
-    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
-    footer a { color: #888; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hatch Window privacy policy &mdash; two requests leave your phone</title>
+<meta name="description" content="Hatch Window has no account and no server of ours. This policy states exactly which two public services receive a request, what each request contains, and why your catch log is in your own iCloud backup on purpose.">
+<link rel="canonical" href="https://bakerventuresstudio.com/hatchwindow/privacy/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<style>
+/* Hatch Window privacy. Same field-guide furniture as the support page, but the spine
+   of this one is a request ledger: the app makes exactly two outbound calls, so the
+   page is organised around naming them rather than around numbered clauses. */
+:root{
+  --ink:#16201C; --ink2:#4E5F58; --green:#15564A; --green2:#1F6F5C;
+  --paper:#F6F7F3; --panel:#EAEFE9; --rule:#CBD6CE; --warn:#8A5A12; --warnbg:#FBF4E6;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:17px/1.68 "Helvetica Neue",Helvetica,Arial,system-ui,sans-serif}
+.sheet{max-width:46rem;margin:0 auto;padding:0 18px 90px}
+a{color:var(--green)}
+header.masthead{border-bottom:4px solid var(--green);padding:26px 0 16px}
+header.masthead .kicker{font:11px/1 "Helvetica Neue",Arial,sans-serif;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--green2);margin:0 0 12px}
+header.masthead .kicker a{color:var(--green2);text-decoration:none}
+h1{font-size:2rem;line-height:1.1;margin:0 0 10px;font-weight:800;letter-spacing:-.02em}
+.standfirst{font-size:1.08rem;color:#28352F;margin:0 0 12px;max-width:34rem}
+.revised{font:12px/1 "Helvetica Neue",Arial,sans-serif;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink2);margin:0}
+h2{font-size:1.26rem;font-weight:800;letter-spacing:-.015em;margin:44px 0 10px;
+  padding-bottom:7px;border-bottom:2px solid var(--rule)}
+h2 .num{color:var(--green2);font-size:.78rem;letter-spacing:.14em;display:block;margin-bottom:6px}
+h3{font-size:1.02rem;font-weight:700;margin:26px 0 4px}
+p{margin:11px 0}
+ul{margin:11px 0;padding-left:1.2em}
+li{margin:7px 0}
+.sum{background:var(--panel);border-left:5px solid var(--green);padding:16px 20px;margin:26px 0}
+.sum p{margin:0}
+.sum p+p{margin-top:9px}
+table.req{width:100%;border-collapse:collapse;margin:16px 0;font-size:.92rem}
+table.req caption{text-align:left;font:11px/1.4 "Helvetica Neue",Arial,sans-serif;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--green2);padding:0 0 8px}
+table.req th,table.req td{text-align:left;padding:10px;border:1px solid var(--rule);vertical-align:top}
+table.req thead th{background:var(--panel);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+table.req tbody th{font-weight:700;background:#F1F4EF;white-space:nowrap}
+.backup{background:var(--warnbg);border:1px solid #E6D4AE;border-top:4px solid var(--warn);
+  padding:18px 20px;margin:24px 0}
+.backup h3{margin:0 0 8px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--warn)}
+.backup p{margin:9px 0;font-size:.97rem}
+.backup p:first-of-type{margin-top:0}
+footer{border-top:2px solid var(--rule);margin-top:56px;padding-top:18px;font-size:.86rem;color:var(--ink2)}
+footer a{color:var(--ink2)}
+footer p{margin:6px 0}
+@media (max-width:480px){ h1{font-size:1.65rem} table.req{font-size:.85rem} table.req tbody th{white-space:normal} }
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://bakerventuresstudio.com/hatchwindow/#app",
+   "name": "Hatch Window",
+   "description": "A fly-fishing planning app: live streamflow and gauge height per spot, current weather, solunar windows, a curated hatch chart and an on-device catch log. No account and no server of the publisher's.",
+   "applicationCategory": "LifestyleApplication",
+   "applicationSubCategory": "Fishing",
+   "operatingSystem": "iOS",
+   "url": "https://bakerventuresstudio.com/hatchwindow/",
+   "downloadUrl": "https://apps.apple.com/us/app/id6816322811",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free. Every feature ships unlocked: no subscription, no in-app purchase, no advertising."
+   },
+   "publisher": { "@id": "https://bakerventuresstudio.com/#org" },
+   "privacyPolicy": "https://bakerventuresstudio.com/hatchwindow/privacy/"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://bakerventuresstudio.com/#org",
+   "name": "Baker Ventures LLC",
+   "url": "https://bakerventuresstudio.com/",
+   "email": "support@bakerventuresstudio.com"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://bakerventuresstudio.com/hatchwindow/privacy/#page",
+   "name": "Hatch Window privacy policy",
+   "inLanguage": "en",
+   "dateModified": "2026-10-14",
+   "about": { "@id": "https://bakerventuresstudio.com/hatchwindow/#app" },
+   "publisher": { "@id": "https://bakerventuresstudio.com/#org" }
+  }
+ ]
+}
+</script>
 </head>
 <body>
-  <h1>Privacy Policy for Hatch Window</h1>
-  <p class="meta"><strong>Last updated:</strong> October 14, 2026</p>
-  <p>Hatch Window is a fly-fishing conditions and catch-log app published by <strong>Baker Ventures LLC</strong>. This policy explains what the app does with your data. It is written to match exactly what the app does.</p>
-  <hr>
-  <h2>1. What we collect, how, and what it is used for</h2>
-  <p>This app does not collect or transmit personal data to us. There is no account, no sign-in, and no analytics or advertising SDK of any kind. We receive nothing from this app, and there is no server of ours for it to send anything to.</p>
-  <hr>
-  <h2>2. Where your data lives</h2>
-  <p>Everything you add (custom spots, catch and outing log entries, app settings) is stored in a local database on your device, is used solely to show it back to you inside the app, and is not uploaded to us. Deleting the app clears that database from the device, and there is no account or server copy of ours to also remove &mdash; but see &ldquo;Your catch log is in your own device backup&rdquo; below, because your own backup is a separate copy that deleting the app does not touch.</p>
-  <p>The one exception is described in full in Section 3: to show current conditions, the app sends a river site number or a spot&rsquo;s coordinates &mdash; including the coordinates of a spot you added yourself &mdash; to two public data services. Your notes, catches and settings are never part of those requests.</p>
+<div class="sheet">
+
+<header class="masthead">
+  <p class="kicker"><a href="/hatchwindow/">Hatch Window</a> &rsaquo; Privacy</p>
+  <h1>Privacy policy</h1>
+  <p class="standfirst">Hatch Window is a fly-fishing conditions and catch-log app published by Baker Ventures LLC. This policy explains what the app does with your data. It is written to match exactly what the app does.</p>
+  <p class="revised">Last updated 14 October 2026</p>
+</header>
+
+<div class="sum">
+  <p>There is no account, no sign-in, and no analytics or advertising SDK of any kind. We receive nothing from this app, and there is no server of ours for it to send anything to.</p>
+  <p>Two requests do leave your phone, and they are named in full in section 3. Your catch log is in your own device backup, on purpose, and that is section 2.</p>
+</div>
+
+<h2><span class="num">Section 1</span>What we collect, how, and what it is used for</h2>
+<p>This app does not collect or transmit personal data to us. There is no account, no sign-in, and no analytics or advertising SDK of any kind. We receive nothing from this app, and there is no server of ours for it to send anything to.</p>
+
+<h2><span class="num">Section 2</span>Where your data lives</h2>
+<p>Everything you add (custom spots, catch and outing log entries, app settings) is stored in a local database on your device, is used solely to show it back to you inside the app, and is not uploaded to us. Deleting the app clears that database from the device, and there is no account or server copy of ours to also remove &mdash; but see the panel below, because your own backup is a separate copy that deleting the app does not touch.</p>
+<p>The one exception is described in full in Section 3: to show current conditions, the app sends a river site number or a spot&rsquo;s coordinates &mdash; including the coordinates of a spot you added yourself &mdash; to two public data services. Your notes, catches and settings are never part of those requests.</p>
+
+<div class="backup">
   <h3>Your catch log is in your own device backup</h3>
   <p>Two different things are worth stating separately, because one blanket sentence about your data would get one of them wrong.</p>
   <p><strong>What the app sends:</strong> nothing to us, ever, and nothing but a river site number or a pair of coordinates to the two public services named in Section 3. Your spots&rsquo; names, your catches, your notes and your settings are never sent anywhere by this app.</p>
   <p><strong>What your device backup holds:</strong> all of it. iOS backs up an app&rsquo;s local files to iCloud by default, and Hatch Window&rsquo;s database goes into the backup whole &mdash; the app does nothing to hold any of it back. If iCloud Backup is on, your custom spots &mdash; including their coordinates &mdash; your catch and outing log, and your settings are in your iCloud backup. Measured on a running build rather than assumed: the directory holding the database was checked, and nothing marks it to be held back.</p>
   <p>That backup is in your Apple account, not ours: it is encrypted, we have no access to it, and we cannot read it. We still hold no copy of your data. We left the data in the backup deliberately, because a season&rsquo;s worth of spots and outings is exactly the thing a lost phone should not take with it. If you would rather it were not there, you can turn Hatch Window off under Settings &rarr; your name &rarr; iCloud &rarr; Manage Account Storage &rarr; Backups.</p>
-  <hr>
-  <h2>3. Network requests this app makes</h2>
-  <p>To show current conditions, the app requests public, non-personal data directly from two free government/public services over HTTPS:</p>
-  <ul>
-    <li><strong>U.S. Geological Survey</strong> (usgs.gov) &mdash; streamflow and gauge height for a river site number, from the USGS public water data service. USGS is retiring its older water-services host and moving to a replacement, so which USGS endpoint this app calls depends on the app version you are running &mdash; but the recipient, the request, and the single river site number sent are identical either way.</li>
-    <li><strong>Open-Meteo</strong> (open-meteo.com) &mdash; current weather for a latitude/longitude.</li>
-  </ul>
-  <p>These requests send only the river site number or coordinates needed to answer the request &mdash; never your name, device identifier, location history, or any other personal information. We don&rsquo;t control what each service&rsquo;s own infrastructure logs (for example, your IP address, as with any web request); neither service receives anything from us to associate that with an identity.</p>
-  <hr>
-  <h2>4. Who we share your data with</h2>
-  <p><strong>No one.</strong> The app does not track you and does not share data with third parties for advertising or any other purpose, because it does not collect any data to share. The two public services named in Section 3 receive only a river site number or a pair of coordinates &mdash; no personal information of any kind &mdash; so there is no user data held by a third party whose protection we would need to confirm. If a future version ever sends personal data to a provider, this policy will name that provider and state that it is contractually bound to protect your data to at least the standard set out here, and will be updated before that version ships.</p>
-  <hr>
-  <h2>5. Data retention, deletion, and withdrawing consent</h2>
-  <ul>
-    <li><strong>Retention.</strong> Your spots, log entries, and settings remain on your device until you delete them, and in your own device backup for as long as you keep that backup. Baker Ventures LLC holds no copy and has no retention period of its own.</li>
-    <li><strong>Deletion.</strong> Delete individual entries in the app, or delete the app to remove everything it stored on the device. There is no account to close and no company-held record to request the deletion of. A backup taken earlier can still hold the data until you delete that backup too.</li>
-    <li><strong>Withdrawing consent.</strong> Because no personal data is collected or transmitted, there is no ongoing processing by us to withdraw consent for.</li>
-  </ul>
-  <hr>
-  <h2>6. Children</h2>
-  <p>Because the app collects no personal data from anyone, this applies equally to users of any age.</p>
-  <hr>
-  <h2>7. Changes to this policy</h2>
-  <p>If what this app collects or contacts ever changes, this page will be updated first, in the same app update that makes the change.</p>
-  <hr>
-  <h2>8. Contact</h2>
-  <ul>
-    <li><strong>Email:</strong> <a href="mailto:rsb.baker+hatchwindow@gmail.com">rsb.baker+hatchwindow@gmail.com</a></li>
-    <li><strong>Operator:</strong> Baker Ventures LLC, Logan, Utah, USA</li>
-  </ul>
-  <footer>&copy; Baker Ventures LLC &middot; <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a> &middot; <a href="../">Hatch Window</a> &middot; <a href="../support/">Support</a></footer>
+</div>
+
+<h2><span class="num">Section 3</span>Network requests this app makes</h2>
+<p>To show current conditions, the app requests public, non-personal data directly from two free government/public services over HTTPS:</p>
+
+<table class="req">
+  <caption>Every outbound request the app makes</caption>
+  <thead>
+    <tr><th scope="col">Recipient</th><th scope="col">What is sent</th><th scope="col">What comes back</th><th scope="col">When</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">U.S. Geological Survey<br>(usgs.gov)</th>
+      <td>One river site number. Nothing else.</td>
+      <td>Streamflow and gauge height for that site.</td>
+      <td>When you open a spot that has a gauge number.</td>
+    </tr>
+    <tr>
+      <th scope="row">Open-Meteo<br>(open-meteo.com)</th>
+      <td>One latitude and longitude &mdash; the spot&rsquo;s, including a spot you added yourself.</td>
+      <td>Current weather for that point.</td>
+      <td>When you open a spot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>U.S. Geological Survey</strong> (usgs.gov) &mdash; streamflow and gauge height for a river site number, from the USGS public water data service. USGS is retiring its older water-services host and moving to a replacement, so which USGS endpoint this app calls depends on the app version you are running &mdash; but the recipient, the request, and the single river site number sent are identical either way.</li>
+  <li><strong>Open-Meteo</strong> (open-meteo.com) &mdash; current weather for a latitude/longitude.</li>
+</ul>
+<p>These requests send only the river site number or coordinates needed to answer the request &mdash; never your name, device identifier, location history, or any other personal information. We don&rsquo;t control what each service&rsquo;s own infrastructure logs (for example, your IP address, as with any web request); neither service receives anything from us to associate that with an identity.</p>
+
+<h2><span class="num">Section 4</span>Who we share your data with</h2>
+<p><strong>No one.</strong> The app does not track you and does not share data with third parties for advertising or any other purpose, because it does not collect any data to share. The two public services named in Section 3 receive only a river site number or a pair of coordinates &mdash; no personal information of any kind &mdash; so there is no user data held by a third party whose protection we would need to confirm. If a future version ever sends personal data to a provider, this policy will name that provider and state that it is contractually bound to protect your data to at least the standard set out here, and will be updated before that version ships.</p>
+
+<h2><span class="num">Section 5</span>Data retention, deletion, and withdrawing consent</h2>
+<ul>
+  <li><strong>Retention.</strong> Your spots, log entries, and settings remain on your device until you delete them, and in your own device backup for as long as you keep that backup. Baker Ventures LLC holds no copy and has no retention period of its own.</li>
+  <li><strong>Deletion.</strong> Delete individual entries in the app, or delete the app to remove everything it stored on the device. There is no account to close and no company-held record to request the deletion of. A backup taken earlier can still hold the data until you delete that backup too.</li>
+  <li><strong>Withdrawing consent.</strong> Because no personal data is collected or transmitted, there is no ongoing processing by us to withdraw consent for.</li>
+</ul>
+
+<h2><span class="num">Section 6</span>Children</h2>
+<p>Because the app collects no personal data from anyone, this applies equally to users of any age.</p>
+
+<h2><span class="num">Section 7</span>Changes to this policy</h2>
+<p>If what this app collects or contacts ever changes, this page will be updated first, in the same app update that makes the change.</p>
+
+<h2><span class="num">Section 8</span>Contact</h2>
+<ul>
+  <li><strong>Email:</strong> <a href="mailto:rsb.baker+hatchwindow@gmail.com">rsb.baker+hatchwindow@gmail.com</a></li>
+  <li><strong>Operator:</strong> Baker Ventures LLC, Logan, Utah, USA</li>
+</ul>
+
+<footer>
+  <p><strong>Hatch Window</strong> &mdash; published by Baker Ventures LLC, Logan, Utah, USA.</p>
+  <p><a href="../">Hatch Window</a> &middot; <a href="../support/">Support</a> &middot; <a href="../terms/">Terms of use</a> &middot; <a href="/">Baker Ventures</a></p>
+  <p>&copy; Baker Ventures LLC &middot; <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a></p>
+</footer>
+
+</div>
 </body>
 </html>

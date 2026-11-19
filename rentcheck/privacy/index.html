@@ -1,112 +1,211 @@
-<!--
-  COMPATIBILITY COPY -- DO NOT DELETE, DO NOT LET IT DRIFT.
-
-  MoveWitness 1.0.1 is live in the App Store with
-  https://bakerventuresstudio.com/rentcheck/privacy/ compiled into the binary
-  (movewitness repo, src/app/index.tsx). Every user on 1.0.1 reaches THIS file when they
-  tap the in-app legal link, and they keep reaching it until they update. Deleting this
-  path breaks a live app's required privacy link (App Review 5.1.1(i)).
-
-  The canonical page is /movewitness/privacy/. This file is a full copy rather than a
-  redirect because GitHub Pages cannot issue a real 301 (.nojekyll is set, so
-  jekyll-redirect-from is unavailable) and a meta-refresh is invisible to a plain
-  `curl` or a non-JS privacy crawler -- the exact failure mode that put
-  movewitness.pages.dev in this field in the first place.
-
-  WHEN YOU EDIT /movewitness/privacy/index.html, EDIT THIS FILE TOO.
-  scripts/check_live_privacy_claims.py checks both paths.
-
-  Why the path moved (2026-10-22): `rentcheck` was this repo's internal working name for
-  MoveWitness, but RENTCHECK is a live US registered word mark -- Reg. No. 6037775,
-  serial 87982814, RentCheck Holdings, Inc., registered 2020-04-21, International Class 9,
-  for a downloadable mobile app for tenants and landlords to record and share the
-  move-in/move-out condition of a rental property. That is MoveWitness's exact category.
--->
 <!DOCTYPE html>
+<!--
+  Why this page exists, and why it is a copy.
+
+  MoveWitness shipped under the project name "rentcheck", and the App Store Connect record
+  for app id 6816228166 still names /rentcheck/support/ and /rentcheck/privacy/ in its
+  Support URL and Privacy Policy URL fields. Those URLs therefore have to keep serving a
+  real support page and a real policy, not a redirect stub -- a reviewer clicking the field
+  must land on the document, not on a note about where it moved.
+
+  So this file is generated from the canonical page under /movewitness/ and carries the
+  same text. It is noindex with a canonical pointing at /movewitness/, so only one copy is
+  indexable and search engines are told which one counts.
+
+  To collapse this duplicate: change the two URL fields in App Store Connect to the
+  /movewitness/ paths, then replace these files with the same redirect stub the other
+  renamed apps use (see /lienclock/, /iolta/, /cyberclose/, /flyfish/, /denialfighter/,
+  /quietlog/). Until that field is changed, deleting or stubbing this page breaks a live
+  App Store listing.
+
+  Regenerate with: python3 scripts/sync-rentcheck-from-movewitness.py
+-->
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy &mdash; MoveWitness</title>
-  <link rel="canonical" href="https://bakerventuresstudio.com/movewitness/privacy/">
-  <meta name="robots" content="noindex,follow">
-  <style>
-    :root { color-scheme: light; }
-    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
-           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-           color: #1a1a1a; background: #fff; }
-    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
-    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
-    h3 { font-size: 16px; margin: 24px 0 8px; }
-    p { margin: 12px 0; }
-    ul { margin: 12px 0; padding-left: 22px; }
-    li { margin: 6px 0; }
-    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
-    a { color: #2C6FA8; }
-    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
-    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
-    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
-    th { font-weight: 700; }
-    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
-    strong { font-weight: 700; }
-    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
-    footer a { color: #888; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoveWitness privacy policy &mdash; no account, no server, and one honest exception</title>
+<meta name="description" content="MoveWitness has no accounts and no server, and the app transmits nothing. This policy says what it stores on your device, what your own iCloud backup holds and why that was left deliberate, and what the camera and photo-library permissions are used for.">
+<link rel="canonical" href="https://bakerventuresstudio.com/movewitness/privacy/">
+<meta name="robots" content="noindex,follow">
+<style>
+/* MoveWitness privacy. Same slate record furniture as the support page. The spine here
+   is the one route by which records leave the handset -- the reader's own backup -- so
+   that gets a panel rather than a buried clause. */
+:root{
+  --ink:#1C2430; --ink2:#5A6778; --slate:#334155; --slate2:#1F2D3D;
+  --paper:#FFFFFF; --wash:#F3F5F8; --rule:#D7DDE5;
+  --amber:#9A5B0C; --amberbg:#FDF6EC; --yes:#1F6B45;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:16.5px/1.66 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.doc{max-width:47rem;margin:0 auto;padding:0 18px 92px}
+a{color:var(--slate)}
+.filehead{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;
+  border-bottom:1px solid var(--rule);padding:20px 0 12px;
+  font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink2)}
+.filehead a{color:var(--ink2);text-decoration:none}
+.filehead .sp{margin-left:auto}
+h1{font-size:2rem;line-height:1.12;letter-spacing:-.025em;margin:26px 0 10px;font-weight:700}
+.sub{font-size:1.08rem;color:#36414F;margin:0 0 18px;max-width:36rem}
+h2{font-size:1.18rem;font-weight:700;letter-spacing:-.015em;margin:44px 0 8px}
+h2 .n{display:block;font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:7px}
+h3{font-size:1rem;font-weight:700;margin:24px 0 3px}
+p{margin:11px 0}
+ul{margin:11px 0;padding-left:1.15em}
+li{margin:6px 0}
+.short{border:1px solid var(--rule);border-left:4px solid var(--slate);
+  border-radius:0 6px 6px 0;background:var(--wash);padding:16px 18px;margin:22px 0}
+.short p{margin:0}
+.backup{background:var(--amberbg);border:1px solid #EBD9BC;border-radius:6px;padding:18px 20px;margin:22px 0}
+.backup h3{margin:0 0 8px;font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.backup p{margin:10px 0;font-size:.97rem}
+.backup p:first-of-type{margin-top:0}
+.backup p:last-child{margin-bottom:0}
+table.perm{width:100%;border-collapse:collapse;margin:14px 0;font-size:.93rem}
+table.perm th,table.perm td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.perm thead th{background:var(--wash);font:11px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+table.perm tbody th{font:600 .95rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  white-space:nowrap;color:var(--slate2)}
+.never{margin:14px 0;padding:0;list-style:none;font-size:.96rem}
+.never li{padding-left:1.5em;position:relative;margin:7px 0}
+.never li::before{content:"\00d7";position:absolute;left:0;color:var(--amber);font-weight:700}
+footer{border-top:1px solid var(--rule);margin-top:58px;padding-top:18px;
+  font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink2)}
+footer a{color:var(--ink2)}
+footer p{margin:6px 0}
+@media (max-width:560px){ h1{font-size:1.68rem} table.perm tbody th{white-space:normal} }
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://bakerventuresstudio.com/movewitness/#app",
+   "name": "MoveWitness",
+   "alternateName": "MoveWitness: Rental Inspection",
+   "description": "A room-by-room move-in and move-out condition record for a rental, with a dated PDF or CSV report. No account, no server, no network calls.",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "iOS",
+   "url": "https://bakerventuresstudio.com/movewitness/",
+   "downloadUrl": "https://apps.apple.com/us/app/id6816228166",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free. No subscription, no in-app purchase, no advertising."
+   },
+   "publisher": { "@id": "https://bakerventuresstudio.com/#org" },
+   "privacyPolicy": "https://bakerventuresstudio.com/movewitness/privacy/"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://bakerventuresstudio.com/#org",
+   "name": "Baker Ventures LLC",
+   "url": "https://bakerventuresstudio.com/",
+   "email": "support@bakerventuresstudio.com"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://bakerventuresstudio.com/movewitness/privacy/#page",
+   "name": "MoveWitness privacy policy",
+   "inLanguage": "en",
+   "dateModified": "2026-09-23",
+   "about": { "@id": "https://bakerventuresstudio.com/movewitness/#app" },
+   "publisher": { "@id": "https://bakerventuresstudio.com/#org" }
+  }
+ ]
+}
+</script>
 </head>
 <body>
-<p style="margin:0 0 24px;padding:12px 14px;background:#fff8e1;border:1px solid #e6d9a8;border-radius:6px;font-size:14px;line-height:1.55;">This page has moved to <a href="https://bakerventuresstudio.com/movewitness/privacy/">bakerventuresstudio.com/movewitness/privacy/</a>. It is kept here so the link inside MoveWitness 1.0.1 keeps working. The text below is the current MoveWitness privacy policy and is identical to the page at the new address.</p>
+<div class="doc">
 
-  <h1>Privacy Policy for MoveWitness</h1>
-  <p class="meta"><strong>Last updated:</strong> September 23, 2026</p>
-  <p>MoveWitness is a rental move-in / move-out inspection app published by <strong>Baker Ventures LLC</strong>. This policy describes, plainly, what the app does and does not do with your data.</p>
-  <hr>
-  <h2>1. The short version</h2>
+<p class="filehead"><a href="/movewitness/">MoveWitness</a> <span>Privacy policy</span> <span class="sp">Last updated 2026-09-23</span></p>
+
+<h1>Privacy policy</h1>
+<p class="sub">MoveWitness is a rental move-in / move-out inspection app published by Baker Ventures LLC. This policy describes, plainly, what the app does and does not do with your data.</p>
+
+<div class="short">
   <p><strong>MoveWitness does not have accounts, does not have a server, and the app itself sends nothing anywhere.</strong> Every property, inspection, room, note, and photo you create stays in local storage on your own device &mdash; and, if you leave iCloud Backup on, in your own backup of that device, which is deliberate and is explained in Section 3. Nothing is uploaded anywhere unless and until you personally choose to share an exported PDF report using your device&rsquo;s own share sheet (for example, by emailing it to a landlord or tenant) &mdash; and at that point, sharing it is your action, using your device&rsquo;s normal share mechanism, not something MoveWitness does on its own.</p>
-  <hr>
-  <h2>2. What we collect, how, and what it is used for</h2>
-  <p>Everything you enter &mdash; properties, inspections, rooms, condition notes, and photos &mdash; is written to an on-device database and the app&rsquo;s own local file storage, and is used for one purpose: producing your inspection record and the PDF report you can generate from it. None of it is collected by Baker Ventures LLC, because the app transmits none of it.</p>
-  <h3>What the app accesses, and why</h3>
-  <ul>
-    <li><strong>Camera</strong> &mdash; only when you tap &ldquo;Take photo&rdquo; on a room, to photograph its condition. The photo is saved to the app&rsquo;s local storage on your device.</li>
-    <li><strong>Photo library</strong> &mdash; only when you tap &ldquo;Choose photo&rdquo; on a room, to attach an existing photo. MoveWitness reads that photo&rsquo;s file and, when present, its capture-date metadata (EXIF), and copies it into the app&rsquo;s local storage.</li>
-  </ul>
-  <p>Neither permission is used for anything besides attaching a photo to a room you are actively inspecting. MoveWitness cannot and does not browse your photo library or camera roll outside of that action.</p>
-  <h3>What MoveWitness does not do</h3>
-  <ul>
-    <li>No account or sign-in of any kind.</li>
-    <li>No analytics, crash reporting, or advertising SDKs.</li>
-    <li>No location data.</li>
-    <li>No data is sent by the app to Baker Ventures LLC, to any third party, or to any server &mdash; there is no server in this product today.</li>
-  </ul>
-  <hr>
-  <h2>3. Your inspections are in your own device backup, on purpose</h2>
+</div>
+
+<h2><span class="n">Section 1</span>What we collect, how, and what it is used for</h2>
+<p>Everything you enter &mdash; properties, inspections, rooms, condition notes, and photos &mdash; is written to an on-device database and the app&rsquo;s own local file storage, and is used for one purpose: producing your inspection record and the PDF report you can generate from it. None of it is collected by Baker Ventures LLC, because the app transmits none of it.</p>
+
+<h3>What the app accesses, and why</h3>
+<table class="perm">
+  <thead>
+    <tr><th scope="col">Permission</th><th scope="col">Asked for when</th><th scope="col">What it is used for</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Camera</th>
+      <td>You tap &ldquo;Take photo&rdquo; on a room.</td>
+      <td>Photographing that room&rsquo;s condition. The photo is saved to the app&rsquo;s local storage on your device.</td>
+    </tr>
+    <tr>
+      <th scope="row">Photo library</th>
+      <td>You tap &ldquo;Choose photo&rdquo; on a room.</td>
+      <td>Attaching an existing photo. The app reads that photo&rsquo;s file and, when present, its capture-date metadata (EXIF), and copies it into local storage.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Neither permission is used for anything besides attaching a photo to a room you are actively inspecting. MoveWitness cannot and does not browse your photo library or camera roll outside of that action.</p>
+
+<h3>What MoveWitness does not do</h3>
+<ul class="never">
+  <li>No account or sign-in of any kind.</li>
+  <li>No analytics, crash reporting, or advertising SDKs.</li>
+  <li>No location data.</li>
+  <li>No data is sent by the app to Baker Ventures LLC, to any third party, or to any server &mdash; there is no server in this product today.</li>
+</ul>
+
+<h2><span class="n">Section 2</span>Your inspections are in your own device backup, on purpose</h2>
+<div class="backup">
+  <h3>The one route off the phone, and it is not us</h3>
   <p>The app uploads nothing, but there is one route by which your records leave the phone, and it is not us: <strong>your own device backup.</strong> iOS backs up an app&rsquo;s local files to iCloud by default, and MoveWitness&rsquo;s inspection database and photos are included. If iCloud Backup is on, your properties, inspections, notes and photos are in your iCloud backup.</p>
   <p>That backup belongs to <strong>your</strong> Apple account, not to us &mdash; we hold no copy of your data and cannot read yours.</p>
   <p><strong>We left them there deliberately.</strong> Move-out can be a year after move-in, and a lost phone would otherwise destroy the evidence you came here to keep. If you would rather it not be there, you can turn MoveWitness off under Settings &rarr; your name &rarr; iCloud &rarr; Manage Account Storage &rarr; Backups, and keep your own exports instead.</p>
   <p>Apple&rsquo;s definition of &ldquo;collect&rdquo; is data transmitted off the device to the developer or to a third party acting on the developer&rsquo;s behalf. An iCloud Backup is your own backup, made by the operating system, into your own Apple account, so this does not change what we collect &mdash; which is nothing. It does change what we are willing to tell you: the app transmits nothing, and we are not going to say nothing leaves the device when your backup holds a copy.</p>
-  <hr>
-  <h2>4. Who we share your data with</h2>
-  <p><strong>No one.</strong> Because the app transmits nothing, no third party receives your properties, inspections, notes, or photos, and there is no third party whose protection of your data we would need to confirm. The only way anything you create in MoveWitness reaches another person is a PDF report that you yourself export and send. If a future version ever introduces a recipient of your data, this policy will name it and state that it is contractually bound to protect your data to at least the standard set out here, and will be updated before that version ships.</p>
-  <hr>
-  <h2>5. Data retention, deletion, and withdrawing consent</h2>
-  <ul>
-    <li><strong>Retention.</strong> Your data stays on your device for as long as you keep it there. Baker Ventures LLC holds no copy and therefore has no retention period of its own.</li>
-    <li><strong>Deletion.</strong> Deleting a property, inspection, or photo inside the app removes it from your device, and deleting the app removes everything it stored. A backup taken earlier can still hold it until you delete that backup too, and there is nothing we can restore for you. There is no company-held copy to delete anywhere else, and no deletion request to send us.</li>
-    <li><strong>Exports.</strong> A PDF report you generate and share is created and controlled entirely by you, using your device&rsquo;s own share sheet &mdash; MoveWitness has no visibility into, or control over, where you send it afterward.</li>
-    <li><strong>Withdrawing consent.</strong> You can revoke camera or photo-library permission at any time in your device Settings; the related features stop working and nothing else changes.</li>
-  </ul>
-  <hr>
-  <h2>6. Children&rsquo;s privacy</h2>
-  <p>MoveWitness is a general-purpose utility for landlords and tenants and is not directed at children. It collects no data of any kind, from anyone.</p>
-  <hr>
-  <h2>7. Changes to this policy</h2>
-  <p>If MoveWitness ever adds a feature that changes any of the above &mdash; for example, an optional account for syncing across devices &mdash; this page will be updated first, and the change will be described plainly, in the same terms as above.</p>
-  <hr>
-  <h2>8. Contact</h2>
-  <ul>
-    <li><strong>Email:</strong> <a href="mailto:rsb.baker+movewitness@gmail.com">rsb.baker+movewitness@gmail.com</a></li>
-    <li><strong>Operator:</strong> Baker Ventures LLC, Logan, Utah, USA</li>
-  </ul>
-  <footer>&copy; Baker Ventures LLC &middot; <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a> &middot; <a href="../">MoveWitness Legal</a></footer>
+</div>
+
+<h2><span class="n">Section 3</span>Who we share your data with</h2>
+<p><strong>No one.</strong> Because the app transmits nothing, no third party receives your properties, inspections, notes, or photos, and there is no third party whose protection of your data we would need to confirm. The only way anything you create in MoveWitness reaches another person is a PDF report that you yourself export and send. If a future version ever introduces a recipient of your data, this policy will name it and state that it is contractually bound to protect your data to at least the standard set out here, and will be updated before that version ships.</p>
+
+<h2><span class="n">Section 4</span>Data retention, deletion, and withdrawing consent</h2>
+<ul>
+  <li><strong>Retention.</strong> Your data stays on your device for as long as you keep it there. Baker Ventures LLC holds no copy and therefore has no retention period of its own.</li>
+  <li><strong>Deletion.</strong> Deleting a property, inspection, or photo inside the app removes it from your device, and deleting the app removes everything it stored. A backup taken earlier can still hold it until you delete that backup too, and there is nothing we can restore for you. There is no company-held copy to delete anywhere else, and no deletion request to send us.</li>
+  <li><strong>Exports.</strong> A PDF report you generate and share is created and controlled entirely by you, using your device&rsquo;s own share sheet &mdash; MoveWitness has no visibility into, or control over, where you send it afterward.</li>
+  <li><strong>Withdrawing consent.</strong> You can revoke camera or photo-library permission at any time in your device Settings; the related features stop working and nothing else changes.</li>
+</ul>
+
+<h2><span class="n">Section 5</span>Children&rsquo;s privacy</h2>
+<p>MoveWitness is a general-purpose utility for landlords and tenants and is not directed at children. It collects no data of any kind, from anyone.</p>
+
+<h2><span class="n">Section 6</span>Changes to this policy</h2>
+<p>If MoveWitness ever adds a feature that changes any of the above &mdash; for example, an optional account for syncing across devices &mdash; this page will be updated first, and the change will be described plainly, in the same terms as above.</p>
+
+<h2><span class="n">Section 7</span>Contact</h2>
+<ul>
+  <li><strong>Email:</strong> <a href="mailto:rsb.baker+movewitness@gmail.com">rsb.baker+movewitness@gmail.com</a></li>
+  <li><strong>Operator:</strong> Baker Ventures LLC, Logan, Utah, USA</li>
+</ul>
+
+<footer>
+  <p>MoveWitness &middot; published by Baker Ventures LLC, Logan, Utah, USA</p>
+  <p><a href="/movewitness/">App</a> &middot; <a href="/movewitness/support/">Support</a> &middot; <a href="/movewitness/terms/">Terms of use</a> &middot; <a href="/">Baker Ventures</a></p>
+  <p>&copy; Baker Ventures LLC &middot; <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a></p>
+</footer>
+
+</div>
 </body>
 </html>

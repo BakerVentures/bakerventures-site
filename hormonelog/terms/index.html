@@ -1,37 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Terms of Use &mdash; HormoneLog</title>
-  <meta name="robots" content="index,follow">
-  <style>
-    :root { color-scheme: light; }
-    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px;
-           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-           color: #1a1a1a; background: #fff; }
-    h1 { font-size: 28px; margin: 0 0 4px; line-height: 1.25; }
-    h2 { font-size: 20px; margin: 36px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
-    h3 { font-size: 16px; margin: 24px 0 8px; }
-    p { margin: 12px 0; }
-    ul { margin: 12px 0; padding-left: 22px; }
-    li { margin: 6px 0; }
-    .meta { color: #666; font-size: 14px; margin: 0 0 24px; }
-    a { color: #8C5B94; }
-    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
-    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
-    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
-    th { font-weight: 700; }
-    code { background: #f5f5f5; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
-    strong { font-weight: 700; }
-    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid #eee; color: #888; font-size: 13px; }
-    footer a { color: #888; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HormoneLog terms of use</title>
+<meta name="description" content="Terms of use for HormoneLog, the perimenopause and menopause record-keeping app from Baker Ventures LLC: a tracking tool, not medical advice and not a medical device.">
+<link rel="canonical" href="https://bakerventuresstudio.com/hormonelog/terms/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<style>
+/* HormoneLog privacy. Same clinical-notebook furniture as the support page. The spine is
+   a single table of everything that can leave the handset, because for a health app that
+   is the only question that matters and it deserves to be answerable at a glance. */
+:root{
+  --ink:#1D1A22; --ink2:#5F5868; --plum:#6E3C7A; --plum2:#53294E;
+  --paper:#FDFCFD; --wash:#F6F1F7; --rule:#E0D7E3;
+  --alert:#8C2230; --alertbg:#FCF3F3; --none:#2C6049;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:17px/1.7 "Charter","Iowan Old Style",Georgia,"Times New Roman",serif}
+.chart{max-width:44rem;margin:0 auto;padding:0 18px 92px}
+a{color:var(--plum)}
+.tab{font:11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink2);padding:22px 0 0;margin:0}
+.tab a{color:var(--ink2);text-decoration:none}
+h1{font-size:1.95rem;line-height:1.14;margin:16px 0 10px;font-weight:600;
+  letter-spacing:-.015em;color:var(--plum2)}
+.standfirst{font-size:1.05rem;color:#3A3540;margin:0 0 10px}
+.dates{font:11px/1.6 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink2);margin:0 0 4px;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+.short{background:var(--wash);border-left:5px solid var(--plum);padding:16px 20px;margin:24px 0}
+.short p{margin:0;font-size:1rem}
+.critical{border:1px solid #E8CFD2;border-left:5px solid var(--alert);background:var(--alertbg);
+  padding:16px 20px;margin:24px 0}
+.critical p{margin:0;font-size:.98rem}
+.critical strong{color:var(--alert)}
+h2{font-size:1.16rem;font-weight:600;color:var(--plum2);margin:44px 0 8px;
+  padding-bottom:6px;border-bottom:1px solid var(--rule);letter-spacing:-.01em}
+h2 .n{display:block;font:11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink2);margin-bottom:6px;font-weight:400}
+h3{font-size:1rem;font-weight:700;margin:24px 0 3px}
+p{margin:12px 0}
+ul{margin:12px 0;padding-left:1.2em}
+li{margin:6px 0}
+table.leaves{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem}
+table.leaves caption{text-align:left;font:11px/1.4 var(--mono);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--plum);padding:0 0 8px}
+table.leaves th,table.leaves td{text-align:left;padding:10px 12px 10px 0;
+  border-bottom:1px solid var(--rule);vertical-align:top}
+table.leaves thead th{font:11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink2);border-bottom:2px solid var(--rule)}
+table.leaves tbody th{font-weight:700}
+table.leaves td.nil{color:var(--none);font-weight:700}
+.never{margin:12px 0;padding:0;list-style:none;font-size:.97rem}
+.never li{padding-left:1.5em;position:relative;margin:7px 0}
+.never li::before{content:"\00d7";position:absolute;left:0;color:var(--alert);font-weight:700}
+footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:18px;
+  font:12px/1.75 var(--mono);color:var(--ink2)}
+footer a{color:var(--ink2)}
+footer p{margin:6px 0}
+@media (max-width:480px){ h1{font-size:1.58rem} table.leaves{font-size:.85rem} }
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://bakerventuresstudio.com/hormonelog/#app",
+   "name": "HormoneLog",
+   "url": "https://bakerventuresstudio.com/hormonelog/",
+   "operatingSystem": "iOS, Android",
+   "applicationCategory": "HealthApplication",
+   "publisher": { "@id": "https://bakerventuresstudio.com/#org" },
+   "termsOfService": "https://bakerventuresstudio.com/hormonelog/terms/"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://bakerventuresstudio.com/#org",
+   "name": "Baker Ventures LLC",
+   "url": "https://bakerventuresstudio.com/",
+   "email": "support@bakerventuresstudio.com"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://bakerventuresstudio.com/hormonelog/terms/#page",
+   "name": "HormoneLog terms of use",
+   "inLanguage": "en",
+   "about": { "@id": "https://bakerventuresstudio.com/hormonelog/#app" },
+   "publisher": { "@id": "https://bakerventuresstudio.com/#org" }
+  }
+ ]
+}
+</script>
 </head>
 <body>
-  <h1>Terms of Use for HormoneLog</h1>
-  <p class="meta"><strong>Effective date:</strong> September 6, 2026<br><strong>Last updated:</strong> September 23, 2026</p>
-  <p>These terms govern your use of the HormoneLog mobile app and this page (together, the &ldquo;Service&rdquo;), operated by <strong>Baker Ventures LLC</strong> (&ldquo;we,&rdquo; &ldquo;us&rdquo;). By using the Service, you agree to these terms and to our <a href="../privacy/">Privacy Policy</a>.</p>
+<div class="chart">
+
+<p class="tab"><a href="/hormonelog/">HormoneLog</a> &nbsp;&middot;&nbsp; Terms</p>
+<h1>HormoneLog terms of use</h1>
+<p class="dates"><strong>Effective date:</strong> September 6, 2026<br><strong>Last updated:</strong> September 23, 2026</p>
+
+<p>These terms govern your use of the HormoneLog mobile app and this page (together, the &ldquo;Service&rdquo;), operated by <strong>Baker Ventures LLC</strong> (&ldquo;we,&rdquo; &ldquo;us&rdquo;). By using the Service, you agree to these terms and to our <a href="../privacy/">Privacy Policy</a>.</p>
   <hr>
   <h2>1. Not medical advice</h2>
   <p>HormoneLog is a symptom-tracking and logging tool. It is <strong>not</strong> a medical device, and it does not diagnose any condition, recommend or calculate any medication dose, or otherwise provide medical advice. The Symptom Burden Index shown in the app is calculated directly from what you log; it is our own summary of your records over time, not a clinical diagnostic instrument and not a diagnosis. Every HRT dose, form, and schedule value shown anywhere in the app is exactly what you typed in &mdash; the app never suggests, validates, or changes a dose. Always talk to a qualified prescriber before starting, stopping, or changing any treatment.</p>
@@ -75,6 +147,13 @@
     <li><strong>Email:</strong> <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a></li>
     <li><strong>Operator:</strong> Baker Ventures LLC, Logan, Utah, USA</li>
   </ul>
-  <footer>&copy; Baker Ventures LLC &middot; <a href="mailto:support@bakerventuresstudio.com">support@bakerventuresstudio.com</a> &middot; <a href="../">HormoneLog Legal</a></footer>
+
+<footer>
+  <p>HormoneLog &middot; Baker Ventures LLC, Logan, Utah, USA</p>
+  <p><a href="../">HormoneLog</a> &middot; <a href="../support/">Support</a> &middot; <a href="../privacy/">Privacy policy</a> &middot; <a href="/">Baker Ventures</a></p>
+  <p>Not medical advice. Not a medical device. Discuss any treatment change with your prescriber.</p>
+</footer>
+
+</div>
 </body>
 </html>
